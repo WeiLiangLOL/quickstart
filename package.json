@@ -1,9 +1,10 @@
 {
-  "name": "helloworld",
+  "name": "quickstart",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,5 +13,26 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "repository": "https://github.com/WeiLiangLOL/quickstart",
+  "keywords": [
+    "quick",
+    "start",
+    "data",
+    "manager"
+  ],
+  "contributors": [
+    {
+      "name": "Jie Xiang",
+      "url": "https://github.com/akgrenSoar"
+    },
+    {
+      "name": "Wei Liang",
+      "url": "https://github.com/WeiLiangLOL"
+    }
+  ],
+  "license": "none"
 }
