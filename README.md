@@ -26,7 +26,7 @@ QuickStart is a sports data management solution for sports institutions to easil
 ## Technology Stack
 
 - [React](https://reactjs.org/)
-- [EJS](https://ejs.co/))
+- [EJS](https://ejs.co/)
 - [Express](https://expressjs.com/)
 - [Nodejs](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
