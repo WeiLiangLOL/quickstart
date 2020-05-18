@@ -8,15 +8,17 @@ QuickStart is a sports data management solution for sports institutions to easil
 
 ## Features
 
+- Data management
+- Graph visualisation
+- Security
 
 ## Deployment
 
 Direct deployment from github
 
-*This method leads to error because empty directories cannot be pushed to github. Currently, the instuctions are only written for completion.
+*This method leads to error because empty directories cannot be pushed to github. Currently, the instuctions are only written for completeness. Alternatively, you can view our project from this [link](https://quickstart-datamanager.herokuapp.com/)
 
-*You can view our project status from this [link](https://quickstart-datamanager.herokuapp.com/)
-
+### Deploy from github
 - Clone or download the git project
 - Double click startstopdb.bat to start database (Leads to error due to missing empty folders)
 - Open a command prompt and start web server with `npm start`
@@ -25,7 +27,7 @@ Direct deployment from github
 ## Technology Stack
 
 - [React](https://reactjs.org/)
-- Embedded Javascript ([EJS](https://ejs.co/))
+- [EJS](https://ejs.co/))
 - [Express](https://expressjs.com/)
 - [Nodejs](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
