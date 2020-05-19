@@ -1,1 +1,85 @@
 
+2020-05-19 14:28:34.844 +08 [4484] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-19 14:28:34.852 +08 [4484] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-19 14:28:34.853 +08 [4484] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-19 14:28:34.995 +08 [224] LOG:  database system was shut down at 2020-05-18 13:18:04 +08
+2020-05-19 14:28:35.370 +08 [4484] LOG:  database system is ready to accept connections
+2020-05-19 15:08:06.869 +08 [14436] FATAL:  password authentication failed for user "postgre"
+2020-05-19 15:08:06.869 +08 [14436] DETAIL:  Role "postgre" does not exist.
+	Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 password"
+2020-05-19 15:08:23.320 +08 [14016] FATAL:  password authentication failed for user "postgre"
+2020-05-19 15:08:23.320 +08 [14016] DETAIL:  Role "postgre" does not exist.
+	Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 password"
+2020-05-19 15:09:36.785 +08 [12168] FATAL:  password authentication failed for user "jiexiang"
+2020-05-19 15:09:36.785 +08 [12168] DETAIL:  Role "jiexiang" does not exist.
+	Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 password"
+2020-05-19 15:09:52.989 +08 [4516] FATAL:  password authentication failed for user "postgre"
+2020-05-19 15:09:52.989 +08 [4516] DETAIL:  Role "postgre" does not exist.
+	Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 password"
+2020-05-19 15:11:16.970 +08 [4552] FATAL:  role "nodeuser" is not permitted to log in
+2020-05-19 15:17:58.507 +08 [12612] ERROR:  current database cannot be renamed
+2020-05-19 15:17:58.507 +08 [12612] STATEMENT:  ALTER DATABASE postgres RENAME TO "QuickStartDB";
+2020-05-19 15:18:06.178 +08 [12612] ERROR:  current database cannot be renamed
+2020-05-19 15:18:06.178 +08 [12612] STATEMENT:  ALTER DATABASE postgres RENAME TO "QuickStartDB";
+2020-05-19 15:19:18.388 +08 [12612] ERROR:  current database cannot be renamed
+2020-05-19 15:19:18.388 +08 [12612] STATEMENT:  ALTER DATABASE postgres RENAME TO "QuickStartDB";
+2020-05-19 15:21:13.735 +08 [12612] ERROR:  current database cannot be renamed
+2020-05-19 15:21:13.735 +08 [12612] STATEMENT:  ALTER DATABASE postgres RENAME TO "QuickStartDB";
+2020-05-19 15:21:36.814 +08 [12612] ERROR:  current database cannot be renamed
+2020-05-19 15:21:36.814 +08 [12612] STATEMENT:  ALTER DATABASE postgres RENAME TO "QuickStartDB";
+2020-05-19 16:15:34.026 +08 [4484] LOG:  server process (PID 5588) was terminated by exception 0xC000013A
+2020-05-19 16:15:34.026 +08 [4484] DETAIL:  Failed process was running: /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Total",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Active",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Commits",
+	   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Rollbacks"
+	) 
+2020-05-19 16:15:34.026 +08 [4484] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-05-19 16:15:34.027 +08 [4484] LOG:  terminating any other active server processes
+2020-05-19 16:15:34.074 +08 [4484] LOG:  statistics collector process (PID 4384) was terminated by exception 0xC000013A
+2020-05-19 16:15:34.074 +08 [4484] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-05-19 16:15:34.102 +08 [4484] LOG:  all server processes terminated; reinitializing
+2020-05-19 16:15:34.206 +08 [13856] LOG:  database system was interrupted; last known up at 2020-05-19 16:13:14 +08
+2020-05-19 16:15:34.462 +08 [600] FATAL:  the database system is in recovery mode
+2020-05-19 16:15:34.780 +08 [13856] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-05-19 16:15:34.790 +08 [13856] LOG:  redo starts at 0/16761F0
+2020-05-19 16:15:34.791 +08 [13856] LOG:  invalid record length at 0/16762D8: wanted 24, got 0
+2020-05-19 16:15:34.792 +08 [13856] LOG:  redo done at 0/16762A0
+2020-05-19 16:15:35.249 +08 [4484] LOG:  database system is ready to accept connections
+2020-05-19 16:15:37.190 +08 [4484] LOG:  server process (PID 14456) was terminated by exception 0xC000013A
+2020-05-19 16:15:37.190 +08 [4484] DETAIL:  Failed process was running: /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Total",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Active",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Commits",
+	   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Rollbacks"
+	) 
+2020-05-19 16:15:37.190 +08 [4484] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-05-19 16:15:37.192 +08 [4484] LOG:  terminating any other active server processes
+2020-05-19 16:15:37.212 +08 [10988] WARNING:  terminating connection because of crash of another server process
+2020-05-19 16:15:37.212 +08 [10988] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2020-05-19 16:15:37.212 +08 [10988] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2020-05-19 16:15:37.223 +08 [4484] LOG:  statistics collector process (PID 7636) was terminated by exception 0xC000013A
+2020-05-19 16:15:37.223 +08 [4484] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-05-19 16:15:37.224 +08 [4484] LOG:  all server processes terminated; reinitializing
+2020-05-19 16:15:37.324 +08 [9292] LOG:  database system was interrupted; last known up at 2020-05-19 16:15:34 +08
+2020-05-19 16:15:38.792 +08 [13096] FATAL:  the database system is in recovery mode
+2020-05-19 16:15:39.514 +08 [9292] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-05-19 16:15:39.525 +08 [9292] LOG:  invalid record length at 0/1676350: wanted 24, got 0
+2020-05-19 16:15:39.526 +08 [9292] LOG:  redo is not required
+2020-05-19 16:15:39.911 +08 [4484] LOG:  database system is ready to accept connections
