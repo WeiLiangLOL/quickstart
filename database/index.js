@@ -1,8 +1,14 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const debug = require('debug')('quickstart:database');
+const transactions = require('debug')('quickstart:database-messages');
 const service = require('./startup');
 
-let sequelize;
+/**
+ * Stores all table connectors
+ * 
+ * @type {Sequelize.database} database reference
+ */
+const database = {};
 
 /**
  * Initializes database connection
@@ -13,14 +19,35 @@ function init(app) {
     if (process.env.NODE_ENV === 'production') {
         // TODO: Not implemented
     } else {
+        // Starts background service
         service.start(() => {
+            // Establish connection
+            const sequelize = new Sequelize({
+                dialect: 'postgres',
+                host: 'localhost',
+                port: 5432,
+                database: 'postgres',
+                username: 'postgres',
+                password: '22Fast+++',
+                logging: (...msg) => transactions(msg),
+                define: {
+                    schema: 'quickstart',
+                    underscored: true,
+                    timestamps: false
+                }
+            });
             debug('Database connection established');
-            sequelize = new Sequelize('postgres://postgre:22Fast+++@example.com:5432/dbname');
+
+            // Populate references
+            database.users = require('../entities/user').define(sequelize);
+            
+            // Seed tables
+            require('./seed').populate(database);
         });
     }
 }
 
 module.exports = {
     init: init,
-    sequelize: sequelize
+    database: database
 }

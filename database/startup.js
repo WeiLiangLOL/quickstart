@@ -25,7 +25,7 @@ function start(callback) {
     });
 
     // Supposed to be in execFile handler, but it seems gimmicky
-    callback();
+    setTimeout(callback, 2000);
 }
 
 module.exports = {
