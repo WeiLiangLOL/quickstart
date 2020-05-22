@@ -18,8 +18,4 @@ router.get('/about', function(req, res, next) {
   res.render('about', { title: 'about' });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'login' });
-});
-
 module.exports = router;
