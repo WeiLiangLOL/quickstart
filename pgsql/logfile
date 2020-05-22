@@ -767,3 +767,25 @@
 2020-05-22 19:03:29.350 +08 [16112] LOG:  background worker "logical replication launcher" (PID 13568) exited with exit code 1
 2020-05-22 19:03:29.371 +08 [18020] LOG:  shutting down
 2020-05-22 19:03:29.656 +08 [16112] LOG:  database system is shut down
+2020-05-22 21:30:29.151 +08 [14724] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-22 21:30:29.158 +08 [14724] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-22 21:30:29.158 +08 [14724] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-22 21:30:29.259 +08 [6468] LOG:  database system was shut down at 2020-05-22 19:03:29 +08
+2020-05-22 21:30:29.635 +08 [14724] LOG:  database system is ready to accept connections
+2020-05-22 21:32:25.947 +08 [14724] LOG:  received fast shutdown request
+2020-05-22 21:32:25.956 +08 [14724] LOG:  aborting any active transactions
+2020-05-22 21:32:26.001 +08 [10584] ERROR:  canceling statement due to user request
+2020-05-22 21:32:26.027 +08 [14724] LOG:  background worker "logical replication launcher" (PID 10584) exited with exit code 1
+2020-05-22 21:32:26.063 +08 [5732] LOG:  shutting down
+2020-05-22 21:32:26.211 +08 [14724] LOG:  database system is shut down
+2020-05-22 21:32:28.858 +08 [896] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-22 21:32:28.865 +08 [896] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-22 21:32:28.866 +08 [896] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-22 21:32:28.962 +08 [9680] LOG:  database system was shut down at 2020-05-22 21:32:26 +08
+2020-05-22 21:32:29.272 +08 [896] LOG:  database system is ready to accept connections
+2020-05-22 21:36:57.448 +08 [896] LOG:  received fast shutdown request
+2020-05-22 21:36:57.462 +08 [15640] ERROR:  canceling statement due to user request
+2020-05-22 21:36:57.468 +08 [896] LOG:  aborting any active transactions
+2020-05-22 21:36:57.479 +08 [896] LOG:  background worker "logical replication launcher" (PID 15640) exited with exit code 1
+2020-05-22 21:36:57.494 +08 [11296] LOG:  shutting down
+2020-05-22 21:36:57.550 +08 [896] LOG:  database system is shut down
