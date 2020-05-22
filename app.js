@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var database = require('./database');
+
 var app = express();
 
 // view engine setup
@@ -20,7 +22,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Response 200
+// Attach database
+database.init();
+
+// Routing
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
