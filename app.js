@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 // Session and authentication
 var session = require('express-session');
 var passport = require('passport');
-app.use(session({ // TODO: Additional reading required to secure session
+app.use(session({ // Warning: Additional reading required to secure session
     secret: 'keyboard cat', // No idea what this does
     resave: true, // No idea what this does
     saveUninitialized: true // No idea what this does
