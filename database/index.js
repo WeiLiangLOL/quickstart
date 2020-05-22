@@ -2,6 +2,8 @@ const { Sequelize } = require('sequelize');
 const debug = require('debug')('quickstart:database');
 const service = require('./startup');
 
+let sequelize;
+
 /**
  * Initializes database connection
  * 
@@ -9,16 +11,17 @@ const service = require('./startup');
  */
 function init(app) {
     service.start(() => {
-        if (process.env.NODE_ENV !== 'development') {
+        debug('Database connection established');
+
+        if (process.env.NODE_ENV === 'production') {
             // TODO: Haven't set this up
         } else {
-            app.sequelize = new Sequelize('postgres://postgre:22Fast+++@example.com:5432/dbname');
+            sequelize = new Sequelize('postgres://postgre:22Fast+++@example.com:5432/dbname');
         }
-
-        debug('Database connection established');
     });
 }
 
 module.exports = {
-    init: init
+    init: init,
+    sequelize: sequelize
 }
