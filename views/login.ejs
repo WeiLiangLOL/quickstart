@@ -2,33 +2,47 @@
 <html>
 
 <head>
-    <%# html viewport %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <%# html viewport %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><%= title %></title>
+  <title><%= title %></title>
 
-    <%# css dependencies  %>
-    <% include partials/dependencies/style %>
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
 </head>
 
 <body>
 
-    <div class="wrapper">
-        <div id="content">
-        	<form action="/authenticate" method="post">
-				<label for="username">Username:</label>
-				<input type="text" id="username" name="username"><br><br>
-				<label for="password">Password:</label>
-				<input type="password" id="password" name="password"><br><br>
-				<input type="submit" value="Submit">
-			</form> 
-        </div>
-    </div>
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include partials/sidebar %>
 
-    <%# js dependencies  %>
-    <% include partials/dependencies/script %>
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include partials/navbar %>
+
+      <div class="content">
+
+        <form action="/login" method="post" style="text-align: center;">
+            <label>Username is 'test', password is '1234'</label><br><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include partials/dependencies/script %>
 </body>
 
 </html>

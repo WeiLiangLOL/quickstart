@@ -8,8 +8,11 @@ $(document).ready(function () {
     var curr = window.location.pathname.slice(1);
     if (!curr) curr = "index";
     console.log("Current page: " + curr); // debug
-    var active = document.getElementById(curr);
-    active.setAttribute('class', 'active');
-    
-    
+    var activeSide = document.getElementById(curr);
+    if (activeSide !== null) activeSide.setAttribute('class', 'active');
+    // Hightlight active page in navbar
+    if (curr !== "login") {
+        var activeNav = document.getElementById('index_nav');
+        if (activeNav !== null) activeNav.setAttribute('class', 'active');
+    }
 });

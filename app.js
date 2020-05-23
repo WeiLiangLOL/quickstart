@@ -1,35 +1,56 @@
-var createError = require('http-errors');
+
+// Initialise express web server
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var database = require('./database');
-
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// View engine setup
+var path = require('path');
+app.set('views', path.join(__dirname, 'views')); // Set dir of views
+app.set('view engine', 'ejs'); // Set default ext of views
+app.use(express.static(path.join(__dirname, 'public'))); // Set dir of static files (img, css, js, etc.)
 
-// Parse requests
+// Log all requests
+var logger = require('morgan');
 app.use(logger('dev'));
+
+// Pre-parsing of POST requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Session and authentication
+var session = require('express-session');
+var passport = require('passport');
+app.use(session({ // Warning: Additional reading required to secure session
+    secret: 'keyboard cat', // No idea what this does
+    resave: true, // No idea what this does
+    saveUninitialized: true // No idea what this does
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configure passport
+var ppconfig = require('./routes/passportConfig');
+ppconfig(passport);
 
 // Attach database
+var database = require('./database');
 database.init();
 
-// Routing
+// Route views
+var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+// Authenticated route views
+var userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
+// POST to database route
+var dbRouter = require('./routes/db');
+app.use('/db', dbRouter);
+
 
 // catch 404 and forward to error handler
+var createError = require('http-errors');
 app.use(function(req, res, next) {
   next(createError(404)); // Fall thru
 });
