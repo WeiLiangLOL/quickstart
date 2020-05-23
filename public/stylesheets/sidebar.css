@@ -10,7 +10,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: #555;
 }
 
 a, a:hover, a:focus {
@@ -39,6 +39,10 @@ a, a:hover, a:focus {
     height: 1px;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
 
 /* ---------------------------------------------------
