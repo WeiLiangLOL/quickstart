@@ -29,27 +29,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Configure passport
-LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        // Warning: Undone
-        if (username !== 'test') {
-            return done(null, false, { message: 'Incorrect username'});
-        }
-        if (password !== '1234') {
-            return done(null, false, { message: 'Incorrect password'});
-        } 
-        return done(null, 'testuser');
-    }
-));
-passport.serializeUser(function(user, done) {
-    // Warning: Undone
-    done(null, user); 
-});
-passport.deserializeUser(function(user, done) {
-    // Warning: Undone
-    done(null, user);
-});
+var ppconfig = require('./routes/passportConfig');
+ppconfig(passport);
 
 // Attach database
 var database = require('./database');
@@ -62,6 +43,10 @@ app.use('/', indexRouter);
 // Authenticated route views
 var userRouter = require('./routes/user');
 app.use('/user', userRouter);
+
+// POST to database route
+var dbRouter = require('./routes/db');
+app.use('/db', dbRouter);
 
 
 // catch 404 and forward to error handler

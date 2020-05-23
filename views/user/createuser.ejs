@@ -29,9 +29,28 @@
 
         <div class="container-fluid">
           
-          <h2>Create a user here</h2>
-          <p>Currently in progress</p>
-
+          <h2>Create a new user</h2>
+          <form action="/db/createuser" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname"><br>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname"><br>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone"><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email"><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="text" id="dob" name="dob"><br>
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender"><br>
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality"><br>
+            <input type="submit" value="Submit">
+          </form>
         </div>
 
       </div>

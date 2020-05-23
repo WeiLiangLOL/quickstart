@@ -18,14 +18,13 @@ router.get('/about', function(req, res, next) {
   res.render('about', { title: 'about', req: req});
 });
 
-var passport = require('passport');
-
 /* Login page */
 router.get('/login', function(req, res, next) {
   if (req.isAuthenticated()) { // User is already logged in, dont show login page
     res.redirect('/user');
+  } else {
+    res.render('login', { title: 'login', req: req });
   }
-  res.render('login', { title: 'login', req: req });
 });
 
 /* Logout, not a page */
@@ -35,6 +34,7 @@ router.get('/logout', function(req, res) {
 });
 
 /* Password authentication */
+var passport = require('passport');
 router.post('/login', 
   passport.authenticate('local', {
     successRedirect: '/user',
