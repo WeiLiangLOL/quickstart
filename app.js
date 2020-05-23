@@ -57,13 +57,11 @@ database.init();
 
 // Route views
 var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
 
 // Authenticated route views
-var restrictedRouter = require('./routes/restricted');
-app.use('/user', restrictedRouter);
+var userRouter = require('./routes/user');
+app.use('/user', userRouter);
 
 
 // catch 404 and forward to error handler

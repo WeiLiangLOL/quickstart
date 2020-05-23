@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%# html viewport %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title><%= title %></title>
+
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+          
+          <h2>Welcome to the user page</h2>
+          <p>A different theme makes it clear that this is not a normal page</p>
+          <p>The current functions can be accessed fro the left</p>
+
+          <div class="line"></div>
+
+          <h2>Templating</h2>
+          <p>This project currently makes use of templating. If you're new to partials, please take a look at how the
+            web layout is currently designed to minimize code repetition. We are saving filespace and saving time when
+            we modify files.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include partials/dependencies/script %>
+</body>
+
+</html>

@@ -8,8 +8,8 @@ const debug = require('debug')('quickstart:database-seed');
  * @param {Sequelize.database} database 
  */
 function populate(database) {
-    // Hash and salt 10 rounds
-    bcrypt.hash('password', 10, function (err, hash) {
+    // Hash and salt 12 rounds
+    bcrypt.hash('password', 12, function (err, hash) {
 
         database.users.findOrCreate({
             where: { username: 'weiliang' },

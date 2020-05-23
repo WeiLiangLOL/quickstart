@@ -17,9 +17,15 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
+        <% if (req.isAuthenticated()) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/auth/login">Login</a>
+          <a class="nav-link" href="/user/"><%= req.user %></a>
         </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <% } %>
       </ul>
     </div>
   </div>

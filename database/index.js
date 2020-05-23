@@ -41,8 +41,8 @@ function init(app) {
             // Populate references
             database.users = require('../entities/user').define(sequelize);
             
-            // Seed tables
-            require('./seed').populate(database);
+            // Deletable
+            // require('./seed').populate(database);
         });
     }
 }
