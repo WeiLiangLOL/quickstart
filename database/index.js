@@ -27,8 +27,8 @@ function init(app) {
                 host: 'localhost',
                 port: 5432,
                 database: 'postgres',
-                username: 'postgres',
-                password: '22Fast+++',
+                username: 'nodeuser',
+                password: 'N0tM0bile[*]',
                 logging: (...msg) => transactions(msg),
                 define: {
                     schema: 'quickstart',
