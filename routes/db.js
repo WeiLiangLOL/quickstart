@@ -6,9 +6,9 @@ var router = express.Router();
 // Middleware to make sure user is logged in before accessing restricted pages
 // Redirects to /login if user is not logged in.
 function isLoggedIn(req, res, next) {
-    // If user is logged in, passport.js will create user object 
-    // in req for every request in express.js, which you can check 
-    // for existence in any middleware
+    // If user is logged in, passport.js will create user object in req for every 
+    // request in express.js, which you can check for existence in any middleware
+    // https://github.com/jaredhanson/passport/blob/a892b9dc54dce34b7170ad5d73d8ccfba87f4fcf/lib/passport/http/request.js#L74
     if (req.isAuthenticated()) {
         next(); // Is logged in
     } else {
@@ -18,19 +18,21 @@ function isLoggedIn(req, res, next) {
 
 // Place routes below
 router.post('/createuser', isLoggedIn, function(req, res, next) {
-    database.users.findOrCreate({
-        where: { username: req.body.username },
-        defaults: {
-            username: req.body.username,
-            passwordHash: bcrypt.hashSync(req.body.password, 12),
-            firstName: req.body.firstname,
-            lastName: req.body.lastname,
-            phoneNumber: req.body.phone,
-            email: req.body.email,
-            dateOfBirth: req.body.dob,
-            gender: req.body.gender,
-            nationality: req.body.nationality
-        }
+    bcrypt.hash(req.body.password, 12).then( passwordHash => {
+        return database.users.findOrCreate({
+            where: { username: req.body.username },
+            defaults: {
+                username: req.body.username,
+                passwordHash: passwordHash,
+                firstName: req.body.firstname,
+                lastName: req.body.lastname,
+                phoneNumber: req.body.phone,
+                email: req.body.email,
+                dateOfBirth: req.body.dob,
+                gender: req.body.gender,
+                nationality: req.body.nationality
+            }
+        });
     }).then( data => {
         var model = data[0];
         var created = data[1];

@@ -18,7 +18,7 @@ router.get('/about', function(req, res, next) {
   res.render('about', { title: 'about', req: req});
 });
 
-/* Login page */
+/* Login page (GET) */
 router.get('/login', function(req, res, next) {
   if (req.isAuthenticated()) { // User is already logged in, dont show login page
     res.redirect('/user');
@@ -29,16 +29,17 @@ router.get('/login', function(req, res, next) {
 
 /* Logout, not a page */
 router.get('/logout', function(req, res) {
+    // https://github.com/jaredhanson/passport/blob/a892b9dc54dce34b7170ad5d73d8ccfba87f4fcf/lib/passport/http/request.js#L58
     req.logout(); // Remove user session
     res.redirect('/');
 });
 
-/* Password authentication */
+/* Login authentication (POST) */
 var passport = require('passport');
 router.post('/login', 
   passport.authenticate('local', {
     successRedirect: '/user',
-    failureRedirect: '/login'})
+    failureRedirect: '/login?success=false'})
 );
 
 module.exports = router;
