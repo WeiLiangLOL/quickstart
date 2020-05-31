@@ -39,7 +39,8 @@ var passport = require('passport');
 router.post('/login', 
   passport.authenticate('local', {
     successRedirect: '/user',
-    failureRedirect: '/login?success=false'})
+    failureRedirect: '/login?success=false'
+  })
 );
 
 module.exports = router;

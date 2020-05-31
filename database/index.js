@@ -12,37 +12,21 @@ const database = {};
 
 /**
  * Initializes database connection
- * 
- * @param {Express.Application} app the express application 
  */
-function init(app) {
-    if (process.env.NODE_ENV === 'production') {
-        // TODO: Not implemented
-    } else {
-        // Starts background service
-        service.start(() => {
-            // Establish connection
-            const sequelize = new Sequelize({
-                dialect: 'postgres',
-                host: 'localhost',
-                port: 5432,
-                database: 'postgres',
-                username: 'nodeuser',
-                password: 'N0tM0bile[*]',
-                logging: (...msg) => transactions(msg),
-                define: {
-                    schema: 'quickstart',
-                    underscored: true,
-                    timestamps: false
-                }
-            });
-            debug('Database connection established');
-
-            // Populate references
-            database.users = require('../entities/user').define(sequelize);
-            
+function init() {
+    // Starts background service
+    service.start((define) => {
+        // Establish connection
+        const sequelize = new Sequelize(process.env.DATABASE_URL, {
+            dialect: 'postgres',
+            logging: (...msg) => transactions(msg),
+            define: define
         });
-    }
+        debug('Database connection established');
+
+        // Populate references
+        database.users = require('../entities/user').define(sequelize);
+    });
 }
 
 module.exports = {

@@ -1,7 +1,10 @@
-
 // Initialise express web server
 var express = require('express');
 var app = express();
+
+// Log all requests
+var logger = require('morgan');
+app.use(logger('dev'));
 
 // View engine setup
 var path = require('path');
@@ -9,28 +12,13 @@ app.set('views', path.join(__dirname, 'views')); // Set dir of views
 app.set('view engine', 'ejs'); // Set default ext of views
 app.use(express.static(path.join(__dirname, 'public'))); // Set dir of static files (img, css, js, etc.)
 
-// Log all requests
-var logger = require('morgan');
-app.use(logger('dev'));
-
-// Pre-parsing of POST requests
+// Pre-parsing of requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Session and authentication
-var session = require('express-session');
-var passport = require('passport');
-app.use(session({ // Warning: Additional reading required to secure session
-    secret: 'keyboard cat', // No idea what this does
-    resave: true, // No idea what this does
-    saveUninitialized: true // No idea what this does
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Configure passport
-var ppconfig = require('./routes/passportConfig');
-ppconfig(passport);
+var session = require('./auth/session');
+session.init(app);
 
 // Attach database
 var database = require('./database');
@@ -47,7 +35,6 @@ app.use('/user', userRouter);
 // POST to database route
 var dbRouter = require('./routes/db');
 app.use('/db', dbRouter);
-
 
 // catch 404 and forward to error handler
 var createError = require('http-errors');

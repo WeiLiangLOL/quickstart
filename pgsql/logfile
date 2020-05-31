@@ -1705,3 +1705,59 @@
 2020-05-24 21:10:33.748 +08 [7016] LOG:  background worker "logical replication launcher" (PID 15764) exited with exit code 1
 2020-05-24 21:10:33.758 +08 [5584] LOG:  shutting down
 2020-05-24 21:10:33.826 +08 [7016] LOG:  database system is shut down
+2020-05-31 17:19:22.732 +08 [15856] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 17:19:22.740 +08 [15856] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 17:19:22.741 +08 [15856] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 17:19:23.040 +08 [14804] LOG:  database system was shut down at 2020-05-24 21:10:33 +08
+2020-05-31 17:19:23.149 +08 [15856] LOG:  database system is ready to accept connections
+2020-05-31 17:23:32.678 +08 [15856] LOG:  received fast shutdown request
+2020-05-31 17:23:32.777 +08 [15856] LOG:  aborting any active transactions
+2020-05-31 17:23:32.794 +08 [148] ERROR:  canceling statement due to user request
+2020-05-31 17:23:32.810 +08 [15856] LOG:  background worker "logical replication launcher" (PID 148) exited with exit code 1
+2020-05-31 17:23:32.819 +08 [13972] LOG:  shutting down
+2020-05-31 17:23:33.076 +08 [15856] LOG:  database system is shut down
+2020-05-31 17:23:35.774 +08 [12840] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 17:23:35.784 +08 [12840] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 17:23:35.786 +08 [12840] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 17:23:35.983 +08 [15756] LOG:  database system was shut down at 2020-05-31 17:23:32 +08
+2020-05-31 17:23:36.042 +08 [12840] LOG:  database system is ready to accept connections
+2020-05-31 17:24:54.350 +08 [3928] FATAL:  empty password returned by client
+2020-05-31 17:25:10.915 +08 [4800] FATAL:  empty password returned by client
+2020-05-31 17:27:18.057 +08 [12840] LOG:  received fast shutdown request
+2020-05-31 17:27:18.064 +08 [4516] ERROR:  canceling statement due to user request
+2020-05-31 17:27:18.111 +08 [12840] LOG:  aborting any active transactions
+2020-05-31 17:27:18.113 +08 [12840] LOG:  background worker "logical replication launcher" (PID 4516) exited with exit code 1
+2020-05-31 17:27:18.133 +08 [2176] LOG:  shutting down
+2020-05-31 17:27:18.350 +08 [12840] LOG:  database system is shut down
+2020-05-31 17:29:28.769 +08 [14208] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 17:29:28.775 +08 [14208] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 17:29:28.777 +08 [14208] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 17:29:28.872 +08 [7332] LOG:  database system was shut down at 2020-05-31 17:27:18 +08
+2020-05-31 17:29:28.927 +08 [14208] LOG:  database system is ready to accept connections
+2020-05-31 17:31:21.563 +08 [15476] FATAL:  password authentication failed for user "postgres"
+2020-05-31 17:31:21.563 +08 [15476] DETAIL:  Password does not match for user "postgres".
+	Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 password"
+2020-05-31 17:37:02.759 +08 [13200] FATAL:  empty password returned by client
+2020-05-31 17:37:45.355 +08 [14208] LOG:  received fast shutdown request
+2020-05-31 17:37:45.363 +08 [16296] ERROR:  canceling statement due to user request
+2020-05-31 17:37:45.406 +08 [14208] LOG:  aborting any active transactions
+2020-05-31 17:37:45.408 +08 [14208] LOG:  background worker "logical replication launcher" (PID 16296) exited with exit code 1
+2020-05-31 17:37:45.426 +08 [13632] FATAL:  terminating connection due to administrator command
+2020-05-31 17:37:45.445 +08 [15680] LOG:  shutting down
+2020-05-31 17:37:45.590 +08 [14208] LOG:  database system is shut down
+2020-05-31 17:37:48.918 +08 [15404] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 17:37:48.923 +08 [15404] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 17:37:48.923 +08 [15404] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 17:37:49.036 +08 [15904] LOG:  database system was shut down at 2020-05-31 17:37:45 +08
+2020-05-31 17:37:49.107 +08 [15404] LOG:  database system is ready to accept connections
+2020-05-31 17:53:35.304 +08 [6444] ERROR:  collations are not supported by type date
+2020-05-31 17:53:35.304 +08 [6444] STATEMENT:  ALTER TABLE quickstart.users
+	    ALTER COLUMN date_of_birth TYPE date COLLATE pg_catalog."default";
+2020-05-31 18:11:16.587 +08 [15404] LOG:  received fast shutdown request
+2020-05-31 18:11:16.724 +08 [15404] LOG:  aborting any active transactions
+2020-05-31 18:11:16.750 +08 [11936] FATAL:  terminating connection due to administrator command
+2020-05-31 18:11:16.750 +08 [13528] FATAL:  terminating connection due to administrator command
+2020-05-31 18:11:16.761 +08 [2084] ERROR:  canceling statement due to user request
+2020-05-31 18:11:16.769 +08 [15404] LOG:  background worker "logical replication launcher" (PID 2084) exited with exit code 1
+2020-05-31 18:11:16.775 +08 [6524] LOG:  shutting down
+2020-05-31 18:11:17.122 +08 [15404] LOG:  database system is shut down
