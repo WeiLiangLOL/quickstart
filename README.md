@@ -8,24 +8,42 @@ QuickStart is a sports data management solution for sports institutions to easil
 
 ## Features
 
-- Data management
-- Graph visualisation
-- Security
+- User management
+- Data storage
+- Data visualisation
+- Data import/export
+- Form builder for administrative purposes
 
 ## Deployment
 
+### View on Heroku
+
+Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com/](https://quickstart-datamanager.herokuapp.com/)
+
 ### Deploy from zipfile
 
-- Download nodejs
-- Download zipfile [24May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view)
+- Download and install nodejs
+- Download zipfile [24May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
 - Unzip the file and open a command prompt at the root directory
 - Run `npm install`
 - Run `npm start`
 - Open your web browser and browse to [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
+### Deploy from github
+
+*Note that this method might cause errors due to empty directories not being reflected on git
+
+- Download and install nodejs
+- Clone the git project into your workfolder
+- Open a command prompt at the root directory of the git project
+- Run `npm install`
+- Run `npm start`
+- Open your web browser and browse to [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+
+If you get an error, you can try unzipping one of the zip files into the git project directory. (Untested)
+
 ## Technology Stack
 
-- [React](https://reactjs.org/)
 - [EJS](https://ejs.co/)
 - [Express](https://expressjs.com/)
 - [Nodejs](https://nodejs.org/en/)
