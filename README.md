@@ -38,8 +38,6 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 - Run `npm start`
 - Open your web browser and browse to [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
-If you get an error, you can try unzipping one of the zip files into the git project directory. (Untested)
-
 ## Technology Stack
 
 - [EJS](https://ejs.co/)
