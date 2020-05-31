@@ -25,6 +25,11 @@ function start(callback) {
         });
     } else {
         const pg_params = pg_settings.options.concat(['start']);
+        
+        // Generate empty dirs
+        require('./dir-sync').sync();
+
+        // Start service
         execFile(pg_settings.command, pg_params, (error, stdout, stderr) => {
             // Break instantly on failure
             if (error) throw error;
