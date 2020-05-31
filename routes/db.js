@@ -19,19 +19,10 @@ function isLoggedIn(req, res, next) {
 // Place routes below
 router.post('/createuser', isLoggedIn, function(req, res, next) {
     bcrypt.hash(req.body.password, 12).then( passwordHash => {
+        req.body.passwordHash = passwordHash;
         return database.users.findOrCreate({
             where: { username: req.body.username },
-            defaults: {
-                username: req.body.username,
-                passwordHash: passwordHash,
-                firstName: req.body.firstname,
-                lastName: req.body.lastname,
-                phoneNumber: req.body.phone,
-                email: req.body.email,
-                dateOfBirth: req.body.dob,
-                gender: req.body.gender,
-                nationality: req.body.nationality
-            }
+            defaults: req.body
         });
     }).then( data => {
         var model = data[0];
@@ -44,5 +35,18 @@ router.post('/createuser', isLoggedIn, function(req, res, next) {
     });
 });
 
+/*
+            defaults: {
+                username: req.body.username,
+                passwordHash: passwordHash,
+                firstName: req.body.firstname,
+                lastName: req.body.lastname,
+                phoneNumber: req.body.phone,
+                email: req.body.email,
+                dateOfBirth: req.body.dob,
+                gender: req.body.gender,
+                nationality: req.body.nationality
+            }
+*/
 
 module.exports = router;

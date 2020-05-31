@@ -1761,3 +1761,106 @@
 2020-05-31 18:11:16.769 +08 [15404] LOG:  background worker "logical replication launcher" (PID 2084) exited with exit code 1
 2020-05-31 18:11:16.775 +08 [6524] LOG:  shutting down
 2020-05-31 18:11:17.122 +08 [15404] LOG:  database system is shut down
+2020-05-31 19:06:15.577 +08 [5860] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:06:15.583 +08 [5860] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:06:15.585 +08 [5860] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:06:15.677 +08 [17964] LOG:  database system was shut down at 2020-05-31 18:11:17 +08
+2020-05-31 19:06:15.852 +08 [5860] LOG:  database system is ready to accept connections
+2020-05-31 19:06:40.928 +08 [13696] ERROR:  invalid input syntax for type date: "Invalid date" at character 254
+2020-05-31 19:06:40.928 +08 [13696] QUERY:  INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('qwerty','$2b$12$vhqnujAzRX2bMn4m5deWiu78WUGZ/ZnE78TN6ZdYcnfGnU1YnYK9e','qwerty','qwerty','','','Invalid date','','') RETURNING *
+2020-05-31 19:06:40.928 +08 [13696] CONTEXT:  PL/pgSQL function pg_temp_3.testfunc() line 1 at SQL statement
+2020-05-31 19:06:40.928 +08 [13696] STATEMENT:  CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."users", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_bd33a89d66bc412da25e9866708a70c8$ BEGIN INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('qwerty','$2b$12$vhqnujAzRX2bMn4m5deWiu78WUGZ/ZnE78TN6ZdYcnfGnU1YnYK9e','qwerty','qwerty','','','Invalid date','','') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_bd33a89d66bc412da25e9866708a70c8$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();
+2020-05-31 19:07:40.905 +08 [5860] LOG:  received fast shutdown request
+2020-05-31 19:07:40.910 +08 [5860] LOG:  aborting any active transactions
+2020-05-31 19:07:40.920 +08 [12496] ERROR:  canceling statement due to user request
+2020-05-31 19:07:40.939 +08 [5860] LOG:  background worker "logical replication launcher" (PID 12496) exited with exit code 1
+2020-05-31 19:07:40.949 +08 [3868] LOG:  shutting down
+2020-05-31 19:07:41.014 +08 [5860] LOG:  database system is shut down
+2020-05-31 19:07:51.686 +08 [10052] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:07:51.696 +08 [10052] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:07:51.701 +08 [10052] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:07:51.875 +08 [4788] LOG:  database system was shut down at 2020-05-31 19:07:40 +08
+2020-05-31 19:07:52.377 +08 [10052] LOG:  database system is ready to accept connections
+2020-05-31 19:08:13.303 +08 [7072] ERROR:  invalid input syntax for type date: "Invalid date" at character 252
+2020-05-31 19:08:13.303 +08 [7072] QUERY:  INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('asdfasdf','$2b$12$flzrTQw58y3oAGTSbSMQiOtja8V/V82rEoT7TmRw/q.4Oujjhl55u','asdf','asdf','','','Invalid date','','') RETURNING *
+2020-05-31 19:08:13.303 +08 [7072] CONTEXT:  PL/pgSQL function pg_temp_3.testfunc() line 1 at SQL statement
+2020-05-31 19:08:13.303 +08 [7072] STATEMENT:  CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."users", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_7f2e451dbdc547ab8e1c00109afe05a5$ BEGIN INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('asdfasdf','$2b$12$flzrTQw58y3oAGTSbSMQiOtja8V/V82rEoT7TmRw/q.4Oujjhl55u','asdf','asdf','','','Invalid date','','') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_7f2e451dbdc547ab8e1c00109afe05a5$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();
+2020-05-31 19:14:21.064 +08 [10052] LOG:  received fast shutdown request
+2020-05-31 19:14:21.080 +08 [13668] ERROR:  canceling statement due to user request
+2020-05-31 19:14:21.091 +08 [9352] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-05-31 19:14:21.092 +08 [6852] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-05-31 19:14:21.107 +08 [10052] LOG:  aborting any active transactions
+2020-05-31 19:14:21.123 +08 [17012] FATAL:  terminating connection due to administrator command
+2020-05-31 19:14:21.127 +08 [7800] FATAL:  terminating connection due to administrator command
+2020-05-31 19:14:21.130 +08 [10052] LOG:  background worker "logical replication launcher" (PID 13668) exited with exit code 1
+2020-05-31 19:14:21.131 +08 [10052] LOG:  server process (PID 15052) was terminated by exception 0xC000013A
+2020-05-31 19:14:21.131 +08 [10052] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-05-31 19:14:21.133 +08 [10052] LOG:  terminating any other active server processes
+2020-05-31 19:14:21.183 +08 [10052] LOG:  abnormal database system shutdown
+2020-05-31 19:14:21.188 +08 [10052] LOG:  database system is shut down
+2020-05-31 19:14:29.824 +08 [1052] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:14:29.835 +08 [1052] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:14:29.837 +08 [1052] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:14:29.991 +08 [6480] LOG:  database system was interrupted; last known up at 2020-05-31 19:12:53 +08
+2020-05-31 19:14:30.128 +08 [7424] FATAL:  the database system is starting up
+2020-05-31 19:14:30.903 +08 [6480] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-05-31 19:14:30.910 +08 [6480] LOG:  redo starts at 0/1809890
+2020-05-31 19:14:30.911 +08 [6480] LOG:  invalid record length at 0/1809978: wanted 24, got 0
+2020-05-31 19:14:30.911 +08 [6480] LOG:  redo done at 0/1809940
+2020-05-31 19:14:31.224 +08 [1052] LOG:  database system is ready to accept connections
+2020-05-31 19:14:38.873 +08 [1052] LOG:  received fast shutdown request
+2020-05-31 19:14:38.884 +08 [1052] LOG:  aborting any active transactions
+2020-05-31 19:14:38.890 +08 [9312] ERROR:  canceling statement due to user request
+2020-05-31 19:14:38.890 +08 [12776] ERROR:  canceling statement due to user request
+2020-05-31 19:14:38.899 +08 [9884] FATAL:  terminating connection due to administrator command
+2020-05-31 19:14:38.903 +08 [1052] LOG:  background worker "logical replication launcher" (PID 9312) exited with exit code 1
+2020-05-31 19:14:38.934 +08 [14368] LOG:  shutting down
+2020-05-31 19:14:38.974 +08 [1052] LOG:  database system is shut down
+2020-05-31 19:14:44.608 +08 [2436] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:14:44.620 +08 [2436] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:14:44.621 +08 [2436] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:14:44.837 +08 [5376] LOG:  database system was shut down at 2020-05-31 19:14:38 +08
+2020-05-31 19:14:44.935 +08 [17632] FATAL:  the database system is starting up
+2020-05-31 19:14:45.451 +08 [2436] LOG:  database system is ready to accept connections
+2020-05-31 19:26:47.910 +08 [2436] LOG:  received fast shutdown request
+2020-05-31 19:26:47.915 +08 [2436] LOG:  aborting any active transactions
+2020-05-31 19:26:47.916 +08 [9904] FATAL:  terminating connection due to administrator command
+2020-05-31 19:26:47.927 +08 [11148] ERROR:  canceling statement due to user request
+2020-05-31 19:26:47.944 +08 [2436] LOG:  background worker "logical replication launcher" (PID 11148) exited with exit code 1
+2020-05-31 19:26:47.957 +08 [4548] LOG:  shutting down
+2020-05-31 19:26:48.009 +08 [2436] LOG:  database system is shut down
+2020-05-31 19:26:55.813 +08 [11772] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:26:55.820 +08 [11772] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:26:55.820 +08 [11772] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:26:55.915 +08 [360] LOG:  database system was shut down at 2020-05-31 19:26:47 +08
+2020-05-31 19:26:56.080 +08 [11772] LOG:  database system is ready to accept connections
+2020-05-31 19:28:42.816 +08 [4232] ERROR:  invalid input syntax for type date: "Invalid date" at character 248
+2020-05-31 19:28:42.816 +08 [4232] QUERY:  INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('fdsa','$2b$12$WeVOD3MQrXGWaQwf7/UCrewMTYsc9mVk0/y/WHdHpHzHPwWDFxpKG','fdsa','fdsa','','','Invalid date','','') RETURNING *
+2020-05-31 19:28:42.816 +08 [4232] CONTEXT:  PL/pgSQL function pg_temp_5.testfunc() line 1 at SQL statement
+2020-05-31 19:28:42.816 +08 [4232] STATEMENT:  CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."users", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_b846438925694574a5cb6a04979a47e4$ BEGIN INSERT INTO "quickstart"."users" ("username","password_hash","first_name","last_name","phone_number","email","date_of_birth","gender","nationality") VALUES ('fdsa','$2b$12$WeVOD3MQrXGWaQwf7/UCrewMTYsc9mVk0/y/WHdHpHzHPwWDFxpKG','fdsa','fdsa','','','Invalid date','','') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_b846438925694574a5cb6a04979a47e4$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();
+2020-05-31 19:28:47.066 +08 [11772] LOG:  received fast shutdown request
+2020-05-31 19:28:47.071 +08 [4232] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-05-31 19:28:47.076 +08 [11772] LOG:  aborting any active transactions
+2020-05-31 19:28:47.082 +08 [16796] ERROR:  canceling statement due to user request
+2020-05-31 19:28:47.087 +08 [4872] FATAL:  terminating connection due to administrator command
+2020-05-31 19:28:47.091 +08 [8984] FATAL:  terminating connection due to administrator command
+2020-05-31 19:28:47.099 +08 [11772] LOG:  background worker "logical replication launcher" (PID 16796) exited with exit code 1
+2020-05-31 19:28:47.127 +08 [16376] LOG:  shutting down
+2020-05-31 19:28:47.197 +08 [11772] LOG:  database system is shut down
+2020-05-31 19:30:04.059 +08 [5884] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-05-31 19:30:04.071 +08 [5884] LOG:  listening on IPv6 address "::1", port 5432
+2020-05-31 19:30:04.072 +08 [5884] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-05-31 19:30:04.199 +08 [10124] LOG:  database system was shut down at 2020-05-31 19:28:47 +08
+2020-05-31 19:30:04.434 +08 [5884] LOG:  database system is ready to accept connections
+2020-05-31 19:34:05.299 +08 [5884] LOG:  received fast shutdown request
+2020-05-31 19:34:05.313 +08 [18360] ERROR:  canceling statement due to user request
+2020-05-31 19:34:05.321 +08 [5884] LOG:  aborting any active transactions
+2020-05-31 19:34:05.325 +08 [18176] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-05-31 19:34:05.331 +08 [6168] FATAL:  terminating connection due to administrator command
+2020-05-31 19:34:05.346 +08 [5884] LOG:  background worker "logical replication launcher" (PID 18360) exited with exit code 1
+2020-05-31 19:34:05.364 +08 [8832] LOG:  shutting down
+2020-05-31 19:34:05.418 +08 [5884] LOG:  database system is shut down
