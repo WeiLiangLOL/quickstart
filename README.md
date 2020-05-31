@@ -31,8 +31,6 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ### Deploy from github
 
-*Note that this method might cause errors due to empty directories not being reflected on git
-
 - Download and install nodejs
 - Clone the git project into your workfolder
 - Open a command prompt at the root directory of the git project
@@ -51,3 +49,4 @@ If you get an error, you can try unzipping one of the zip files into the git pro
 
 ## Changes
 
+- Patched empty directories
