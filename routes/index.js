@@ -38,9 +38,8 @@ router.get('/logout', function(req, res) {
 var passport = require('passport');
 router.post('/login', 
   passport.authenticate('local', {
-    successRedirect: '/user',
-    failureRedirect: '/login?success=false'
-  })
+    successRedirect: '/user/announcement',
+    failureRedirect: '/login?success=false'})
 );
 
 module.exports = router;

@@ -15,8 +15,36 @@ function isLoggedIn(req, res, next) {
 }
 
 // Place routes below
-router.get('/', isLoggedIn, function(req, res, next) {
-    res.render('user/index', { title: 'user', req: req});
+router.get('/announcement', isLoggedIn, function(req, res, next) {
+    res.render('user/announcement', { title: 'user', req: req});
+});
+
+router.get('/dashboard', isLoggedIn, function(req, res, next) {
+    res.render('user/dashboard', { title: 'user', req: req});
+});
+
+router.get('/forms', isLoggedIn, function(req, res, next) {
+    res.render('user/forms', { title: 'user', req: req});
+});
+
+router.get('/group', isLoggedIn, function(req, res, next) {
+    res.render('user/group', { title: 'user', req: req});
+});
+
+router.get('/user', isLoggedIn, function(req, res, next) {
+    res.render('user/user', { title: 'user', req: req});
+});
+
+router.get('/storage', isLoggedIn, function(req, res, next) {
+    res.render('user/storage', { title: 'user', req: req});
+});
+
+router.get('/analysis', isLoggedIn, function(req, res, next) {
+    res.render('user/analysis', { title: 'user', req: req});
+});
+
+router.get('/viewMyData', isLoggedIn, function(req, res, next) {
+    res.render('user/viewMyData', { title: 'user', req: req});
 });
 
 
