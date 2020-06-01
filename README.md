@@ -20,7 +20,7 @@ QuickStart is a sports data management solution for sports institutions to easil
 
 Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com/](https://quickstart-datamanager.herokuapp.com/)
 
-### Deploy from zipfile
+### Deploy from zipfile (Windows)
 
 - Download and install nodejs
 - Download zipfile [24May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
@@ -29,7 +29,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 - Run `npm start`
 - Open your web browser and browse to [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
-### Deploy from github
+### Deploy from github (Windows)
 
 - Download and install nodejs
 - Clone the git project into your workfolder
