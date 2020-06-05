@@ -3,22 +3,8 @@ var alias = {
     "": "index"
 }
 
-var submenu = {
-    "features": "#featuresSubmenu",
-    
-    "userGuide": "#userGuideSubmenu",
-    
-    "user/formPending": "#formSubmenu",
-    "user/formSpecial": "#formSubmenu",
-    "user/formHistory": "#formSubmenu",
-    "user/formManagement": "#formSubmenu",
-    
-    "user/group": "#userMgmtSubmenu",
-    "user/user" : "#userMgmtSubmenu",
-    
-    "user/viewMyData": "#dataMgmtSubmenu",
-    "user/storage": "#dataMgmtSubmenu",
-    "user/analysis": "#dataMgmtSubmenu"
+function isSubmenu (item) {
+	return item.parentElement.classList.contains("collapse");
 }
 
 $(document).ready(function () {
@@ -29,17 +15,22 @@ $(document).ready(function () {
     });
     
     // Highlight active page in SIDEBAR
-    var curr = window.location.pathname.slice(1);
-    if (submenu[curr]) { // Is a submenu, Uncollpase submenu
-        $(submenu[curr]).collapse("show");
-    } else { // Is not a submenu, set menu as active
-        if (alias[curr]) curr = alias[curr];
-        var activeMenu = document.getElementById(curr);
-        if (activeMenu !== null) activeMenu.setAttribute('class', 'active');
-    }
+    var currLocation = window.location.pathname.slice(1);
+	if (alias[currLocation]) currLocation = alias[currLocation];
+	var activeMenu = document.getElementById(currLocation);
+	if (activeMenu !== null) {
+		if (isSubmenu(activeMenu)) {
+			$(activeMenu.parentElement).collapse("show");
+		} else {
+			activeMenu.setAttribute('class', 'active');
+		}
+	}
     
     // Hightlight active page in NAVBAR
-    if (curr !== "login") {
+	// Login page is incidentally handled by code in sidebar
+	// User page is simple enough to be hardcoded
+	// Only left the homepage (Home, Features, UserGuide and About pages)
+    if (currLocation !== "login") {
         var activeNav = document.getElementById('index_nav');
         if (activeNav !== null) activeNav.setAttribute('class', 'active');
     }
