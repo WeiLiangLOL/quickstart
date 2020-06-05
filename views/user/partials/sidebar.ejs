@@ -10,8 +10,22 @@
         <li id="user/dashboard">
             <a href="/user/dashboard">Dashboard</a>
         </li>
-        <li id="user/forms">
-            <a href="/user/forms">Forms</a>
+        <li id="form">
+            <a href="#formSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Form</a>
+            <ul class="collapse list-unstyled" id="formSubmenu">
+                <li id="user/formPending">
+                    <a href="/user/formPending">Pending Form</a>
+                </li>
+                <li id="user/formSpecial">
+                    <a href="/user/formSpecial">Special Form</a>
+                </li>
+                <li id="user/formHistory">
+                    <a href="/user/formHistory">Form History</a>
+                </li>
+                <li id="user/formManagement">
+                    <a href="/user/formManagement">Form Management</a>
+                </li>
+            </ul>
         </li>
         <li id="userMgmt">
             <a href="#userMgmtSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Management</a>
@@ -38,9 +52,11 @@
                 </li>
             </ul>
         </li>
+        <!--
         <li id="user/createuser">
             <a href="/user/createuser">Create User</a>
         </li>
+        -->
         
         <!--<li id="user/createuser">
             <a href="/user/createuser">Create User</a>

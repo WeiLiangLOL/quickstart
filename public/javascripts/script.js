@@ -8,6 +8,11 @@ var submenu = {
     
     "userGuide": "#userGuideSubmenu",
     
+    "user/formPending": "#formSubmenu",
+    "user/formSpecial": "#formSubmenu",
+    "user/formHistory": "#formSubmenu",
+    "user/formManagement": "#formSubmenu",
+    
     "user/group": "#userMgmtSubmenu",
     "user/user" : "#userMgmtSubmenu",
     
