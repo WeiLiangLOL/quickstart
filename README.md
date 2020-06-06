@@ -45,9 +45,16 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 - [Nodejs](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
 
-## Changes
+## Latest Changes
 
-- Patched empty directories
+### Version 0.0.1a
+```
++ Added unit testing
++ Added licensing
++ Created changelog
+```
+
+The complete list is available [here](CHANGELOG.md).
 
 ## License
 
