@@ -15,7 +15,7 @@ function config(passport) {
                 if (user === null) {
                     return done(null, false, { message: 'Incorrect username'});
                 }
-                bcrypt.compare(password, user.passwordHash).then( match => {
+                bcrypt.compare(password, user.password_hash).then( match => {
                     if (!match) {
                         return done(null, false, { message: 'Incorrect password'});
                     } else {

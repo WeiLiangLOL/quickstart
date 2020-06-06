@@ -8,14 +8,15 @@ const { DataTypes } = require('sequelize');
 function define(sequelize) {
     return sequelize.define('users', {
         username: { type: DataTypes.STRING, primaryKey: true },
-        passwordHash: { type: DataTypes.STRING },
-        firstName: { type: DataTypes.STRING },
-        lastName: { type: DataTypes.STRING },
-        phoneNumber: { type: DataTypes.STRING },
+        password_hash: { type: DataTypes.STRING },
+        firstname: { type: DataTypes.STRING },
+        lastname: { type: DataTypes.STRING },
+        cellphone: { type: DataTypes.STRING },
         email: { type: DataTypes.STRING },
-        dateOfBirth: { type: DataTypes.DATEONLY},
+        date_of_birth: { type: DataTypes.DATEONLY },
         gender: { type: DataTypes.STRING },
-        nationality: { type: DataTypes.STRING }
+        nationality: { type: DataTypes.STRING },
+		allow_login: { type: DataTypes.BOOLEAN }
     });
 }
 

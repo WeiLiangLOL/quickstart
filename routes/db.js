@@ -18,14 +18,15 @@ function isLoggedIn(req, res, next) {
 
 // Place routes below
 router.post('/createuser', isLoggedIn, function(req, res, next) {
-    bcrypt.hash(req.body.password, 12).then( passwordHash => {
+    bcrypt.hash(req.body.password, 12).then( password_hash => {
 		
 		// TODO Input validation
 		
 		// Modify req.body to avoid errors
-        req.body.passwordHash = passwordHash;
+        req.body.password_hash = password_hash;
 		delete req.body["password"];
-		if (req.body.dateOfBirth === "") delete req.body["dateOfBirth"];
+		if (req.body.date_of_birth === '') delete req.body['date_of_birth'];
+		if (req.body.allow_login !== 'true') req.body.allow_login = 'false';
 		
         return database.users.findOrCreate({
             where: req.body,
@@ -43,19 +44,5 @@ router.post('/createuser', isLoggedIn, function(req, res, next) {
 		next(err);
 	});
 });
-
-/*
-            defaults: {
-                username: req.body.username,
-                passwordHash: passwordHash,
-                firstName: req.body.firstname,
-                lastName: req.body.lastname,
-                phoneNumber: req.body.phone,
-                email: req.body.email,
-                dateOfBirth: req.body.dob,
-                gender: req.body.gender,
-                nationality: req.body.nationality
-            }
-*/
 
 module.exports = router;
