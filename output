@@ -1,0 +1,110 @@
+
+> quickstart@0.0.0 start C:\Users\maste\Documents\GitHub\quickstart
+> node ./bin/www
+
+[0mGET / [36m304 [0m36.564 ms - -[0m
+[0mGET /stylesheets/sidebar.css [36m304 [0m5.456 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.326 ms - -[0m
+[0mGET /javascripts/script.js [36m304 [0m0.599 ms - -[0m
+[0mGET /login [32m200 [0m9.158 ms - 4989[0m
+[0mGET /stylesheets/sidebar.css [36m304 [0m2.082 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.883 ms - -[0m
+[0mGET /javascripts/script.js [36m304 [0m0.561 ms - -[0m
+[0mPOST /login [36m302 [0m2150.270 ms - 80[0m
+[0mGET /user/announcement [32m200 [0m11.208 ms - 6074[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.026 ms - -[0m
+[0mGET /javascripts/script.js [36m304 [0m0.649 ms - -[0m
+[0mGET /stylesheets/usersidebar.css [32m200 [0m4.100 ms - 4331[0m
+[0mGET /user/group [36m304 [0m61.972 ms - -[0m
+[0mGET /stylesheets/usersidebar.css [36m304 [0m3.461 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.739 ms - -[0m
+[0mGET /javascripts/script.js [36m304 [0m3.117 ms - -[0m
+[0mGET /db/getGroup [32m200 [0m11.111 ms - 294[0m
+ForeignKeyConstraintError [SequelizeForeignKeyConstraintError]: insert or update on table "groups" violates foreign key constraint "supergroup_fkey"
+    at Query.formatError (C:\Users\maste\Documents\GitHub\quickstart\node_modules\sequelize\lib\dialects\postgres\query.js:295:16)
+    at C:\Users\maste\Documents\GitHub\quickstart\node_modules\sequelize\lib\dialects\postgres\query.js:72:18
+    at tryCatcher (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\promise.js:547:31)
+    at Promise._settlePromise (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\promise.js:604:18)
+    at Promise._settlePromise0 (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\promise.js:649:10)
+    at Promise._settlePromises (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\promise.js:725:18)
+    at _drainQueueStep (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\async.js:93:12)
+    at _drainQueue (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\async.js:86:9)
+    at Async._drainQueues (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\async.js:102:5)
+    at Immediate.Async.drainQueues [as _onImmediate] (C:\Users\maste\Documents\GitHub\quickstart\node_modules\bluebird\js\release\async.js:15:14)
+    at processImmediate (internal/timers.js:456:21) {
+  parent: error: insert or update on table "groups" violates foreign key constraint "supergroup_fkey"
+      at Parser.parseErrorMessage (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:241:15)
+      at Parser.handlePacket (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:89:29)
+      at Parser.parse (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:41:38)
+      at Socket.<anonymous> (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\index.js:8:42)
+      at Socket.emit (events.js:310:20)
+      at addChunk (_stream_readable.js:286:12)
+      at readableAddChunk (_stream_readable.js:268:9)
+      at Socket.Readable.push (_stream_readable.js:209:10)
+      at TCP.onStreamRead (internal/stream_base_commons.js:186:23) {
+    length: 497,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (supergroup)=(sss) is not present in table "groups".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: `SQL statement "INSERT INTO "quickstart"."groups" ("groupname","supergroup") VALUES ('asdfasdfasdf','sss') RETURNING *"\n` +
+      'PL/pgSQL function pg_temp_4.testfunc() line 1 at SQL statement',
+    schema: 'quickstart',
+    table: 'groups',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'supergroup_fkey',
+    file: 'd:\\pginstaller_12.auto\\postgres.windows-x64\\src\\backend\\utils\\adt\\ri_triggers.c',
+    line: '2474',
+    routine: 'ri_ReportViolation',
+    sql: `CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."groups", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_e1effd2c50104f70b0edb90b839f2817$ BEGIN INSERT INTO "quickstart"."groups" ("groupname","supergroup") VALUES ('asdfasdfasdf','sss') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_e1effd2c50104f70b0edb90b839f2817$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();`,
+    parameters: undefined
+  },
+  original: error: insert or update on table "groups" violates foreign key constraint "supergroup_fkey"
+      at Parser.parseErrorMessage (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:241:15)
+      at Parser.handlePacket (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:89:29)
+      at Parser.parse (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\parser.js:41:38)
+      at Socket.<anonymous> (C:\Users\maste\Documents\GitHub\quickstart\node_modules\pg-protocol\dist\index.js:8:42)
+      at Socket.emit (events.js:310:20)
+      at addChunk (_stream_readable.js:286:12)
+      at readableAddChunk (_stream_readable.js:268:9)
+      at Socket.Readable.push (_stream_readable.js:209:10)
+      at TCP.onStreamRead (internal/stream_base_commons.js:186:23) {
+    length: 497,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (supergroup)=(sss) is not present in table "groups".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: `SQL statement "INSERT INTO "quickstart"."groups" ("groupname","supergroup") VALUES ('asdfasdfasdf','sss') RETURNING *"\n` +
+      'PL/pgSQL function pg_temp_4.testfunc() line 1 at SQL statement',
+    schema: 'quickstart',
+    table: 'groups',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'supergroup_fkey',
+    file: 'd:\\pginstaller_12.auto\\postgres.windows-x64\\src\\backend\\utils\\adt\\ri_triggers.c',
+    line: '2474',
+    routine: 'ri_ReportViolation',
+    sql: `CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."groups", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_e1effd2c50104f70b0edb90b839f2817$ BEGIN INSERT INTO "quickstart"."groups" ("groupname","supergroup") VALUES ('asdfasdfasdf','sss') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_e1effd2c50104f70b0edb90b839f2817$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();`,
+    parameters: undefined
+  },
+  sql: `CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "quickstart"."groups", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_e1effd2c50104f70b0edb90b839f2817$ BEGIN INSERT INTO "quickstart"."groups" ("groupname","supergroup") VALUES ('asdfasdfasdf','sss') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_e1effd2c50104f70b0edb90b839f2817$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();`,
+  parameters: undefined,
+  fields: null,
+  table: 'groups',
+  value: undefined,
+  index: 'supergroup_fkey',
+  reltype: undefined
+}
+[0mPOST /db/addGroup [31m500 [0m51.621 ms - 2935[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.844 ms - -[0m
+[0mGET /javascripts/script.js [36m304 [0m0.474 ms - -[0m
+[0mGET /stylesheets/sidebar.css [36m304 [0m0.596 ms - -[0m
+Terminate batch job (Y/N)? 
