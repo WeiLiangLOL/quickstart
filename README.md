@@ -1,6 +1,6 @@
 # QuickStart
 
-![build](https://img.shields.io/badge/build-passing-brightgreen) ![dependencies](https://img.shields.io/badge/dependencies-latest-brightgreen) ![license](https://img.shields.io/badge/license-none-blue)
+![build](https://img.shields.io/badge/build-passing-brightgreen) ![dependencies](https://img.shields.io/badge/dependencies-latest-brightgreen) [![license](https://img.shields.io/badge/license-GPL%20v3-blue)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Description
 
@@ -23,7 +23,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 ### Deploy from zipfile (Windows)
 
 - Download and install nodejs
-- Download zipfile [24May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
+- Download zipfile [24 May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31 May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
 - Unzip the file and open a command prompt at the root directory
 - Run `npm install`
 - Run `npm start`
@@ -48,3 +48,10 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 ## Changes
 
 - Patched empty directories
+<<<<<<< Updated upstream
+=======
+
+## License
+
+- [GNU GPL v3](LICENSE)
+>>>>>>> Stashed changes
