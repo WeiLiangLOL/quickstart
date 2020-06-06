@@ -12,7 +12,7 @@ function define(sequelize) {
         firstName: { type: DataTypes.STRING },
         lastName: { type: DataTypes.STRING },
         phoneNumber: { type: DataTypes.STRING },
-        email: { type: DataTypes.STRING },
+        email: {type: DataTypes.DATEONLY}, 
         dateOfBirth: { type: DataTypes.DATEONLY },
         gender: { type: DataTypes.STRING },
         nationality: { type: DataTypes.STRING },

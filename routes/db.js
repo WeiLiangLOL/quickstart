@@ -17,31 +17,34 @@ function isLoggedIn(req, res, next) {
 }
 
 // Place routes below
-router.post('/createuser', isLoggedIn, function(req, res, next) {
-    bcrypt.hash(req.body.password, 12).then( passwordHash => {
-		
-		// TODO Input validation
-		
-		// Modify req.body to avoid errors
-        req.body.passwordHash = passwordHash;
-		delete req.body["password"];
-		if (req.body.dateOfBirth === "") delete req.body["dateOfBirth"];
-		
-        return database.users.findOrCreate({
-            where: req.body,
-            defaults: null
+router.post("/createuser", isLoggedIn, function (req, res, next) {
+    bcrypt
+        .hash(req.body.password, 12)
+        .then((passwordHash) => {
+            // TODO Input validation
+
+            // Modify req.body to avoid errors
+            req.body.passwordHash = passwordHash;
+            delete req.body["password"];
+            if (req.body.dateOfBirth === "") delete req.body["dateOfBirth"];
+
+            return database.users.findOrCreate({
+                where: req.body,
+                defaults: null,
+            });
+        })
+        .then((data) => {
+            var model = data[0];
+            var created = data[1];
+            if (created) {
+                res.render("user/success", { title: "success", req: req });
+            } else {
+                res.render("user/failure", { title: "failure", req: req });
+            }
+        })
+        .catch((err) => {
+            next(err);
         });
-    }).then( data => {
-        var model = data[0];
-        var created = data[1];
-        if (created) {
-            res.render('user/success', { title: 'success', req: req});
-        } else {
-            res.render('user/failure', { title: 'failure', req: req});
-        }
-    }).catch( err => {
-		next(err);
-	});
 });
 
 /*
