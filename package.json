@@ -7,7 +7,7 @@
     "prod": "set NODE_ENV=production & node ./bin/www",
     "debug": "set DEBUG=quickstart:* & nodemon ./bin/www",
     "dev": "nodemon ./bin/www",
-    "prettier": "prettier --write --tab-width 4 **/*.{ts,js,css,html}",
+    "prettier": "prettier --write --tab-width 4 --single-quote **/*.{ts,js,css,html}",
     "test": "mocha ./test"
   },
   "husky": {

@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize');
 
 /**
  * Type definition for users
@@ -6,13 +6,13 @@ const { DataTypes } = require("sequelize");
  * @param {Sequelize} sequelize
  */
 function define(sequelize) {
-    return sequelize.define("users", {
+    return sequelize.define('users', {
         username: { type: DataTypes.STRING, primaryKey: true },
         passwordHash: { type: DataTypes.STRING },
         firstName: { type: DataTypes.STRING },
         lastName: { type: DataTypes.STRING },
         phoneNumber: { type: DataTypes.STRING },
-        email: {type: DataTypes.DATEONLY}, 
+        email: { type: DataTypes.DATEONLY },
         dateOfBirth: { type: DataTypes.DATEONLY },
         gender: { type: DataTypes.STRING },
         nationality: { type: DataTypes.STRING },

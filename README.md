@@ -48,10 +48,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 ## Changes
 
 - Patched empty directories
-<<<<<<< Updated upstream
-=======
 
 ## License
 
 - [GNU GPL v3](LICENSE)
->>>>>>> Stashed changes

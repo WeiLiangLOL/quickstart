@@ -1,6 +1,6 @@
-var database = require("../database").database;
-var bcrypt = require("bcrypt");
-var express = require("express");
+var database = require('../database').database;
+var bcrypt = require('bcrypt');
+var express = require('express');
 var router = express.Router();
 
 // Middleware to make sure user is logged in before accessing restricted pages
@@ -12,12 +12,12 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         next(); // Is logged in
     } else {
-        res.redirect("/login");
+        res.redirect('/login');
     }
 }
 
 // Place routes below
-router.post("/createuser", isLoggedIn, function (req, res, next) {
+router.post('/createuser', isLoggedIn, function (req, res, next) {
     bcrypt
         .hash(req.body.password, 12)
         .then((passwordHash) => {
@@ -25,8 +25,8 @@ router.post("/createuser", isLoggedIn, function (req, res, next) {
 
             // Modify req.body to avoid errors
             req.body.passwordHash = passwordHash;
-            delete req.body["password"];
-            if (req.body.dateOfBirth === "") delete req.body["dateOfBirth"];
+            delete req.body['password'];
+            if (req.body.dateOfBirth === '') delete req.body['dateOfBirth'];
 
             return database.users.findOrCreate({
                 where: req.body,
@@ -37,9 +37,9 @@ router.post("/createuser", isLoggedIn, function (req, res, next) {
             var model = data[0];
             var created = data[1];
             if (created) {
-                res.render("user/success", { title: "success", req: req });
+                res.render('user/success', { title: 'success', req: req });
             } else {
-                res.render("user/failure", { title: "failure", req: req });
+                res.render('user/failure', { title: 'failure', req: req });
             }
         })
         .catch((err) => {

@@ -1,5 +1,5 @@
-const bcrypt = require("bcrypt");
-const database = require("../database").database;
+const bcrypt = require('bcrypt');
+const database = require('../database').database;
 
 /**
  * Configures strategy used
@@ -7,17 +7,17 @@ const database = require("../database").database;
  * @param {passport} passport
  */
 function config(passport) {
-    let LocalStrategy = require("passport-local").Strategy;
+    let LocalStrategy = require('passport-local').Strategy;
     passport.use(
         new LocalStrategy(function (username, password, done) {
             database.users.findByPk(username).then((user) => {
                 if (user === null) {
-                    return done(null, false, { message: "Incorrect username" });
+                    return done(null, false, { message: 'Incorrect username' });
                 }
                 bcrypt.compare(password, user.passwordHash).then((match) => {
                     if (!match) {
                         return done(null, false, {
-                            message: "Incorrect password",
+                            message: 'Incorrect password',
                         });
                     } else {
                         return done(null, user);

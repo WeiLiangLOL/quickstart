@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
 
 body {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
     background: #fafafa;
 }
 
 p {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -99,12 +99,12 @@ a:focus {
 }
 
 #sidebar ul li.active > a,
-a[aria-expanded="true"] {
+a[aria-expanded='true'] {
     color: #000;
     background: #b2bec3;
 }
 
-a[data-toggle="collapse"] {
+a[data-toggle='collapse'] {
     position: relative;
 }
 

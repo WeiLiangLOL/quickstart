@@ -1,16 +1,16 @@
 var alias = {
-    "": "index",
+    '': 'index',
 };
 
 function isSubmenu(item) {
-    return item.parentElement.classList.contains("collapse");
+    return item.parentElement.classList.contains('collapse');
 }
 
 $(document).ready(function () {
     // Collapsible sidebar
-    $("#sidebarCollapse").on("click", function () {
-        $("#sidebar").toggleClass("active");
-        $(this).toggleClass("active");
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
     });
 
     // Highlight active page in SIDEBAR
@@ -19,9 +19,9 @@ $(document).ready(function () {
     var activeMenu = document.getElementById(currLocation);
     if (activeMenu !== null) {
         if (isSubmenu(activeMenu)) {
-            $(activeMenu.parentElement).collapse("show");
+            $(activeMenu.parentElement).collapse('show');
         } else {
-            activeMenu.setAttribute("class", "active");
+            activeMenu.setAttribute('class', 'active');
         }
     }
 
@@ -29,8 +29,8 @@ $(document).ready(function () {
     // Login page is incidentally handled by code in sidebar
     // User page is simple enough to be hardcoded
     // Only left the homepage (Home, Features, UserGuide and About pages)
-    if (currLocation !== "login") {
-        var activeNav = document.getElementById("index_nav");
-        if (activeNav !== null) activeNav.setAttribute("class", "active");
+    if (currLocation !== 'login') {
+        var activeNav = document.getElementById('index_nav');
+        if (activeNav !== null) activeNav.setAttribute('class', 'active');
     }
 });
