@@ -47,4 +47,8 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Changes
 
-- Patched empty directories
+Version 0.0.1
+- Added functionalities to UserManagement->Group
+  - Able to display existing groups
+  - Able to add new group
+  - Able to delete existing group
