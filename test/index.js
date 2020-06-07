@@ -4,14 +4,15 @@ const service = require('../database/service');
 require('dotenv').config();
 process.env.NODE_ENV = 'test';
 
-const timeout = 10000;
+const timeout = process.env.TEST_TIMEOUT || 10000;
 
 // Tests
 require('./app.test').test(timeout);
+require('./routes/gateway/users.test').test(timeout);
 
 // Cleanup
 setTimeout(() => {
     service.end();
-    // Force exit
+    // Force exit (ctrl + c)
     process.exit(0);
-}, timeout);
+}, timeout + 1000); // Append additional 1s for cleanup
