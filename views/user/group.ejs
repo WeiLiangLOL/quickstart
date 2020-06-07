@@ -11,9 +11,39 @@
 
   <%# css dependencies  %>
   <% include partials/dependencies/style %>
+  
+  <script>
+    function generateDeleteButton(groupname, supergroup) {
+		var code = '';
+		code += '<form action="/db/deleteGroup" method="POST">';
+		code += '<input type="hidden" name="groupname" value="' + groupname + '" />'
+		code += '<input type="hidden" name="supergroup" value="' + supergroup + '" />'
+		code += '<input type="submit" value="Delete">';
+		code += '</form>';
+		return code;
+	}
+  
+	function populateGroupTable() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var table = document.getElementById("groupTable");
+				JSON.parse(this.responseText).forEach(entry => {
+					var row = table.insertRow(-1);
+					row.insertCell(-1).innerHTML = entry.groupname;
+					row.insertCell(-1).innerHTML = entry.supergroup;
+					row.insertCell(-1).innerHTML = generateDeleteButton(entry.groupname, entry.supergroup);
+				});
+			}
+		};
+		xhttp.open("GET", "/db/getGroup", true);
+		xhttp.send();
+	}
+	
+  </script>
 </head>
 
-<body>
+<body onload="populateGroupTable()">
 
   <div class="wrapper">
     <%# sidebar %>
@@ -28,9 +58,25 @@
       <div class="content">
 
         <div class="container-fluid">
-          
+		          
           <h2>Group</h2>
+		  <table id="groupTable">
+			<tr>
+				<th>Name</th>
+				<th>Parent</th>
+				<th></th>
+			</tr>
+		  </table>
           
+		  <h2>Add Group</h2	>
+		  <form action="/db/addGroup" method="POST">
+            <label for="groupname">Group Name:</label>
+            <input type="text" id="groupname" name="groupname"><br>
+            <label for="supergroup">Super Group:</label>
+            <input type="text" id="supergroup" name="supergroup"><br>
+            <input type="submit" value="Submit">
+		  </form>
+		  
         </div>
 
       </div>
