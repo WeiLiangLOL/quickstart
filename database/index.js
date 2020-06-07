@@ -25,7 +25,8 @@ function init() {
         debug('Database connection established');
 
         // Populate references
-        database.users = require('../entities/user').define(sequelize);
+        database.users = require('../entities/users').define(sequelize);
+        database.groups = require('../entities/groups').define(sequelize);
     });
 }
 

@@ -52,6 +52,10 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 + Added unit testing
 + Added licensing
 + Created changelog
++ Added functionalities to UserManagement->Group
+  + Able to display existing groups
+  + Able to add new group
+  + Able to delete existing group
 ```
 
 The complete list is available [here](CHANGELOG.md).
