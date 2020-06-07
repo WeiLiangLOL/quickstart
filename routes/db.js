@@ -1,3 +1,4 @@
+var {Sequelize} = require('sequelize');
 var database = require('../database').database;
 var bcrypt = require('bcrypt');
 var express = require('express');
@@ -129,5 +130,50 @@ router.post('/deleteGroup', isLoggedIn, function(req, res, next) {
 		
 	});
 });
+
+
+/**
+ * Obtain list of users
+ * Specify offset and limit via GET parameters
+ * Returns an array of users
+ */
+router.get('/getUser', isLoggedIn, function(req, res, next) {
+	// Todo: Check user has user_mgmt_priv
+    
+    // Obtain GET parameters
+    var offset = req.query.offset;
+    var limit = req.query.limit;
+    
+    // Set default value
+    if (!offset) offset = 0;
+    if (!limit) limit = 50;
+    
+    var queryString = 'SELECT * FROM quickstart.get_user_list(' + offset + ', ' + limit + ');';
+	database.sequelize.query(
+        queryString,
+        { type: database.sequelize.QueryTypes.SELECT }
+    ).then(result => {
+        res.send(JSON.stringify(result));
+    }).catch(err => {
+        console.log(err);
+        next(err);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
