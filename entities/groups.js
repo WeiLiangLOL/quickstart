@@ -2,13 +2,13 @@ const { DataTypes } = require('sequelize');
 
 /**
  * Type definition for groups
- * 
- * @param {Sequelize} sequelize 
+ *
+ * @param {Sequelize} sequelize
  */
 function define(sequelize) {
     return sequelize.define('groups', {
         groupname: { type: DataTypes.STRING, primaryKey: true },
-        supergroup: { type: DataTypes.STRING }
+        supergroup: { type: DataTypes.STRING },
     });
 }
 

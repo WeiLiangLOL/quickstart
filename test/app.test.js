@@ -18,11 +18,11 @@ function test(timeout) {
                         res.should.have.status(200);
                         done();
                     });
-            });
+            }).timeout(timeout);
         });
-    }).timeout(timeout);
+    });
 }
 
 module.exports = {
-    test: test
+    test: test,
 };

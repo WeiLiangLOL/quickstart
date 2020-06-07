@@ -47,15 +47,22 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.1a
+### Version 0.0.1b
 ```
 + Added unit testing
-+ Added licensing
++ Added GNU licensing
 + Created changelog
 + Added functionalities to UserManagement->Group
   + Able to display existing groups
   + Able to add new group
   + Able to delete existing group
++ Implemented API gateway
+  + Added Create
+  + Added Read
+  + Added Delete
+  - Missing Update operation
+  - Missing user authorization check
++ Unit tests for CRUD operations
 ```
 
 The complete list is available [here](CHANGELOG.md).

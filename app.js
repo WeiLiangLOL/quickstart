@@ -9,7 +9,7 @@ app.use(logger('dev'));
 // View engine setup
 var path = require('path');
 app.set('views', path.join(__dirname, 'views')); // Set dir of views
-app.set('view engine', 'ejs'); // Set default ext of views
+app.set('view engine', 'ejs'); // Selects engine used to render views
 app.use(express.static(path.join(__dirname, 'public'))); // Set dir of static files (img, css, js, etc.)
 
 // Pre-parsing of requests
@@ -23,6 +23,10 @@ session.init(app);
 // Attach database
 var database = require('./database');
 database.init();
+
+// Attach api routing
+var gatewayRouter = require('./routes/gateway');
+app.use('/api', gatewayRouter);
 
 // Route views
 var indexRouter = require('./routes/index');

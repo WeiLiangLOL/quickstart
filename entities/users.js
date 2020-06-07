@@ -2,8 +2,8 @@ const { DataTypes } = require('sequelize');
 
 /**
  * Type definition for users
- * 
- * @param {Sequelize} sequelize 
+ *
+ * @param {Sequelize} sequelize
  */
 function define(sequelize) {
     return sequelize.define('users', {
@@ -16,7 +16,7 @@ function define(sequelize) {
         date_of_birth: { type: DataTypes.DATEONLY },
         gender: { type: DataTypes.STRING },
         nationality: { type: DataTypes.STRING },
-		allow_login: { type: DataTypes.BOOLEAN }
+        allow_login: { type: DataTypes.BOOLEAN },
     });
 }
 
