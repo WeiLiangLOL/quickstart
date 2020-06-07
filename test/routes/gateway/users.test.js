@@ -9,10 +9,8 @@ chai.should();
 
 // Testing
 function test(timeout) {
-
     // Tests CRUD operations
     describe('API Users Endpoint', () => {
-
         // Create user
         describe('POST /api/users', () => {
             it('should create a user', (done) => {
@@ -25,7 +23,7 @@ function test(timeout) {
                             password: 'password',
                             firstname: 'firstname',
                             lastname: 'lastname',
-                            allow_login: 'true'
+                            allow_login: 'true',
                         })
                         .end((err, res) => {
                             res.should.have.status(201);
@@ -76,10 +74,9 @@ function test(timeout) {
                 }, 2000);
             }).timeout(timeout);
         });
-
     });
 }
 
 module.exports = {
-    test: test
+    test: test,
 };

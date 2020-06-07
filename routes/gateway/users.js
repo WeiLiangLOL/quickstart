@@ -5,31 +5,36 @@ const debug = require('debug')('quickstart:gateway-users');
 
 const database = require('../../database').database;
 
-/** 
+/**
  * Find all users
  */
 router.get('/', (req, res, next) => {
-    database.users.findAll().then((users) => {
-        for (let user of users)
-            delete user.dataValues.password_hash;
-        res.send(users);
-    }).catch((err) => {
-        debug(err);
-        res.status(500).send({ message: 'An error has occurred' });
-    });
+    database.users
+        .findAll()
+        .then((users) => {
+            for (let user of users) delete user.dataValues.password_hash;
+            res.send(users);
+        })
+        .catch((err) => {
+            debug(err);
+            res.status(500).send({ message: 'An error has occurred' });
+        });
 });
 
 /**
  * Get one user
  */
 router.get('/:id', (req, res, next) => {
-    database.users.findByPk(req.params.id).then((user) => {
-        delete user.dataValues.password_hash;
-        res.send(user);
-    }).catch((err) => {
-        debug(err);
-        res.status(500).send({ message: 'An error has occurred' });
-    });
+    database.users
+        .findByPk(req.params.id)
+        .then((user) => {
+            delete user.dataValues.password_hash;
+            res.send(user);
+        })
+        .catch((err) => {
+            debug(err);
+            res.status(500).send({ message: 'An error has occurred' });
+        });
 });
 
 /**
@@ -46,22 +51,27 @@ router.post('/', (req, res, next) => {
         delete user.password;
         user.password_hash = password_hash;
 
-        database.users.findOrCreate({
-            where: {
-                username: user.username
-            },
-            defaults: user
-        }).then(([user, created]) => {
-            if (!created)
-                return res.status(400).send({ message: 'Duplicate user found' });
+        database.users
+            .findOrCreate({
+                where: {
+                    username: user.username,
+                },
+                defaults: user,
+            })
+            .then(([user, created]) => {
+                if (!created)
+                    return res
+                        .status(400)
+                        .send({ message: 'Duplicate user found' });
 
-            // Hide password hash from json response
-            delete user.dataValues.password_hash;
-            res.status(201).send(user);
-        }).catch((err) => {
-            debug(err);
-            res.status(500).send({ message: 'An error has occurred' });
-        });
+                // Hide password hash from json response
+                delete user.dataValues.password_hash;
+                res.status(201).send(user);
+            })
+            .catch((err) => {
+                debug(err);
+                res.status(500).send({ message: 'An error has occurred' });
+            });
     });
 });
 
@@ -77,19 +87,23 @@ router.put('/', (req, res, next) => {
  * Delete user
  */
 router.delete('/:id', (req, res, next) => {
-    database.users.destroy({
-        where: {
-            username: req.params.id
-        }
-    }).then((count) => {
-        if (!count)
-            res.status(400).send({ message: `User not found` });
-        else
-            res.send({ message: `User with id '${req.params.id}' deleted` });
-    }).catch((err) => {
-        debug(err);
-        res.status(500).send({ message: 'An error has occurred' });
-    });
+    database.users
+        .destroy({
+            where: {
+                username: req.params.id,
+            },
+        })
+        .then((count) => {
+            if (!count) res.status(400).send({ message: `User not found` });
+            else
+                res.send({
+                    message: `User with id '${req.params.id}' deleted`,
+                });
+        })
+        .catch((err) => {
+            debug(err);
+            res.status(500).send({ message: 'An error has occurred' });
+        });
 });
 
 module.exports = router;

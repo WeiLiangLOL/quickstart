@@ -17,51 +17,75 @@ function isLoggedIn(req, res, next) {
 // Place routes below
 
 // Announcement
-router.get('/announcement', isLoggedIn, function(req, res, next) {
-    res.render('user/announcement', { title: 'user', username: req.user.username});
+router.get('/announcement', isLoggedIn, function (req, res, next) {
+    res.render('user/announcement', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
 
 // Dashboard
-router.get('/dashboard', isLoggedIn, function(req, res, next) {
-    res.render('user/dashboard', { title: 'user', username: req.user.username});
+router.get('/dashboard', isLoggedIn, function (req, res, next) {
+    res.render('user/dashboard', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
 
 // Form
-router.get('/formPending', isLoggedIn, function(req, res, next) {
-    res.render('user/formPending', { title: 'user', username: req.user.username});
+router.get('/formPending', isLoggedIn, function (req, res, next) {
+    res.render('user/formPending', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
-router.get('/formSpecial', isLoggedIn, function(req, res, next) {
-    res.render('user/formSpecial', { title: 'user', username: req.user.username});
+router.get('/formSpecial', isLoggedIn, function (req, res, next) {
+    res.render('user/formSpecial', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
-router.get('/formHistory', isLoggedIn, function(req, res, next) {
-    res.render('user/formHistory', { title: 'user', username: req.user.username});
+router.get('/formHistory', isLoggedIn, function (req, res, next) {
+    res.render('user/formHistory', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
-router.get('/formManagement', isLoggedIn, function(req, res, next) {
-    res.render('user/formManagement', { title: 'user', username: req.user.username});
+router.get('/formManagement', isLoggedIn, function (req, res, next) {
+    res.render('user/formManagement', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
 
 // User Management
-router.get('/group', isLoggedIn, function(req, res, next) {
-    res.render('user/group', { title: 'user', username: req.user.username});
+router.get('/group', isLoggedIn, function (req, res, next) {
+    res.render('user/group', { title: 'user', username: req.user.username });
 });
-router.get('/user', isLoggedIn, function(req, res, next) {
-    res.render('user/user', { title: 'user', username: req.user.username});
+router.get('/user', isLoggedIn, function (req, res, next) {
+    res.render('user/user', { title: 'user', username: req.user.username });
 });
 
 // Data Management
-router.get('/storage', isLoggedIn, function(req, res, next) {
-    res.render('user/storage', { title: 'user', username: req.user.username});
+router.get('/storage', isLoggedIn, function (req, res, next) {
+    res.render('user/storage', { title: 'user', username: req.user.username });
 });
-router.get('/analysis', isLoggedIn, function(req, res, next) {
-    res.render('user/analysis', { title: 'user', username: req.user.username});
+router.get('/analysis', isLoggedIn, function (req, res, next) {
+    res.render('user/analysis', { title: 'user', username: req.user.username });
 });
-router.get('/viewMyData', isLoggedIn, function(req, res, next) {
-    res.render('user/viewMyData', { title: 'user', username: req.user.username});
+router.get('/viewMyData', isLoggedIn, function (req, res, next) {
+    res.render('user/viewMyData', {
+        title: 'user',
+        username: req.user.username,
+    });
 });
 
 // Remove when done
-router.get('/createuser', isLoggedIn, function(req, res, next) {
-    res.render('user/createuser', { title: 'createuser', username: req.user.username});
+router.get('/createuser', isLoggedIn, function (req, res, next) {
+    res.render('user/createuser', {
+        title: 'createuser',
+        username: req.user.username,
+    });
 });
 
 module.exports = router;
