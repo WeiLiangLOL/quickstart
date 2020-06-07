@@ -13,7 +13,9 @@ p {
     color: #555;
 }
 
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
     transition: all 0.3s;
 }
 
@@ -58,8 +60,8 @@ a, a:hover, a:focus {
     min-width: 250px;
     max-width: 250px;
     background: #373737;
-    color: #FFFFFF;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    color: #ffffff;
+    transition: all 0.6s cubic-bezier(0.945, 0.02, 0.27, 0.665);
     transform-origin: bottom left;
 }
 
@@ -70,12 +72,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #1F1F1F;
+    background: #1f1f1f;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #1F1F1F;
+    border-bottom: 1px solid #1f1f1f;
 }
 
 #sidebar ul li a {
@@ -86,17 +88,18 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #FFFFFF;
-    background: #0F0F0F;
+    color: #ffffff;
+    background: #0f0f0f;
     text-decoration: none;
 }
 
-#sidebar ul li.active>a, a[aria-expanded="true"] {
-    color: #FFFFFF;
-    background: #1F1F1F;
+#sidebar ul li.active > a,
+a[aria-expanded='true'] {
+    color: #ffffff;
+    background: #1f1f1f;
 }
 
-a[data-toggle="collapse"] {
+a[data-toggle='collapse'] {
     position: relative;
 }
 
@@ -111,7 +114,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #1F1F1F;
+    background: #1f1f1f;
 }
 
 ul.CTAs {
@@ -131,7 +134,8 @@ a.link1 {
     color: #2d3436;
 }
 
-a.link2, a.link2:hover {
+a.link2,
+a.link2:hover {
     background: #636e72 !important;
     color: #fff !important;
 }
@@ -160,7 +164,7 @@ a.link2, a.link2:hover {
     margin: 0 auto;
     display: block;
     background: #555;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition: all 0.8s cubic-bezier(0.81, -0.33, 0.345, 1.375);
     transition-delay: 0.2s;
 }
 
@@ -195,7 +199,9 @@ a.link2, a.link2:hover {
         margin-left: 0;
         transform: none;
     }
-    #sidebarCollapse span:first-of-type, #sidebarCollapse span:nth-of-type(2), #sidebarCollapse span:last-of-type {
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
         transform: none;
         opacity: 1;
         margin: 5px auto;

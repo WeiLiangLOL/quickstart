@@ -13,7 +13,9 @@ p {
     color: #555;
 }
 
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
     transition: all 0.3s;
 }
 
@@ -59,7 +61,7 @@ a, a:hover, a:focus {
     max-width: 250px;
     background: #dfe6e9;
     color: #000;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: all 0.6s cubic-bezier(0.945, 0.02, 0.27, 0.665);
     transform-origin: bottom left;
 }
 
@@ -96,12 +98,13 @@ a, a:hover, a:focus {
     text-decoration: none;
 }
 
-#sidebar ul li.active>a, a[aria-expanded="true"] {
+#sidebar ul li.active > a,
+a[aria-expanded='true'] {
     color: #000;
     background: #b2bec3;
 }
 
-a[data-toggle="collapse"] {
+a[data-toggle='collapse'] {
     position: relative;
 }
 
@@ -136,7 +139,8 @@ a.link1 {
     color: #2d3436;
 }
 
-a.link2, a.link2:hover {
+a.link2,
+a.link2:hover {
     background: #636e72 !important;
     color: #fff !important;
 }
@@ -165,7 +169,7 @@ a.link2, a.link2:hover {
     margin: 0 auto;
     display: block;
     background: #555;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition: all 0.8s cubic-bezier(0.81, -0.33, 0.345, 1.375);
     transition-delay: 0.2s;
 }
 
@@ -200,7 +204,9 @@ a.link2, a.link2:hover {
         margin-left: 0;
         transform: none;
     }
-    #sidebarCollapse span:first-of-type, #sidebarCollapse span:nth-of-type(2), #sidebarCollapse span:last-of-type {
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
         transform: none;
         opacity: 1;
         margin: 5px auto;

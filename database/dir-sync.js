@@ -11,8 +11,8 @@ const dirs = [
     './pgsql/data/pg_stat_tmp',
     './pgsql/data/pg_tblspc',
     './pgsql/data/pg_twophase',
-    './pgsql/data/pg_wal/archive_status'
-]
+    './pgsql/data/pg_wal/archive_status',
+];
 
 /**
  * Local sync of directories
@@ -22,11 +22,11 @@ function sync() {
         // Synchronised create
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
-            debug(`${dir} created`)
+            debug(`${dir} created`);
         }
     }
 }
 
 module.exports = {
-    sync: sync
-}
+    sync: sync,
+};

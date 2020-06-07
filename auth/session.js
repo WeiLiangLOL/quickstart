@@ -4,17 +4,19 @@ const bcrypt = require('bcrypt');
 
 /**
  * Sets up Express session management
- * 
- * @param {Express.Application} app 
+ *
+ * @param {Express.Application} app
  */
 function init(app) {
     // TODO: Additional reading required to secure session
-    app.use(session({
-        secret: 'keyboard cat',
-        resave: false,
-        saveUninitialized: false,
-        //cookie: { secure: true } enable for compliance
-    }));
+    app.use(
+        session({
+            secret: 'keyboard cat',
+            resave: false,
+            saveUninitialized: false,
+            //cookie: { secure: true } enable for compliance
+        })
+    );
     app.use(passport.initialize());
     app.use(passport.session());
 
@@ -23,5 +25,5 @@ function init(app) {
 }
 
 module.exports = {
-    init: init
-}
+    init: init,
+};
