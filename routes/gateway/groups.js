@@ -16,8 +16,8 @@ router.get('/', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
     database.groups
         .findAll()
-        .then( groups => { res.send(groups); })
-        .catch( err => { 
+        .then(groups => { res.send(groups); })
+        .catch(err => { 
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
@@ -31,8 +31,8 @@ router.get('/:id', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
     database.groups
         .findByPk(req.params.id)
-        .then( group => { res.send(group); })
-        .catch( err => { 
+        .then(group => { res.send(group); })
+        .catch(err => { 
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
@@ -76,11 +76,66 @@ router.post('/', (req, res, next) => {
 });
 
 /**
- * Update one group
+ * Create or Replaces one group
+ *
+ * This request is idempotent
+ * Must specify all fields in http body
  */
-router.put('/', (req, res, next) => {
-    // TODO: 501 unimplemented
-    res.status(501).send();
+router.put('/:id', (req, res, next) => {
+    // Todo: Check user has user_mgmt_priv
+    
+    // Variables
+    var newGroupName = req.body.groupname;
+    var newSuperGroup = req.body.supergroup;
+    
+    // Basic input check
+    if (!newGroupName || !newSuperGroup) {
+        return res.status(400).send("Empty Fields");
+    }
+    if (newGroupName === newSuperGroup) {
+        return res.status(400).send("Groupname cannot be same as supergroup");
+    }
+    
+    // TODO NOTE: This oop method doesn't work because
+    // Sequelize does not allow update of primary key (groupname)
+    /*database.groups
+        .findByPk(req.params.id)
+        .then(group => {
+            group.update({
+                groupname: newGroupName,
+                supergroup: newSuperGroup
+            });
+            res.send("okay");
+        });
+    */
+    
+    // TODO Note: First database query works, second database undone
+    // Attempt to modify, creating if does not exist
+    /*database.groups
+        .update({ 
+                groupname: newGroupName,
+                supergroup: newSuperGroup
+        }, { where: { groupname: req.params.id }
+        }).then(result => {
+            var success = !!result[0]; // Convert integer to boolean
+            // Success
+            if (success) return res.send(success);
+            
+            // TODO Note: Second part undone
+            // Failure, proceed to create
+            database.groups
+                .findOrCreate({
+                    where: {
+                        
+                    }, 
+                    defaults: {
+                        groupname: newGroupName,
+                        supergroup: newSuperGroup
+                    }
+                })
+        }).catch(err => {
+            res.send(Object.getPrototypeOf(err).constructor.name);
+        });*/
 });
 
 
