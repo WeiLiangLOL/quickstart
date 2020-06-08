@@ -20,6 +20,7 @@ function init() {
         const sequelize = new Sequelize(process.env.DATABASE_URL, {
             dialect: 'postgres',
             logging: (...msg) => transactions(msg),
+            //logging: (...msg) => {}, // Warning: Blackhole
             define: define,
         });
         debug('Database connection established');

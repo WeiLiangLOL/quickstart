@@ -1,87 +1,94 @@
 var express = require('express');
 var router = express.Router();
 
-// Middleware to make sure user is logged in before viewing user page
-// Redirects to /login if user is not logged in.
-function isLoggedIn(req, res, next) {
-    // If user is logged in, passport.js will create user object
-    // in req for every request in express.js, which you can check
-    // for existence in any middleware
-    if (req.isAuthenticated()) {
-        next(); // Is logged in
-    } else {
-        res.redirect('/login');
+// Authentication check: redirects to login page if user is not logged in.
+router.use(function (req, res, next) {
+    if (!req.isAuthenticated()) {
+        return res.redirect('/login');
     }
-}
+    next();
+});
 
 // Place routes below
 
 // Announcement
-router.get('/announcement', isLoggedIn, function (req, res, next) {
+router.get('/announcement', function (req, res, next) {
     res.render('user/announcement', {
-        title: 'user',
+        title: 'announcement',
         username: req.user.username,
     });
 });
 
 // Dashboard
-router.get('/dashboard', isLoggedIn, function (req, res, next) {
+router.get('/dashboard', function (req, res, next) {
     res.render('user/dashboard', {
-        title: 'user',
+        title: 'dashboard',
         username: req.user.username,
     });
 });
 
 // Form
-router.get('/formPending', isLoggedIn, function (req, res, next) {
-    res.render('user/formPending', {
-        title: 'user',
+router.get('/distributedForm', function (req, res, next) {
+    res.render('user/distributedForm', {
+        title: 'distributedForm',
         username: req.user.username,
     });
 });
-router.get('/formSpecial', isLoggedIn, function (req, res, next) {
-    res.render('user/formSpecial', {
-        title: 'user',
+router.get('/adhocForm', function (req, res, next) {
+    res.render('user/adhocForm', {
+        title: 'adhocForm',
         username: req.user.username,
     });
 });
-router.get('/formHistory', isLoggedIn, function (req, res, next) {
+router.get('/formHistory', function (req, res, next) {
     res.render('user/formHistory', {
-        title: 'user',
+        title: 'formHistory',
         username: req.user.username,
     });
 });
-router.get('/formManagement', isLoggedIn, function (req, res, next) {
+router.get('/formManagement', function (req, res, next) {
     res.render('user/formManagement', {
-        title: 'user',
+        title: 'formManagement',
         username: req.user.username,
     });
 });
 
 // User Management
-router.get('/group', isLoggedIn, function (req, res, next) {
-    res.render('user/group', { title: 'user', username: req.user.username });
+router.get('/group', function (req, res, next) {
+    res.render('user/group', { 
+        title: 'group', 
+        username: req.user.username 
+    });
 });
-router.get('/user', isLoggedIn, function (req, res, next) {
-    res.render('user/user', { title: 'user', username: req.user.username });
+router.get('/user', function (req, res, next) {
+    res.render('user/user', { 
+        title: 'user', 
+        username: req.user.username 
+    });
 });
 
 // Data Management
-router.get('/storage', isLoggedIn, function (req, res, next) {
-    res.render('user/storage', { title: 'user', username: req.user.username });
+router.get('/storage', function (req, res, next) {
+    res.render('user/storage', { 
+        title: 'storage', 
+        username: req.user.username 
+    });
 });
-router.get('/analysis', isLoggedIn, function (req, res, next) {
-    res.render('user/analysis', { title: 'user', username: req.user.username });
+router.get('/analysis', function (req, res, next) {
+    res.render('user/analysis', { 
+        title: 'analysis', 
+        username: req.user.username 
+    });
 });
-router.get('/viewMyData', isLoggedIn, function (req, res, next) {
+router.get('/viewMyData', function (req, res, next) {
     res.render('user/viewMyData', {
-        title: 'user',
+        title: 'viewMyData',
         username: req.user.username,
     });
 });
 
 // Remove when done
-router.get('/createuser', isLoggedIn, function (req, res, next) {
+router.get('/createuser', function (req, res, next) {
     res.render('user/createuser', {
         title: 'createuser',
         username: req.user.username,

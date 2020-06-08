@@ -5,8 +5,15 @@ const debug = require('debug')('quickstart:gateway-users');
 
 const database = require('../../database').database;
 
+// Deletable: STATUS CODE REFERENCE
+// https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#define-operations-in-terms-of-http-methods
+
+
+// TODO: Decide on error message
+// Should we show the classname of error message or show a generic message?
+
 /**
- * Find all users
+ * Get all users
  */
 router.get('/', (req, res, next) => {
     database.users
@@ -17,6 +24,7 @@ router.get('/', (req, res, next) => {
         })
         .catch((err) => {
             debug(err);
+            debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
         });
 });
@@ -33,7 +41,8 @@ router.get('/:id', (req, res, next) => {
         })
         .catch((err) => {
             debug(err);
-            res.status(500).send({ message: 'An error has occurred' });
+            debug(Object.getPrototypeOf(err).constructor.name);
+            res.status(404).send({ message: 'User does not exist' });
         });
 });
 
@@ -43,6 +52,13 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     let user = req.body;
 
+    // Basic input check (short of validation)
+    if (!user.username || 
+        !user.password || 
+        !user.firstname || 
+        !user.lastname) {
+            return res.status(400).send({ message: "Empty Fields" });
+        }
     if (user.date_of_birth === '') delete user.date_of_birth;
     if (user.allow_login !== 'true') user.allow_login = 'false';
 
@@ -51,27 +67,26 @@ router.post('/', (req, res, next) => {
         delete user.password;
         user.password_hash = password_hash;
 
-        database.users
+        // Send database query to create user
+        return database.users
             .findOrCreate({
-                where: {
-                    username: user.username,
-                },
+                where: { username: user.username },
                 defaults: user,
-            })
-            .then(([user, created]) => {
-                if (!created)
-                    return res
-                        .status(400)
-                        .send({ message: 'Duplicate user found' });
-
-                // Hide password hash from json response
-                delete user.dataValues.password_hash;
-                res.status(201).send(user);
-            })
-            .catch((err) => {
-                debug(err);
-                res.status(500).send({ message: 'An error has occurred' });
             });
+    })
+    .then(([user, created]) => {
+        if (!created) {
+            return res.status(400).send({ message: 'Duplicate username' });
+        }
+
+        // Successfully created
+        delete user.dataValues.password_hash; // Hide password hash from client
+        res.status(201).send(user);
+    })
+    .catch((err) => {
+        debug(err);
+        debug(Object.getPrototypeOf(err).constructor.name);
+        res.status(500).send({ message: 'An error has occurred' });
     });
 });
 
@@ -88,22 +103,28 @@ router.put('/', (req, res, next) => {
  */
 router.delete('/:id', (req, res, next) => {
     database.users
-        .destroy({
-            where: {
-                username: req.params.id,
-            },
-        })
+        .destroy({ where: {username: req.params.id } })
         .then((count) => {
-            if (!count) res.status(400).send({ message: `User not found` });
-            else
-                res.send({
-                    message: `User with id '${req.params.id}' deleted`,
-                });
+            if (!count) {
+                return res.status(404).send({ message: 'User not found' });
+            }
+            res.send({ message: `User with id '${req.params.id}' deleted` });
         })
         .catch((err) => {
             debug(err);
+            debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
         });
+});
+
+/**
+ * Catch all other requests
+ * Creates HTTP Error 405: Method not allowed
+ */
+router.use((req, res, next) => {
+    // HTTP Status 405: Method not allowed
+    var createError = require('http-errors');
+    next(createError(405));
 });
 
 module.exports = router;

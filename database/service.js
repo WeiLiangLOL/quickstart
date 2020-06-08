@@ -29,7 +29,7 @@ function start(callback) {
             timestamps: true,
         });
     } else {
-        const pg_params = pg.settings.options.concat(['start']);
+        const pg_params = pg.settings.options.concat(['restart']);
 
         // Generate empty dirs
         require('./dir-sync').sync();
@@ -40,7 +40,10 @@ function start(callback) {
             pg_params,
             (error, stdout, stderr) => {
                 // Break instantly on failure
-                if (error) throw error;
+                if (error) {
+                    debug(error);
+                    throw error;
+                }
             }
         );
 

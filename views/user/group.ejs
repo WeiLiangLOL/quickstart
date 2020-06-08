@@ -13,32 +13,61 @@
   <% include partials/dependencies/style %>
   
   <script>
-    function generateDeleteButton(groupname, supergroup) {
+    function showMsg(message) {
+        document.getElementById("showMessage").innerHTML = message;
+    }
+  
+    function deleteGroup(groupname) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onload = function() { 
+            populateGroupTable();
+            if (this.status === 200) showMsg("Success");
+            else showMsg(JSON.parse(this.responseText).message);
+        };
+		xhttp.open('DELETE', '/api/groups/' + groupname);
+		xhttp.send();
+    }
+    
+    function deleteGroupBtn(groupname) {
+        groupname = "'" + groupname + "'";
 		var code = '';
-		code += '<form action="/db/deleteGroup" method="POST">';
-		code += '<input type="hidden" name="groupname" value="' + groupname + '" />'
-		code += '<input type="hidden" name="supergroup" value="' + supergroup + '" />'
-		code += '<input type="submit" value="Delete">';
-		code += '</form>';
+		code += '<button onclick="deleteGroup(' + groupname + ')">';
+		code += 'Delete';
+		code += '</button>';
 		return code;
 	}
   
 	function populateGroupTable() {
 		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var table = document.getElementById("groupTable");
-				JSON.parse(this.responseText).forEach(entry => {
-					var row = table.insertRow(-1);
-					row.insertCell(-1).innerHTML = entry.groupname;
-					row.insertCell(-1).innerHTML = entry.supergroup;
-					row.insertCell(-1).innerHTML = generateDeleteButton(entry.groupname, entry.supergroup);
-				});
-			}
+		xhttp.onload = function() {
+            var table = document.getElementById("groupTable");
+            table.innerHTML = "<tr><th>Name</th><th>Parent</th><th></th></tr>";
+            JSON.parse(this.responseText).forEach(entry => {
+                var row = table.insertRow(-1);
+                row.insertCell(-1).innerHTML = entry.groupname;
+                row.insertCell(-1).innerHTML = entry.supergroup;
+                row.insertCell(-1).innerHTML = deleteGroupBtn(entry.groupname);
+            });
 		};
-		xhttp.open("GET", "/db/getGroup", true);
+		xhttp.open("GET", "/api/groups/", true);
 		xhttp.send();
 	}
+    
+    function addGroup() {
+        var groupname = document.getElementById("groupname").value;
+        var supergroup = document.getElementById("supergroup").value;
+        
+		var xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {
+            populateGroupTable(); 
+            if (this.status === 201) showMsg("Success");
+            else showMsg(JSON.parse(this.responseText).message);
+        };
+		xhttp.open('POST', '/api/groups/');
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        var params = 'groupname=' + groupname + '&supergroup=' + supergroup;
+		xhttp.send(params);
+    }
 	
   </script>
 </head>
@@ -58,24 +87,20 @@
       <div class="content">
 
         <div class="container-fluid">
-		          
+		  
+          <p id="showMessage"></p>
+          
           <h2>Group</h2>
 		  <table id="groupTable">
-			<tr>
-				<th>Name</th>
-				<th>Parent</th>
-				<th></th>
-			</tr>
 		  </table>
+          <button onclick="populateGroupTable()">Refresh</button>
           
 		  <h2>Add Group</h2	>
-		  <form action="/db/addGroup" method="POST">
             <label for="groupname">Group Name:</label>
             <input type="text" id="groupname" name="groupname"><br>
             <label for="supergroup">Super Group:</label>
             <input type="text" id="supergroup" name="supergroup"><br>
-            <input type="submit" value="Submit">
-		  </form>
+            <button onclick="addGroup()">Submit</button>
 		  
         </div>
 

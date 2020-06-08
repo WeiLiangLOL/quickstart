@@ -1,1 +1,1 @@
-C:/Users/WeiLiang/Documents/Profession/NUS/Others/JieXiang/quickstart/pgsql/bin/postgres.exe "-D" "./pgsql/data" "-p 5432"
+C:/Users/maste/Documents/GitHub/quickstart/pgsql/bin/postgres.exe "-p 5432"

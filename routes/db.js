@@ -31,7 +31,7 @@ router.post('/createuser', isLoggedIn, function (req, res, next) {
         .hash(req.body.password, 12)
         .then((password_hash) => {
             // TODO Input validation
-
+ 
             // TODO Change empty strings to null?
 
             // Modify req.body to avoid errors
@@ -175,6 +175,7 @@ router.get('/getUser', isLoggedIn, function(req, res, next) {
     if (!offset) offset = 0;
     if (!limit) limit = 50;
     
+    // Warning SQL injection
     var queryString = 'SELECT * FROM quickstart.get_user_list(' + offset + ', ' + limit + ');';
 	database.sequelize.query(
         queryString,
