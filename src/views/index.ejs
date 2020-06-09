@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%# html viewport %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title><%= title %></title>
+
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+          
+          <h2>Welcome to quickstart!</h2>
+          <p>Quickstart is an athlete management system for sports institutions to store
+          and manage their athlete's data.</p>
+
+          <div class="line"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include partials/dependencies/script %>
+</body>
+
+</html>

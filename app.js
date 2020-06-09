@@ -8,37 +8,38 @@ app.use(logger('dev'));
 
 // View engine setup
 var path = require('path');
-app.set('views', path.join(__dirname, 'views')); // Set dir of views
+app.set('views', path.join(__dirname, 'src/views')); // Set dir of views
 app.set('view engine', 'ejs'); // Selects engine used to render views
-app.use(express.static(path.join(__dirname, 'public'))); // Set dir of static files (img, css, js, etc.)
+app.use(express.static(path.join(__dirname, 'src/public'))); // Set dir of static files (img, css, js, etc.)
 
 // Pre-parsing of requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Session and authentication
-var session = require('./auth/session');
+var session = require('./etc/session');
 session.init(app);
 
-// Attach database
-var database = require('./database');
-database.init();
+// Start postgres database
+var pgctl = require('./bin/pgctl');
+pgctl.start();
+
+// Initialize sequelize
+var sequelize = require('./etc/sequelize');
+sequelize.init();
 
 // Attach api routing
-var gatewayRouter = require('./routes/gateway');
+var gatewayRouter = require('./src/api');
 app.use('/api', gatewayRouter);
 
 // Route views
-var indexRouter = require('./routes/index');
+var indexRouter = require('./src/routes/index');
 app.use('/', indexRouter);
 
 // Authenticated route views
-var userRouter = require('./routes/user');
+var userRouter = require('./src/routes/user');
 app.use('/user', userRouter);
 
-// POST to database route
-var dbRouter = require('./routes/db');
-app.use('/db', dbRouter);
 
 // catch 404 and forward to error handler
 var createError = require('http-errors');
