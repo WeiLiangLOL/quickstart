@@ -10,31 +10,32 @@ const database = require('../../etc/sequelize').database;
  * Get user view
  */
 router.get('/user', (req, res, next) => {
-    
     // Variables
     var limit = 50;
     var offset = 0;
     if (parseInt(req.body.limit)) limit = parseInt(req.body.limit);
     if (parseInt(req.body.offset)) offset = parseInt(req.body.offset);
-    
+
     // Query String
     var queryString = 'SELECT * FROM quickstart.user_view ';
     queryString += 'ORDER BY username ASC ';
     queryString += 'LIMIT $1 ';
     queryString += 'OFFSET $2;';
-    
+
     // Perform query
-	database.sequelize.query(
-        queryString,
-        { 
+    database.sequelize
+        .query(queryString, {
             bind: [limit, offset],
-            type: database.sequelize.QueryTypes.SELECT // Hide metadata
-        }
-    ).then(result => {
-        res.send(JSON.stringify(result));
-    }).catch(err => {
-        res.status(400).send({ message: Object.getPrototypeOf(err).constructor.name });
-    });
+            type: database.sequelize.QueryTypes.SELECT, // Hide metadata
+        })
+        .then((result) => {
+            res.send(JSON.stringify(result));
+        })
+        .catch((err) => {
+            res.status(400).send({
+                message: Object.getPrototypeOf(err).constructor.name,
+            });
+        });
 });
 
 /**
@@ -46,6 +47,5 @@ router.use((req, res, next) => {
     var createError = require('http-errors');
     next(createError(405));
 });
-
 
 module.exports = router;

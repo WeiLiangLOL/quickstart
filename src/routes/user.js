@@ -55,29 +55,29 @@ router.get('/formManagement', function (req, res, next) {
 
 // User Management
 router.get('/group', function (req, res, next) {
-    res.render('user/group', { 
-        title: 'group', 
-        username: req.user.username 
+    res.render('user/group', {
+        title: 'group',
+        username: req.user.username,
     });
 });
 router.get('/user', function (req, res, next) {
-    res.render('user/user', { 
-        title: 'user', 
-        username: req.user.username 
+    res.render('user/user', {
+        title: 'user',
+        username: req.user.username,
     });
 });
 
 // Data Management
 router.get('/storage', function (req, res, next) {
-    res.render('user/storage', { 
-        title: 'storage', 
-        username: req.user.username 
+    res.render('user/storage', {
+        title: 'storage',
+        username: req.user.username,
     });
 });
 router.get('/analysis', function (req, res, next) {
-    res.render('user/analysis', { 
-        title: 'analysis', 
-        username: req.user.username 
+    res.render('user/analysis', {
+        title: 'analysis',
+        username: req.user.username,
     });
 });
 router.get('/viewMyData', function (req, res, next) {

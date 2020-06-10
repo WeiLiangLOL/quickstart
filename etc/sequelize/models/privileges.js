@@ -2,8 +2,8 @@ const { DataTypes } = require('sequelize');
 
 /**
  * Type definition for privileges
- * 
- * @param {Sequelize} sequelize 
+ *
+ * @param {Sequelize} sequelize
  */
 function define(sequelize) {
     return sequelize.define('privileges', {

@@ -61,5 +61,4 @@ router.use((req, res, next) => {
     next(createError(405));
 });
 
-
 module.exports = router;

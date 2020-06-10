@@ -47,12 +47,12 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.2
+### Version 0.0.2a
 ```
-+ Major reorganisation of project structure
-  + Updated file paths accordingly
-+ Separated sequelize config file from postgres start script
-+ Readability refractoring of group.ejs
+- Fixed test braking after refractor
+- Removed postgre/sequelize start delay
+- Chaining test case
+- Reinserted code to prevent mkdir on production
 ```
 
 The complete list is available [here](CHANGELOG.md).

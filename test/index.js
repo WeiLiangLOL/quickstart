@@ -21,16 +21,14 @@ var test1 = chain(require('./app.test').test, test2);
 // Run the tests
 test1();
 
-
 function done() {
     console.log('ended');
     postgres.stop();
     server.close();
-    
 }
 
 function chain(func, next) {
-    return function() {
+    return function () {
         func(server, timeout, next);
     };
 }

@@ -16,8 +16,10 @@ router.get('/', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
     database.groups
         .findAll()
-        .then(groups => { res.send(groups); })
-        .catch(err => { 
+        .then((groups) => {
+            res.send(groups);
+        })
+        .catch((err) => {
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
@@ -31,8 +33,10 @@ router.get('/:id', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
     database.groups
         .findByPk(req.params.id)
-        .then(group => { res.send(group); })
-        .catch(err => { 
+        .then((group) => {
+            res.send(group);
+        })
+        .catch((err) => {
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
             res.status(500).send({ message: 'An error has occurred' });
@@ -44,7 +48,7 @@ router.get('/:id', (req, res, next) => {
  */
 router.post('/', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
-    
+
     // Variables
     var groupname = req.body.groupname;
     var supergroup = req.body.supergroup;
@@ -54,8 +58,8 @@ router.post('/', (req, res, next) => {
         return res.status(400).send({ message: 'Fields cannot be empty' });
     }
     if (groupname === supergroup) {
-        return res.status(400).send({ 
-            message: 'Cannot be supergroup of itself' 
+        return res.status(400).send({
+            message: 'Cannot be supergroup of itself',
         });
     }
 
@@ -64,14 +68,18 @@ router.post('/', (req, res, next) => {
         .findOrCreate({ where: req.body })
         .then(([group, created]) => {
             if (!created) {
-                return res.status(400).send({ message: 'Duplicate group name'});
+                return res
+                    .status(400)
+                    .send({ message: 'Duplicate group name' });
             }
             res.status(201).send(group);
         })
         .catch((err) => {
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
-            res.status(500).send({ message: Object.getPrototypeOf(err).constructor.name });
+            res.status(500).send({
+                message: Object.getPrototypeOf(err).constructor.name,
+            });
         });
 });
 
@@ -83,19 +91,19 @@ router.post('/', (req, res, next) => {
  */
 router.put('/:id', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
-    
+
     // Variables
     var newGroupName = req.body.groupname;
     var newSuperGroup = req.body.supergroup;
-    
+
     // Basic input check
     if (!newGroupName || !newSuperGroup) {
-        return res.status(400).send("Empty Fields");
+        return res.status(400).send('Empty Fields');
     }
     if (newGroupName === newSuperGroup) {
-        return res.status(400).send("Groupname cannot be same as supergroup");
+        return res.status(400).send('Groupname cannot be same as supergroup');
     }
-    
+
     // TODO NOTE: This oop method doesn't work because
     // Sequelize does not allow update of primary key (groupname)
     /*database.groups
@@ -108,7 +116,7 @@ router.put('/:id', (req, res, next) => {
             res.send("okay");
         });
     */
-    
+
     // TODO Note: First database query works, second database undone
     // Attempt to modify, creating if does not exist
     /*database.groups
@@ -138,31 +146,34 @@ router.put('/:id', (req, res, next) => {
         });*/
 });
 
-
 /**
  * Delete one group
  */
 router.delete('/:id', (req, res, next) => {
     // Todo: Check user has user_mgmt_priv
-    
+
     // TODO: Prevent deletion of root group
     // https://stackoverflow.com/questions/810180/how-to-prevent-deletion-of-the-first-row-in-table-postgresql
 
     // Attempt to remove row in database
     database.groups
-        .destroy({ where: {groupname: req.params.id} })
-        .then( numRowsDeleted => { 
+        .destroy({ where: { groupname: req.params.id } })
+        .then((numRowsDeleted) => {
             // Failure
             if (numRowsDeleted === 0) {
-                return res.status(400).send({ message: 'Group does not exist'});
+                return res
+                    .status(400)
+                    .send({ message: 'Group does not exist' });
             }
             // Success
-            res.send("" + numRowsDeleted);
+            res.send('' + numRowsDeleted);
         })
-        .catch( err => {
+        .catch((err) => {
             //debug(err);
             debug(Object.getPrototypeOf(err).constructor.name);
-            res.status(500).send({ message: Object.getPrototypeOf(err).constructor.name });
+            res.status(500).send({
+                message: Object.getPrototypeOf(err).constructor.name,
+            });
         });
 });
 
@@ -175,6 +186,5 @@ router.use((req, res, next) => {
     var createError = require('http-errors');
     next(createError(405));
 });
-
 
 module.exports = router;

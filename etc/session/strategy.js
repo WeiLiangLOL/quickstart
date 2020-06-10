@@ -9,7 +9,7 @@ const debug = require('debug')('quickstart:strategy');
  */
 function config(passport) {
     let LocalStrategy = require('passport-local').Strategy;
-    
+
     passport.use(
         new LocalStrategy(function (username, password, done) {
             // Verify username

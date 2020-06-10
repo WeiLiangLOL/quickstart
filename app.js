@@ -16,14 +16,14 @@ app.use(express.static(path.join(__dirname, 'src/public'))); // Set dir of stati
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Generate empty dirs (that are missing)
+// For non-production servers
 if (process.env.NODE_ENV !== 'production') {
+    // Generate empty dirs (that are missing)
     require('./bin/dir-sync').sync();
+    // Start postgres database
+    var pgService = require('./bin/pgctl').start();
 }
 
-// Start postgres database
-require('./bin/pgctl').start();
-    
 // Session and authentication
 var session = require('./etc/session');
 session.init(app);
@@ -43,7 +43,6 @@ app.use('/', indexRouter);
 // Authenticated route views
 var userRouter = require('./src/routes/user');
 app.use('/user', userRouter);
-
 
 // catch 404 and forward to error handler
 var createError = require('http-errors');
