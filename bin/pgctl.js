@@ -10,6 +10,7 @@ const options = [
             '-o',
             `"-p 5432"`,
         ];
+      
 
 /**
  * Starts postgres service on non-production environments
@@ -33,7 +34,9 @@ function start() {
             }
         }
     );
+    
 }
+
 
 /**
  * Stops postgres service

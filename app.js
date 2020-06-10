@@ -17,7 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Generate empty dirs (that are missing)
-require('./bin/dir-sync').sync();
+if (process.env.NODE_ENV !== 'production') {
+    require('./bin/dir-sync').sync();
+}
 
 // Start postgres database
 require('./bin/pgctl').start();

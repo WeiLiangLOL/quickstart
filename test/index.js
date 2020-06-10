@@ -1,18 +1,36 @@
-const service = require('../database/service');
+const postgres = require('../bin/pgctl');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
 
 // Config environment for test
 require('dotenv').config();
 process.env.NODE_ENV = 'test';
+const timeout = 5000;
 
-const timeout = process.env.TEST_TIMEOUT || 10000;
+// Set up chai
+chai.use(chaiHttp);
+chai.should();
 
-// Tests
-require('./app.test').test(timeout);
-require('./routes/gateway/users.test').test(timeout);
+// Start application server
+const server = chai.request(require('../app')).keepOpen();
 
-// Cleanup
-setTimeout(() => {
-    service.end();
-    // Force exit (ctrl + c)
-    process.exit(0);
-}, timeout + 1000); // Append additional 1s for cleanup
+// Chain the tests
+var test2 = chain(require('./routes/gateway/users.test').test, done);
+var test1 = chain(require('./app.test').test, test2);
+
+// Run the tests
+test1();
+
+
+function done() {
+    console.log('ended');
+    postgres.stop();
+    server.close();
+    
+}
+
+function chain(func, next) {
+    return function() {
+        func(server, timeout, next);
+    };
+}
