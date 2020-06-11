@@ -35,6 +35,29 @@ resource.create.write.before((req, res, context) => {
     context.continue();
 });
 
+resource.delete.write.before((req, res, context) => {
+    database.groups
+        .destroy({ where: { groupname: req.params.groupname } })
+        .then((numRowsDeleted) => {
+            // Failure
+            if (numRowsDeleted === 0) {
+                return res
+                    .status(400)
+                    .send({ message: 'Group does not exist' });
+            }
+            // Success
+            res.send({ rowsAffected: numRowsDeleted });
+            context.stop();
+        })
+        .catch((err) => {
+            debug(err);
+            res.status(500).send({
+                message: Object.getPrototypeOf(err).constructor.name,
+            });
+            context.stop();
+        });
+});
+
 router.use((req, res, next) => {
     res.status(405).send({ message: 'Method not accepted' });
 });
