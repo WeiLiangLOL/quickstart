@@ -13,19 +13,24 @@ function config(passport) {
     passport.use(
         new LocalStrategy(function (username, password, done) {
             // Verify username
-            database.users.findByPk(username).then((user) => {
-                if (!user) {
-                    return done(null, false);
-                }
-                // Verify password
-                bcrypt.compare(password, user.password_hash).then((match) => {
-                    if (!match) {
+            database.users
+                .scope('all')
+                .findByPk(username)
+                .then((user) => {
+                    if (!user) {
                         return done(null, false);
                     }
-                    // Authentication successful
-                    return done(null, user);
+                    // Verify password
+                    bcrypt
+                        .compare(password, user.password_hash)
+                        .then((match) => {
+                            if (!match) {
+                                return done(null, false);
+                            }
+                            // Authentication successful
+                            return done(null, user);
+                        });
                 });
-            });
         })
     );
 

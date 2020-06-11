@@ -7,9 +7,11 @@ All notable changes to the project, past revisions, are documented in this file.
   + Updated file paths accordingly
 + Separated sequelize config file from postgres start script
 + Readability refractoring of group.ejs
++ Removed postgre/sequelize start delay
++ Chaining test case
 ```
 
-### Version 0.0.1b
+### Version 0.0.1
 ```
 + Added unit testing
 + Added GNU licensing
@@ -25,17 +27,6 @@ All notable changes to the project, past revisions, are documented in this file.
   - Missing Update operation
   - Missing user authorization check
 + Unit tests for CRUD operations
-```
-
-### Version 0.0.1a
-```
-+ Added unit testing
-+ Added GNU licensing
-+ Created changelog
-+ Added functionalities to UserManagement->Group
-  + Able to display existing groups
-  + Able to add new group
-  + Able to delete existing group
 ```
 
 ### Version 0.0.0

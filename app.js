@@ -3,8 +3,10 @@ var express = require('express');
 var app = express();
 
 // Log all requests
-var logger = require('morgan');
-app.use(logger('dev'));
+if ((process.env.NODE_ENV || '').trim() !== 'test') {
+    var logger = require('morgan');
+    app.use(logger('dev'));
+}
 
 // View engine setup
 var path = require('path');
@@ -17,11 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // For non-production servers
-if (process.env.NODE_ENV !== 'production') {
+if ((process.env.NODE_ENV || '').trim() !== 'production') {
     // Generate empty dirs (that are missing)
     require('./bin/dir-sync').sync();
     // Start postgres database
-    var pgService = require('./bin/pgctl').start();
+    require('./bin/pgctl').start();
 }
 
 // Session and authentication

@@ -47,12 +47,13 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.2a
+### Version 0.0.3
 ```
-- Fixed test braking after refractor
-- Removed postgre/sequelize start delay
-- Chaining test case
-- Reinserted code to prevent mkdir on production
++ Added new api call path
+  + Prevented default password display
++ Added new test cases
+  + Improved test rendering
++ Added model associations
 ```
 
 The complete list is available [here](CHANGELOG.md).
