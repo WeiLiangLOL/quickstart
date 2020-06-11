@@ -12,23 +12,41 @@ chai.use(chaiHttp);
 chai.should();
 
 // Start application server
+console.log('Starting server');
 const server = chai.request(require('../app')).keepOpen();
 
-// Chain the tests
-var test2 = chain(require('./routes/gateway/users.test').test, done);
-var test1 = chain(require('./app.test').test, test2);
+// Define the test sequence
+var chain = [
+    use('./app.test'),
+    use('./routes/gateway/users.test'),
+    use('./app.test'),
+    use('./routes/gateway/users.test'),
+    use('./app.test'),
+    use('./routes/gateway/users.test'),
+    use('./app.test'),
+    use('./routes/gateway/users.test'),
+    use('./app.test'),
+    done,
+];
 
-// Run the tests
-test1();
+// Chain the test
+var start = chain.reduceRight((next, current) => {
+    return current(next);
+});
 
-function done() {
-    console.log('ended');
-    postgres.stop();
-    server.close();
+// Start the test
+start();
+
+function use(testPath) {
+    var testFunc = require(testPath).test;
+    return function (next) {
+        return function () {
+            testFunc(server, timeout, next);
+        };
+    };
 }
 
-function chain(func, next) {
-    return function () {
-        func(server, timeout, next);
-    };
+function done() {
+    postgres.stop();
+    server.close();
 }
