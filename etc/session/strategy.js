@@ -14,8 +14,8 @@ function config(passport) {
         new LocalStrategy(function (username, password, done) {
             // Verify username
             database.users
-                .scope('all')
-                .findByPk(username)
+                .scope('login')
+                .findOne({ where: { username: username } })
                 .then((user) => {
                     if (!user) {
                         return done(null, false);
@@ -41,7 +41,7 @@ function config(passport) {
     // Deserialize is ran each time a user GET/POST while logged in
     // Failing to deserialize is equivalent to logging out
     passport.deserializeUser(function (username, done) {
-        database.users.findByPk(username).then((user) => {
+        database.users.findOne({ where: { username: username } }).then((user) => {
             done(null, user);
         });
     });

@@ -7,7 +7,12 @@ const { DataTypes } = require('sequelize');
  */
 function define(sequelize) {
     return sequelize.define('roles', {
-        rolename: { type: DataTypes.STRING, primaryKey: true },
+        roleid: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        rolename: { type: DataTypes.STRING, unique: true },
     });
 }
 

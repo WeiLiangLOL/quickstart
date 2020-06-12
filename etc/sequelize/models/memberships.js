@@ -7,9 +7,9 @@ const { DataTypes } = require('sequelize');
  */
 function define(sequelize) {
     return sequelize.define('memberships', {
-        username: { type: DataTypes.STRING, primaryKey: true },
-        groupname: { type: DataTypes.STRING, primaryKey: true },
-        rolename: { type: DataTypes.STRING, primaryKey: true },
+        userid: { type: DataTypes.INTEGER, primaryKey: true },
+        groupid: { type: DataTypes.INTEGER, primaryKey: true },
+        roleid: { type: DataTypes.INTEGER, primaryKey: true },
         propagate: { type: DataTypes.BOOLEAN, defaultValue: false },
     });
 }

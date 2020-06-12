@@ -9,14 +9,19 @@ function define(sequelize) {
     return sequelize.define(
         'users',
         {
-            username: { type: DataTypes.STRING, primaryKey: true },
+            userid: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            username: { type: DataTypes.STRING, unique: true },
             password_hash: { type: DataTypes.STRING },
             firstname: { type: DataTypes.STRING },
             lastname: { type: DataTypes.STRING },
             cellphone: { type: DataTypes.STRING },
             email: { type: DataTypes.STRING },
             date_of_birth: { type: DataTypes.DATEONLY },
-            gender: { type: DataTypes.STRING },
+            gender: { type: DataTypes.BOOLEAN },
             nationality: { type: DataTypes.STRING },
             allow_login: { type: DataTypes.BOOLEAN },
         },
@@ -26,6 +31,9 @@ function define(sequelize) {
             },
             scopes: {
                 all: {},
+                login: {
+                    attributes: ['username', 'password_hash'],
+                },
             },
         }
     );

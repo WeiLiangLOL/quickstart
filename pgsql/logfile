@@ -1187,3 +1187,764 @@
 2020-06-11 21:47:25.727 +08 [14316] FATAL:  terminating connection due to administrator command
 2020-06-11 21:47:25.802 +08 [11208] LOG:  shutting down
 2020-06-11 21:47:26.226 +08 [8204] LOG:  database system is shut down
+2020-06-12 01:01:47.044 +08 [3764] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 01:01:47.060 +08 [3764] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 01:01:47.061 +08 [3764] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 01:01:47.259 +08 [9264] LOG:  database system was shut down at 2020-06-11 21:47:26 +08
+2020-06-12 01:01:47.656 +08 [3764] LOG:  database system is ready to accept connections
+2020-06-12 01:02:00.233 +08 [2968] ERROR:  update or delete on table "groups" violates foreign key constraint "supergroup_fkey" on table "groups"
+2020-06-12 01:02:00.233 +08 [2968] DETAIL:  Key (groupname)=(hello) is still referenced from table "groups".
+2020-06-12 01:02:00.233 +08 [2968] STATEMENT:  DELETE FROM "quickstart"."groups" WHERE "groupname" = 'hello'
+2020-06-12 04:01:43.403 +08 [3764] LOG:  received fast shutdown request
+2020-06-12 04:01:43.424 +08 [12504] ERROR:  canceling statement due to user request
+2020-06-12 04:01:43.425 +08 [3764] LOG:  aborting any active transactions
+2020-06-12 04:01:43.436 +08 [3764] LOG:  background worker "logical replication launcher" (PID 12504) exited with exit code 1
+2020-06-12 04:01:43.472 +08 [12088] LOG:  shutting down
+2020-06-12 04:01:43.534 +08 [3764] LOG:  database system is shut down
+2020-06-12 15:18:40.742 +08 [12364] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 15:18:40.759 +08 [12364] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 15:18:40.760 +08 [12364] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 15:18:40.969 +08 [7408] LOG:  database system was shut down at 2020-06-12 04:01:43 +08
+2020-06-12 15:18:41.523 +08 [12364] LOG:  database system is ready to accept connections
+2020-06-12 15:52:20.561 +08 [9384] ERROR:  cannot drop constraint users_pkey on table quickstart.users because other objects depend on it
+2020-06-12 15:52:20.561 +08 [9384] DETAIL:  constraint memberships_users_fkey on table quickstart.memberships depends on index quickstart.users_pkey
+	constraint privileges_fkey on table quickstart.privileges depends on index quickstart.users_pkey
+2020-06-12 15:52:20.561 +08 [9384] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2020-06-12 15:52:20.561 +08 [9384] STATEMENT:  ALTER TABLE quickstart.users
+	    ADD COLUMN userid serial NOT NULL;
+	ALTER TABLE quickstart.users DROP CONSTRAINT users_pkey;
+	
+	ALTER TABLE quickstart.users
+	    ADD CONSTRAINT users_pkey PRIMARY KEY (userid);
+2020-06-12 15:57:36.448 +08 [9384] ERROR:  cannot drop constraint groups_pkey on table quickstart.groups because other objects depend on it
+2020-06-12 15:57:36.448 +08 [9384] DETAIL:  constraint supergroup_fkey on table quickstart.groups depends on index quickstart.groups_pkey
+2020-06-12 15:57:36.448 +08 [9384] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2020-06-12 15:57:36.448 +08 [9384] STATEMENT:  ALTER TABLE quickstart.groups DROP CONSTRAINT groups_pkey;
+2020-06-12 15:57:46.705 +08 [9384] ERROR:  cannot drop constraint groups_pkey on table quickstart.groups because other objects depend on it
+2020-06-12 15:57:46.705 +08 [9384] DETAIL:  constraint supergroup_fkey on table quickstart.groups depends on index quickstart.groups_pkey
+2020-06-12 15:57:46.705 +08 [9384] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2020-06-12 15:57:46.705 +08 [9384] STATEMENT:  ALTER TABLE quickstart.groups DROP CONSTRAINT groups_pkey;
+	ALTER TABLE quickstart.groups DROP CONSTRAINT supergroup_fkey;
+2020-06-12 15:59:21.127 +08 [9384] ERROR:  column "supergroup" contains null values
+2020-06-12 15:59:21.127 +08 [9384] STATEMENT:  ALTER TABLE quickstart.groups
+	    ADD COLUMN supergroup integer NOT NULL;
+2020-06-12 16:05:35.671 +08 [16312] ERROR:  relation "quickstart.users_userid_seq" does not exist at character 138
+2020-06-12 16:05:35.671 +08 [16312] STATEMENT:  -- Table: quickstart.users
+	
+	-- DROP TABLE quickstart.users;
+	
+	CREATE TABLE quickstart.users
+	(
+	    userid integer NOT NULL DEFAULT nextval('quickstart.users_userid_seq'::regclass),
+	    username character varying COLLATE pg_catalog."default" NOT NULL,
+	    password_hash character varying COLLATE pg_catalog."default" NOT NULL,
+	    firstname character varying COLLATE pg_catalog."default" NOT NULL,
+	    lastname character varying COLLATE pg_catalog."default" NOT NULL,
+	    cellphone character varying COLLATE pg_catalog."default",
+	    email character varying COLLATE pg_catalog."default",
+	    date_of_birth date,
+	    gender boolean NOT NULL,
+	    nationality character varying COLLATE pg_catalog."default",
+	    allow_login boolean NOT NULL,
+	    created_at timestamp with time zone,
+	    updated_at timestamp with time zone,
+	    CONSTRAINT users_pkey PRIMARY KEY (userid),
+	    CONSTRAINT users_ukey UNIQUE (username)
+	)
+	
+	TABLESPACE pg_default;
+	
+	ALTER TABLE quickstart.users
+	    OWNER to postgres;
+	
+	GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE quickstart.users TO nodeuser;
+	
+	GRANT ALL ON TABLE quickstart.users TO postgres;
+2020-06-12 16:15:52.300 +08 [9384] ERROR:  column "roleid" of relation "roles" does not exist
+2020-06-12 16:15:52.300 +08 [9384] STATEMENT:  ALTER TABLE quickstart.roles DROP COLUMN roleid;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN roleid serial NOT NULL;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN rolename character varying NOT NULL;
+	ALTER TABLE quickstart.roles
+	    ADD PRIMARY KEY (roleid);
+2020-06-12 16:16:00.618 +08 [9384] ERROR:  column "roleid" of relation "roles" does not exist
+2020-06-12 16:16:00.618 +08 [9384] STATEMENT:  ALTER TABLE quickstart.roles DROP COLUMN roleid;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN roleid serial NOT NULL;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN rolename character varying NOT NULL;
+2020-06-12 16:16:14.464 +08 [9384] ERROR:  column "roleid" of relation "roles" does not exist
+2020-06-12 16:16:14.464 +08 [9384] STATEMENT:  ALTER TABLE quickstart.roles DROP COLUMN roleid;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN roleid serial;
+	
+	ALTER TABLE quickstart.roles
+	    ADD COLUMN rolename character varying;
+2020-06-12 16:26:49.325 +08 [16312] ERROR:  syntax error at or near "TO" at character 47
+2020-06-12 16:26:49.325 +08 [16312] STATEMENT:  
+	REVOKE SELECT ON TABLE quickstart.functions	 TO nodeuser;
+2020-06-12 17:16:22.037 +08 [9384] ERROR:  foreign key constraint "regular_files_owner_fkey" cannot be implemented
+2020-06-12 17:16:22.037 +08 [9384] DETAIL:  Key columns "owner" and "userid" are of incompatible types: character varying and integer.
+2020-06-12 17:16:22.037 +08 [9384] STATEMENT:  ALTER TABLE quickstart.regular_files
+	    ADD CONSTRAINT regular_files_directory_fkey FOREIGN KEY (directoryid)
+	    REFERENCES quickstart.directories (directoryid) MATCH SIMPLE
+	    ON UPDATE RESTRICT
+	    ON DELETE RESTRICT
+	    NOT VALID;
+	
+	ALTER TABLE quickstart.regular_files
+	    ADD CONSTRAINT regular_files_owner_fkey FOREIGN KEY (owner)
+	    REFERENCES quickstart.users (userid) MATCH SIMPLE
+	    ON UPDATE RESTRICT
+	    ON DELETE RESTRICT
+	    NOT VALID;
+2020-06-12 20:02:27.559 +08 [60364] ERROR:  null value in column "supergroup" violates not-null constraint
+2020-06-12 20:02:27.559 +08 [60364] DETAIL:  Failing row contains (1, root, null).
+2020-06-12 20:02:27.559 +08 [60364] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname) VALUES (
+	'root'::character varying)
+	 returning groupid;
+2020-06-12 20:02:35.369 +08 [60364] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 20:02:35.369 +08 [60364] DETAIL:  Key (supergroup)=(1) is not present in table "groups".
+2020-06-12 20:02:35.369 +08 [60364] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname, supergroup) VALUES (
+	'root'::character varying, '1'::integer)
+	 returning groupid;
+2020-06-12 20:03:04.296 +08 [60364] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 20:03:04.296 +08 [60364] DETAIL:  Key (supergroup)=(1) is not present in table "groups".
+2020-06-12 20:03:04.296 +08 [60364] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname, supergroup) VALUES (
+	'root'::character varying, '1'::integer)
+	 returning groupid;
+2020-06-12 20:13:17.447 +08 [16312] ERROR:  column "testfile" does not exist at character 49
+2020-06-12 20:13:17.447 +08 [16312] STATEMENT:  insert into quickstart.regular_files values
+	(1, "testfile", 1, now(), now(), true, 2, "filepath", 153464);
+2020-06-12 20:14:10.161 +08 [16312] ERROR:  column "testfile" does not exist at character 49
+2020-06-12 20:14:10.161 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (1, "testfile", 1, now(), now(), true, 2, "filepath", 153464);
+2020-06-12 20:26:38.136 +08 [16312] ERROR:  syntax error at or near "#" at character 1
+2020-06-12 20:26:38.136 +08 [16312] STATEMENT:  #insert into quickstart.regular_files values (2, 'testfile', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+2020-06-12 20:29:57.126 +08 [16312] ERROR:  duplicate key value violates unique constraint "rf_ukey"
+2020-06-12 20:29:57.126 +08 [16312] DETAIL:  Key (filename, directoryid)=(testfile, 1) already exists.
+2020-06-12 20:29:57.126 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 20:30:16.584 +08 [16312] ERROR:  insert or update on table "regular_files" violates foreign key constraint "rf_directory_fkey"
+2020-06-12 20:30:16.584 +08 [16312] DETAIL:  Key (directoryid)=(2) is not present in table "directories".
+2020-06-12 20:30:16.584 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile', 2, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 20:30:25.979 +08 [16312] ERROR:  insert or update on table "regular_files" violates foreign key constraint "rf_directory_fkey"
+2020-06-12 20:30:25.979 +08 [16312] DETAIL:  Key (directoryid)=(1) is not present in table "directories".
+2020-06-12 20:30:25.979 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile2', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 20:31:50.224 +08 [16312] ERROR:  insert or update on table "regular_files" violates foreign key constraint "rf_owner_fkey"
+2020-06-12 20:31:50.224 +08 [16312] DETAIL:  Key (owner)=(2) is not present in table "users".
+2020-06-12 20:31:50.224 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile2', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 20:32:54.771 +08 [16312] ERROR:  duplicate key value violates unique constraint "rf_ukey"
+2020-06-12 20:32:54.771 +08 [16312] DETAIL:  Key (filename, directoryid)=(testfile2, 1) already exists.
+2020-06-12 20:32:54.771 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile2', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 20:34:00.832 +08 [9384] ERROR:  could not create unique index "rf_pkey"
+2020-06-12 20:34:00.832 +08 [9384] DETAIL:  Key (fileid)=(2) is duplicated.
+2020-06-12 20:34:00.832 +08 [9384] STATEMENT:  ALTER TABLE quickstart.regular_files
+	    ADD CONSTRAINT rf_pkey PRIMARY KEY (fileid);
+2020-06-12 21:39:58.339 +08 [16312] ERROR:  duplicate key value violates unique constraint "rf_ukey"
+2020-06-12 21:39:58.339 +08 [16312] DETAIL:  Key (filename, directoryid)=(testfile, 1) already exists.
+2020-06-12 21:39:58.339 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 21:40:08.254 +08 [16312] ERROR:  duplicate key value violates unique constraint "rf_ukey"
+2020-06-12 21:40:08.254 +08 [16312] DETAIL:  Key (filename, directoryid)=(testfile, 1) already exists.
+2020-06-12 21:40:08.254 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (1, 'testfile', 1, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 21:40:14.727 +08 [16312] ERROR:  duplicate key value violates unique constraint "rf_pkey"
+2020-06-12 21:40:14.727 +08 [16312] DETAIL:  Key (fileid)=(1) already exists.
+2020-06-12 21:40:14.727 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (1, 'testfile', 2, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 21:40:21.328 +08 [16312] ERROR:  insert or update on table "regular_files" violates foreign key constraint "rf_directory_fkey"
+2020-06-12 21:40:21.328 +08 [16312] DETAIL:  Key (directoryid)=(2) is not present in table "directories".
+2020-06-12 21:40:21.328 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile', 2, now(), now(), true, 2, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 21:40:42.817 +08 [16312] ERROR:  insert or update on table "regular_files" violates foreign key constraint "rf_owner_fkey"
+2020-06-12 21:40:42.817 +08 [16312] DETAIL:  Key (owner)=(3) is not present in table "users".
+2020-06-12 21:40:42.817 +08 [16312] STATEMENT:  insert into quickstart.regular_files values (2, 'testfile2', 1, now(), now(), true, 3, 'filepath', 153464);
+	
+	
+	/*delete from quickstart.regular_files where fileid = 2;
+	*/
+2020-06-12 21:41:15.916 +08 [93120] ERROR:  update or delete on table "users" violates foreign key constraint "rf_owner_fkey" on table "regular_files"
+2020-06-12 21:41:15.916 +08 [93120] DETAIL:  Key (userid)=(2) is still referenced from table "regular_files".
+2020-06-12 21:41:15.916 +08 [93120] STATEMENT:  DELETE FROM quickstart.users
+	    WHERE userid IN
+	        (2);
+2020-06-12 21:45:10.085 +08 [93228] ERROR:  column memberships.groupname does not exist at character 182
+2020-06-12 21:45:10.085 +08 [93228] STATEMENT:  SELECT count(DISTINCT("groups"."groupname")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:45:10.094 +08 [93228] ERROR:  column memberships.groupname does not exist at character 445
+2020-06-12 21:45:10.094 +08 [93228] STATEMENT:  SELECT "groups".*, "memberships"."username" AS "memberships.username", "memberships"."groupname" AS "memberships.groupname", "memberships"."rolename" AS "memberships.rolename", "memberships"."propagate" AS "memberships.propagate" FROM (SELECT "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:45:11.429 +08 [93228] ERROR:  column memberships.groupname does not exist at character 445
+2020-06-12 21:45:11.429 +08 [93228] STATEMENT:  SELECT "groups".*, "memberships"."username" AS "memberships.username", "memberships"."groupname" AS "memberships.groupname", "memberships"."rolename" AS "memberships.rolename", "memberships"."propagate" AS "memberships.propagate" FROM (SELECT "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:45:11.448 +08 [70920] ERROR:  column memberships.groupname does not exist at character 182
+2020-06-12 21:45:11.448 +08 [70920] STATEMENT:  SELECT count(DISTINCT("groups"."groupname")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:45:24.274 +08 [90324] ERROR:  column memberships.groupname does not exist at character 182
+2020-06-12 21:45:24.274 +08 [90324] STATEMENT:  SELECT count(DISTINCT("groups"."groupname")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:45:24.279 +08 [90324] ERROR:  column memberships.groupname does not exist at character 445
+2020-06-12 21:45:24.279 +08 [90324] STATEMENT:  SELECT "groups".*, "memberships"."username" AS "memberships.username", "memberships"."groupname" AS "memberships.groupname", "memberships"."rolename" AS "memberships.rolename", "memberships"."propagate" AS "memberships.propagate" FROM (SELECT "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupname" = "memberships"."groupname";
+2020-06-12 21:46:24.360 +08 [9688] FATAL:  canceling authentication due to timeout
+2020-06-12 22:13:34.448 +08 [12364] LOG:  received fast shutdown request
+2020-06-12 22:13:34.456 +08 [90324] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-12 22:13:34.463 +08 [12364] LOG:  aborting any active transactions
+2020-06-12 22:13:34.470 +08 [13372] ERROR:  canceling statement due to user request
+2020-06-12 22:13:34.472 +08 [9384] FATAL:  terminating connection due to administrator command
+2020-06-12 22:13:34.509 +08 [12364] LOG:  background worker "logical replication launcher" (PID 13372) exited with exit code 1
+2020-06-12 22:13:34.554 +08 [4888] LOG:  shutting down
+2020-06-12 22:13:34.617 +08 [12364] LOG:  database system is shut down
+2020-06-12 22:13:38.332 +08 [92588] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:13:38.343 +08 [92588] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:13:38.344 +08 [92588] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:13:38.628 +08 [20064] LOG:  database system was shut down at 2020-06-12 22:13:34 +08
+2020-06-12 22:13:39.222 +08 [92588] LOG:  database system is ready to accept connections
+2020-06-12 22:13:46.638 +08 [86252] ERROR:  invalid input syntax for type integer: "test" at character 212
+2020-06-12 22:13:46.638 +08 [86252] STATEMENT:  SELECT "userid", "username", "password_hash", "firstname", "lastname", "cellphone", "email", "date_of_birth", "gender", "nationality", "allow_login" FROM "quickstart"."users" AS "users" WHERE "users"."userid" = 'test';
+2020-06-12 22:16:36.117 +08 [92588] LOG:  received fast shutdown request
+2020-06-12 22:16:36.178 +08 [92588] LOG:  aborting any active transactions
+2020-06-12 22:16:36.336 +08 [69828] ERROR:  canceling statement due to user request
+2020-06-12 22:16:36.359 +08 [92588] LOG:  server process (PID 83448) was terminated by exception 0xC000013A
+2020-06-12 22:16:36.359 +08 [92588] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-06-12 22:16:36.363 +08 [92588] LOG:  terminating any other active server processes
+2020-06-12 22:16:36.493 +08 [92588] LOG:  background worker "logical replication launcher" (PID 69828) exited with exit code 1
+2020-06-12 22:16:36.619 +08 [92588] LOG:  abnormal database system shutdown
+2020-06-12 22:16:36.637 +08 [92588] LOG:  database system is shut down
+2020-06-12 22:24:14.297 +08 [93240] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:24:14.308 +08 [93240] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:24:14.310 +08 [93240] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:24:14.599 +08 [67552] LOG:  database system was interrupted; last known up at 2020-06-12 22:13:38 +08
+2020-06-12 22:24:15.445 +08 [67552] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-06-12 22:24:15.455 +08 [67552] LOG:  redo starts at 0/23BD518
+2020-06-12 22:24:15.456 +08 [67552] LOG:  invalid record length at 0/23BD550: wanted 24, got 0
+2020-06-12 22:24:15.457 +08 [67552] LOG:  redo done at 0/23BD518
+2020-06-12 22:24:16.041 +08 [93240] LOG:  database system is ready to accept connections
+2020-06-12 22:24:21.453 +08 [93676] ERROR:  invalid input syntax for type integer: "test" at character 195
+2020-06-12 22:24:21.453 +08 [93676] STATEMENT:  SELECT "userid", "username", "firstname", "lastname", "cellphone", "email", "date_of_birth", "gender", "nationality", "allow_login" FROM "quickstart"."users" AS "users" WHERE "users"."userid" = 'test';
+2020-06-12 22:24:36.144 +08 [93240] LOG:  received fast shutdown request
+2020-06-12 22:24:36.168 +08 [94184] ERROR:  canceling statement due to user request
+2020-06-12 22:24:36.169 +08 [91392] ERROR:  canceling statement due to user request
+2020-06-12 22:24:36.177 +08 [93240] LOG:  aborting any active transactions
+2020-06-12 22:24:36.185 +08 [93240] LOG:  background worker "logical replication launcher" (PID 94184) exited with exit code 1
+2020-06-12 22:24:36.227 +08 [13756] LOG:  shutting down
+2020-06-12 22:24:36.285 +08 [93240] LOG:  database system is shut down
+2020-06-12 22:25:14.166 +08 [62728] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:25:14.177 +08 [62728] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:25:14.178 +08 [62728] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:25:14.473 +08 [93632] LOG:  database system was shut down at 2020-06-12 22:24:36 +08
+2020-06-12 22:25:15.099 +08 [62728] LOG:  database system is ready to accept connections
+2020-06-12 22:25:47.811 +08 [93400] ERROR:  null value in column "groupid" violates not-null constraint
+2020-06-12 22:25:47.811 +08 [93400] DETAIL:  Failing row contains (null, hello, 1).
+2020-06-12 22:25:47.811 +08 [93400] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES ($1,$2,$3) RETURNING *;
+2020-06-12 22:26:22.293 +08 [92452] ERROR:  relation "quickstart.user_view" does not exist at character 15
+2020-06-12 22:26:22.293 +08 [92452] STATEMENT:  SELECT * FROM quickstart.user_view ORDER BY username ASC LIMIT $1 OFFSET $2;
+2020-06-12 22:31:09.789 +08 [94692] ERROR:  null value in column "groupid" violates not-null constraint
+2020-06-12 22:31:09.789 +08 [94692] DETAIL:  Failing row contains (null, postman, 1).
+2020-06-12 22:31:09.789 +08 [94692] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES ($1,$2,$3) RETURNING *;
+2020-06-12 22:35:05.379 +08 [62728] LOG:  received fast shutdown request
+2020-06-12 22:35:05.399 +08 [4692] ERROR:  canceling statement due to user request
+2020-06-12 22:35:05.409 +08 [62728] LOG:  aborting any active transactions
+2020-06-12 22:35:05.416 +08 [94684] FATAL:  terminating connection due to administrator command
+2020-06-12 22:35:05.416 +08 [94600] FATAL:  terminating connection due to administrator command
+2020-06-12 22:35:05.430 +08 [62728] LOG:  background worker "logical replication launcher" (PID 4692) exited with exit code 1
+2020-06-12 22:35:05.448 +08 [94052] LOG:  shutting down
+2020-06-12 22:35:05.537 +08 [62728] LOG:  database system is shut down
+2020-06-12 22:35:09.742 +08 [94616] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:35:09.753 +08 [94616] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:35:09.754 +08 [94616] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:35:09.969 +08 [94896] LOG:  database system was shut down at 2020-06-12 22:35:05 +08
+2020-06-12 22:35:10.528 +08 [94616] LOG:  database system is ready to accept connections
+2020-06-12 22:35:12.696 +08 [95436] ERROR:  permission denied for sequence groups_groupid_seq
+2020-06-12 22:35:12.696 +08 [95436] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:35:32.294 +08 [94616] LOG:  received fast shutdown request
+2020-06-12 22:35:32.367 +08 [94616] LOG:  aborting any active transactions
+2020-06-12 22:35:32.421 +08 [95704] FATAL:  terminating connection due to administrator command
+2020-06-12 22:35:32.426 +08 [7108] ERROR:  canceling statement due to user request
+2020-06-12 22:35:32.516 +08 [94616] LOG:  background worker "logical replication launcher" (PID 7108) exited with exit code 1
+2020-06-12 22:35:32.669 +08 [94988] LOG:  shutting down
+2020-06-12 22:35:32.854 +08 [94616] LOG:  database system is shut down
+2020-06-12 22:35:37.270 +08 [96016] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:35:37.281 +08 [96016] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:35:37.282 +08 [96016] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:35:37.565 +08 [94596] LOG:  database system was shut down at 2020-06-12 22:35:32 +08
+2020-06-12 22:35:38.456 +08 [96016] LOG:  database system is ready to accept connections
+2020-06-12 22:35:53.745 +08 [94932] ERROR:  permission denied for sequence groups_groupid_seq
+2020-06-12 22:35:53.745 +08 [94932] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:36:03.766 +08 [63680] ERROR:  permission denied for sequence groups_groupid_seq
+2020-06-12 22:36:03.766 +08 [63680] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:36:25.759 +08 [95540] ERROR:  permission denied for sequence groups_groupid_seq
+2020-06-12 22:36:25.759 +08 [95540] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:41:12.478 +08 [92108] ERROR:  relation "groups_groupid_seq" does not exist
+2020-06-12 22:41:12.478 +08 [92108] STATEMENT:  grant usage, select on sequence groups_groupid_seq to nodeuser;
+	grant usage, select on sequence users_userid_seq to nodeuser;
+	grant usage, select on sequence roles_roleid_seq to nodeuser;
+	grant usage, select on sequence functions_functionid_seq to nodeuser;
+2020-06-12 22:41:56.496 +08 [92108] ERROR:  relation "groups_groupid_seq" does not exist
+2020-06-12 22:41:56.496 +08 [92108] STATEMENT:  grant usage, select on SEQUENCE groups_groupid_seq to nodeuser;
+	grant usage, select on SEQUENCE users_userid_seq to nodeuser;
+	grant usage, select on SEQUENCE roles_roleid_seq to nodeuser;
+	grant usage, select on SEQUENCE functions_functionid_seq to nodeuser;
+2020-06-12 22:46:10.577 +08 [98836] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 22:46:10.577 +08 [98836] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-12 22:46:10.577 +08 [98836] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:46:29.950 +08 [99196] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-12 22:46:29.950 +08 [99196] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-12 22:46:29.950 +08 [99196] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:52:04.541 +08 [96016] LOG:  received fast shutdown request
+2020-06-12 22:52:04.561 +08 [9236] ERROR:  canceling statement due to user request
+2020-06-12 22:52:04.572 +08 [96016] LOG:  aborting any active transactions
+2020-06-12 22:52:04.583 +08 [92108] FATAL:  terminating connection due to administrator command
+2020-06-12 22:52:04.597 +08 [94416] FATAL:  terminating connection due to administrator command
+2020-06-12 22:52:04.629 +08 [96016] LOG:  background worker "logical replication launcher" (PID 9236) exited with exit code 1
+2020-06-12 22:52:04.676 +08 [94604] LOG:  shutting down
+2020-06-12 22:52:04.780 +08 [96016] LOG:  database system is shut down
+2020-06-12 22:52:08.499 +08 [6636] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 22:52:08.526 +08 [6636] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 22:52:08.527 +08 [6636] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 22:52:08.872 +08 [93416] LOG:  database system was shut down at 2020-06-12 22:52:04 +08
+2020-06-12 22:52:09.353 +08 [6636] LOG:  database system is ready to accept connections
+2020-06-12 22:52:27.225 +08 [99608] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 22:52:27.225 +08 [99608] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-12 22:52:27.225 +08 [99608] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:53:11.744 +08 [99732] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-12 22:53:11.744 +08 [99732] DETAIL:  Key (groupname)=(aaa) already exists.
+2020-06-12 22:53:11.744 +08 [99732] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:53:28.183 +08 [99468] ERROR:  invalid input syntax for type integer: ""
+2020-06-12 22:53:28.183 +08 [99468] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:53:53.875 +08 [100036] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-12 22:53:53.875 +08 [100036] DETAIL:  Key (groupname)=(postman) already exists.
+2020-06-12 22:53:53.875 +08 [100036] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:54:40.710 +08 [98004] ERROR:  null value in column "supergroup" violates not-null constraint
+2020-06-12 22:54:40.710 +08 [98004] DETAIL:  Failing row contains (12, postman, null).
+2020-06-12 22:54:40.710 +08 [98004] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname") VALUES (DEFAULT,$1) RETURNING *;
+2020-06-12 22:54:50.345 +08 [98004] ERROR:  null value in column "groupname" violates not-null constraint
+2020-06-12 22:54:50.345 +08 [98004] DETAIL:  Failing row contains (13, null, 1).
+2020-06-12 22:54:50.345 +08 [98004] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","supergroup") VALUES (DEFAULT,$1) RETURNING *;
+2020-06-12 22:55:34.916 +08 [99260] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-12 22:55:34.916 +08 [99260] DETAIL:  Key (groupname)=(postman) already exists.
+2020-06-12 22:55:34.916 +08 [99260] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 22:55:41.734 +08 [99260] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 22:55:41.734 +08 [99260] DETAIL:  Key (supergroup)=(10) is not present in table "groups".
+2020-06-12 22:55:41.734 +08 [99260] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 23:08:38.497 +08 [103912] ERROR:  invalid input syntax for type integer: "fds"
+2020-06-12 23:08:38.497 +08 [103912] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 23:09:52.204 +08 [12204] ERROR:  null value in column "supergroup" violates not-null constraint
+2020-06-12 23:09:52.204 +08 [12204] DETAIL:  Failing row contains (18, root, null).
+2020-06-12 23:09:52.204 +08 [12204] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname) VALUES (
+	'root'::character varying)
+	 returning groupid;
+2020-06-12 23:09:55.020 +08 [12204] ERROR:  null value in column "supergroup" violates not-null constraint
+2020-06-12 23:09:55.020 +08 [12204] DETAIL:  Failing row contains (19, root, null).
+2020-06-12 23:09:55.020 +08 [12204] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname) VALUES (
+	'root'::character varying)
+	 returning groupid;
+2020-06-12 23:10:07.259 +08 [12204] ERROR:  null value in column "supergroup" violates not-null constraint
+2020-06-12 23:10:07.259 +08 [12204] DETAIL:  Failing row contains (20, root, null).
+2020-06-12 23:10:07.259 +08 [12204] STATEMENT:  INSERT INTO quickstart.groups (
+	groupname) VALUES (
+	'root'::character varying)
+	 returning groupid;
+2020-06-12 23:12:53.518 +08 [104924] ERROR:  syntax error at or near "root_group_check" at character 1
+2020-06-12 23:12:53.518 +08 [104924] STATEMENT:  root_group_check
+2020-06-12 23:13:13.978 +08 [104924] ERROR:  check constraint "root_group_check" is violated by some row
+2020-06-12 23:13:13.978 +08 [104924] STATEMENT:  ALTER TABLE quickstart.groups ADD CONSTRAINT root_group_check CHECK (groupname != 'root');
+2020-06-12 23:13:25.940 +08 [104924] ERROR:  check constraint "root_group_check" is violated by some row
+2020-06-12 23:13:25.940 +08 [104924] STATEMENT:  set search_path to quickstart;
+	ALTER TABLE quickstart.groups ADD CONSTRAINT root_group_check CHECK (groupname != 'root');
+2020-06-12 23:25:14.615 +08 [6636] LOG:  received fast shutdown request
+2020-06-12 23:25:14.635 +08 [96624] ERROR:  canceling statement due to user request
+2020-06-12 23:25:14.642 +08 [6636] LOG:  aborting any active transactions
+2020-06-12 23:25:14.651 +08 [104924] FATAL:  terminating connection due to administrator command
+2020-06-12 23:25:14.655 +08 [12204] FATAL:  terminating connection due to administrator command
+2020-06-12 23:25:14.668 +08 [97984] FATAL:  terminating connection due to administrator command
+2020-06-12 23:25:14.668 +08 [6636] LOG:  background worker "logical replication launcher" (PID 96624) exited with exit code 1
+2020-06-12 23:25:14.718 +08 [93084] LOG:  shutting down
+2020-06-12 23:25:14.800 +08 [6636] LOG:  database system is shut down
+2020-06-12 23:25:18.210 +08 [108144] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-12 23:25:18.221 +08 [108144] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-12 23:25:18.222 +08 [108144] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-12 23:25:18.585 +08 [99256] LOG:  database system was shut down at 2020-06-12 23:25:14 +08
+2020-06-12 23:25:18.854 +08 [106832] FATAL:  the database system is starting up
+2020-06-12 23:25:19.377 +08 [108144] LOG:  database system is ready to accept connections
+2020-06-12 23:26:46.530 +08 [108488] ERROR:  relation "product_id_seq" does not exist
+2020-06-12 23:26:46.530 +08 [108488] STATEMENT:  ALTER SEQUENCE product_id_seq RESTART WITH 1;
+2020-06-12 23:26:58.495 +08 [108488] ERROR:  relation "groups_groupid_seq" does not exist
+2020-06-12 23:26:58.495 +08 [108488] STATEMENT:  ALTER SEQUENCE groups_groupid_seq RESTART WITH 1;
+2020-06-12 23:27:49.889 +08 [109032] ERROR:  duplicate key value violates unique constraint "groups_pkey"
+2020-06-12 23:27:49.889 +08 [109032] DETAIL:  Key (groupid)=(1) already exists.
+2020-06-12 23:27:49.889 +08 [109032] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 23:34:38.193 +08 [110724] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 23:34:38.193 +08 [110724] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-12 23:34:38.193 +08 [110724] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 23:34:39.236 +08 [110780] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 23:34:39.236 +08 [110780] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-12 23:34:39.236 +08 [110780] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-12 23:36:38.464 +08 [111408] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-12 23:36:38.464 +08 [111408] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-12 23:36:38.464 +08 [111408] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:05:34.525 +08 [108144] LOG:  received fast shutdown request
+2020-06-13 00:05:34.547 +08 [92936] ERROR:  canceling statement due to user request
+2020-06-13 00:05:34.592 +08 [108144] LOG:  aborting any active transactions
+2020-06-13 00:05:34.630 +08 [108488] FATAL:  terminating connection due to administrator command
+2020-06-13 00:05:34.691 +08 [107840] FATAL:  terminating connection due to administrator command
+2020-06-13 00:05:34.733 +08 [108496] FATAL:  terminating connection due to administrator command
+2020-06-13 00:05:34.780 +08 [108144] LOG:  background worker "logical replication launcher" (PID 92936) exited with exit code 1
+2020-06-13 00:05:34.806 +08 [95380] LOG:  shutting down
+2020-06-13 00:05:34.912 +08 [108144] LOG:  database system is shut down
+2020-06-13 00:05:39.468 +08 [107540] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 00:05:39.479 +08 [107540] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 00:05:39.481 +08 [107540] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 00:05:39.747 +08 [95272] LOG:  database system was shut down at 2020-06-13 00:05:34 +08
+2020-06-13 00:05:40.285 +08 [107540] LOG:  database system is ready to accept connections
+2020-06-13 00:05:42.401 +08 [119760] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:05:42.401 +08 [119760] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:05:42.401 +08 [119760] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:05:48.708 +08 [119760] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:05:48.708 +08 [119760] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:05:48.708 +08 [119760] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:07:40.871 +08 [107540] LOG:  received fast shutdown request
+2020-06-13 00:07:40.889 +08 [116196] ERROR:  canceling statement due to user request
+2020-06-13 00:07:40.895 +08 [107540] LOG:  aborting any active transactions
+2020-06-13 00:07:40.898 +08 [119020] FATAL:  terminating connection due to administrator command
+2020-06-13 00:07:40.943 +08 [107540] LOG:  background worker "logical replication launcher" (PID 116196) exited with exit code 1
+2020-06-13 00:07:40.993 +08 [108344] LOG:  shutting down
+2020-06-13 00:07:41.202 +08 [107540] LOG:  database system is shut down
+2020-06-13 00:07:45.255 +08 [119504] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 00:07:45.266 +08 [119504] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 00:07:45.268 +08 [119504] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 00:07:45.598 +08 [118272] LOG:  database system was shut down at 2020-06-13 00:07:41 +08
+2020-06-13 00:07:45.757 +08 [118680] FATAL:  the database system is starting up
+2020-06-13 00:07:46.389 +08 [119504] LOG:  database system is ready to accept connections
+2020-06-13 00:07:51.604 +08 [118992] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:07:51.604 +08 [118992] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:07:51.604 +08 [118992] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:10:02.986 +08 [119504] LOG:  received fast shutdown request
+2020-06-13 00:10:03.005 +08 [118096] ERROR:  canceling statement due to user request
+2020-06-13 00:10:03.012 +08 [119504] LOG:  aborting any active transactions
+2020-06-13 00:10:03.018 +08 [118492] FATAL:  terminating connection due to administrator command
+2020-06-13 00:10:03.026 +08 [119504] LOG:  background worker "logical replication launcher" (PID 118096) exited with exit code 1
+2020-06-13 00:10:03.068 +08 [116872] LOG:  shutting down
+2020-06-13 00:10:03.147 +08 [119504] LOG:  database system is shut down
+2020-06-13 00:10:15.936 +08 [119304] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 00:10:15.948 +08 [119304] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 00:10:15.949 +08 [119304] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 00:10:16.258 +08 [116900] LOG:  database system was shut down at 2020-06-13 00:10:03 +08
+2020-06-13 00:10:17.635 +08 [119304] LOG:  database system is ready to accept connections
+2020-06-13 00:10:20.838 +08 [120628] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:10:20.838 +08 [120628] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:10:20.838 +08 [120628] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:33:26.737 +08 [119304] LOG:  received fast shutdown request
+2020-06-13 00:33:26.758 +08 [120728] ERROR:  canceling statement due to user request
+2020-06-13 00:33:26.775 +08 [119304] LOG:  aborting any active transactions
+2020-06-13 00:33:26.801 +08 [119672] FATAL:  terminating connection due to administrator command
+2020-06-13 00:33:26.837 +08 [119304] LOG:  background worker "logical replication launcher" (PID 120728) exited with exit code 1
+2020-06-13 00:33:26.871 +08 [119768] LOG:  shutting down
+2020-06-13 00:33:26.952 +08 [119304] LOG:  database system is shut down
+2020-06-13 00:33:32.195 +08 [126652] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 00:33:32.208 +08 [126652] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 00:33:32.210 +08 [126652] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 00:33:32.588 +08 [126604] LOG:  database system was shut down at 2020-06-13 00:33:26 +08
+2020-06-13 00:33:34.020 +08 [126652] LOG:  database system is ready to accept connections
+2020-06-13 00:33:58.177 +08 [126956] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:33:58.177 +08 [126956] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:33:58.177 +08 [126956] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:34:07.479 +08 [126956] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:34:07.479 +08 [126956] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 00:34:07.479 +08 [126956] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:34:39.742 +08 [123308] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:34:39.742 +08 [123308] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 00:34:39.742 +08 [123308] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:34:53.628 +08 [126060] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:34:53.628 +08 [126060] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 00:34:53.628 +08 [126060] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:34:57.350 +08 [126060] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:34:57.350 +08 [126060] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 00:34:57.350 +08 [126060] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:35:06.338 +08 [125984] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:35:06.338 +08 [125984] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 00:35:06.338 +08 [125984] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:35:23.033 +08 [124836] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:35:23.033 +08 [124836] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:35:23.033 +08 [124836] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:35:41.419 +08 [122516] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:35:41.419 +08 [122516] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:35:41.419 +08 [122516] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:35:55.588 +08 [126360] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:35:55.588 +08 [126360] DETAIL:  Key (groupname)=(asdfg) already exists.
+2020-06-13 00:35:55.588 +08 [126360] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:36:05.749 +08 [122516] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 00:36:05.749 +08 [122516] DETAIL:  Key (groupname)=(asdfg) already exists.
+2020-06-13 00:36:05.749 +08 [122516] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:36:08.098 +08 [126360] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:36:08.098 +08 [126360] DETAIL:  Key (supergroup)=(3) is not present in table "groups".
+2020-06-13 00:36:08.098 +08 [126360] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:36:17.879 +08 [122516] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:36:17.879 +08 [122516] DETAIL:  Key (supergroup)=(5) is not present in table "groups".
+2020-06-13 00:36:17.879 +08 [122516] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:36:19.861 +08 [126360] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:36:19.861 +08 [126360] DETAIL:  Key (supergroup)=(5) is not present in table "groups".
+2020-06-13 00:36:19.861 +08 [126360] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:36:21.080 +08 [122516] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:36:21.080 +08 [122516] DETAIL:  Key (supergroup)=(4) is not present in table "groups".
+2020-06-13 00:36:21.080 +08 [122516] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:37:49.675 +08 [127044] ERROR:  relation "quickstart.user_view" does not exist at character 15
+2020-06-13 00:37:49.675 +08 [127044] STATEMENT:  SELECT * FROM quickstart.user_view ORDER BY username ASC LIMIT $1 OFFSET $2;
+2020-06-13 00:38:12.612 +08 [127408] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 00:38:12.612 +08 [127408] DETAIL:  Key (supergroup)=(2) is not present in table "groups".
+2020-06-13 00:38:12.612 +08 [127408] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 00:46:56.130 +08 [126652] LOG:  received fast shutdown request
+2020-06-13 00:46:56.162 +08 [126652] LOG:  aborting any active transactions
+2020-06-13 00:46:56.192 +08 [116560] FATAL:  terminating connection due to administrator command
+2020-06-13 00:46:56.262 +08 [126652] LOG:  background worker "logical replication launcher" (PID 120400) exited with exit code 1
+2020-06-13 00:46:56.299 +08 [126712] LOG:  shutting down
+2020-06-13 00:46:56.393 +08 [126652] LOG:  database system is shut down
+2020-06-13 00:46:57.003 +08 [129384] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 00:46:57.012 +08 [129384] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 00:46:57.013 +08 [129384] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 00:46:57.455 +08 [129880] LOG:  database system was shut down at 2020-06-13 00:46:56 +08
+2020-06-13 00:46:58.120 +08 [129384] LOG:  database system is ready to accept connections
+2020-06-13 01:03:17.864 +08 [129384] LOG:  received fast shutdown request
+2020-06-13 01:03:17.886 +08 [126424] ERROR:  canceling statement due to user request
+2020-06-13 01:03:17.908 +08 [129384] LOG:  aborting any active transactions
+2020-06-13 01:03:17.939 +08 [129964] FATAL:  terminating connection due to administrator command
+2020-06-13 01:03:17.950 +08 [129384] LOG:  background worker "logical replication launcher" (PID 126424) exited with exit code 1
+2020-06-13 01:03:17.993 +08 [129248] LOG:  shutting down
+2020-06-13 01:03:18.075 +08 [129384] LOG:  database system is shut down
+2020-06-13 01:03:23.493 +08 [126448] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:03:23.504 +08 [126448] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:03:23.505 +08 [126448] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:03:23.809 +08 [133648] LOG:  database system was shut down at 2020-06-13 01:03:18 +08
+2020-06-13 01:03:24.950 +08 [126448] LOG:  database system is ready to accept connections
+2020-06-13 01:04:48.757 +08 [126448] LOG:  received fast shutdown request
+2020-06-13 01:04:48.788 +08 [126448] LOG:  aborting any active transactions
+2020-06-13 01:04:48.844 +08 [132300] FATAL:  terminating connection due to administrator command
+2020-06-13 01:04:48.970 +08 [126448] LOG:  background worker "logical replication launcher" (PID 126332) exited with exit code 1
+2020-06-13 01:04:49.026 +08 [129480] LOG:  shutting down
+2020-06-13 01:04:49.124 +08 [126448] LOG:  database system is shut down
+2020-06-13 01:04:49.641 +08 [133884] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:04:49.653 +08 [133884] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:04:49.655 +08 [133884] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:04:50.125 +08 [132164] LOG:  database system was shut down at 2020-06-13 01:04:49 +08
+2020-06-13 01:04:50.854 +08 [133884] LOG:  database system is ready to accept connections
+2020-06-13 01:04:58.368 +08 [132168] ERROR:  table name "groups" specified more than once
+2020-06-13 01:04:58.368 +08 [132168] STATEMENT:  SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup", "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "group"."groupid" AS "group.groupid", "group"."groupname" AS "group.groupname", "group"."supergroup" AS "group.supergroup", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "groups"."supergroup" = "group"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."groupid" WHERE "groups"."groupname" = '31';
+2020-06-13 01:05:06.246 +08 [132168] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:06.246 +08 [132168] STATEMENT:  SELECT count(DISTINCT("groups"."groupid")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "groups"."supergroup" = "group"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."groupid";
+2020-06-13 01:05:06.250 +08 [132168] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:06.250 +08 [132168] STATEMENT:  SELECT "groups".*, "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "group"."groupid" AS "group.groupid", "group"."groupname" AS "group.groupname", "group"."supergroup" AS "group.supergroup", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup" FROM (SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "groups"."supergroup" = "group"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."groupid";
+2020-06-13 01:05:15.299 +08 [132168] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-13 01:05:15.327 +08 [133308] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-13 01:05:16.355 +08 [133884] LOG:  received fast shutdown request
+2020-06-13 01:05:16.373 +08 [133884] LOG:  aborting any active transactions
+2020-06-13 01:05:16.376 +08 [133124] FATAL:  terminating connection due to administrator command
+2020-06-13 01:05:16.498 +08 [133884] LOG:  background worker "logical replication launcher" (PID 132160) exited with exit code 1
+2020-06-13 01:05:16.559 +08 [134080] LOG:  shutting down
+2020-06-13 01:05:16.678 +08 [133884] LOG:  database system is shut down
+2020-06-13 01:05:17.133 +08 [135084] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:05:17.144 +08 [135084] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:05:17.146 +08 [135084] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:05:17.431 +08 [116040] LOG:  database system was shut down at 2020-06-13 01:05:16 +08
+2020-06-13 01:05:18.111 +08 [135084] LOG:  database system is ready to accept connections
+2020-06-13 01:05:22.247 +08 [133660] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:22.247 +08 [133660] STATEMENT:  SELECT count(DISTINCT("groups"."groupid")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "groups"."supergroup" = "group"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:22.256 +08 [133660] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:22.256 +08 [133660] STATEMENT:  SELECT "groups".*, "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "group"."groupid" AS "group.groupid", "group"."groupname" AS "group.groupname", "group"."supergroup" AS "group.supergroup", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup" FROM (SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "groups"."supergroup" = "group"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:29.116 +08 [133660] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-13 01:05:29.139 +08 [133872] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-13 01:05:30.015 +08 [135084] LOG:  received fast shutdown request
+2020-06-13 01:05:30.033 +08 [135084] LOG:  aborting any active transactions
+2020-06-13 01:05:30.116 +08 [135084] LOG:  background worker "logical replication launcher" (PID 126532) exited with exit code 1
+2020-06-13 01:05:30.173 +08 [133540] LOG:  shutting down
+2020-06-13 01:05:30.298 +08 [135084] LOG:  database system is shut down
+2020-06-13 01:05:31.300 +08 [134164] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:05:31.335 +08 [134164] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:05:31.337 +08 [134164] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:05:31.601 +08 [133372] LOG:  database system was shut down at 2020-06-13 01:05:30 +08
+2020-06-13 01:05:32.098 +08 [134164] LOG:  database system is ready to accept connections
+2020-06-13 01:05:32.720 +08 [128744] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:32.720 +08 [128744] STATEMENT:  SELECT count(DISTINCT("groups"."groupid")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:32.727 +08 [128744] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:32.727 +08 [128744] STATEMENT:  SELECT "groups".*, "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup" FROM (SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:33.943 +08 [128744] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:33.943 +08 [128744] STATEMENT:  SELECT "groups".*, "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup" FROM (SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:33.966 +08 [134456] ERROR:  table name "groups" specified more than once
+2020-06-13 01:05:33.966 +08 [134456] STATEMENT:  SELECT count(DISTINCT("groups"."groupid")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."supergroup";
+2020-06-13 01:05:56.417 +08 [134164] LOG:  received fast shutdown request
+2020-06-13 01:05:56.432 +08 [134164] LOG:  aborting any active transactions
+2020-06-13 01:05:56.436 +08 [133844] FATAL:  terminating connection due to administrator command
+2020-06-13 01:05:56.436 +08 [133844] STATEMENT:  /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Total",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Active",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Commits",
+	   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Rollbacks"
+	) t
+	UNION ALL
+	SELECT 'ti_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_inserted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Inserts",
+	   (SELECT sum(tup_updated) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Updates",
+	   (SELECT sum(tup_deleted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Deletes"
+	) t
+	UNION ALL
+	SELECT 'to_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_fetched) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Fetched",
+	   (SELECT sum(tup_returned) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Returned"
+	) t
+	UNION ALL
+	SELECT 'bio_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(blks_read) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Reads",
+	   (SELECT sum(blks_hit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Hits"
+	) t
+	
+2020-06-13 01:05:56.506 +08 [134164] LOG:  background worker "logical replication launcher" (PID 134512) exited with exit code 1
+2020-06-13 01:05:56.607 +08 [102780] LOG:  shutting down
+2020-06-13 01:05:56.669 +08 [134736] FATAL:  the database system is shutting down
+2020-06-13 01:05:57.583 +08 [134164] LOG:  database system is shut down
+2020-06-13 01:05:57.955 +08 [134308] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:05:57.969 +08 [134308] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:05:57.970 +08 [134308] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:05:58.427 +08 [133648] LOG:  database system was shut down at 2020-06-13 01:05:56 +08
+2020-06-13 01:05:58.440 +08 [134340] FATAL:  the database system is starting up
+2020-06-13 01:05:59.002 +08 [134308] LOG:  database system is ready to accept connections
+2020-06-13 01:06:00.223 +08 [134380] ERROR:  table name "groups" specified more than once
+2020-06-13 01:06:00.223 +08 [134380] STATEMENT:  SELECT count(DISTINCT("groups"."groupid")) AS "count" FROM "quickstart"."groups" AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."userid";
+2020-06-13 01:06:00.234 +08 [134380] ERROR:  column groups.userid does not exist at character 465
+2020-06-13 01:06:00.234 +08 [134380] STATEMENT:  SELECT "groups".*, "memberships"."userid" AS "memberships.userid", "memberships"."groupid" AS "memberships.groupid", "memberships"."roleid" AS "memberships.roleid", "memberships"."propagate" AS "memberships.propagate", "groups"."groupid" AS "groups.groupid", "groups"."groupname" AS "groups.groupname", "groups"."supergroup" AS "groups.supergroup", "groups"."userid" AS "groups.userid" FROM (SELECT "groups"."groupid", "groups"."groupname", "groups"."supergroup", "groups"."userid" FROM "quickstart"."groups" AS "groups" LIMIT 100 OFFSET 0) AS "groups" LEFT OUTER JOIN "quickstart"."memberships" AS "memberships" ON "groups"."groupid" = "memberships"."groupid" LEFT OUTER JOIN "quickstart"."groups" AS "groups" ON "groups"."groupid" = "groups"."userid";
+2020-06-13 01:06:16.585 +08 [134308] LOG:  received fast shutdown request
+2020-06-13 01:06:16.594 +08 [134308] LOG:  aborting any active transactions
+2020-06-13 01:06:16.596 +08 [133660] FATAL:  terminating connection due to administrator command
+2020-06-13 01:06:16.670 +08 [134308] LOG:  background worker "logical replication launcher" (PID 135064) exited with exit code 1
+2020-06-13 01:06:16.696 +08 [133456] LOG:  shutting down
+2020-06-13 01:06:16.821 +08 [134308] LOG:  database system is shut down
+2020-06-13 01:06:18.295 +08 [134680] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:06:18.349 +08 [134680] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:06:18.353 +08 [134680] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:06:19.126 +08 [129244] LOG:  database system was shut down at 2020-06-13 01:06:16 +08
+2020-06-13 01:06:20.178 +08 [134680] LOG:  database system is ready to accept connections
+2020-06-13 01:12:42.142 +08 [134680] LOG:  received fast shutdown request
+2020-06-13 01:12:42.167 +08 [134680] LOG:  aborting any active transactions
+2020-06-13 01:12:42.169 +08 [134552] FATAL:  terminating connection due to administrator command
+2020-06-13 01:12:42.216 +08 [134680] LOG:  background worker "logical replication launcher" (PID 133988) exited with exit code 1
+2020-06-13 01:12:42.248 +08 [133844] LOG:  shutting down
+2020-06-13 01:12:42.398 +08 [134680] LOG:  database system is shut down
+2020-06-13 01:12:43.380 +08 [134388] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:12:43.392 +08 [134388] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:12:43.393 +08 [134388] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:12:43.593 +08 [129100] LOG:  database system was shut down at 2020-06-13 01:12:42 +08
+2020-06-13 01:12:44.173 +08 [134388] LOG:  database system is ready to accept connections
+2020-06-13 01:14:51.019 +08 [136548] ERROR:  invalid input syntax for type integer: "sdf"
+2020-06-13 01:14:51.019 +08 [136548] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:14:56.876 +08 [136548] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 01:14:56.876 +08 [136548] DETAIL:  Key (supergroup)=(123) is not present in table "groups".
+2020-06-13 01:14:56.876 +08 [136548] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:15:11.365 +08 [135364] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 01:15:11.365 +08 [135364] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 01:15:11.365 +08 [135364] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:15:24.426 +08 [136468] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 01:15:24.426 +08 [136468] DETAIL:  Key (groupname)=(asdf) already exists.
+2020-06-13 01:15:24.426 +08 [136468] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:17:16.234 +08 [134388] LOG:  received fast shutdown request
+2020-06-13 01:17:16.264 +08 [134388] LOG:  aborting any active transactions
+2020-06-13 01:17:16.292 +08 [135196] FATAL:  terminating connection due to administrator command
+2020-06-13 01:17:16.420 +08 [134388] LOG:  background worker "logical replication launcher" (PID 135772) exited with exit code 1
+2020-06-13 01:17:16.518 +08 [134204] LOG:  shutting down
+2020-06-13 01:17:16.865 +08 [131260] FATAL:  the database system is shutting down
+2020-06-13 01:17:16.932 +08 [134388] LOG:  database system is shut down
+2020-06-13 01:17:17.729 +08 [136424] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:17:17.742 +08 [136424] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:17:17.744 +08 [136424] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:17:18.262 +08 [137140] LOG:  database system was shut down at 2020-06-13 01:17:16 +08
+2020-06-13 01:17:19.049 +08 [136424] LOG:  database system is ready to accept connections
+2020-06-13 01:18:28.909 +08 [105216] ERROR:  invalid input syntax for type date: "Invalid date"
+2020-06-13 01:18:28.909 +08 [105216] STATEMENT:  INSERT INTO "quickstart"."users" ("userid","username","password_hash","firstname","lastname","cellphone","email","date_of_birth","gender","nationality") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *;
+2020-06-13 01:18:54.473 +08 [136196] ERROR:  invalid input syntax for type boolean: ""
+2020-06-13 01:18:54.473 +08 [136196] STATEMENT:  INSERT INTO "quickstart"."users" ("userid","username","password_hash","firstname","lastname","cellphone","email","date_of_birth","gender","nationality") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *;
+2020-06-13 01:27:57.859 +08 [139576] ERROR:  relation "quickstart.user_view" does not exist at character 15
+2020-06-13 01:27:57.859 +08 [139576] STATEMENT:  SELECT * FROM quickstart.user_view ORDER BY username ASC LIMIT $1 OFFSET $2;
+2020-06-13 01:28:42.372 +08 [121180] ERROR:  relation "quickstart.user_view" does not exist at character 15
+2020-06-13 01:28:42.372 +08 [121180] STATEMENT:  SELECT * FROM quickstart.user_view ORDER BY username ASC LIMIT $1 OFFSET $2;
+2020-06-13 01:30:50.759 +08 [133520] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 01:30:50.759 +08 [133520] DETAIL:  Key (supergroup)=(35) is not present in table "groups".
+2020-06-13 01:30:50.759 +08 [133520] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:37:15.164 +08 [136424] LOG:  received fast shutdown request
+2020-06-13 01:37:15.190 +08 [136424] LOG:  aborting any active transactions
+2020-06-13 01:37:15.196 +08 [139076] FATAL:  terminating connection due to administrator command
+2020-06-13 01:37:15.214 +08 [131600] FATAL:  terminating connection due to administrator command
+2020-06-13 01:37:15.252 +08 [138640] FATAL:  terminating connection due to administrator command
+2020-06-13 01:37:15.256 +08 [131668] FATAL:  terminating connection due to administrator command
+2020-06-13 01:37:15.260 +08 [121788] FATAL:  terminating connection due to administrator command
+2020-06-13 01:37:15.324 +08 [136424] LOG:  background worker "logical replication launcher" (PID 94252) exited with exit code 1
+2020-06-13 01:37:15.357 +08 [136536] LOG:  shutting down
+2020-06-13 01:37:15.493 +08 [136424] LOG:  database system is shut down
+2020-06-13 01:37:16.415 +08 [141468] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-13 01:37:16.427 +08 [141468] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-13 01:37:16.429 +08 [141468] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-13 01:37:16.758 +08 [136556] LOG:  database system was shut down at 2020-06-13 01:37:15 +08
+2020-06-13 01:37:17.207 +08 [141468] LOG:  database system is ready to accept connections
+2020-06-13 01:41:40.962 +08 [142672] ERROR:  insert or update on table "groups" violates foreign key constraint "groups_fkey"
+2020-06-13 01:41:40.962 +08 [142672] DETAIL:  Key (supergroup)=(35) is not present in table "groups".
+2020-06-13 01:41:40.962 +08 [142672] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:42:08.045 +08 [142760] ERROR:  duplicate key value violates unique constraint "groups_ukey"
+2020-06-13 01:42:08.045 +08 [142760] DETAIL:  Key (groupname)=(root) already exists.
+2020-06-13 01:42:08.045 +08 [142760] STATEMENT:  INSERT INTO "quickstart"."groups" ("groupid","groupname","supergroup") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-13 01:44:32.656 +08 [141468] LOG:  received fast shutdown request
+2020-06-13 01:44:32.676 +08 [141976] ERROR:  canceling statement due to user request
+2020-06-13 01:44:32.679 +08 [141468] LOG:  aborting any active transactions
+2020-06-13 01:44:32.684 +08 [136168] FATAL:  terminating connection due to administrator command
+2020-06-13 01:44:32.713 +08 [141468] LOG:  background worker "logical replication launcher" (PID 141976) exited with exit code 1
+2020-06-13 01:44:32.765 +08 [141584] LOG:  shutting down
+2020-06-13 01:44:32.857 +08 [141468] LOG:  database system is shut down

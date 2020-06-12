@@ -15,17 +15,17 @@
     function showMsg(message) {
         document.getElementById("showMessage").innerHTML = message;
     }
-    
+
     function showError(responseText) {
         var errorReason = JSON.parse(responseText).message;
         showMsg(errorReason);
     }
-  
+
     // Performs an ajax call to delete group
     // Automatically refreshes all entries in #groupTable when done
     function deleteGroup(groupname) {
 		var xhttp = new XMLHttpRequest();
-		xhttp.onload = function() { 
+		xhttp.onload = function() {
             // Display Success/Failure message
             var success = this.status === 200;
             if (success) showMsg("Success");
@@ -36,7 +36,7 @@
 		xhttp.open('DELETE', '/api/groups/' + groupname);
 		xhttp.send();
     }
-    
+
     // Creates a button that when clicked, calls the deleteGroup() function
     function deleteGroupBtn(groupname) {
         groupname = "'" + groupname + "'";
@@ -46,33 +46,34 @@
 		code += '</button>';
 		return code;
 	}
-  
+
     // Refreshes all entries in #groupTable
 	function populateGroupTable() {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onload = function() {
             // Reset table innerHTML
             var table = document.getElementById("groupTable");
-            table.innerHTML = "<tr><th>Name</th><th>Parent</th><th></th></tr>";
+            table.innerHTML = "<tr><th>ID</th><th>Name</th><th>Parent</th><th></th></tr>";
             // Dynamically insert row
             var arrayOfRows = JSON.parse(this.responseText);
             arrayOfRows.forEach(rowEntry => {
                 var row = table.insertRow(-1);
+                row.insertCell(-1).innerHTML = rowEntry.groupid;
                 row.insertCell(-1).innerHTML = rowEntry.groupname;
-                row.insertCell(-1).innerHTML = rowEntry.supergroup;
+                row.insertCell(-1).innerHTML = rowEntry.group.groupname;
                 row.insertCell(-1).innerHTML = deleteGroupBtn(rowEntry.groupname);
             });
 		};
 		xhttp.open("GET", "/api/groups/", true);
 		xhttp.send();
 	}
-    
+
     // Perform an ajax call to add group
     // Automatically refreshes all entries in #groupTable when done
     function addGroup() {
         var groupname = document.getElementById("groupname").value;
         var supergroup = document.getElementById("supergroup").value;
-        
+
 		var xhttp = new XMLHttpRequest();
 		xhttp.onload = function() {
             // Display Success/Failure message
@@ -88,7 +89,7 @@
         var params = 'groupname=' + groupname + '&supergroup=' + supergroup;
 		xhttp.send(params);
     }
-	
+
   </script>
 
 </head>
@@ -108,21 +109,21 @@
       <div class="content">
 
         <div class="container-fluid">
-		  
+
           <p id="showMessage"></p>
-          
+
           <h2>Group</h2>
 		  <table id="groupTable">
 		  </table>
           <button onclick="populateGroupTable()">Refresh</button>
-          
+
 		  <h2>Add Group</h2	>
             <label for="groupname">Group Name:</label>
             <input type="text" id="groupname" name="groupname"><br>
             <label for="supergroup">Super Group:</label>
             <input type="text" id="supergroup" name="supergroup"><br>
             <button onclick="addGroup()">Submit</button>
-		  
+
         </div>
 
       </div>

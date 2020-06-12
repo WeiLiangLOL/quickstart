@@ -7,7 +7,12 @@ const { DataTypes } = require('sequelize');
  */
 function define(sequelize) {
     return sequelize.define('groups', {
-        groupname: { type: DataTypes.STRING, primaryKey: true },
+        groupid: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        groupname: { type: DataTypes.STRING, unique: true },
         supergroup: { type: DataTypes.STRING },
     });
 }

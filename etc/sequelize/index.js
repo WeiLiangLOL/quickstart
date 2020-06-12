@@ -45,33 +45,33 @@ function init() {
 }
 
 function reference() {
-    database.users = require('./models/users').define(database.sequelize);
-    database.groups = require('./models/groups').define(database.sequelize);
-    database.memberships = require('./models/memberships').define(
-        database.sequelize
-    );
-    database.privileges = require('./models/privileges').define(
-        database.sequelize
-    );
-    database.roles = require('./models/roles').define(database.sequelize);
+    database.users = defineModel('./models/users');
+    database.groups = defineModel('./models/groups');
+    database.memberships = defineModel('./models/memberships');
+    database.privileges = defineModel('./models/privileges');
+    database.roles = defineModel('./models/roles');
+}
+
+function defineModel(modelPath) {
+    return require(modelPath).define(database.sequelize);
 }
 
 function associate() {
-    database.users.hasOne(database.privileges, { foreignKey: 'username' });
-    database.privileges.belongsTo(database.users, { foreignKey: 'username' });
+    database.users.hasOne(database.privileges, { foreignKey: 'userid' });
+    database.privileges.belongsTo(database.users, { foreignKey: 'userid' });
 
-    database.users.hasMany(database.memberships, { foreignKey: 'username' });
-    database.memberships.belongsTo(database.users, { foreignKey: 'username' });
+    database.users.hasMany(database.memberships, { foreignKey: 'userid' });
+    database.memberships.belongsTo(database.users, { foreignKey: 'userid' });
 
-    database.groups.hasMany(database.memberships, { foreignKey: 'groupname' });
+    database.groups.hasMany(database.memberships, { foreignKey: 'groupid' });
     database.memberships.belongsTo(database.groups, {
-        foreignKey: 'groupname',
+        foreignKey: 'groupid',
     });
 
-    // TODO: group self reference for supergroup
+    database.groups.belongsTo(database.groups, { foreignKey: 'supergroup' });
 
-    database.roles.hasMany(database.memberships, { foreignKey: 'rolename' });
-    database.memberships.belongsTo(database.roles, { foreignKey: 'rolename' });
+    database.roles.hasMany(database.memberships, { foreignKey: 'roleid' });
+    database.memberships.belongsTo(database.roles, { foreignKey: 'roleid' });
 }
 
 module.exports = {

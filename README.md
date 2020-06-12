@@ -47,13 +47,17 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.3
+### Version 0.0.4
 ```
-+ Added new api call path
-  + Prevented default password display
-+ Added new test cases
-  + Improved test rendering
-+ Added model associations
++ Updated database for User_mgmt
+  + Added ID, autoincrement
+  + Added unique constraint
+  + Updated model, api and view accordingly
++ Fixed api sending two responses on error
++ Populated database for Data_mgmt
+  + Tables, relations, pkey, fkey, unique, class hierarchy, sequences
+  + With the necessary permissions for nodeuser
+  - Model and api not created
 ```
 
 The complete list is available [here](CHANGELOG.md).

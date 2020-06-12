@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
+### Version 0.0.3
+```
++ Added new api call path
+  + Prevented default password display
++ Added new test cases
+  + Improved test rendering
++ Added model associations
+```
+
 ### Version 0.0.2
 ```
 + Major reorganisation of project structure
