@@ -45,11 +45,21 @@ function init() {
 }
 
 function reference() {
-    database.users = defineModel('./models/users');
-    database.groups = defineModel('./models/groups');
-    database.memberships = defineModel('./models/memberships');
-    database.privileges = defineModel('./models/privileges');
-    database.roles = defineModel('./models/roles');
+    database.users = defineModel('./models/user/users');
+    database.groups = defineModel('./models/user/groups');
+    database.roles = defineModel('./models/user/roles');
+    database.functions = defineModel('./models/user/functions');
+    database.privileges = defineModel('./models/user/privileges');
+    database.memberships = defineModel('./models/user/memberships');
+    database.rolefunctions = defineModel('./models/user/rolefunctions');
+
+    database.directories = defineModel('./models/data/directories');
+    database.data_files = defineModel('./models/data/data_files');
+    database.regular_files = defineModel('./models/data/regular_files');
+    database.user_file_acl = defineModel('./models/data/user_file_acl');
+    database.group_file_acl = defineModel('./models/data/group_file_acl');
+    database.user_dir_acl = defineModel('./models/data/user_dir_acl');
+    database.group_dir_acl = defineModel('./models/data/group_dir_acl');
 }
 
 function defineModel(modelPath) {
@@ -57,21 +67,42 @@ function defineModel(modelPath) {
 }
 
 function associate() {
-    database.users.hasOne(database.privileges, { foreignKey: 'userid' });
-    database.privileges.belongsTo(database.users, { foreignKey: 'userid' });
 
-    database.users.hasMany(database.memberships, { foreignKey: 'userid' });
-    database.memberships.belongsTo(database.users, { foreignKey: 'userid' });
+    var db = database;
 
-    database.groups.hasMany(database.memberships, { foreignKey: 'groupid' });
-    database.memberships.belongsTo(database.groups, {
-        foreignKey: 'groupid',
-    });
+    db.users.hasOne(db.privileges, { foreignKey: 'username' });
+    db.privileges.belongsTo(db.users, { foreignKey: 'username' });
 
-    database.groups.belongsTo(database.groups, { foreignKey: 'supergroup' });
+    db.users.hasMany(db.memberships, { foreignKey: 'username' });
+    db.memberships.belongsTo(db.users, { foreignKey: 'username' });
 
-    database.roles.hasMany(database.memberships, { foreignKey: 'roleid' });
-    database.memberships.belongsTo(database.roles, { foreignKey: 'roleid' });
+    db.groups.hasMany(db.memberships, { foreignKey: 'groupname' });
+    db.memberships.belongsTo(db.groups, { foreignKey: 'groupname' });
+
+    db.roles.hasMany(db.memberships, { foreignKey: 'rolename' });
+    db.memberships.belongsTo(db.roles, { foreignKey: 'rolename' });
+
+    db.roles.hasMany(db.rolefunctions, { foreignKey: 'rolename' });
+    db.rolefunctions.belongsTo(db.roles, { foreignKey: 'rolename' });
+
+    db.functions.hasMany(db.rolefunctions, { foreignKey: 'functionname' });
+    db.rolefunctions.belongsTo(db.functions, { foreignKey: 'functionname' });
+
+    db.directories.hasMany(db.data_files, { foreignKey: 'directoryid' });
+    db.directories.hasMany(db.regular_files, { foreignKey: 'directoryid' });
+    db.directories.hasMany(db.user_dir_acl, { foreignKey: 'directoryid' });
+    db.directories.hasMany(db.group_dir_acl, { foreignKey: 'directoryid' });
+
+    db.data_files.belongsTo(db.directories, { foreignKey: 'directoryid' });
+    db.data_files.belongsTo(db.users, { foreignKey: 'owner' });
+    db.data_files.hasMany(db.user_file_acl, { foreignKey: 'fileid' });
+    db.data_files.hasMany(db.group_file_acl, { foreignKey: 'fileid' });
+
+    db.regular_files.belongsTo(db.directories, { foreignKey: 'directoryid' });
+    db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
+    db.regular_files.hasMany(db.user_file_acl, { foreignKey: 'fileid' });
+    db.regular_files.hasMany(db.group_file_acl, { foreignKey: 'fileid' });
+
 }
 
 module.exports = {

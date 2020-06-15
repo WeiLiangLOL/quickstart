@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
+### Version 0.0.4
+```
++ Updated database for User_mgmt
+  + Added ID, autoincrement
+  + Added unique constraint
+  + Updated model, api and view accordingly
++ Fixed api sending two responses on error
++ Populated database for Data_mgmt
+  + Tables, relations, pkey, fkey, unique, class hierarchy, sequences
+  + With the necessary permissions for nodeuser
+  - Model and api not created
+```
+
 ### Version 0.0.3
 ```
 + Added new api call path

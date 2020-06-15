@@ -7,78 +7,40 @@
  */
 function test(server, timeout, next) {
     // Tests CRUD operations
-    describe('API Groups', function () {
+    describe('Group CRUD Endpoints', function () {
         // Set timeout for all test cases
         this.timeout(timeout);
 
-        // Tests CRUD operations
-        describe('CRUD Endpoints', () => {
-            // Create group
-            describe('POST /api/groups', function () {
-                it('should create a group', function (done) {
-                    server
-                        .post('/api/groups')
-                        .type('form') // Simulate form submission
-                        .send({
-                            groupname: 'arbitrarylonggroupname',
-                            supergroup: 'root',
-                        })
-                        .end((err, res) => {
-                            res.should.have.status(201);
-                            res.should.be.json;
-                            done();
-                        });
-                });
-            });
+        const groupname = 'arbitrarylonggroupname';
 
-            // Read all group
-            describe('GET /api/groups', function () {
-                it('should get all groups', function (done) {
-                    server.get('/api/groups').end((err, res) => {
-                        res.should.have.status(200);
-                        res.should.be.json;
-                        done();
-                    });
-                });
-            });
+        // Read all groups
+        it('Query all groups\tGET /api/groups', function (done) {
+            list()(server, done);
+        });
 
-            // Read group
-            describe('GET /api/group/:groupname', function () {
-                it('should get a group', function (done) {
-                    server
-                        .get('/api/groups/arbitrarylonggroupname')
-                        .end((err, res) => {
-                            res.should.have.status(200);
-                            res.should.be.json;
-                            done();
-                        });
-                });
-            });
+        // Create group
+        it('Create group\tPOST /api/groups', function (done) {
+            create(groupname)(server, done);
+        });
 
-            // Delete group
-            describe('DELETE /api/groups/:groupname', function () {
-                it('should delete a group', function (done) {
-                    server
-                        .delete('/api/groups/arbitrarylonggroupname')
-                        .end((err, res) => {
-                            res.should.have.status(200);
-                            res.should.be.json;
-                            done();
-                        });
-                });
-            });
+        // Read group
+        it('Query group\tGET /api/group/:id', function (done) {
+            read(groupname)(server, done);
+        });
+
+        // Delete group
+        it('Delete group\tDELETE /api/groups/:id', function (done) {
+            remove(groupname)(server, done);
         });
 
         // Tests bad operations
         describe('Fail Checks', () => {
-            // Bad method
-            describe('PUT /api/groups', () => {
-                it('should intentionally fail', (done) => {
-                    server.put('/api/groups').end((err, res) => {
-                        res.should.have.status(405);
-                        res.should.be.json;
-                        done();
-                    });
+            // Bad
+            it('PUT /api/groups', (done) => {
+                server.put('/api/groups').end((err, res) => {
+                    res.should.have.status(405);
+                    res.should.be.json;
+                    done();
                 });
             });
         });
@@ -87,6 +49,54 @@ function test(server, timeout, next) {
     });
 }
 
+function create(groupname) {
+    return function(server, done) {
+        server
+            .post('/api/groups')
+            .type('form') // Simulate form submission
+            .send({
+                groupname: groupname
+            })
+            .end((err, res) => {
+                res.should.have.status(201);
+                res.should.be.json;
+                done();
+            });
+        }
+}
+
+function read(groupname) {
+    return function(server, done) {
+       server
+           .get('/api/groups/' + groupname)
+           .end((err, res) => {
+               res.should.have.status(200);
+               res.should.be.json;
+               done();
+           });
+   }
+}
+
+function list() {
+    return read('');
+}
+
+function remove(groupname) {
+    return function(server, done) {
+        server
+            .delete('/api/groups/' + groupname)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.be.json;
+                done();
+            });
+    }
+}
+
 module.exports = {
     test: test,
+    create: create,
+    list: list,
+    read: read,
+    remove: remove
 };

@@ -12,14 +12,10 @@ const options = [
 ];
 
 /**
- * Starts postgres service on non-production environments
- *
- * @returns The child process
- * @throws Error if failed to start postgres
+ * Starts postgres service
  */
 function start() {
-    // Development environment, start postgres service
-    return execFile(
+    execFile(
         command,
         options.concat(['restart']), // Warning: Quick hack for npm run debug
         (error, stdout, stderr) => {

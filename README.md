@@ -47,17 +47,12 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.4
+### Version 0.0.5
 ```
-+ Updated database for User_mgmt
-  + Added ID, autoincrement
-  + Added unique constraint
-  + Updated model, api and view accordingly
-+ Fixed api sending two responses on error
-+ Populated database for Data_mgmt
-  + Tables, relations, pkey, fkey, unique, class hierarchy, sequences
-  + With the necessary permissions for nodeuser
-  - Model and api not created
++ Final Database revisions for user_mgmt and data_mgmt
++ Added data_mgmt models
++ user_mgmt api completed
+  - Lacking crud tests
 ```
 
 The complete list is available [here](CHANGELOG.md).

@@ -3,6 +3,8 @@ const debug = require('debug')('quickstart:gateway-users');
 
 const database = require('../../etc/sequelize').database;
 
+// TODO: To be deleted if unused
+
 // TODO: Decide on error message
 // Should we show the classname of error message or show a generic message?
 

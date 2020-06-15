@@ -2,8 +2,9 @@
 var express = require('express');
 var app = express();
 
-// Log all requests
+// Web server logger
 if ((process.env.NODE_ENV || '').trim() !== 'test') {
+    // Log all requests
     var logger = require('morgan');
     app.use(logger('dev'));
 }
@@ -17,14 +18,6 @@ app.use(express.static(path.join(__dirname, 'src/public'))); // Set dir of stati
 // Pre-parsing of requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// For non-production servers
-if ((process.env.NODE_ENV || '').trim() !== 'production') {
-    // Generate empty dirs (that are missing)
-    require('./bin/dir-sync').sync();
-    // Start postgres database
-    require('./bin/pgctl').start();
-}
 
 // Session and authentication
 var session = require('./etc/session');

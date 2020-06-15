@@ -2,6 +2,9 @@ const postgres = require('../bin/pgctl');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+// Start postgres
+require('../bin/pgctl').start();
+
 // Config environment for test
 require('dotenv').config();
 process.env.NODE_ENV = 'test';
@@ -20,6 +23,10 @@ const chain = [
     use('./app.test'),
     use('./routes/gateway/users.test'),
     use('./routes/gateway/groups.test'),
+    use('./routes/gateway/roles.test'),
+    use('./routes/gateway/functions.test'),
+    use('./routes/gateway/privileges.test'), // Not Done
+    use('./routes/gateway/users.test'), // Deletable
     done,
 ];
 

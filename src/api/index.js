@@ -9,14 +9,15 @@ const router = express.Router();
 
 const resources = [
     // Main entities
-    { path: '/users', module: require('./users') },
-    { path: '/groups', module: require('./groups') },
-    { path: '/memberships', module: require('./memberships') },
-    { path: '/privileges', module: require('./privileges') },
-    { path: '/roles', module: require('./roles') },
+    { path: '/users', module: require('./user/users') },
+    { path: '/groups', module: require('./user/groups') },
+    { path: '/roles', module: require('./user/roles') },
+    { path: '/functions', module: require('./user/functions') },
+    { path: '/privileges', module: require('./user/privileges') },
+    { path: '/memberships', module: require('./user/memberships') },
+    { path: '/rolefunctions', module: require('./user/rolefunctions') },
     // Others
     { path: '/views', module: require('./views') },
-    { path: '/test', module: require('./template') },
 ];
 
 for (let resource of resources) router.use(resource.path, resource.module);
