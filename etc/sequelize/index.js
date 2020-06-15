@@ -56,10 +56,14 @@ function reference() {
     database.directories = defineModel('./models/data/directories');
     database.data_files = defineModel('./models/data/data_files');
     database.regular_files = defineModel('./models/data/regular_files');
-    database.user_file_acl = defineModel('./models/data/user_file_acl');
-    database.group_file_acl = defineModel('./models/data/group_file_acl');
-    database.user_dir_acl = defineModel('./models/data/user_dir_acl');
-    database.group_dir_acl = defineModel('./models/data/group_dir_acl');
+
+    database.user_regfile_acls = defineModel('./models/data/user_regfile_acls');
+    database.user_datafile_acls = defineModel('./models/data/user_datafile_acls');
+    database.user_dir_acls = defineModel('./models/data/user_dir_acls');
+
+    database.group_regfile_acls = defineModel('./models/data/group_regfile_acls');
+    database.group_datafile_acls = defineModel('./models/data/group_datafile_acls');
+    database.group_dir_acls = defineModel('./models/data/group_dir_acls');
 }
 
 function defineModel(modelPath) {
@@ -90,18 +94,18 @@ function associate() {
 
     db.directories.hasMany(db.data_files, { foreignKey: 'directoryid' });
     db.directories.hasMany(db.regular_files, { foreignKey: 'directoryid' });
-    db.directories.hasMany(db.user_dir_acl, { foreignKey: 'directoryid' });
-    db.directories.hasMany(db.group_dir_acl, { foreignKey: 'directoryid' });
+    db.directories.hasMany(db.user_dir_acls, { foreignKey: 'directoryid' });
+    db.directories.hasMany(db.group_dir_acls, { foreignKey: 'directoryid' });
 
     db.data_files.belongsTo(db.directories, { foreignKey: 'directoryid' });
-    db.data_files.belongsTo(db.users, { foreignKey: 'owner' });
-    db.data_files.hasMany(db.user_file_acl, { foreignKey: 'fileid' });
-    db.data_files.hasMany(db.group_file_acl, { foreignKey: 'fileid' });
+    //db.data_files.belongsTo(db.users, { foreignKey: 'owner' });
+    db.data_files.hasMany(db.user_datafile_acls, { foreignKey: 'fileid' });
+    db.data_files.hasMany(db.group_datafile_acls, { foreignKey: 'fileid' });
 
     db.regular_files.belongsTo(db.directories, { foreignKey: 'directoryid' });
-    db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
-    db.regular_files.hasMany(db.user_file_acl, { foreignKey: 'fileid' });
-    db.regular_files.hasMany(db.group_file_acl, { foreignKey: 'fileid' });
+    //db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
+    db.regular_files.hasMany(db.user_regfile_acls, { foreignKey: 'fileid' });
+    db.regular_files.hasMany(db.group_regfile_acls, { foreignKey: 'fileid' });
 
 }
 

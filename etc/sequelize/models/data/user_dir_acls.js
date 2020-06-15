@@ -1,12 +1,12 @@
 const { DataTypes } = require('sequelize');
 
 /**
- * Type definition for user_file_acl
+ * Type definition for user_dir_acls
  *
  * @param {Sequelize} sequelize
  */
 function define(sequelize) {
-    return sequelize.define('user_file_acl', {
+    return sequelize.define('user_dir_acls', {
         permissionid: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -14,8 +14,9 @@ function define(sequelize) {
         },
         read_bit: { type: DataTypes.BOOLEAN },
         write_bit: { type: DataTypes.BOOLEAN },
-        fileid: { type: DataTypes.BIGINT, unique: 'ufacl_ukey' },
-        userid: { type: DataTypes.INTEGER, unique: 'ufacl_ukey' },
+        directoryid: { type: DataTypes.INTEGER, unique: 'udacl_ukey' },
+        propagate: { type: DataTypes.BOOLEAN },
+        username: { type: DataTypes.STRING, unique: 'udacl_ukey' },
     });
 }
 
