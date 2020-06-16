@@ -75,7 +75,7 @@
 		xhttp.onload = function() {
             // Display Success/Failure message
             var success = this.status === 201;
-            if (success) showMsg("Success");
+            if (success) { showMsg("Success"); }
             else showError(this.responseText);
             // Refresh table entries
             populateGroupTable();
@@ -114,10 +114,12 @@
 		  </table>
           <button onclick="populateGroupTable()">Refresh</button>
 
-		  <h2>Add Group</h2	>
-            <label for="groupname">Group Name:</label>
-            <input type="text" id="groupname" name="groupname"><br>
-            <button onclick="addGroup()">Submit</button>
+		  <h2 id='addGroup'>Add Group</h2>
+            <form action='#addGroup' onsubmit='addGroup()'>
+                <label for="groupname">Group Name:</label>
+                <input type="text" id="groupname"><br>
+                <input type='submit' value='Submit'>
+            </form>
 
         </div>
 

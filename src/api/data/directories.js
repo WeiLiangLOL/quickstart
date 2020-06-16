@@ -15,7 +15,7 @@ finale.initialize({
 const resource = finale.resource({
     model: database.directories,
     endpoints: ['/', '/:directoryid'],
-    associations: true,
+    associations: false,
 });
 
 router.use((req, res, next) => {

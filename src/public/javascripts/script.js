@@ -1,36 +1,24 @@
-var alias = {
-    '': 'index',
-};
 
-function isSubmenu(item) {
-    return item.parentElement.classList.contains('collapse');
+// Regex patterns for validating ltree datatype
+const isValidTopLevel = /^\w+$/;
+const isValidNonTopLevel = /^\w+\.[\.\w]*\w+$/;
+const basePattern = /\.?(\w+)$/;
+const dirPattern = /([\w\.]+)\.\w+$/;
+
+/**
+ * Generates a clickable link pointing to a javascript function
+ *
+ * @param {function} func - The function to be executed on clicked
+ * @param {array} paramArray - An array of parameters, will be passed to the function individually
+ * @param {string} name - The displayed text of the link
+ */
+function genLink(func, paramArray, name) {
+    var params = ``;
+    var i = 0;
+    if (i < paramArray.length) params = `'` + paramArray[i++] + `'`;
+    while (i < paramArray.length) {
+        params += `, '` + paramArray[i++] + `'`;
+    }
+
+    return '<a href="#" onclick="' + func + '(' + params + ')">' + name + '</a>';
 }
-
-$(document).ready(function () {
-    // Collapsible sidebar
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $(this).toggleClass('active');
-    });
-
-    // Highlight active page in SIDEBAR
-    var currLocation = window.location.pathname.slice(1);
-    if (alias[currLocation]) currLocation = alias[currLocation];
-    var activeMenu = document.getElementById(currLocation);
-    if (activeMenu !== null) {
-        if (isSubmenu(activeMenu)) {
-            $(activeMenu.parentElement).collapse('show');
-        } else {
-            activeMenu.setAttribute('class', 'active');
-        }
-    }
-
-    // Hightlight active page in NAVBAR
-    // Login page is incidentally handled by code in sidebar
-    // User page is simple enough to be hardcoded
-    // Only left the homepage (Home, Features, UserGuide and About pages)
-    if (currLocation !== 'login') {
-        var activeNav = document.getElementById('index_nav');
-        if (activeNav !== null) activeNav.setAttribute('class', 'active');
-    }
-});

@@ -58,17 +58,11 @@ function reference() {
     database.regular_files = defineModel('./models/data/regular_files');
 
     database.user_regfile_acls = defineModel('./models/data/user_regfile_acls');
-    database.user_datafile_acls = defineModel(
-        './models/data/user_datafile_acls'
-    );
+    database.user_datafile_acls = defineModel('./models/data/user_datafile_acls');
     database.user_dir_acls = defineModel('./models/data/user_dir_acls');
 
-    database.group_regfile_acls = defineModel(
-        './models/data/group_regfile_acls'
-    );
-    database.group_datafile_acls = defineModel(
-        './models/data/group_datafile_acls'
-    );
+    database.group_regfile_acls = defineModel('./models/data/group_regfile_acls');
+    database.group_datafile_acls = defineModel('./models/data/group_datafile_acls');
     database.group_dir_acls = defineModel('./models/data/group_dir_acls');
 }
 
@@ -77,6 +71,7 @@ function defineModel(modelPath) {
 }
 
 function associate() {
+
     var db = database;
 
     db.users.hasOne(db.privileges, { foreignKey: 'username' });
@@ -97,6 +92,9 @@ function associate() {
     db.functions.hasMany(db.rolefunctions, { foreignKey: 'functionname' });
     db.rolefunctions.belongsTo(db.functions, { foreignKey: 'functionname' });
 
+    db.groups.hasMany(db.directories, { foreignKey: 'groupname' });
+    db.directories.belongsTo(db.groups, { foreignKey: 'groupname' });
+
     db.directories.hasMany(db.data_files, { foreignKey: 'directoryid' });
     db.directories.hasMany(db.regular_files, { foreignKey: 'directoryid' });
     db.directories.hasMany(db.user_dir_acls, { foreignKey: 'directoryid' });
@@ -111,6 +109,7 @@ function associate() {
     //db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
     db.regular_files.hasMany(db.user_regfile_acls, { foreignKey: 'fileid' });
     db.regular_files.hasMany(db.group_regfile_acls, { foreignKey: 'fileid' });
+
 }
 
 module.exports = {
