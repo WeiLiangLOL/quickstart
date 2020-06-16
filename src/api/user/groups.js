@@ -73,7 +73,7 @@ resource.update.write.before((req, res, context) => {
     }
     // Invalid: Setting parentnode as a child of parent's childnode
     if (newname.search(oldname) !== -1) {
-        send400(res, ['Invalid operation']);
+        send400(res, ['Old name cannot be substring of new name']);
         context.stop();
         return;
     }
@@ -178,7 +178,7 @@ async function create(req, res, context) {
         // Create a group and the group's top level directory together as a single database transaction
         const result = await database.sequelize.transaction(async (t) => {
             const group = await database.groups.create(req.body, { transaction: t });
-            await group.createDirectory({ directoryname: basePattern.exec(group.groupname)[1] }, { transaction: t });
+            await group.createDirectory({ directoryname: 'root' }, { transaction: t });
             return group;
         });
         res.status(201).send(result.dataValues);

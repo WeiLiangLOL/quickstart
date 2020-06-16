@@ -12,12 +12,19 @@
   <%# css dependencies  %>
   <% include partials/dependencies/style %>
     <script>
+    var storedtimeout;
     function showMsg(message) {
         document.getElementById("showMessage").innerHTML = message;
+        document.getElementById('showMessage').style.display = 'inline';
+        clearTimeout(storedtimeout);
+        storedtimeout = setTimeout(
+            function() { document.getElementById('showMessage').style.display = 'none'; },
+            3000
+        );
     }
 
     function showError(responseText) {
-        var errorReason = JSON.parse(responseText).message;
+        var errorReason = JSON.parse(responseText).errors[0];
         showMsg(errorReason);
     }
 
@@ -87,8 +94,37 @@
 		xhttp.send(params);
     }
 
-  </script>
+    function renameGroup() {
+        var oldname = document.getElementById('oldname').value;
+        var newname = document.getElementById('newname').value;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {
+            // Display Success/Failure message
+            var success = this.status === 201;
+            if (success) { showMsg("Success");
+            } else if (this.status === 404) {
+                showMsg('404 Not found');
+            } else {
+                showError(this.responseText);
+            }
+            // Refresh table entries
+            populateGroupTable();
+        };
+		xhttp.open('PUT', '/api/groups/' + oldname);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhttp.send('groupname=' + newname);
+    }
 
+  </script>
+  <style>
+      .flexbox {
+          display: flex;
+      }
+      .flexbox > div {
+          margin: 0 10px 0 10px;
+          padding: 0 10px 0 10px;
+      }
+  </style>
 </head>
 
 <body onload="populateGroupTable()">
@@ -107,19 +143,30 @@
 
         <div class="container-fluid">
 
-          <p id="showMessage"></p>
+          <span>&nbsp</span><span id="showMessage" style='color: red;'></span>
 
-          <h2>Group</h2>
-		  <table id="groupTable">
-		  </table>
-          <button onclick="populateGroupTable()">Refresh</button>
-
-		  <h2 id='addGroup'>Add Group</h2>
-            <form action='#addGroup' onsubmit='addGroup()'>
-                <label for="groupname">Group Name:</label>
-                <input type="text" id="groupname"><br>
-                <input type='submit' value='Submit'>
-            </form>
+          <div class='flexbox'>
+              <div>
+                  <h2>Group</h2>
+                  <table id="groupTable">
+                  </table>
+                  <button onclick="populateGroupTable()">Refresh</button>
+              </div>
+              <div>
+      		      <h2>Add Group</h2>
+                  <label for="groupname">Group Name:</label>
+                  <input type="text" id="groupname"><br>
+                  <button onclick='addGroup()'>submit</button>
+              </div>
+              <div>
+                  <h2>Rename Group</h2>
+                  <label for="oldname">Group Name:</label>
+                  <input type="text" id="oldname"><br>
+                  <label for="newname">New Name:</label>
+                  <input type="text" id="newname"><br>
+                  <button onclick='renameGroup()'>submit</button>
+              </div>
+         </div>
 
         </div>
 
