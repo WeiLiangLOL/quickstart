@@ -14,7 +14,7 @@ function test(server, timeout, next) {
         const user = require('./users.test.js');
         const username = 'arbitrarylongusername';
 
-        before('Create user ' + username, function(done) {
+        before('Create user ' + username, function (done) {
             user.create(username)(server, done);
         });
 
@@ -54,7 +54,7 @@ function test(server, timeout, next) {
             });
         });
 
-        after('Remove user' + username, function(done) {
+        after('Remove user' + username, function (done) {
             user.remove(username)(server, done);
         });
 
@@ -64,32 +64,30 @@ function test(server, timeout, next) {
 
 // Not Done
 function create(groupname) {
-    return function(server, done) {
+    return function (server, done) {
         server
             .post('/api/groups')
             .type('form') // Simulate form submission
             .send({
-                groupname: groupname
+                groupname: groupname,
             })
             .end((err, res) => {
                 res.should.have.status(201);
                 res.should.be.json;
                 done();
             });
-        }
+    };
 }
 
 // Not Done
 function read(groupname) {
-    return function(server, done) {
-       server
-           .get('/api/groups/' + groupname)
-           .end((err, res) => {
-               res.should.have.status(200);
-               res.should.be.json;
-               done();
-           });
-   }
+    return function (server, done) {
+        server.get('/api/groups/' + groupname).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 function list() {
@@ -98,15 +96,13 @@ function list() {
 
 // Not Done
 function remove(groupname) {
-    return function(server, done) {
-        server
-            .delete('/api/groups/' + groupname)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+    return function (server, done) {
+        server.delete('/api/groups/' + groupname).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 module.exports = {
@@ -114,5 +110,5 @@ module.exports = {
     create: create,
     list: list,
     read: read,
-    remove: remove
+    remove: remove,
 };

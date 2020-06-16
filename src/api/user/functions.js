@@ -12,7 +12,6 @@ const database = require('../../../etc/sequelize').database;
  * Other POST, PUT and DELETE should not work
  */
 
-
 // Initialize finale
 finale.initialize({
     app: router,

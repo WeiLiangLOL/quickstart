@@ -1,3 +1,4 @@
+const debug = require('debug')('quickstart:api-error');
 const express = require('express');
 const router = express.Router();
 
@@ -48,7 +49,7 @@ router.use((err, req, res, next) => {
     // finale-rest.js has taken care of it
 
     // Print error to debug
-    require('debug')('quickstart:api-error')(err);
+    debug(err);
 });
 
 module.exports = router;

@@ -13,7 +13,6 @@ function test(server, timeout, next) {
 
         // Tests CRUD operations
         describe('CRUD Endpoints', () => {
-
             // Read all functions
             describe('GET /api/functions', function () {
                 it('should get all functions', function (done) {
@@ -28,16 +27,13 @@ function test(server, timeout, next) {
             // Read function
             describe('GET /api/functions/:functionname', function () {
                 it('should get a function', function (done) {
-                    server
-                        .get('/api/functions/Dummy')
-                        .end((err, res) => {
-                            res.should.have.status(200);
-                            res.should.be.json;
-                            done();
-                        });
+                    server.get('/api/functions/Dummy').end((err, res) => {
+                        res.should.have.status(200);
+                        res.should.be.json;
+                        done();
+                    });
                 });
             });
-
         });
 
         // Tests bad operations
@@ -49,7 +45,7 @@ function test(server, timeout, next) {
                         .post('/api/functions')
                         .type('form') // Simulate form submission
                         .send({
-                            functionname: 'arbitrarylongfunctionname'
+                            functionname: 'arbitrarylongfunctionname',
                         })
                         .end((err, res) => {
                             // Postgres user permission denied
@@ -62,14 +58,12 @@ function test(server, timeout, next) {
             // Delete function
             describe('DELETE /api/functions/:functionname', function () {
                 it('should not delete a function', function (done) {
-                    server
-                        .delete('/api/functions/Dummy')
-                        .end((err, res) => {
-                            // Postgres user permission denied
-                            res.should.have.status(500);
-                            res.should.be.json;
-                            done();
-                        });
+                    server.delete('/api/functions/Dummy').end((err, res) => {
+                        // Postgres user permission denied
+                        res.should.have.status(500);
+                        res.should.be.json;
+                        done();
+                    });
                 });
             });
         });

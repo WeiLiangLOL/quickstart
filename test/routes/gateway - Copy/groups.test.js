@@ -20,7 +20,7 @@ function test(server, timeout, next) {
                         .post('/api/groups')
                         .type('form') // Simulate form submission
                         .send({
-                            groupname: 'arbitrarylonggroupname'
+                            groupname: 'arbitrarylonggroupname',
                         })
                         .end((err, res) => {
                             res.should.have.status(201);

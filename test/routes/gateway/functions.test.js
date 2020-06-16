@@ -29,7 +29,7 @@ function test(server, timeout, next) {
                     .post('/api/functions')
                     .type('form') // Simulate form submission
                     .send({
-                        functionname: 'arbitrarylongfunctionname'
+                        functionname: 'arbitrarylongfunctionname',
                     })
                     .end((err, res) => {
                         // Postgres user permission denied
@@ -40,14 +40,12 @@ function test(server, timeout, next) {
             });
             // Delete function
             it('Delete function\tDELETE /api/functions/:id', function (done) {
-                server
-                    .delete('/api/functions/Dummy')
-                    .end((err, res) => {
-                        // Postgres user permission denied
-                        res.should.have.status(500);
-                        res.should.be.json;
-                        done();
-                    });
+                server.delete('/api/functions/Dummy').end((err, res) => {
+                    // Postgres user permission denied
+                    res.should.have.status(500);
+                    res.should.be.json;
+                    done();
+                });
             });
         });
 
@@ -56,15 +54,13 @@ function test(server, timeout, next) {
 }
 
 function read(functionname) {
-    return function(server, done) {
-        server
-            .get('/api/functions/' + functionname)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+    return function (server, done) {
+        server.get('/api/functions/' + functionname).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 function list() {
@@ -74,5 +70,5 @@ function list() {
 module.exports = {
     test: test,
     read: read,
-    list: list
+    list: list,
 };

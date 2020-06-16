@@ -50,31 +50,29 @@ function test(server, timeout, next) {
 }
 
 function create(groupname) {
-    return function(server, done) {
+    return function (server, done) {
         server
             .post('/api/groups')
             .type('form') // Simulate form submission
             .send({
-                groupname: groupname
+                groupname: groupname,
             })
             .end((err, res) => {
                 res.should.have.status(201);
                 res.should.be.json;
                 done();
             });
-        }
+    };
 }
 
 function read(groupname) {
-    return function(server, done) {
-       server
-           .get('/api/groups/' + groupname)
-           .end((err, res) => {
-               res.should.have.status(200);
-               res.should.be.json;
-               done();
-           });
-   }
+    return function (server, done) {
+        server.get('/api/groups/' + groupname).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 function list() {
@@ -82,15 +80,13 @@ function list() {
 }
 
 function remove(groupname) {
-    return function(server, done) {
-        server
-            .delete('/api/groups/' + groupname)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+    return function (server, done) {
+        server.delete('/api/groups/' + groupname).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 module.exports = {
@@ -98,5 +94,5 @@ module.exports = {
     create: create,
     list: list,
     read: read,
-    remove: remove
+    remove: remove,
 };

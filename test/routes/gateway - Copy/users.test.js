@@ -24,7 +24,7 @@ function test(server, timeout, next) {
                             password: 'password',
                             firstname: 'firstname',
                             lastname: 'lastname',
-                            date_of_birth: "2001-01-01",
+                            date_of_birth: '2001-01-01',
                             gender: '1',
                             allow_login: 'true',
                         })

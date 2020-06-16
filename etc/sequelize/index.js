@@ -67,7 +67,6 @@ function defineModel(modelPath) {
 }
 
 function associate() {
-
     var db = database;
 
     db.users.hasOne(db.privileges, { foreignKey: 'username' });
@@ -102,7 +101,6 @@ function associate() {
     db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
     db.regular_files.hasMany(db.user_file_acl, { foreignKey: 'fileid' });
     db.regular_files.hasMany(db.group_file_acl, { foreignKey: 'fileid' });
-
 }
 
 module.exports = {

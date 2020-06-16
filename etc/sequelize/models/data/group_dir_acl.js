@@ -10,7 +10,7 @@ function define(sequelize) {
         permissionid: {
             type: DataTypes.BIGINT,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         read_bit: { type: DataTypes.BOOLEAN },
         write_bit: { type: DataTypes.BOOLEAN },

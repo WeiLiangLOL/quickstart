@@ -38,31 +38,29 @@ function test(server, timeout, next) {
 }
 
 function create(rolename) {
-    return function(server, done) {
-            server
-                .post('/api/roles')
-                .type('form') // Simulate form submission
-                .send({
-                    rolename: rolename
-                })
-                .end((err, res) => {
-                    res.should.have.status(201);
-                    res.should.be.json;
-                    done();
-                });
-    }
+    return function (server, done) {
+        server
+            .post('/api/roles')
+            .type('form') // Simulate form submission
+            .send({
+                rolename: rolename,
+            })
+            .end((err, res) => {
+                res.should.have.status(201);
+                res.should.be.json;
+                done();
+            });
+    };
 }
 
 function read(rolename) {
-    return function(server, done) {
-            server
-                .get('/api/roles/' + rolename)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.should.be.json;
-                    done();
-                });
-    }
+    return function (server, done) {
+        server.get('/api/roles/' + rolename).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 function list() {
@@ -70,15 +68,13 @@ function list() {
 }
 
 function remove(rolename) {
-    return function(server, done) {
-        server
-            .delete('/api/roles/arbitrarylongrolename')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+    return function (server, done) {
+        server.delete('/api/roles/arbitrarylongrolename').end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 module.exports = {
@@ -86,5 +82,5 @@ module.exports = {
     create: create,
     read: read,
     list: list,
-    remove: remove
+    remove: remove,
 };

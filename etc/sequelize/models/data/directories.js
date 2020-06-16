@@ -10,11 +10,11 @@ function define(sequelize) {
         directoryid: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         superdirectory: { type: DataTypes.INTEGER, unique: 'directory_ukey' },
         groupid: { type: DataTypes.INTEGER },
-        directoryname: { type: DataTypes.STRING, unique: 'directory_ukey'}
+        directoryname: { type: DataTypes.STRING, unique: 'directory_ukey' },
     });
 }
 

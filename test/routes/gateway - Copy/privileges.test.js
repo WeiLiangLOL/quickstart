@@ -13,9 +13,8 @@ function test(server, timeout, next) {
 
         // Tests CRUD operations
         describe('CRUD Endpoints', () => {
-
-            before('Creating dependencies', function() {
-                it('Creating a user', function() {
+            before('Creating dependencies', function () {
+                it('Creating a user', function () {
                     server
                         .post('/api/users')
                         .type('form') // Simulate form submission
@@ -24,7 +23,7 @@ function test(server, timeout, next) {
                             password: 'password',
                             firstname: 'firstname',
                             lastname: 'lastname',
-                            date_of_birth: "2001-01-01",
+                            date_of_birth: '2001-01-01',
                             gender: '1',
                             allow_login: 'true',
                         })
@@ -47,7 +46,7 @@ function test(server, timeout, next) {
                             password: 'password',
                             firstname: 'firstname',
                             lastname: 'lastname',
-                            date_of_birth: "2001-01-01",
+                            date_of_birth: '2001-01-01',
                             gender: '1',
                             allow_login: 'true',
                         })

@@ -41,9 +41,11 @@ function config(passport) {
     // Deserialize is ran each time a user GET/POST while logged in
     // Failing to deserialize is equivalent to logging out
     passport.deserializeUser(function (username, done) {
-        database.users.findOne({ where: { username: username } }).then((user) => {
-            done(null, user);
-        });
+        database.users
+            .findOne({ where: { username: username } })
+            .then((user) => {
+                done(null, user);
+            });
     });
 }
 

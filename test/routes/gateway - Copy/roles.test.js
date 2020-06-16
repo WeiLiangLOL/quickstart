@@ -20,7 +20,7 @@ function test(server, timeout, next) {
                         .post('/api/roles')
                         .type('form') // Simulate form submission
                         .send({
-                            rolename: 'arbitrarylongrolename'
+                            rolename: 'arbitrarylongrolename',
                         })
                         .end((err, res) => {
                             res.should.have.status(201);

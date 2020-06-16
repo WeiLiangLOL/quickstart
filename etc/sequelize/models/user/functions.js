@@ -7,7 +7,7 @@ const { DataTypes } = require('sequelize');
  */
 function define(sequelize) {
     return sequelize.define('functions', {
-        functionname: { type: DataTypes.STRING, primaryKey: true }
+        functionname: { type: DataTypes.STRING, primaryKey: true },
     });
 }
 

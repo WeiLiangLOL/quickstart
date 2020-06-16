@@ -10,7 +10,7 @@ function define(sequelize) {
         fileid: {
             type: DataTypes.BIGINT,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         filename: { type: DataTypes.STRING, unique: 'data_files_ukey' },
         directoryid: { type: DataTypes.INTEGER, unique: 'data_files_ukey' },

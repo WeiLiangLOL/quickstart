@@ -9,7 +9,7 @@ function define(sequelize) {
     return sequelize.define('rolefunctions', {
         rolefunctionid: { type: DataTypes.INTEGER, primaryKey: true },
         rolename: { type: DataTypes.STRING, unique: 'rolefunctions_ukey' },
-        functionname: { type: DataTypes.STRING, unique: 'rolefunctions_ukey' }
+        functionname: { type: DataTypes.STRING, unique: 'rolefunctions_ukey' },
     });
 }
 

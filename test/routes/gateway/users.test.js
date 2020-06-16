@@ -1,5 +1,3 @@
-
-
 /**
  * Tests api users
  *
@@ -8,7 +6,6 @@
  * @param {Function} next callback reference when done
  */
 function test(server, timeout, next) {
-
     // Tests CRUD operations
     describe('User CRUD Endpoints', function () {
         // Set timeout for all test cases
@@ -53,7 +50,7 @@ function test(server, timeout, next) {
 }
 
 function create(username) {
-    return function(server, done) {
+    return function (server, done) {
         server
             .post('/api/users')
             .type('form') // Simulate form submission
@@ -62,7 +59,7 @@ function create(username) {
                 password: 'password',
                 firstname: 'firstname',
                 lastname: 'lastname',
-                date_of_birth: "2001-01-01",
+                date_of_birth: '2001-01-01',
                 gender: '1',
                 allow_login: 'true',
             })
@@ -71,35 +68,31 @@ function create(username) {
                 res.should.be.json;
                 done();
             });
-    }
+    };
 }
 
 function read(username) {
     return function (server, done) {
-        server
-            .get('/api/users/' + username)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+        server.get('/api/users/' + username).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 function list() {
     return read('');
 }
 
-function remove(username){
-    return function(server, done) {
-        server
-            .delete('/api/users/' + username)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.should.be.json;
-                done();
-            });
-    }
+function remove(username) {
+    return function (server, done) {
+        server.delete('/api/users/' + username).end((err, res) => {
+            res.should.have.status(200);
+            res.should.be.json;
+            done();
+        });
+    };
 }
 
 module.exports = {
@@ -107,5 +100,5 @@ module.exports = {
     create: create,
     list: list,
     read: read,
-    remove: remove
+    remove: remove,
 };
