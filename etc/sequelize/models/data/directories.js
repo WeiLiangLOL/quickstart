@@ -12,9 +12,8 @@ function define(sequelize) {
             primaryKey: true,
             autoIncrement: true,
         },
-        superdirectory: { type: DataTypes.INTEGER, unique: 'directory_ukey' },
-        groupid: { type: DataTypes.INTEGER },
         directoryname: { type: DataTypes.STRING, unique: 'directory_ukey' },
+        groupname: { type: DataTypes.STRING, unique: 'directory_ukey' },
     });
 }
 

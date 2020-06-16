@@ -1,21 +1,22 @@
 const { DataTypes } = require('sequelize');
 
 /**
- * Type definition for user_file_acl
+ * Type definition for group_datafile_acls
  *
  * @param {Sequelize} sequelize
  */
 function define(sequelize) {
-    return sequelize.define('user_file_acl', {
+    return sequelize.define('group_datafile_acls', {
         permissionid: {
             type: DataTypes.BIGINT,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
         read_bit: { type: DataTypes.BOOLEAN },
         write_bit: { type: DataTypes.BOOLEAN },
-        fileid: { type: DataTypes.BIGINT, unique: 'ufacl_ukey' },
-        userid: { type: DataTypes.INTEGER, unique: 'ufacl_ukey' },
+        fileid: { type: DataTypes.BIGINT, unique: 'gfacl_ukey' },
+        groupname: { type: DataTypes.STRING, unique: 'gfacl_ukey' },
+        rolename: { type: DataTypes.STRING, unique: 'gfacl_ukey' },
     });
 }
 

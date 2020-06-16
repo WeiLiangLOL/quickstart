@@ -9,7 +9,7 @@ const router = express.Router();
 // TODO: Authentication
 
 const resources = [
-    // Main entities
+    // Main entities (User)
     { path: '/users', module: require('./user/users') },
     { path: '/groups', module: require('./user/groups') },
     { path: '/roles', module: require('./user/roles') },
@@ -17,6 +17,19 @@ const resources = [
     { path: '/privileges', module: require('./user/privileges') },
     { path: '/memberships', module: require('./user/memberships') },
     { path: '/rolefunctions', module: require('./user/rolefunctions') },
+    // Main entities (Data)
+    { path: '/directories', module: require('./data/directories') },
+    { path: '/regular_files', module: require('./data/regular_files') },
+    { path: '/data_files', module: require('./data/data_files') },
+
+    { path: '/group_datafile_acls', module: require('./data/group_datafile_acls') },
+    { path: '/group_dir_acls', module: require('./data/group_dir_acls') },
+    { path: '/group_regfile_acls', module: require('./data/group_regfile_acls') },
+
+    { path: '/user_datafile_acls', module: require('./data/user_datafile_acls') },
+    { path: '/user_dir_acls', module: require('./data/user_dir_acls') },
+    { path: '/user_regfile_acls', module: require('./data/user_regfile_acls') },
+
     // Others
     { path: '/views', module: require('./views') },
 ];
