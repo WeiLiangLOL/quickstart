@@ -22,11 +22,20 @@ const resources = [
     { path: '/regular_files', module: require('./data/regular_files') },
     { path: '/data_files', module: require('./data/data_files') },
 
-    { path: '/group_datafile_acls', module: require('./data/group_datafile_acls') },
+    {
+        path: '/group_datafile_acls',
+        module: require('./data/group_datafile_acls'),
+    },
     { path: '/group_dir_acls', module: require('./data/group_dir_acls') },
-    { path: '/group_regfile_acls', module: require('./data/group_regfile_acls') },
+    {
+        path: '/group_regfile_acls',
+        module: require('./data/group_regfile_acls'),
+    },
 
-    { path: '/user_datafile_acls', module: require('./data/user_datafile_acls') },
+    {
+        path: '/user_datafile_acls',
+        module: require('./data/user_datafile_acls'),
+    },
     { path: '/user_dir_acls', module: require('./data/user_dir_acls') },
     { path: '/user_regfile_acls', module: require('./data/user_regfile_acls') },
 
