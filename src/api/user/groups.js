@@ -5,10 +5,36 @@ const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 
 const database = require('../../../etc/sequelize').database;
+
 const isValidTopLevel = /^\w+$/;
 const isValidNonTopLevel = /^\w+\.[\.\w]*\w+$/;
 const basePattern = /\.?(\w+)$/;
 const dirPattern = /([\w\.]+)\.\w+$/;
+
+/**
+ * Find all subgroups of a given groupname
+ *
+ * @params {string} id - The groupname to query
+ * @return {string[]} - Returns an array containing all subgroups
+ */
+router.get('/:id/subgroups', (req, res, next) => {
+    var groupname = req.params.id;
+    database.sequelize.query(
+        'SELECT groupname from groups where groupname <@ ? AND groupname != ?',
+        {
+            replacements: [groupname, groupname],
+            type: QueryTypes.SELECT
+        }
+    ).then((results) => {
+        res.send(results);
+    }).catch((error) => {
+        debug(error);
+        res.status(500).send({
+            message: 'internal error',
+            errors: [error.constructor.name]
+        });
+    });
+});
 
 // Initialize finale
 finale.initialize({
@@ -72,8 +98,9 @@ resource.update.write.before((req, res, context) => {
         return;
     }
     // Invalid: Setting parentnode as a child of parent's childnode
-    if (newname.search(oldname) !== -1) {
-        send400(res, ['Old name cannot be substring of new name']);
+    var str = ('' + oldname).replace('.', '\\.');
+    if (newname.search(str + '\\.') === 0) {
+        send400(res, ['Group cannot be child of itself']);
         context.stop();
         return;
     }
