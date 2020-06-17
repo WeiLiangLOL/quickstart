@@ -4851,3 +4851,73 @@
 2020-06-17 14:49:42.594 +08 [5868] LOG:  background worker "logical replication launcher" (PID 12468) exited with exit code 1
 2020-06-17 14:49:42.680 +08 [4748] LOG:  shutting down
 2020-06-17 14:49:42.829 +08 [5868] LOG:  database system is shut down
+2020-06-17 15:12:14.447 +08 [15540] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-17 15:12:14.461 +08 [15540] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-17 15:12:14.463 +08 [15540] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-17 15:12:14.909 +08 [2136] LOG:  database system was shut down at 2020-06-17 14:49:42 +08
+2020-06-17 15:12:15.640 +08 [15540] LOG:  database system is ready to accept connections
+2020-06-17 15:14:07.219 +08 [15540] LOG:  received fast shutdown request
+2020-06-17 15:14:07.233 +08 [15540] LOG:  aborting any active transactions
+2020-06-17 15:14:07.242 +08 [14948] ERROR:  canceling statement due to user request
+2020-06-17 15:14:07.265 +08 [15540] LOG:  background worker "logical replication launcher" (PID 14948) exited with exit code 1
+2020-06-17 15:14:07.288 +08 [8132] LOG:  shutting down
+2020-06-17 15:14:07.368 +08 [15540] LOG:  database system is shut down
+2020-06-17 15:14:14.149 +08 [1948] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-17 15:14:14.160 +08 [1948] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-17 15:14:14.161 +08 [1948] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-17 15:14:14.313 +08 [228] LOG:  database system was shut down at 2020-06-17 15:14:07 +08
+2020-06-17 15:14:14.885 +08 [1948] LOG:  database system is ready to accept connections
+2020-06-17 15:14:16.872 +08 [15288] ERROR:  permission denied for table functions
+2020-06-17 15:14:16.872 +08 [15288] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-06-17 15:14:16.885 +08 [15288] ERROR:  permission denied for table functions
+2020-06-17 15:14:16.885 +08 [15288] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-06-17 15:14:17.884 +08 [1948] LOG:  received fast shutdown request
+2020-06-17 15:14:17.893 +08 [1948] LOG:  aborting any active transactions
+2020-06-17 15:14:17.894 +08 [15288] FATAL:  terminating connection due to administrator command
+2020-06-17 15:14:17.910 +08 [8520] FATAL:  terminating connection due to administrator command
+2020-06-17 15:14:17.926 +08 [1948] LOG:  background worker "logical replication launcher" (PID 6716) exited with exit code 1
+2020-06-17 15:14:17.950 +08 [13940] LOG:  shutting down
+2020-06-17 15:14:18.026 +08 [1948] LOG:  database system is shut down
+2020-06-17 15:19:51.381 +08 [14868] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-17 15:19:51.393 +08 [14868] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-17 15:19:51.395 +08 [14868] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-17 15:19:51.748 +08 [14924] LOG:  database system was shut down at 2020-06-17 15:14:17 +08
+2020-06-17 15:19:52.203 +08 [14868] LOG:  database system is ready to accept connections
+2020-06-17 15:21:18.992 +08 [14868] LOG:  received fast shutdown request
+2020-06-17 15:21:19.018 +08 [11548] ERROR:  canceling statement due to user request
+2020-06-17 15:21:19.020 +08 [14868] LOG:  aborting any active transactions
+2020-06-17 15:21:19.050 +08 [14868] LOG:  background worker "logical replication launcher" (PID 11548) exited with exit code 1
+2020-06-17 15:21:19.071 +08 [10072] LOG:  shutting down
+2020-06-17 15:21:19.231 +08 [14868] LOG:  database system is shut down
+2020-06-17 15:21:22.747 +08 [15880] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-17 15:21:22.757 +08 [15880] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-17 15:21:22.758 +08 [15880] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-17 15:21:22.958 +08 [10064] LOG:  database system was shut down at 2020-06-17 15:21:19 +08
+2020-06-17 15:21:23.590 +08 [15880] LOG:  database system is ready to accept connections
+2020-06-17 15:21:25.706 +08 [14572] ERROR:  permission denied for table functions
+2020-06-17 15:21:25.706 +08 [14572] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-06-17 15:21:25.727 +08 [14572] ERROR:  permission denied for table functions
+2020-06-17 15:21:25.727 +08 [14572] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-06-17 15:21:26.637 +08 [15880] LOG:  received fast shutdown request
+2020-06-17 15:21:26.641 +08 [15880] LOG:  aborting any active transactions
+2020-06-17 15:21:26.643 +08 [14572] FATAL:  terminating connection due to administrator command
+2020-06-17 15:21:26.664 +08 [15516] FATAL:  terminating connection due to administrator command
+2020-06-17 15:21:26.680 +08 [15880] LOG:  background worker "logical replication launcher" (PID 15088) exited with exit code 1
+2020-06-17 15:21:26.723 +08 [15332] LOG:  shutting down
+2020-06-17 15:21:26.863 +08 [15880] LOG:  database system is shut down
+2020-06-17 15:24:08.996 +08 [9520] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-17 15:24:09.068 +08 [9520] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-17 15:24:09.069 +08 [9520] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-17 15:24:09.256 +08 [8988] LOG:  database system was shut down at 2020-06-17 15:21:26 +08
+2020-06-17 15:24:10.015 +08 [9520] LOG:  database system is ready to accept connections
+2020-06-17 15:24:12.037 +08 [12672] ERROR:  permission denied for table functions
+2020-06-17 15:24:12.037 +08 [12672] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-06-17 15:24:12.050 +08 [12672] ERROR:  permission denied for table functions
+2020-06-17 15:24:12.050 +08 [12672] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-06-17 15:24:12.888 +08 [9520] LOG:  received fast shutdown request
+2020-06-17 15:24:12.895 +08 [9520] LOG:  aborting any active transactions
+2020-06-17 15:24:12.896 +08 [12672] FATAL:  terminating connection due to administrator command
+2020-06-17 15:24:12.915 +08 [6088] FATAL:  terminating connection due to administrator command
+2020-06-17 15:24:12.919 +08 [9520] LOG:  background worker "logical replication launcher" (PID 14056) exited with exit code 1
+2020-06-17 15:24:12.957 +08 [7036] LOG:  shutting down
+2020-06-17 15:24:13.069 +08 [9520] LOG:  database system is shut down

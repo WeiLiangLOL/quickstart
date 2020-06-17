@@ -131,6 +131,7 @@ resource.update.write.before((req, res, context) => {
                 }
             );
             // Rename subgroups
+            // Code from: http://patshaughnessy.net/2017/12/14/manipulating-trees-using-sql-and-the-postgres-ltree-extension
             await database.sequelize.query(
                 'UPDATE groups SET groupname = ? || subpath(groupname, nlevel(?)) where groupname <@ ?;',
                 {
