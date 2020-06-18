@@ -8,9 +8,10 @@ const passport = require('passport');
  */
 function init(app) {
     // TODO: Additional reading required to secure session
+    // https://github.com/expressjs/session
     app.use(
         session({
-            secret: 'keyboard cat',
+            secret: 'j8f4k9d3^space.;[',
             resave: false,
             saveUninitialized: false,
             //cookie: { secure: true } enable for compliance
