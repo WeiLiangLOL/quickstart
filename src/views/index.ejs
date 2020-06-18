@@ -2,12 +2,10 @@
 <html>
 
 <head>
-  <%# html viewport %>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= app.name %></title>
 
-  <title><%= title %></title>
+  <%# meta  %>
+  <% include partials/dependencies/meta %>
 
   <%# css dependencies  %>
   <% include partials/dependencies/style %>
@@ -29,9 +27,9 @@
 
         <div class="container-fluid">
 
-          <h2>Welcome to quickstart!</h2>
-          <p>Quickstart is an athlete management system for sports institutions to store
-          and manage their athlete's data.</p>
+          <h2>Welcome to <%= app.name %>!</h2>
+          <p><%= app.name %> is an athlete management system for sports institutions to store
+            and manage their athlete's data.</p>
 
           <div class="line"></div>
 

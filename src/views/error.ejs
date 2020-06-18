@@ -2,19 +2,16 @@
 <html>
 
 <head>
-    <%# html viewport %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= app.name %> - Error</title>
 
-    <title>Error</title>
+    <%# meta  %>
+    <% include partials/dependencies/meta %>
 
     <%# css dependencies  %>
     <% include partials/dependencies/style %>
 </head>
 
 <body>
-
     <div class="wrapper">
         <div id="content">
             <h1><%= message %></h1>

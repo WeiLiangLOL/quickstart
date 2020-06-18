@@ -13,6 +13,7 @@ router.use(function (req, res, next) {
 
 // Announcement
 router.get('/announcement', function (req, res, next) {
+    res.locals.app.theme = 'dark';
     res.render('user/announcement', {
         title: 'announcement',
         username: req.user.username,

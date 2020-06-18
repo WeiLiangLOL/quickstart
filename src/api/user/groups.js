@@ -19,21 +19,24 @@ const dirPattern = /([\w\.]+)\.\w+$/;
  */
 router.get('/:id/subgroups', (req, res, next) => {
     var groupname = req.params.id;
-    database.sequelize.query(
-        'SELECT groupname from groups where groupname <@ ? AND groupname != ?',
-        {
-            replacements: [groupname, groupname],
-            type: QueryTypes.SELECT
-        }
-    ).then((results) => {
-        res.send(results);
-    }).catch((error) => {
-        debug(error);
-        res.status(500).send({
-            message: 'internal error',
-            errors: [error.constructor.name]
+    database.sequelize
+        .query(
+            'SELECT groupname from groups where groupname <@ ? AND groupname != ?',
+            {
+                replacements: [groupname, groupname],
+                type: QueryTypes.SELECT,
+            }
+        )
+        .then((results) => {
+            res.send(results);
+        })
+        .catch((error) => {
+            debug(error);
+            res.status(500).send({
+                message: 'internal error',
+                errors: [error.constructor.name],
+            });
         });
-    });
 });
 
 // Initialize finale
@@ -57,7 +60,7 @@ function send400(res, error) {
     debug(error);
     res.status(400).send({
         message: 'bad request',
-        errors: error
+        errors: error,
     });
 }
 
@@ -91,7 +94,10 @@ resource.update.write.before((req, res, context) => {
         return;
     }
     // Check rename is valid
-    if (!isValidNonTopLevel.test(oldname) || !isValidNonTopLevel.test(newname)) {
+    if (
+        !isValidNonTopLevel.test(oldname) ||
+        !isValidNonTopLevel.test(newname)
+    ) {
         // Invalid ltree rename
         send400(res, ['Invalid groupname']);
         context.stop();
@@ -105,53 +111,61 @@ resource.update.write.before((req, res, context) => {
         return;
     }
     // First check newname is child of an existing group
-    database.groups.findOne({
-        where: { groupname: dirPattern.exec(newname)[1] }
-    }).then((result) => {
-        // Not a child of existing group
-        if (!result) {
-            send400(res, ['New groupname must extend an existing group']);
-            context.stop();
-            return;
-        }
-
-        // All checks passed
-
-        // Sequelize does not allow changing of primarykey So we will do it ourself
-        // 1. Change the Groupname
-        // 2. Propagate the change to subgroups
-        database.sequelize.transaction(async (t) => {
-            // Rename group
-            await database.sequelize.query(
-                'UPDATE groups SET groupname = ? where groupname = ?',
-                {
-                    replacements: [newname, oldname],
-                    type: QueryTypes.UPDATE,
-                    transaction: t
-                }
-            );
-            // Rename subgroups
-            await database.sequelize.query(
-                'UPDATE groups SET groupname = ? || subpath(groupname, nlevel(?)) where groupname <@ ?;',
-                {
-                    replacements: [newname, oldname, oldname],
-                    type: QueryTypes.UPDATE,
-                    transaction: t
-                }
-            );
-        }).then(() => {
-            res.status(201).send({ message: newname });
-            context.stop();
-        }).catch((error) => {
-            if (error.constructor.name === 'UniqueConstraintError'){
-                send400(res, ['Groupname has been taken']);
-            } else {
-                debug(error);
-                res.status(500).send({ message: 'internal error', errors: [error.constructor.name]});
+    database.groups
+        .findOne({
+            where: { groupname: dirPattern.exec(newname)[1] },
+        })
+        .then((result) => {
+            // Not a child of existing group
+            if (!result) {
+                send400(res, ['New groupname must extend an existing group']);
+                context.stop();
+                return;
             }
-            context.stop();
+
+            // All checks passed
+
+            // Sequelize does not allow changing of primarykey So we will do it ourself
+            // 1. Change the Groupname
+            // 2. Propagate the change to subgroups
+            database.sequelize
+                .transaction(async (t) => {
+                    // Rename group
+                    await database.sequelize.query(
+                        'UPDATE groups SET groupname = ? where groupname = ?',
+                        {
+                            replacements: [newname, oldname],
+                            type: QueryTypes.UPDATE,
+                            transaction: t,
+                        }
+                    );
+                    // Rename subgroups
+                    await database.sequelize.query(
+                        'UPDATE groups SET groupname = ? || subpath(groupname, nlevel(?)) where groupname <@ ?;',
+                        {
+                            replacements: [newname, oldname, oldname],
+                            type: QueryTypes.UPDATE,
+                            transaction: t,
+                        }
+                    );
+                })
+                .then(() => {
+                    res.status(201).send({ message: newname });
+                    context.stop();
+                })
+                .catch((error) => {
+                    if (error.constructor.name === 'UniqueConstraintError') {
+                        send400(res, ['Groupname has been taken']);
+                    } else {
+                        debug(error);
+                        res.status(500).send({
+                            message: 'internal error',
+                            errors: [error.constructor.name],
+                        });
+                    }
+                    context.stop();
+                });
         });
-    });
 });
 
 /**
@@ -161,7 +175,6 @@ resource.update.write.before((req, res, context) => {
  * Does not allow creating duplicates, hence is idempotent
  */
 resource.create.write.before((req, res, context) => {
-
     // Validate input before creating group
     // 1. Cannot create top level groups
     // 2. Groupname must be a valid ltree path
@@ -180,20 +193,22 @@ resource.create.write.before((req, res, context) => {
         return;
     }
     // Check that group must be a child of an existing group
-    database.groups.findOne({
-        where: { groupname: dirPattern.exec(groupname)[1] }
-    }).then((result) => {
-        // Not a child of existing group
-        if (!result) {
-            send400(res, ['New group must extend an existing group']);
-            context.stop();
-            return;
-        }
+    database.groups
+        .findOne({
+            where: { groupname: dirPattern.exec(groupname)[1] },
+        })
+        .then((result) => {
+            // Not a child of existing group
+            if (!result) {
+                send400(res, ['New group must extend an existing group']);
+                context.stop();
+                return;
+            }
 
-        // All checks passed
-        // Create group and top level file directory
-        create(req, res, context);
-    });
+            // All checks passed
+            // Create group and top level file directory
+            create(req, res, context);
+        });
 });
 
 /**
@@ -204,17 +219,25 @@ async function create(req, res, context) {
     try {
         // Create a group and the group's top level directory together as a single database transaction
         const result = await database.sequelize.transaction(async (t) => {
-            const group = await database.groups.create(req.body, { transaction: t });
-            await group.createDirectory({ directoryname: 'root' }, { transaction: t });
+            const group = await database.groups.create(req.body, {
+                transaction: t,
+            });
+            await group.createDirectory(
+                { directoryname: 'root' },
+                { transaction: t }
+            );
             return group;
         });
         res.status(201).send(result.dataValues);
     } catch (error) {
-        if (error.constructor.name === 'UniqueConstraintError'){
+        if (error.constructor.name === 'UniqueConstraintError') {
             send400(res, ['Groupname has been taken']);
         } else {
             debug(error);
-            res.status(500).send({ message: 'internal error', errors: [error.constructor.name]});
+            res.status(500).send({
+                message: 'internal error',
+                errors: [error.constructor.name],
+            });
         }
     }
     context.stop();
@@ -225,7 +248,6 @@ async function create(req, res, context) {
  * Operation fails if there exists one file owned by group (by db constraint)
  */
 resource.delete.write.before((req, res, context) => {
-
     // Validate input before performing delete
     // 1. Cannot delete top level group
     // 2. Groupname must be a valid ltree path
@@ -244,23 +266,24 @@ resource.delete.write.before((req, res, context) => {
         return;
     }
     // Cannot delete group that has children
-    database.sequelize.query(
-        'select true from groups where groupname <@ ? and groupname != ? limit 1',
-        { replacements: [groupname, groupname], type: QueryTypes.SELECT }
-    ).then((result) => {
-        // Has children
-        if (result.length > 0) {
-            send400(res, ['Cannot delete group that has children']);
-            context.stop();
-            return;
-        }
+    database.sequelize
+        .query(
+            'select true from groups where groupname <@ ? and groupname != ? limit 1',
+            { replacements: [groupname, groupname], type: QueryTypes.SELECT }
+        )
+        .then((result) => {
+            // Has children
+            if (result.length > 0) {
+                send400(res, ['Cannot delete group that has children']);
+                context.stop();
+                return;
+            }
 
-        // All checks passed, Safe to delete
-        // Database foreignkey constraints will take care of deleting
-        // all directories associated with this group
-        context.continue(); // Leave it to finale
-    });
-
+            // All checks passed, Safe to delete
+            // Database foreignkey constraints will take care of deleting
+            // all directories associated with this group
+            context.continue(); // Leave it to finale
+        });
 });
 
 router.use((req, res, next) => {

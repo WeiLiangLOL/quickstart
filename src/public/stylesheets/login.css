@@ -112,46 +112,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* WEILIANG'S CSS */
-
-.spanning-title {
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.spanning-title h1 {
-    padding-right: 22px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 38px;
-}
-.spanning-title h1 a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.logo-badge {
-    position: absolute;
-    top: 6px;
-    right: 4px;
-    padding: 2px 9px;
-}
-.logo-badge.blue {
-    background-color: #9dc3e6;
-    right: 12px;
-}
-.logo-badge.orange {
-    background-color: #f4b183;
-    right: 8px;
-    top: 12px;
-}
-.logo-badge.green {
-    background-color: #a9d18e;
-    top: 18px;
-}
-
 #err-msg {
     color: #f4b183;
     margin: 0 0 15px 0;
     font-weight: bold;
+}
+
+.spanning-title {
+    margin-bottom: 2rem;
 }

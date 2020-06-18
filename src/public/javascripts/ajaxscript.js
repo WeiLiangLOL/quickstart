@@ -1,8 +1,6 @@
-
-
 function listGroups(callback) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
+    xhttp.onload = function () {
         callback(JSON.parse(this.responseText));
     };
     xhttp.open('GET', '/api/groups/', true);
@@ -11,7 +9,9 @@ function listGroups(callback) {
 
 function createDirectory(groupname, callback) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onload = function() { callback(this); };
+    xhttp.onload = function () {
+        callback(this);
+    };
     xhttp.open('POST', '/api/directories/', true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     directoryname = basePattern.test(groupname)
@@ -23,9 +23,13 @@ function createDirectory(groupname, callback) {
 
 function readDirectory(groupname, callback) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
+    xhttp.onload = function () {
         callback(JSON.parse(this.responseText));
     };
-    xhttp.open('GET', '/api/directories/?groupname=' + groupname + '&directoryname=root', true);
+    xhttp.open(
+        'GET',
+        '/api/directories/?groupname=' + groupname + '&directoryname=root',
+        true
+    );
     xhttp.send();
 }
