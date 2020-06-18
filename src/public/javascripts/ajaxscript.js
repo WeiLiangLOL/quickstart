@@ -26,6 +26,6 @@ function readDirectory(groupname, callback) {
     xhttp.onload = function() {
         callback(JSON.parse(this.responseText));
     };
-    xhttp.open('GET', '/api/directories/?groupname=' + groupname + '&directoryname=root', true);
+    xhttp.open('GET', '/api/directories/?groupname=' + groupname, true);
     xhttp.send();
 }
