@@ -11,7 +11,7 @@ function test(server, timeout, next) {
         // Set timeout for all test cases
         this.timeout(timeout);
 
-        const groupname = 'arbitrarylonggroupname';
+        const groupname = 'root.arbitrarygroup';
 
         // Read all groups
         it('Query all groups\tGET /api/groups', function (done) {

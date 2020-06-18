@@ -4,19 +4,19 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'index', req: req });
+    res.render('index', { title: 'QuickStart - Home', req: req });
 });
 
 router.get('/features', function (req, res, next) {
-    res.render('features', { title: 'features', req: req });
+    res.render('features', { title: 'QuickStart - Features', req: req });
 });
 
 router.get('/userGuide', function (req, res, next) {
-    res.render('userGuide', { title: 'userGuide', req: req });
+    res.render('userGuide', { title: 'QuickStart - Guide', req: req });
 });
 
 router.get('/about', function (req, res, next) {
-    res.render('about', { title: 'about', req: req });
+    res.render('about', { title: 'QuickStart - About', req: req });
 });
 
 /* Login page (GET) */
@@ -25,7 +25,7 @@ router.get('/login', function (req, res, next) {
         // User is already logged in, dont show login page
         res.redirect('/user');
     } else {
-        res.render('login', { title: 'login', req: req });
+        res.render('login', { title: 'QuickStart - Login', req: req });
     }
 });
 

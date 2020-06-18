@@ -14,7 +14,7 @@ router.use(function (req, res, next) {
 // Announcement
 router.get('/announcement', function (req, res, next) {
     res.render('user/announcement', {
-        title: 'announcement',
+        title: 'QuickStart - Announcement',
         username: req.user.username,
     });
 });
@@ -22,7 +22,7 @@ router.get('/announcement', function (req, res, next) {
 // Dashboard
 router.get('/dashboard', function (req, res, next) {
     res.render('user/dashboard', {
-        title: 'dashboard',
+        title: 'QuickStart - Dashboard',
         username: req.user.username,
     });
 });
@@ -30,25 +30,25 @@ router.get('/dashboard', function (req, res, next) {
 // Form
 router.get('/distributedForm', function (req, res, next) {
     res.render('user/distributedForm', {
-        title: 'distributedForm',
+        title: 'QuickStart - Distributed Form',
         username: req.user.username,
     });
 });
 router.get('/adhocForm', function (req, res, next) {
     res.render('user/adhocForm', {
-        title: 'adhocForm',
+        title: 'QuickStart - Adhoc Form',
         username: req.user.username,
     });
 });
 router.get('/formHistory', function (req, res, next) {
     res.render('user/formHistory', {
-        title: 'formHistory',
+        title: 'QuickStart - Form History',
         username: req.user.username,
     });
 });
 router.get('/formManagement', function (req, res, next) {
     res.render('user/formManagement', {
-        title: 'formManagement',
+        title: 'QuickStart - Form Management',
         username: req.user.username,
     });
 });
@@ -56,33 +56,33 @@ router.get('/formManagement', function (req, res, next) {
 // User Management
 router.get('/group', function (req, res, next) {
     res.render('user/group', {
-        title: 'group',
+        title: 'QuickStart - Group Management',
         username: req.user.username,
     });
 });
 router.get('/user', function (req, res, next) {
     res.render('user/user', {
-        title: 'user',
+        title: 'QuickStart - User Management',
         username: req.user.username,
     });
 });
 
 // Data Management
-router.get('/storage', function (req, res, next) {
-    res.render('user/storage', {
-        title: 'storage',
+router.get('/files', function (req, res, next) {
+    res.render('user/files', {
+        title: 'QuickStart - Files',
         username: req.user.username,
     });
 });
 router.get('/analysis', function (req, res, next) {
     res.render('user/analysis', {
-        title: 'analysis',
+        title: 'QuickStart - Analysis',
         username: req.user.username,
     });
 });
-router.get('/viewMyData', function (req, res, next) {
-    res.render('user/viewMyData', {
-        title: 'viewMyData',
+router.get('/myData', function (req, res, next) {
+    res.render('user/myData', {
+        title: 'QuickStart - My Data',
         username: req.user.username,
     });
 });
@@ -90,7 +90,7 @@ router.get('/viewMyData', function (req, res, next) {
 // Remove when done
 router.get('/createuser', function (req, res, next) {
     res.render('user/createuser', {
-        title: 'createuser',
+        title: 'QuickStart - Create User',
         username: req.user.username,
     });
 });

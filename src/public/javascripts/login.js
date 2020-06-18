@@ -13,7 +13,12 @@ function getSearchParams() {
 }
 
 let params = getSearchParams();
+var msgTimeout;
+
 if (params.success == 'false') {
-    document.getElementById('err-msg').innerHTML =
-        'Invalid username or password.';
+    clearTimeout(msgTimeout);
+    document.getElementById('err-msg').style.display = 'block';
+    msgTimeout = setTimeout(() => {
+        document.getElementById('err-msg').style.display = 'none';
+    }, 3000);
 }
