@@ -5837,3 +5837,118 @@
 2020-06-18 23:46:37.714 +08 [18820] LOG:  background worker "logical replication launcher" (PID 20500) exited with exit code 1
 2020-06-18 23:46:37.753 +08 [20780] LOG:  shutting down
 2020-06-18 23:46:37.853 +08 [18820] LOG:  database system is shut down
+2020-06-19 02:13:15.202 +08 [10616] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 02:13:15.216 +08 [10616] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 02:13:15.218 +08 [10616] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 02:13:15.403 +08 [6048] LOG:  database system was shut down at 2020-06-18 23:46:37 +08
+2020-06-19 02:13:15.758 +08 [10616] LOG:  database system is ready to accept connections
+2020-06-19 06:04:12.305 +08 [10616] LOG:  received fast shutdown request
+2020-06-19 06:04:12.319 +08 [10616] LOG:  aborting any active transactions
+2020-06-19 06:04:12.326 +08 [11904] ERROR:  canceling statement due to user request
+2020-06-19 06:04:12.339 +08 [10616] LOG:  background worker "logical replication launcher" (PID 11904) exited with exit code 1
+2020-06-19 06:04:12.362 +08 [5160] LOG:  shutting down
+2020-06-19 06:04:12.407 +08 [10616] LOG:  database system is shut down
+2020-06-19 06:04:16.827 +08 [11488] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 06:04:16.838 +08 [11488] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 06:04:16.839 +08 [11488] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 06:04:16.998 +08 [9168] LOG:  database system was shut down at 2020-06-19 06:04:12 +08
+2020-06-19 06:04:17.312 +08 [11488] LOG:  database system is ready to accept connections
+2020-06-19 06:11:45.814 +08 [11488] LOG:  received fast shutdown request
+2020-06-19 06:11:45.835 +08 [8564] ERROR:  canceling statement due to user request
+2020-06-19 06:11:45.847 +08 [11488] LOG:  aborting any active transactions
+2020-06-19 06:11:45.888 +08 [11488] LOG:  background worker "logical replication launcher" (PID 8564) exited with exit code 1
+2020-06-19 06:11:45.908 +08 [6292] LOG:  shutting down
+2020-06-19 06:11:45.985 +08 [11488] LOG:  database system is shut down
+2020-06-19 06:14:43.254 +08 [3648] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 06:14:43.266 +08 [3648] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 06:14:43.267 +08 [3648] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 06:14:43.431 +08 [11192] LOG:  database system was shut down at 2020-06-19 06:11:45 +08
+2020-06-19 06:14:43.832 +08 [3648] LOG:  database system is ready to accept connections
+2020-06-19 06:16:05.521 +08 [3648] LOG:  received fast shutdown request
+2020-06-19 06:16:05.541 +08 [11756] ERROR:  canceling statement due to user request
+2020-06-19 06:16:05.552 +08 [3648] LOG:  aborting any active transactions
+2020-06-19 06:16:05.557 +08 [3648] LOG:  background worker "logical replication launcher" (PID 11756) exited with exit code 1
+2020-06-19 06:16:05.587 +08 [9192] LOG:  shutting down
+2020-06-19 06:16:05.626 +08 [3648] LOG:  database system is shut down
+2020-06-19 12:18:26.000 +08 [9612] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 12:18:26.013 +08 [9612] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 12:18:26.014 +08 [9612] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 12:18:26.168 +08 [9228] LOG:  database system was shut down at 2020-06-19 06:16:05 +08
+2020-06-19 12:18:26.424 +08 [9612] LOG:  database system is ready to accept connections
+2020-06-19 12:21:03.800 +08 [9612] LOG:  received fast shutdown request
+2020-06-19 12:21:03.818 +08 [9612] LOG:  aborting any active transactions
+2020-06-19 12:21:03.828 +08 [5824] ERROR:  canceling statement due to user request
+2020-06-19 12:21:03.828 +08 [10668] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 12:21:03.829 +08 [10668] FATAL:  terminating connection due to administrator command
+2020-06-19 12:21:03.830 +08 [10668] LOG:  could not send data to client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 12:21:03.845 +08 [9612] LOG:  background worker "logical replication launcher" (PID 5824) exited with exit code 1
+2020-06-19 12:21:03.869 +08 [2328] LOG:  shutting down
+2020-06-19 12:21:03.917 +08 [9612] LOG:  database system is shut down
+2020-06-19 19:07:20.428 +08 [1728] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 19:07:20.440 +08 [1728] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 19:07:20.441 +08 [1728] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 19:07:20.612 +08 [11916] LOG:  database system was shut down at 2020-06-19 12:21:03 +08
+2020-06-19 19:07:21.074 +08 [1728] LOG:  database system is ready to accept connections
+2020-06-19 23:07:22.332 +08 [11676] ERROR:  operator does not exist: ltree ~~ unknown at character 138
+2020-06-19 23:07:22.332 +08 [11676] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2020-06-19 23:07:22.332 +08 [11676] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE ("directories"."directoryname" LIKE '%%' OR "directories"."groupname" LIKE '%%') LIMIT 100 OFFSET 0;
+2020-06-19 23:07:22.332 +08 [9752] ERROR:  operator does not exist: ltree ~~ unknown at character 114
+2020-06-19 23:07:22.332 +08 [9752] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2020-06-19 23:07:22.332 +08 [9752] STATEMENT:  SELECT count(*) AS "count" FROM "quickstart"."directories" AS "directories" WHERE ("directories"."directoryname" LIKE '%%' OR "directories"."groupname" LIKE '%%');
+2020-06-19 23:08:20.104 +08 [12956] ERROR:  invalid input syntax for type integer: "lazy" at character 137
+2020-06-19 23:08:20.104 +08 [12956] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'lazy';
+2020-06-19 23:08:47.742 +08 [10028] ERROR:  invalid input syntax for type integer: "lazy" at character 137
+2020-06-19 23:08:47.742 +08 [10028] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'lazy';
+2020-06-19 23:35:22.495 +08 [1728] LOG:  received fast shutdown request
+2020-06-19 23:35:22.513 +08 [1728] LOG:  aborting any active transactions
+2020-06-19 23:35:22.519 +08 [7012] ERROR:  canceling statement due to user request
+2020-06-19 23:35:22.549 +08 [1728] LOG:  background worker "logical replication launcher" (PID 7012) exited with exit code 1
+2020-06-19 23:35:22.575 +08 [3108] LOG:  shutting down
+2020-06-19 23:35:22.651 +08 [1728] LOG:  database system is shut down
+2020-06-19 23:35:26.875 +08 [10200] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 23:35:26.885 +08 [10200] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 23:35:26.887 +08 [10200] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 23:35:27.044 +08 [12020] LOG:  database system was shut down at 2020-06-19 23:35:22 +08
+2020-06-19 23:35:27.377 +08 [10200] LOG:  database system is ready to accept connections
+2020-06-19 23:40:18.471 +08 [10200] LOG:  received fast shutdown request
+2020-06-19 23:40:18.478 +08 [10200] LOG:  aborting any active transactions
+2020-06-19 23:40:18.492 +08 [12316] ERROR:  canceling statement due to user request
+2020-06-19 23:40:18.503 +08 [5644] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 23:40:18.505 +08 [5644] FATAL:  terminating connection due to administrator command
+2020-06-19 23:40:18.506 +08 [5644] LOG:  could not send data to client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 23:40:18.508 +08 [1772] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 23:40:18.509 +08 [1772] FATAL:  terminating connection due to administrator command
+2020-06-19 23:40:18.510 +08 [1772] LOG:  could not send data to client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-19 23:40:18.521 +08 [10200] LOG:  background worker "logical replication launcher" (PID 12316) exited with exit code 1
+2020-06-19 23:40:18.553 +08 [8812] LOG:  shutting down
+2020-06-19 23:40:18.611 +08 [10200] LOG:  database system is shut down
+2020-06-19 23:40:20.898 +08 [2084] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 23:40:20.909 +08 [2084] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 23:40:20.911 +08 [2084] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 23:40:21.049 +08 [5852] LOG:  database system was shut down at 2020-06-19 23:40:18 +08
+2020-06-19 23:40:21.373 +08 [2084] LOG:  database system is ready to accept connections
+2020-06-19 23:41:54.788 +08 [2084] LOG:  received fast shutdown request
+2020-06-19 23:41:54.799 +08 [2084] LOG:  aborting any active transactions
+2020-06-19 23:41:54.817 +08 [10012] ERROR:  canceling statement due to user request
+2020-06-19 23:41:54.823 +08 [2084] LOG:  background worker "logical replication launcher" (PID 10012) exited with exit code 1
+2020-06-19 23:41:54.853 +08 [2100] LOG:  shutting down
+2020-06-19 23:41:54.922 +08 [2084] LOG:  database system is shut down
+2020-06-19 23:41:57.200 +08 [2488] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-19 23:41:57.211 +08 [2488] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-19 23:41:57.212 +08 [2488] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-19 23:41:57.360 +08 [5340] LOG:  database system was shut down at 2020-06-19 23:41:54 +08
+2020-06-19 23:41:57.728 +08 [2488] LOG:  database system is ready to accept connections
+2020-06-19 23:47:07.469 +08 [12020] ERROR:  invalid input syntax for type integer: "j1_1" at character 170
+2020-06-19 23:47:07.469 +08 [12020] STATEMENT:  SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children FROM directories AS dir, (SELECT directoryname, groupname FROM directories WHERE directoryid = 'j1_1') AS parent WHERE dir.groupname = parent.groupname AND dir.directoryname <@ parent.directoryname AND nlevel(dir.directoryname) = (nlevel(parent.directoryname) + 1) AND dir.directoryname != parent.directoryname;
+2020-06-20 00:19:35.642 +08 [2488] LOG:  received fast shutdown request
+2020-06-20 00:19:35.654 +08 [2488] LOG:  aborting any active transactions
+2020-06-20 00:19:35.661 +08 [8628] ERROR:  canceling statement due to user request
+2020-06-20 00:19:35.691 +08 [2488] LOG:  background worker "logical replication launcher" (PID 8628) exited with exit code 1
+2020-06-20 00:19:35.709 +08 [10036] LOG:  shutting down
+2020-06-20 00:19:35.761 +08 [2488] LOG:  database system is shut down

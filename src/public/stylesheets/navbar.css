@@ -1,0 +1,45 @@
+
+.navbar {
+    padding: 10px 5px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin: 0 0px 0px 2px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+    background: #fff;
+}
+
+/* Styling for menu links */
+.navbar .nav-item .nav-link {
+    transition: all 0.2s;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar .nav-item .nav-link:focus {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar .nav-item .nav-link:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+/* Auto dropdown menu */
+.navbar .dropdown-menu {
+    top: 95%;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown menu */
+.navbar .dropdown-menu {
+    min-width: initial;
+}
+

@@ -18,31 +18,11 @@ a:focus {
     transition: all 0.3s;
 }
 
-.navbar {
-    padding: 10px 5px;
-    background: rgb(255, 255, 255);
-    border: none;
-    border-radius: 0;
-    margin: 0 10px 30px 10px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-    background: #fff;
-}
-
 .line {
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
-}
-
-.capitalize {
-    text-transform: capitalize;
 }
 
 /* ---------------------------------------------------
@@ -107,16 +87,16 @@ a:focus {
 }
 
 #sidebar ul li.active > a,
-a[aria-expanded='true'] {
+#sidebar a[aria-expanded='true'] {
     color: #fff;
     background: #303030;
 }
 
-a[data-toggle='collapse'] {
+#sidebar a[data-toggle='collapse'] {
     position: relative;
 }
 
-.dropdown-toggle::after {
+#sidebar .dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
@@ -125,7 +105,7 @@ a[data-toggle='collapse'] {
     color: #3b3b3b;
 }
 
-ul ul a {
+#sidebar ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #303030;
@@ -164,7 +144,6 @@ a.link2:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
 }

@@ -26,10 +26,12 @@ $(document).ready(function () {
     }
 
     // Hightlight active page in NAVBAR
-    // Login page is incidentally handled by code in sidebar
-    // User page is simple enough to be hardcoded
-    // Only left the homepage (Home, Features, UserGuide and About pages)
-    if (currLocation !== 'login') {
+    currLocation = window.location.pathname.slice(1);
+    userPagePattern = /^user\//
+    if (userPagePattern.test(currLocation)) {
+        var activeNav = document.getElementById('user_nav');
+        if (activeNav !== null) activeNav.setAttribute('class', 'active');
+    } else {
         var activeNav = document.getElementById('index_nav');
         if (activeNav !== null) activeNav.setAttribute('class', 'active');
     }

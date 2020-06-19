@@ -22,7 +22,7 @@ router.get('/:id/children', (req, res, next) => {
     var parentid = req.params.id;
     database.sequelize
         .query(
-            'SELECT dir.directoryid, dir.directoryname, dir.groupname ' +
+            'SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children ' +
             'FROM directories AS dir, ' +
             '(SELECT directoryname, groupname FROM directories WHERE directoryid = ?) AS parent ' +
             'WHERE dir.groupname = parent.groupname ' + // Same group
@@ -198,7 +198,7 @@ resource.update.write.before((req, res, context) => {
                 return send400(res, ['Directory cannot be child of itself']);
             }
             // 4. New directory name must be child of existing directory
-            database.directories
+            return database.directories
                 .findOne({
                     where: {
                         directoryname: dirPattern.exec(newdirectoryname)[1],
@@ -247,6 +247,7 @@ resource.update.write.before((req, res, context) => {
                         directoryname: newdirectoryname,
                         groupname: newgroupname,
                     });
+                    return Promise.resolve();
                 });
         })
         .catch((error) => {
@@ -277,7 +278,7 @@ resource.delete.write.before((req, res, context) => {
                 return;
             }
             // Delete directory and all subdirectories
-            database.sequelize
+            return database.sequelize
                 .query(
                     'DELETE FROM directories WHERE groupname = ? AND directoryname <@ ?;',
                     {
@@ -289,15 +290,14 @@ resource.delete.write.before((req, res, context) => {
                         res.status(200).send({
                             message: metadata.rowCount + ' rows deleted',
                         });
-                    },
-                    (error) => {
-                        debug(error);
-                        res.status(500).send({
-                            message: 'internal error',
-                            errors: [error.name],
-                        });
-                    }
-                );
+                        return Promise.resolve();
+                    });
+        }).catch((error) => {
+            debug(error);
+            res.status(500).send({
+                message: 'internal error',
+                errors: [error.name],
+            });
         });
     context.stop();
 });

@@ -2,29 +2,26 @@
 <html>
 
 <head>
-  <%# html viewport %>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="/img/favicon.ico">
+  <title><%= app.name %> - Dashboard</title>
 
-  <title><%= title %></title>
+  <%# meta  %>
+  <% include ../partials/dependencies/meta %>
 
   <%# css dependencies  %>
-  <% include partials/dependencies/style %>
+  <% include ../partials/dependencies/style %>
 </head>
 
 <body>
 
   <div class="wrapper">
     <%# sidebar %>
-    <% include partials/sidebar %>
+    <% include ../partials/sidebar %>
 
     <%# page content  %>
     <div id="content">
 
       <%# navbar %>
-      <% include partials/navbar %>
+      <% include ../partials/navbar %>
 
       <div class="content">
 
@@ -39,7 +36,7 @@
   </div>
 
   <%# js dependencies  %>
-  <% include partials/dependencies/script %>
+  <% include ../partials/dependencies/script %>
 </body>
 
 </html>

@@ -28,6 +28,12 @@
     }
 }
 
+/* JIEXIANG'S CSS */
+
+.capitalize {
+    text-transform: capitalize;
+}
+
 /* WEILIANG'S CSS */
 
 .spanning-title {

@@ -318,6 +318,14 @@ resource.delete.write.before((req, res, context) => {
             // Database foreignkey constraints will take care of deleting
             // all directories associated with this group
             context.continue(); // Leave it to finale
+        })
+        .catch((error) => {
+            debug(error);
+            res.status(500).send({
+                message: 'internal error',
+                errors: [error.constructor.name],
+            });
+            context.stop();
         });
 });
 
