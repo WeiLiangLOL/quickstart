@@ -5952,3 +5952,47 @@
 2020-06-20 00:19:35.691 +08 [2488] LOG:  background worker "logical replication launcher" (PID 8628) exited with exit code 1
 2020-06-20 00:19:35.709 +08 [10036] LOG:  shutting down
 2020-06-20 00:19:35.761 +08 [2488] LOG:  database system is shut down
+2020-06-20 00:51:26.063 +08 [3768] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-20 00:51:26.079 +08 [3768] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-20 00:51:26.080 +08 [3768] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-20 00:51:26.268 +08 [11004] LOG:  database system was shut down at 2020-06-20 00:19:35 +08
+2020-06-20 00:51:26.675 +08 [3768] LOG:  database system is ready to accept connections
+2020-06-20 00:54:14.459 +08 [5476] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 00:54:14.459 +08 [5476] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 00:54:21.651 +08 [5476] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 00:54:21.651 +08 [5476] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 00:56:57.696 +08 [9664] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 00:56:57.696 +08 [9664] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 00:58:53.096 +08 [9820] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 00:58:53.096 +08 [9820] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 00:59:27.130 +08 [3624] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 00:59:27.130 +08 [3624] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 01:04:34.444 +08 [12912] ERROR:  invalid input syntax for type integer: "[object Object]" at character 137
+2020-06-20 01:04:34.444 +08 [12912] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = '[object Object]';
+2020-06-20 01:29:09.620 +08 [11720] ERROR:  new row for relation "directories" violates check constraint "directories_directoryname_check"
+2020-06-20 01:29:09.620 +08 [11720] DETAIL:  Failing row contains (79, root.NewFolder, root).
+2020-06-20 01:29:09.620 +08 [11720] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-20 01:29:21.373 +08 [3768] LOG:  received fast shutdown request
+2020-06-20 01:29:21.394 +08 [2860] ERROR:  canceling statement due to user request
+2020-06-20 01:29:21.396 +08 [3768] LOG:  aborting any active transactions
+2020-06-20 01:29:21.416 +08 [3768] LOG:  background worker "logical replication launcher" (PID 2860) exited with exit code 1
+2020-06-20 01:29:21.445 +08 [9108] LOG:  shutting down
+2020-06-20 01:29:21.501 +08 [3768] LOG:  database system is shut down
+2020-06-20 01:29:29.280 +08 [7860] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-20 01:29:29.310 +08 [7860] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-20 01:29:29.312 +08 [7860] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-20 01:29:29.616 +08 [2128] LOG:  database system was shut down at 2020-06-20 01:29:21 +08
+2020-06-20 01:29:30.358 +08 [7860] LOG:  database system is ready to accept connections
+2020-06-20 01:29:31.362 +08 [12604] ERROR:  new row for relation "directories" violates check constraint "directories_directoryname_check"
+2020-06-20 01:29:31.362 +08 [12604] DETAIL:  Failing row contains (80, root.NewFolder, root).
+2020-06-20 01:29:31.362 +08 [12604] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-20 01:30:38.054 +08 [13152] ERROR:  new row for relation "directories" violates check constraint "directories_directoryname_check"
+2020-06-20 01:30:38.054 +08 [13152] DETAIL:  Failing row contains (81, root.NewFolder, root).
+2020-06-20 01:30:38.054 +08 [13152] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-20 02:05:42.044 +08 [7860] LOG:  received fast shutdown request
+2020-06-20 02:05:42.090 +08 [7860] LOG:  aborting any active transactions
+2020-06-20 02:05:42.110 +08 [12296] FATAL:  terminating connection due to administrator command
+2020-06-20 02:05:42.140 +08 [7540] ERROR:  canceling statement due to user request
+2020-06-20 02:05:42.194 +08 [7860] LOG:  background worker "logical replication launcher" (PID 7540) exited with exit code 1
+2020-06-20 02:05:42.312 +08 [5436] LOG:  shutting down
+2020-06-20 02:05:42.481 +08 [7860] LOG:  database system is shut down

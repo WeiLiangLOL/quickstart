@@ -37,28 +37,55 @@
           // Repopulate folder table
           $('#folderTable').jstree({
             'core' : {
-              "check_callback" : true,
-              'data' : function (node, cb) {
+              'check_callback' : true,
+              'data' : function (node, callback) {
                 // Retrieve root element
-                if(node.id === "#") {
-                    $.get("http://127.0.0.1:3000/api/directories/?directoryname=root&groupname="+groupname, function(data, status){
-                        cb([{"text" : data[0].directoryname, "id" : data[0].directoryid, "children" : true}]);
+                if(node.id === '#') {
+                    $.get('/api/directories/?directoryname=root&groupname='+groupname, function(data, status){
+                        callback([{"text" : data[0].directoryname, "id" : data[0].directoryid, "children" : true}]);
                     });
                 }
                 // Retrieve subsequent child element
                 else {
-                    $.get("http://127.0.0.1:3000/api/directories/" + node.id + "/children", function(dataArray, status){
+                    $.get('/api/directories/' + node.id + '/children', function(dataArray, status){
                         dataArray.forEach((item, i, arr) => {
                             arr[i].text = basePattern.exec(item.text)[1];
                         });
-                        cb(dataArray);
+                        callback(dataArray);
                     });
                 }
-              }
+              },
+              'strings' : {
+                  // Set default value for new node
+                  'New node' : 'NewFolder'
+               }
             },
-            "plugins" : ["contextmenu"]
+            'plugins': ['contextmenu']
           });
           showFolderTable();
+          $('#folderTable').on('create_node.jstree', function (event, data) {
+            var parentid = data.parent;
+            $.get('/api/directories/' + parentid, function(result, status) {
+                if (status !== 'success') {
+                    // Delete the node
+                    // Triggers delete_node.jstree event which we dont want
+                    $.jstree.reference('#folderTable').delete_node(data.node);
+                    return;
+                }
+                $.post('/api/directories/',
+                    {
+                        directoryname: result.directoryname + '.' + data.node.text,
+                        groupname: result.groupname
+                    },
+                    function (result2, status2) {
+                        if (status2 !== 'success') {
+                            $.jstree.reference('#folderTable').delete_node(data.node);
+                            return;
+                        }
+                    }
+                );
+            });
+          });
         }
         function showFolderTable(){
             document.getElementById('showFolderTable').style.display = 'none';

@@ -105,6 +105,9 @@ function send400(res, error) {
     return;
 }
 
+/**
+ * Create new directory
+ */
 resource.create.write.before((req, res, context) => {
     var directoryname = req.body.directoryname;
     var groupname = req.body.groupname;
@@ -157,6 +160,9 @@ resource.create.write.before((req, res, context) => {
         });
 });
 
+/**
+ * Modify existing directory
+ */
 resource.update.write.before((req, res, context) => {
     const directoryid = req.params.directoryid;
     const newdirectoryname = req.body.directoryname;
@@ -260,6 +266,9 @@ resource.update.write.before((req, res, context) => {
     context.stop();
 });
 
+/**
+ * Delete directory
+ */
 resource.delete.write.before((req, res, context) => {
     const directoryid = req.params.directoryid;
     // Obtain directoryname and groupname from directoryid
