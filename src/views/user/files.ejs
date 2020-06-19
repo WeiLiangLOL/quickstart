@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <title><%= app.name %> - Dashboard</title>
+    <title><%= app.name %> - Dashboard</title>
 
-  <%# meta  %>
-  <% include ../partials/dependencies/meta %>
+    <%# meta  %>
+    <% include ../partials/dependencies/meta %>
 
-  <%# css dependencies  %>
-  <% include ../partials/dependencies/style %>
+    <%# css dependencies  %>
+    <% include ../partials/dependencies/style %>
 
     <script>
         function refreshGroupTable() {
@@ -32,60 +32,72 @@
             document.getElementById('groupTable').style.display = 'none';
         }
         function refreshFolderTable(groupname) {
-          // Clear the folder table
-          $('#folderTable').jstree("destroy").empty();
-          // Repopulate folder table
-          $('#folderTable').jstree({
-            'core' : {
-              'check_callback' : true,
-              'data' : function (node, callback) {
-                // Retrieve root element
-                if(node.id === '#') {
-                    $.get('/api/directories/?directoryname=root&groupname='+groupname, function(data, status){
-                        callback([{"text" : data[0].directoryname, "id" : data[0].directoryid, "children" : true}]);
-                    });
-                }
-                // Retrieve subsequent child element
-                else {
-                    $.get('/api/directories/' + node.id + '/children', function(dataArray, status){
-                        dataArray.forEach((item, i, arr) => {
-                            arr[i].text = basePattern.exec(item.text)[1];
-                        });
-                        callback(dataArray);
-                    });
-                }
-              },
-              'strings' : {
-                  // Set default value for new node
-                  'New node' : 'NewFolder'
-               }
-            },
-            'plugins': ['contextmenu']
-          });
-          showFolderTable();
-          $('#folderTable').on('create_node.jstree', function (event, data) {
-            var parentid = data.parent;
-            $.get('/api/directories/' + parentid, function(result, status) {
-                if (status !== 'success') {
-                    // Delete the node
-                    // Triggers delete_node.jstree event which we dont want
-                    $.jstree.reference('#folderTable').delete_node(data.node);
-                    return;
-                }
-                $.post('/api/directories/',
-                    {
-                        directoryname: result.directoryname + '.' + data.node.text,
-                        groupname: result.groupname
-                    },
-                    function (result2, status2) {
-                        if (status2 !== 'success') {
-                            $.jstree.reference('#folderTable').delete_node(data.node);
-                            return;
+            // Clear the folder table
+            $('#folderTable').jstree("destroy").empty();
+            // Repopulate folder table
+            $('#folderTable').jstree({
+                'core': {
+                    'check_callback': function (operation, node, parent, position, more) {
+                        // prevent moving a child above or below the root
+                        if(operation === "copy_node" || operation === "move_node") {
+                            if(parent.id === "#") {
+                                return false; 
+                            }
                         }
-                    }
-                );
+                        return true; // allow everything else
+                    },
+              
+                    // Lazy loading
+                    'data': function (node, callback) {
+                        // Retrieve root element
+                        if(node.id === '#') {
+                            $.get('/api/directories/?directoryname=root&groupname='+groupname, function(data, status){
+                                callback([{"text" : data[0].directoryname, "id" : data[0].directoryid, "children" : true}]);
+                            });
+                        }
+                        // Retrieve subsequent child element
+                        else {
+                            $.get('/api/directories/' + node.id + '/children', function(dataArray, status){
+                                dataArray.forEach((item, i, arr) => {
+                                    arr[i].text = basePattern.exec(item.text)[1];
+                                });
+                                callback(dataArray);
+                            });
+                        }
+                    },
+                    // Set default value for new node
+                    'strings': { 'New node' : 'NewFolder' }
+                },
+                'plugins': ['dnd', 'contextmenu']
             });
-          });
+            // Unhide the folderTable
+            showFolderTable();
+            // Create listener
+            $('#folderTable').on('create_node.jstree', function (event, data) {
+                var path = $.jstree.reference('#folderTable').get_path(data.parent, '.', false);
+                $.post('/api/directories/', {
+                    directoryname: path + '.' + data.node.text,
+                    groupname: groupname
+                }).done(() => {
+                    console.log('success');
+                }).fail(() => {
+                    console.log('failure');
+                    $.jstree.reference('#folderTable').refresh(data.node);
+                });
+            });
+            // Rename listener
+            $('#folderTable').on('rename_node.jstree', function (event, data) {
+                
+            });
+            // Delete listener
+            $('#folderTable').on('delete_node.jstree', function (event, data) {
+            });
+            // Move folder listener
+            $('#folderTable').on('move_node.jstree', function (event, data) {
+            });
+            // Copy folder listener
+            $('#folderTable').on('copy_node.jstree', function (event, data) {
+            });
         }
         function showFolderTable(){
             document.getElementById('showFolderTable').style.display = 'none';
