@@ -1,14 +1,12 @@
 $(document).ready(function () {
     $('#users-table').dataTable({
+        colReorder: true,
         responsive: true,
+        select: true,
         ajax: {
             url: '/api/users',
             dataSrc: '',
             data: 'json',
-            autoFill: true,
-            colReorder: true,
-            responsive: true,
-            select: true,
         },
         columns: [
             { data: 'username' },
@@ -20,5 +18,9 @@ $(document).ready(function () {
             { data: 'gender' },
             { data: 'nationality' },
         ],
+    });
+
+    $('#permissions-table').dataTable({
+        responsive: true,
     });
 });

@@ -56,16 +56,10 @@ router.get('/formManagement', function (req, res, next) {
 
 // User Management
 router.get('/group', function (req, res, next) {
-    res.render('user/group', {
-        title: 'QuickStart - Group Management',
-        username: req.user.username,
-    });
+    res.render('user/user-management/group');
 });
 router.get('/user', function (req, res, next) {
-    res.render('user/user', {
-        title: 'QuickStart - User Management',
-        username: req.user.username,
-    });
+    res.render('user/user-management/user');
 });
 
 // Data Management

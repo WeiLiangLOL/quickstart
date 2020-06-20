@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     // Hightlight active page in NAVBAR
     currLocation = window.location.pathname.slice(1);
-    userPagePattern = /^user\//
+    userPagePattern = /^user\//;
     if (userPagePattern.test(currLocation)) {
         var activeNav = document.getElementById('user_nav');
         if (activeNav !== null) activeNav.setAttribute('class', 'active');

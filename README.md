@@ -47,16 +47,17 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.5a
+### Version 0.0.6
 ```
-+ Final Database revisions for user_mgmt and data_mgmt
-+ Added data_mgmt models
-+ user_mgmt api completed
-  - Lacking crud tests
-+ data_mgmt api completed
-  - Lacking crud tests
-+ Added graphical login page
-+ Added users datatables
++ Improved sidebar style
+  + Added logo
++ Added global attributes propogation
+  + request filtering middleware
++ Added Modals
++ UI functionality
+  + Complete for Group Managment
+  - Missing User Management
+  - Missing data controls
 ```
 
 The complete list is available [here](CHANGELOG.md).

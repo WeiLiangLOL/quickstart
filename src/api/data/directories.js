@@ -294,14 +294,14 @@ resource.delete.write.before((req, res, context) => {
                         replacements: [groupname, directoryname],
                     }
                 )
-                .then(
-                    ([result, metadata]) => {
-                        res.status(200).send({
-                            message: metadata.rowCount + ' rows deleted',
-                        });
-                        return Promise.resolve();
+                .then(([result, metadata]) => {
+                    res.status(200).send({
+                        message: metadata.rowCount + ' rows deleted',
                     });
-        }).catch((error) => {
+                    return Promise.resolve();
+                });
+        })
+        .catch((error) => {
             debug(error);
             res.status(500).send({
                 message: 'internal error',
