@@ -6299,3 +6299,69 @@
 2020-06-22 23:11:17.043 +08 [51532] LOG:  background worker "logical replication launcher" (PID 82124) exited with exit code 1
 2020-06-22 23:11:17.060 +08 [46752] LOG:  shutting down
 2020-06-22 23:11:17.201 +08 [51532] LOG:  database system is shut down
+2020-06-22 23:24:10.672 +08 [74992] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-22 23:24:10.686 +08 [74992] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-22 23:24:10.687 +08 [74992] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-22 23:24:11.088 +08 [15408] LOG:  database system was shut down at 2020-06-22 23:11:17 +08
+2020-06-22 23:24:11.939 +08 [74992] LOG:  database system is ready to accept connections
+2020-06-22 23:25:37.267 +08 [82232] ERROR:  invalid input syntax for type integer: "j2_3" at character 137
+2020-06-22 23:25:37.267 +08 [82232] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'j2_3';
+2020-06-22 23:25:40.875 +08 [77800] ERROR:  invalid input syntax for type integer: "j2_3" at character 137
+2020-06-22 23:25:40.875 +08 [77800] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'j2_3';
+2020-06-22 23:31:03.933 +08 [27852] ERROR:  invalid input syntax for type integer: "f14" at character 137
+2020-06-22 23:31:03.933 +08 [27852] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'f14';
+2020-06-22 23:32:06.628 +08 [74992] LOG:  received fast shutdown request
+2020-06-22 23:32:06.725 +08 [74992] LOG:  aborting any active transactions
+2020-06-22 23:32:06.760 +08 [80800] ERROR:  canceling statement due to user request
+2020-06-22 23:32:06.763 +08 [17720] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:32:06.766 +08 [35636] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:32:06.832 +08 [74992] LOG:  background worker "logical replication launcher" (PID 80800) exited with exit code 1
+2020-06-22 23:32:06.968 +08 [37192] LOG:  shutting down
+2020-06-22 23:32:07.179 +08 [74992] LOG:  database system is shut down
+2020-06-22 23:32:13.152 +08 [32264] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-22 23:32:13.194 +08 [32264] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-22 23:32:13.196 +08 [32264] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-22 23:32:13.664 +08 [30292] LOG:  database system was shut down at 2020-06-22 23:32:07 +08
+2020-06-22 23:32:14.752 +08 [32264] LOG:  database system is ready to accept connections
+2020-06-22 23:34:04.891 +08 [37716] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:34:04.900 +08 [68848] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:34:05.280 +08 [32264] LOG:  received fast shutdown request
+2020-06-22 23:34:05.302 +08 [32264] LOG:  aborting any active transactions
+2020-06-22 23:34:05.404 +08 [32264] LOG:  background worker "logical replication launcher" (PID 6304) exited with exit code 1
+2020-06-22 23:34:05.471 +08 [50988] LOG:  shutting down
+2020-06-22 23:34:05.611 +08 [32264] LOG:  database system is shut down
+2020-06-22 23:34:06.605 +08 [37652] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-22 23:34:06.616 +08 [37652] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-22 23:34:06.617 +08 [37652] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-22 23:34:06.992 +08 [36016] LOG:  database system was shut down at 2020-06-22 23:34:05 +08
+2020-06-22 23:34:07.879 +08 [37652] LOG:  database system is ready to accept connections
+2020-06-22 23:34:46.267 +08 [37652] LOG:  received fast shutdown request
+2020-06-22 23:34:46.291 +08 [49716] ERROR:  canceling statement due to user request
+2020-06-22 23:34:46.295 +08 [38052] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:34:46.295 +08 [37652] LOG:  aborting any active transactions
+2020-06-22 23:34:46.295 +08 [38464] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-22 23:34:46.350 +08 [37652] LOG:  background worker "logical replication launcher" (PID 49716) exited with exit code 1
+2020-06-22 23:34:46.373 +08 [49524] LOG:  shutting down
+2020-06-22 23:34:46.479 +08 [37652] LOG:  database system is shut down
+2020-06-22 23:34:52.242 +08 [77796] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-22 23:34:52.254 +08 [77796] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-22 23:34:52.256 +08 [77796] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-22 23:34:52.413 +08 [39708] LOG:  database system was shut down at 2020-06-22 23:34:46 +08
+2020-06-22 23:34:52.756 +08 [77796] LOG:  database system is ready to accept connections
+2020-06-22 23:34:54.498 +08 [40156] ERROR:  permission denied for table functions
+2020-06-22 23:34:54.498 +08 [40156] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-06-22 23:34:54.511 +08 [40156] ERROR:  permission denied for table functions
+2020-06-22 23:34:54.511 +08 [40156] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-06-22 23:34:55.283 +08 [77796] LOG:  received fast shutdown request
+2020-06-22 23:34:55.290 +08 [77796] LOG:  aborting any active transactions
+2020-06-22 23:34:55.291 +08 [40156] FATAL:  terminating connection due to administrator command
+2020-06-22 23:34:55.304 +08 [77796] LOG:  background worker "logical replication launcher" (PID 37136) exited with exit code 1
+2020-06-22 23:34:55.311 +08 [37012] FATAL:  terminating connection due to administrator command
+2020-06-22 23:34:55.348 +08 [49664] LOG:  shutting down
+2020-06-22 23:34:55.474 +08 [77796] LOG:  database system is shut down

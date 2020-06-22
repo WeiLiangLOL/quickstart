@@ -84,12 +84,19 @@ function refreshFolderTable(groupname) {
                 }
                 // Retrieve subsequent child element
                 else {
-                    $.get('/api/directories/' + node.id + '/children', function(dataArray, status){
-                        dataArray.forEach((item, i, arr) => {
+                    $.get('/api/directories/' + node.id + '/children', function(dirArray, status){
+                        dirArray.forEach((item, i, arr) => {
                             arr[i].text = basePattern.exec(item.text)[1];
                             arr[i].type = 'folder';
                         });
-                        callback(dataArray);
+                        $.get('/api/regular_files/?directoryid=' + node.id, function(dataArray, status){
+                            dataArray.forEach((item, i, arr) => {
+                                arr[i].id = 'f' + item.fileid;
+                                arr[i].text = item.filename;
+                                arr[i].type = 'file';
+                            });
+                            callback(dirArray.concat(dataArray));
+                        });
                     });
                 }
             },
@@ -127,7 +134,7 @@ function refreshFolderTable(groupname) {
     // Select listener
     $('#folderTable').on('select_node.jstree', function (event, data) {
         // data = { node, selected[], event }
-        // 
+        //
         document.getElementById('directoryid').value = data.node.id;
     });
     // Create listener
@@ -179,11 +186,22 @@ function refreshFolderTable(groupname) {
     // Delete listener
     $('#folderTable').on('delete_node.jstree', function (event, data) {
         // data = { node, parent(id) }
-        $.ajax({
-            type: 'DELETE',
-            url: '/api/directories/' + data.node.id,
-            timeout: 5000,
-        }).done((res) => {
+        var ajaxParma;
+        const isFile = new RegExp(/^f/);
+        if (!isFile.test(data.node.id)) {
+            ajaxParam = {
+                type: 'DELETE',
+                url: '/api/directories/' + data.node.id,
+                timeout: 5000,
+            }
+        } else {
+            ajaxParam = {
+                type: 'DELETE',
+                url: '/api/regular_files/' + data.node.id.replace(/f/g, ''),
+                timeout: 5000,
+            }
+        }
+        $.ajax(ajaxParam).done((res) => {
             // res = { message, rows }
             showMsg('Success');
         }).fail((error) => {
