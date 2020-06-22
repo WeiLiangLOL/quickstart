@@ -9,7 +9,7 @@ const transactions =
 
 const productionDefaults = {
     underscored: true,
-    timestamps: true,
+    timestamps: false,
 };
 
 const developmentDefaults = {

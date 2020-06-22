@@ -26,17 +26,6 @@
             <div class="content">
 
                 <div class="container-fluid">
-                    <div class="dropdown show">
-                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                      </a>
-
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </div>
 
                     <h2 style='display: inline;'>Group</h2>
                     <button onclick='showGroupTable()' id='showGroupTable' style='display: none;'>show</button>
@@ -57,10 +46,8 @@
                     <div></div>
 
                     <form action="/api/regular_files" method="post" enctype="multipart/form-data">
-                        <input name='directoryid' />
-                        <input name='islocked' />
-                        <input name='owner' />
-                        <input type="file" name="file" />
+                        <input name='directoryid' id = 'directoryid' type='text' placeholder='directoryid'  />
+                        <input type='file' name='file' />
                         <input type='submit' value='upload' />
                     </form>
 

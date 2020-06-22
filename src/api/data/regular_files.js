@@ -78,9 +78,9 @@ router.use('/:id/download', (req, res, next) => {
 
 /**
  * Validate fields
- * Required fields: file, directoryid, owner
+ * Required fields: file, directoryid
  * Optional fields: islocked
- * Overwritten fields: created_at, updated_at, filename, filesize
+ * Overwritten fields: created_at, updated_at, filename, filesize, owner
  */
 resource.create.fetch(async (req, res, context) => {
     // No file uploaded
@@ -89,13 +89,14 @@ resource.create.fetch(async (req, res, context) => {
         return context.stop;
     }
     // Empty fields
-    if (!req.body.directoryid || !req.body.owner) {
+    if (!req.body.directoryid) {
         send400(res, new Error('Empty fields'));
         return context.stop;
     }
     // islocked defaults to false
     req.body.islocked = (req.body.islocked) ? req.body.islocked : false;
     // Populate req.body
+    req.body.owner = req.user.username;
     req.body.filename = req.file.originalname;
     req.body.filesize = req.file.size;
 
@@ -128,6 +129,7 @@ resource.create.write.before((req, res, context) => {
             context.instance = await database.regular_files.create(req.body, { transaction: t });
             // Store file in folder as specified by directoryid
             await fs.move(res.locals.tmpPath, res.locals.newPath); // Creates dir if not exist
+            fs.remove(res.locals.tmpPath).catch((error) => {}); // Cleanup
         })
         .then(() => {
             // Skip finale's default create function

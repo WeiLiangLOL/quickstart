@@ -124,6 +124,12 @@ function refreshFolderTable(groupname) {
     showFolderTable();
     // Variables
     var fileTree = $('#folderTable').jstree(true);
+    // Select listener
+    $('#folderTable').on('select_node.jstree', function (event, data) {
+        // data = { node, selected[], event }
+        // 
+        document.getElementById('directoryid').value = data.node.id;
+    });
     // Create listener
     $('#folderTable').on('create_node.jstree', function (event, data) {
         // data = { node, parent(id), position }
