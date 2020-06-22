@@ -14,12 +14,13 @@ function define(sequelize) {
         },
         filename: { type: DataTypes.STRING, unique: 'data_files_ukey' },
         directoryid: { type: DataTypes.INTEGER, unique: 'data_files_ukey' },
-        created_at: { type: DataTypes.DATE },
-        updated_at: { type: DataTypes.DATE },
         islocked: { type: DataTypes.BOOLEAN },
         owner: { type: DataTypes.INTEGER },
-        filepath: { type: DataTypes.STRING },
         filesize: { type: DataTypes.BIGINT },
+    }, {
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
     });
 }
 

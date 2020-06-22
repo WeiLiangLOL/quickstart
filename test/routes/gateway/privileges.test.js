@@ -50,7 +50,6 @@ function test(server, timeout, next) {
     });
 }
 
-
 module.exports = {
-    test: test
+    test: test,
 };

@@ -2,72 +2,26 @@
 <html>
 
 <head>
-    <%# html viewport %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="/img/favicon.ico">
+    <title><%= app.name %> - Dashboard</title>
 
-    <title><%= title %></title>
+    <%# meta  %>
+    <% include ../partials/dependencies/meta %>
 
     <%# css dependencies  %>
-    <% include partials/dependencies/style %>
-    <script>
-        function refreshGroupTable() {
-            var table = document.getElementById('groupTable');
-            table.innerHTML = '';
-            listGroups((arrayOfGroups) => {
-                arrayOfGroups.forEach((group) => {
-                    table.insertRow(-1).insertCell(-1).innerHTML = genLink('refreshFolderTable', [group.groupname], group.groupname);
-                });
-            });
-            showGroupTable();
-        }
-        function showGroupTable(){
-            document.getElementById('showGroupTable').style.display = 'none';
-            document.getElementById('hideGroupTable').style.display = 'inline';
-            document.getElementById('groupTable').style.display = 'block';
-        }
-        function hideGroupTable(){
-            document.getElementById('showGroupTable').style.display = 'inline';
-            document.getElementById('hideGroupTable').style.display = 'none';
-            document.getElementById('groupTable').style.display = 'none';
-        }
-        function refreshFolderTable(groupname) {
-            var table = document.getElementById('folderTable');
-            table.innerHTML = '';
-            readDirectory(groupname, (directory) => {
-                directory.forEach((dir) => {
-                    table.insertRow(-1).insertCell(-1).innerHTML = genLink('appendFolderTable', [dir.directoryid], dir.directoryname);
-                });
-            });
-        }
-        function appendFolderTable() {
-
-        }
-        function showFolderTable(){
-            document.getElementById('showFolderTable').style.display = 'none';
-            document.getElementById('hideFolderTable').style.display = 'inline';
-            document.getElementById('folderTable').style.display = 'block';
-        }
-        function hideFolderTable(){
-            document.getElementById('showFolderTable').style.display = 'inline';
-            document.getElementById('hideFolderTable').style.display = 'none';
-            document.getElementById('folderTable').style.display = 'none';
-        }
-    </script>
+    <% include ../partials/dependencies/style %>
+    <script src="/javascripts/user/files.js"></script>
 </head>
-<body onload='refreshGroupTable()'>
+<body>
 
     <div class="wrapper">
         <%# sidebar %>
-        <% include partials/sidebar %>
+        <% include ../partials/sidebar %>
 
         <%# page content  %>
         <div id="content">
 
             <%# navbar %>
-            <% include partials/navbar %>
+            <% include ../partials/navbar %>
 
             <div class="content">
 
@@ -85,9 +39,17 @@
                     <h2 style='display: inline;'>Folder</h2>
                     <button onclick='showFolderTable()' id='showFolderTable' style='display: none;'>show</button>
                     <button onclick='hideFolderTable()' id='hideFolderTable'>hide</button>
-                    <table id='folderTable'>
-                    </table>
+                    <span id="showMessage" style='color: red;'></span>
+                    <div id="folderTable">
+                    </div>
 
+                    <div></div>
+
+                    <form action="/api/regular_files" method="post" enctype="multipart/form-data">
+                        <input name='directoryid' id = 'directoryid' type='text' placeholder='directoryid'  />
+                        <input type='file' name='file' />
+                        <input type='submit' value='upload' />
+                    </form>
 
                 </div>
 
@@ -97,6 +59,7 @@
     </div>
 
     <%# js dependencies  %>
-    <% include partials/dependencies/script %>
+    <% include ../partials/dependencies/script %>
+
 </body>
 </html>

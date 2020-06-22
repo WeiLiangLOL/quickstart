@@ -9,7 +9,7 @@ const transactions =
 
 const productionDefaults = {
     underscored: true,
-    timestamps: true,
+    timestamps: false,
 };
 
 const developmentDefaults = {
@@ -58,11 +58,17 @@ function reference() {
     database.regular_files = defineModel('./models/data/regular_files');
 
     database.user_regfile_acls = defineModel('./models/data/user_regfile_acls');
-    database.user_datafile_acls = defineModel('./models/data/user_datafile_acls');
+    database.user_datafile_acls = defineModel(
+        './models/data/user_datafile_acls'
+    );
     database.user_dir_acls = defineModel('./models/data/user_dir_acls');
 
-    database.group_regfile_acls = defineModel('./models/data/group_regfile_acls');
-    database.group_datafile_acls = defineModel('./models/data/group_datafile_acls');
+    database.group_regfile_acls = defineModel(
+        './models/data/group_regfile_acls'
+    );
+    database.group_datafile_acls = defineModel(
+        './models/data/group_datafile_acls'
+    );
     database.group_dir_acls = defineModel('./models/data/group_dir_acls');
 }
 
@@ -71,7 +77,6 @@ function defineModel(modelPath) {
 }
 
 function associate() {
-
     var db = database;
 
     db.users.hasOne(db.privileges, { foreignKey: 'username' });
@@ -109,7 +114,6 @@ function associate() {
     //db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
     db.regular_files.hasMany(db.user_regfile_acls, { foreignKey: 'fileid' });
     db.regular_files.hasMany(db.group_regfile_acls, { foreignKey: 'fileid' });
-
 }
 
 module.exports = {

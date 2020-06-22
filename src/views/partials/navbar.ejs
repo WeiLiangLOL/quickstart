@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
 
     <button type="button" id="sidebarCollapse" class="navbar-btn">
@@ -6,6 +6,7 @@
       <span></span>
       <span></span>
     </button>
+
     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -18,11 +19,12 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <% if (req.isAuthenticated()) { %>
-        <li class="nav-item">
-          <a class="nav-link capitalize" href="/user/announcement"><%= req.user.username %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link capitalize dropdown-toggle" href="/user/announcement" id="navbarDropdownMenuLink" <%#data-toggle="dropdown"%> aria-haspopup="true" aria-expanded="false"><%= req.user.username %> </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="">Profile</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
         </li>
         <% } else { %>
         <li class="nav-item" id="login">

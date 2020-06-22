@@ -2,18 +2,14 @@
 <html>
 
 <head>
-  <%# html viewport %>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="/img/favicon.ico">
+  <title><%= app.name %> - Login</title>
 
-  <title><%= title %></title>
+  <%# meta  %>
+  <% include partials/dependencies/meta %>
 
   <%# css dependencies  %>
   <% include partials/dependencies/style %>
   <link rel='stylesheet' href='/stylesheets/login.css' />
-
 </head>
 
 <body>
@@ -30,11 +26,10 @@
               </span></a>
           </h1>
         </div>
+        <p id="err-msg" class="message"></p>
         <input type="text" name="username" placeholder="username" />
         <input type="password" name="password" placeholder="password" />
         <button>login</button>
-        <p> </p>
-        <p id="err-msg" class="message" style="display: none;">Invalid username or password</p>
         <p class="message">By the way, the username is 'test', and the password is '1234'.</p>
       </form>
     </div>

@@ -1,4 +1,3 @@
-
 // Regex patterns for validating ltree datatype
 const isValidTopLevel = /^\w+$/;
 const isValidNonTopLevel = /^\w+\.[\.\w]*\w+$/;
@@ -20,5 +19,7 @@ function genLink(func, paramArray, name) {
         params += `, '` + paramArray[i++] + `'`;
     }
 
-    return '<a href="#" onclick="' + func + '(' + params + ')">' + name + '</a>';
+    return (
+        '<a href="#" onclick="' + func + '(' + params + ')">' + name + '</a>'
+    );
 }

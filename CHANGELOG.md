@@ -1,12 +1,16 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
-### Version 0.0.5a
+### Version 0.0.5
 ```
 + Final Database revisions for user_mgmt and data_mgmt
 + Added data_mgmt models
 + user_mgmt api completed
   - Lacking crud tests
++ data_mgmt api completed
+  - Lacking crud tests
++ Added graphical login page
++ Added users datatables
 ```
 
 ### Version 0.0.4

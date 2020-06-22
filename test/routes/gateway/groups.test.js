@@ -11,7 +11,7 @@ function test(server, timeout, next) {
         // Set timeout for all test cases
         this.timeout(timeout);
 
-        const groupname = 'root.arbitrarygroup';
+        const groupname = 'Top.arbitrarygroup';
 
         // Read all groups
         it('Query all groups\tGET /api/groups', function (done) {
@@ -58,7 +58,7 @@ function create(groupname) {
                 groupname: groupname,
             })
             .end((err, res) => {
-                res.should.have.status(201);
+                res.should.have.status(200);
                 res.should.be.json;
                 done();
             });

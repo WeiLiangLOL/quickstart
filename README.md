@@ -23,7 +23,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 ### Deploy from zipfile (Windows)
 
 - Download and install nodejs
-- Download zipfile [24 May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31 May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
+- Download zipfile [24 May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31 May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing) [23 June](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
 - Unzip the file and open a command prompt at the root directory
 - Run `npm install`
 - Run `npm start`
@@ -47,16 +47,17 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.5a
+### Version 0.0.6
 ```
-+ Final Database revisions for user_mgmt and data_mgmt
-+ Added data_mgmt models
-+ user_mgmt api completed
-  - Lacking crud tests
-+ data_mgmt api completed
-  - Lacking crud tests
-+ Added graphical login page
-+ Added users datatables
++ Improved sidebar style
+  + Added logo
++ Added global attributes propogation
+  + request filtering middleware
++ Added Modals
++ UI functionality
+  + Complete for Group Managment
+  - Missing User Management
+  - Missing data controls
 ```
 
 The complete list is available [here](CHANGELOG.md).

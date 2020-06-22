@@ -1,12 +1,109 @@
+/* JIEXIANG'S CSS */
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* WEILIANG'S CSS */
+
 .content {
     padding: 15px 10px;
 }
 
 .data-table {
     width: 100%;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 
 .gutter-wrapper {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.space-wrapper {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.margin-sideways {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.spanning-title {
+    position: relative;
+}
+
+.spanning-title h1 {
+    padding-right: 22px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 38px;
+}
+
+.spanning-title h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.spanning-title h1 a,
+.spanning-title h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo-badge {
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    padding: 2px 9px;
+}
+
+.logo-badge.blue {
+    background-color: #9dc3e6;
+    right: 12px;
+}
+
+.text-blue {
+    color: #9dc3e6;
+}
+
+.logo-badge.orange {
+    background-color: #f4b183;
+    right: 8px;
+    top: 12px;
+}
+
+.text-orange {
+    color: #f4b183;
+}
+
+.logo-badge.green {
+    background-color: #a9d18e;
+    top: 18px;
+}
+
+.text-green {
+    color: #a9d18e;
+}
+
+.paginate_button a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+.page-item.active .page-link {
+    background-color: #f4b183;
+    border-color: #f4b183;
+}
+
+@media (max-width: 768px) {
+    .margin-sideways {
+        width: 100%;
+        margin-left: 0;
+    }
 }

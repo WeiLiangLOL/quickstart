@@ -2,13 +2,10 @@
 <html>
 
 <head>
-  <%# html viewport %>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="/img/favicon.ico">
+  <title><%= app.name %></title>
 
-  <title><%= title %></title>
+  <%# meta  %>
+  <% include partials/dependencies/meta %>
 
   <%# css dependencies  %>
   <% include partials/dependencies/style %>
@@ -18,18 +15,18 @@
 
   <div class="wrapper">
     <%# sidebar %>
-    <% include partials/sidebar %>
+    <% include ../partials/sidebar %>
 
     <%# page content  %>
     <div id="content">
 
       <%# navbar %>
-      <% include partials/navbar %>
+      <% include ../partials/navbar %>
 
       <div class="content">
 
         <div class="container-fluid">
-
+          
           <h2>Welcome to the user page</h2>
           <p>A different colour theme makes it clear that this is not a normal page</p>
           <p>These pages are restricted and require a user to login before they can view.</p>
@@ -50,7 +47,7 @@
   </div>
 
   <%# js dependencies  %>
-  <% include partials/dependencies/script %>
+  <% include ../partials/dependencies/script %>
 </body>
 
 </html>
