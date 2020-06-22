@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%# html viewport %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title><%= title %></title>
+
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
+  
+</head>
+
+<body class="login">
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include partials/navbar %>
+
+      <div class="content">
+
+        <form action="/login" method="post" style="text-align: center;">
+            <h6>Username is 'test', password is '1234'</h6><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <h6 id="errMsg" style="color: red;"></h6>
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+        // Script for displaying error message
+        // Checks value of GET parameter 'success'
+        // Code from: https://stackoverflow.com/a/21210643/6943913
+        var queryDict = {};
+        location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
+        if (queryDict.success == 'false') {
+          document.getElementById('errMsg').innerHTML = "Invalid username or password";
+        }
+        </script>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include partials/dependencies/script %>
+</body>
+
+</html>

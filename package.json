@@ -1,6 +1,6 @@
 {
   "name": "quickstart",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -18,29 +18,31 @@
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "bootstrap-icons": "^1.0.0-alpha4",
+    "debug": "^2.6.9",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "finale-rest": "^1.1.1",
+    "http-errors": "^1.7.3",
+    "fs-extra": "^9.0.1",
+    "morgan": "^1.10.0",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
     "node-pre-gyp": "^0.14.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.2.1",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.11"
+    "sequelize": "^5.21.13"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.1.0",
     "husky": "^4.2.5",
     "mocha": "^7.2.0",
     "nodemon": "^2.0.4",
-    "prettier": "^2.0.5",
-    "request": "^2.88.2"
+    "prettier": "^2.0.5"
   },
   "repository": "https://github.com/WeiLiangLOL/quickstart",
   "keywords": [

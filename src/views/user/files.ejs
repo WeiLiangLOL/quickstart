@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= app.name %> - Dashboard</title>
+
+    <%# meta  %>
+    <% include ../partials/dependencies/meta %>
+
+    <%# css dependencies  %>
+    <% include ../partials/dependencies/style %>
+    <script src="/javascripts/user/files.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <%# sidebar %>
+        <% include ../partials/sidebar %>
+
+        <%# page content  %>
+        <div id="content">
+
+            <%# navbar %>
+            <% include ../partials/navbar %>
+
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <h2 style='display: inline;'>Group</h2>
+                    <button onclick='showGroupTable()' id='showGroupTable' style='display: none;'>show</button>
+                    <button onclick='hideGroupTable()' id='hideGroupTable'>hide</button>
+                    <button onclick='refreshGroupTable()'>Refresh</button>
+                    <table id='groupTable'>
+                    </table>
+
+                    <div></div>
+
+                    <h2 style='display: inline;'>Folder</h2>
+                    <button onclick='showFolderTable()' id='showFolderTable' style='display: none;'>show</button>
+                    <button onclick='hideFolderTable()' id='hideFolderTable'>hide</button>
+                    <span id="showMessage" style='color: red;'></span>
+                    <div id="folderTable">
+                    </div>
+
+                    <div></div>
+
+                    <form action="/api/regular_files" method="post" enctype="multipart/form-data">
+                        <input name='directoryid' id = 'directoryid' type='text' placeholder='directoryid'  />
+                        <input type='file' name='file' />
+                        <input type='submit' value='upload' />
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <%# js dependencies  %>
+    <% include ../partials/dependencies/script %>
+
+</body>
+</html>

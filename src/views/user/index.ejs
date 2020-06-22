@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %></title>
+
+  <%# meta  %>
+  <% include partials/dependencies/meta %>
+
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+          
+          <h2>Welcome to the user page</h2>
+          <p>A different colour theme makes it clear that this is not a normal page</p>
+          <p>These pages are restricted and require a user to login before they can view.</p>
+
+          <div class="line"></div>
+
+          <h4>24 May 2020</h4>
+          <h2>New functionality: Create User</h2>
+          <p>You can now create a new user.</p>
+          <p>The user will be added to the database
+          and you can login via the newly created account :)</p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../partials/dependencies/script %>
+</body>
+
+</html>

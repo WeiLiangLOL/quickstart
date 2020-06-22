@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%# html viewport %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title><%= title %></title>
+
+  <%# css dependencies  %>
+  <% include partials/dependencies/style %>
+
+  <script>
+	function getUsers() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var table = document.getElementById("userTable");
+                table.innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("GET", "/api/users/");
+		xhttp.send();
+	}
+  </script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+        <h2>User</h2>
+            <table id='userTable'>
+                <tr>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+            <button onclick='getUsers()'>Fetch User Data</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include partials/dependencies/script %>
+</body>
+
+</html>
