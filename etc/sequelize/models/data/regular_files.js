@@ -18,7 +18,6 @@ function define(sequelize) {
         updated_at: { type: DataTypes.DATE },
         islocked: { type: DataTypes.BOOLEAN },
         owner: { type: DataTypes.INTEGER },
-        filepath: { type: DataTypes.STRING },
         filesize: { type: DataTypes.BIGINT },
     });
 }

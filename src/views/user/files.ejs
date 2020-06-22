@@ -9,109 +9,9 @@
 
     <%# css dependencies  %>
     <% include ../partials/dependencies/style %>
-
-    <script>
-        function refreshGroupTable() {
-            var table = document.getElementById('groupTable');
-            table.innerHTML = '';
-            listGroups((arrayOfGroups) => {
-                arrayOfGroups.forEach((group) => {
-                    table.insertRow(-1).insertCell(-1).innerHTML = genLink('refreshFolderTable', [group.groupname], group.groupname);
-                });
-            });
-            showGroupTable();
-        }
-        function showGroupTable(){
-            document.getElementById('showGroupTable').style.display = 'none';
-            document.getElementById('hideGroupTable').style.display = 'inline';
-            document.getElementById('groupTable').style.display = 'block';
-        }
-        function hideGroupTable(){
-            document.getElementById('showGroupTable').style.display = 'inline';
-            document.getElementById('hideGroupTable').style.display = 'none';
-            document.getElementById('groupTable').style.display = 'none';
-        }
-        function refreshFolderTable(groupname) {
-            // Clear the folder table
-            $('#folderTable').jstree("destroy").empty();
-            // Repopulate folder table
-            $('#folderTable').jstree({
-                'core': {
-                    'check_callback': function (operation, node, parent, position, more) {
-                        // prevent moving a child above or below the root
-                        if(operation === "copy_node" || operation === "move_node") {
-                            if(parent.id === "#") {
-                                return false; 
-                            }
-                        }
-                        return true; // allow everything else
-                    },
-              
-                    // Lazy loading
-                    'data': function (node, callback) {
-                        // Retrieve root element
-                        if(node.id === '#') {
-                            $.get('/api/directories/?directoryname=root&groupname='+groupname, function(data, status){
-                                callback([{"text" : data[0].directoryname, "id" : data[0].directoryid, "children" : true}]);
-                            });
-                        }
-                        // Retrieve subsequent child element
-                        else {
-                            $.get('/api/directories/' + node.id + '/children', function(dataArray, status){
-                                dataArray.forEach((item, i, arr) => {
-                                    arr[i].text = basePattern.exec(item.text)[1];
-                                });
-                                callback(dataArray);
-                            });
-                        }
-                    },
-                    // Set default value for new node
-                    'strings': { 'New node' : 'NewFolder' }
-                },
-                'plugins': ['dnd', 'contextmenu']
-            });
-            // Unhide the folderTable
-            showFolderTable();
-            // Create listener
-            $('#folderTable').on('create_node.jstree', function (event, data) {
-                var path = $.jstree.reference('#folderTable').get_path(data.parent, '.', false);
-                $.post('/api/directories/', {
-                    directoryname: path + '.' + data.node.text,
-                    groupname: groupname
-                }).done(() => {
-                    console.log('success');
-                }).fail(() => {
-                    console.log('failure');
-                    $.jstree.reference('#folderTable').refresh(data.node);
-                });
-            });
-            // Rename listener
-            $('#folderTable').on('rename_node.jstree', function (event, data) {
-                
-            });
-            // Delete listener
-            $('#folderTable').on('delete_node.jstree', function (event, data) {
-            });
-            // Move folder listener
-            $('#folderTable').on('move_node.jstree', function (event, data) {
-            });
-            // Copy folder listener
-            $('#folderTable').on('copy_node.jstree', function (event, data) {
-            });
-        }
-        function showFolderTable(){
-            document.getElementById('showFolderTable').style.display = 'none';
-            document.getElementById('hideFolderTable').style.display = 'inline';
-            document.getElementById('folderTable').style.display = 'block';
-        }
-        function hideFolderTable(){
-            document.getElementById('showFolderTable').style.display = 'inline';
-            document.getElementById('hideFolderTable').style.display = 'none';
-            document.getElementById('folderTable').style.display = 'none';
-        }
-    </script>
+    <script src="/javascripts/user/files.js"></script>
 </head>
-<body onload='refreshGroupTable()'>
+<body>
 
     <div class="wrapper">
         <%# sidebar %>
@@ -126,6 +26,17 @@
             <div class="content">
 
                 <div class="container-fluid">
+                    <div class="dropdown show">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
 
                     <h2 style='display: inline;'>Group</h2>
                     <button onclick='showGroupTable()' id='showGroupTable' style='display: none;'>show</button>
@@ -139,9 +50,19 @@
                     <h2 style='display: inline;'>Folder</h2>
                     <button onclick='showFolderTable()' id='showFolderTable' style='display: none;'>show</button>
                     <button onclick='hideFolderTable()' id='hideFolderTable'>hide</button>
+                    <span id="showMessage" style='color: red;'></span>
                     <div id="folderTable">
                     </div>
-                    
+
+                    <div></div>
+
+                    <form action="/api/regular_files" method="post" enctype="multipart/form-data">
+                        <input name='directoryid' />
+                        <input name='islocked' />
+                        <input name='owner' />
+                        <input type="file" name="file" />
+                        <input type='submit' value='upload' />
+                    </form>
 
                 </div>
 
@@ -152,11 +73,6 @@
 
     <%# js dependencies  %>
     <% include ../partials/dependencies/script %>
-<script>
-$(function() {
-  
-});
-</script>
 
 </body>
 </html>

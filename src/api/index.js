@@ -39,8 +39,6 @@ const resources = [
     { path: '/user_dir_acls', module: require('./data/user_dir_acls') },
     { path: '/user_regfile_acls', module: require('./data/user_regfile_acls') },
 
-    // Others
-    { path: '/views', module: require('./views') },
 ];
 
 for (let resource of resources) router.use(resource.path, resource.module);

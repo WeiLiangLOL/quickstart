@@ -1,5 +1,5 @@
 const debug = require('debug')('quickstart:database-dir');
-const fs = require('fs');
+const fs = require('fs-extra');
 
 // generated with: find . -type d -empty
 const dirs = [
