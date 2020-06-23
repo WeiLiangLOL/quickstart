@@ -35,17 +35,23 @@ locals.init(app);
 var gatewayRouter = require('./src/api');
 app.use('/api', gatewayRouter);
 
-// Authentication
-var authRouter = require('./src/routes/session');
-app.use('/', authRouter);
-
-// Route views
+// Routes
 var indexRouter = require('./src/routes/index');
 app.use('/', indexRouter);
-
-// Authenticated route views
-var userRouter = require('./src/routes/user');
-app.use('/user', userRouter);
+var authRouter = require('./src/routes/auth');
+app.use('/auth', authRouter);
+var profileRouter = require('./src/routes/profile');
+app.use('/profile', profileRouter);
+var announcementRouter = require('./src/routes/announcement');
+app.use('/announcement', announcementRouter);
+var dashboardRouter = require('./src/routes/dashboard');
+app.use('/dashboard', dashboardRouter);
+var formRouter = require('./src/routes/form');
+app.use('/form', formRouter);
+var storageRouter = require('./src/routes/storage');
+app.use('/storage', storageRouter);
+var adminRouter = require('./src/routes/admin');
+app.use('/admin', adminRouter);
 
 // Catch 404 and forward to error handler
 var createError = require('http-errors');

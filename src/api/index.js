@@ -9,42 +9,31 @@ const router = express.Router();
 // TODO: Authentication
 
 const resources = [
-    // Main entities (User)
-    { path: '/users', module: require('./user/users') },
-    { path: '/groups', module: require('./user/groups') },
-    { path: '/roles', module: require('./user/roles') },
-    { path: '/functions', module: require('./user/functions') },
-    { path: '/privileges', module: require('./user/privileges') },
-    { path: '/memberships', module: require('./user/memberships') },
-    { path: '/rolefunctions', module: require('./user/rolefunctions') },
-    // Main entities (Data)
-    { path: '/directories', module: require('./data/directories') },
-    { path: '/regular_files', module: require('./data/regular_files') },
-    { path: '/data_files', module: require('./data/data_files') },
-
-    {
-        path: '/group_datafile_acls',
-        module: require('./data/group_datafile_acls'),
-    },
-    { path: '/group_dir_acls', module: require('./data/group_dir_acls') },
-    {
-        path: '/group_regfile_acls',
-        module: require('./data/group_regfile_acls'),
-    },
-
-    {
-        path: '/user_datafile_acls',
-        module: require('./data/user_datafile_acls'),
-    },
-    { path: '/user_dir_acls', module: require('./data/user_dir_acls') },
-    { path: '/user_regfile_acls', module: require('./data/user_regfile_acls') },
+    // Main entities (admin)
+    { path: '/users', module: require('./admin/users') },
+    { path: '/groups', module: require('./admin/groups') },
+    { path: '/roles', module: require('./admin/roles') },
+    { path: '/functions', module: require('./admin/functions') },
+    { path: '/privileges', module: require('./admin/privileges') },
+    { path: '/memberships', module: require('./admin/memberships') },
+    { path: '/rolefunctions', module: require('./admin/rolefunctions') },
+    // Main entities (storage)
+    { path: '/directories', module: require('./storage/directories') },
+    { path: '/regular_files', module: require('./storage/regular_files') },
+    { path: '/data_files', module: require('./storage/data_files') },
+    { path: '/group_datafile_acls', module: require('./storage/group_datafile_acls') },
+    { path: '/group_dir_acls', module: require('./storage/group_dir_acls') },
+    { path: '/group_regfile_acls', module: require('./storage/group_regfile_acls') },
+    { path: '/user_datafile_acls', module: require('./storage/user_datafile_acls') },
+    { path: '/user_dir_acls', module: require('./storage/user_dir_acls') },
+    { path: '/user_regfile_acls', module: require('./storage/user_regfile_acls') },
 
 ];
 
 for (let resource of resources) router.use(resource.path, resource.module);
 
 /**
- * Show index of available api paths
+ * Show list of available api paths
  */
 router.get('/', (req, res, next) => {
     res.send(resources);

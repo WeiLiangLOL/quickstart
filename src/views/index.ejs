@@ -5,23 +5,23 @@
   <title><%= app.name %></title>
 
   <%# meta  %>
-  <% include partials/dependencies/meta %>
+  <% include ../partials/meta %>
 
   <%# css dependencies  %>
-  <% include partials/dependencies/style %>
+  <% include ../partials/style %>
 </head>
 
 <body>
 
   <div class="wrapper">
     <%# sidebar %>
-    <% include partials/sidebar %>
+    <% include ../partials/sidebar %>
 
     <%# page content  %>
     <div id="content">
 
       <%# navbar %>
-      <% include partials/navbar %>
+      <% include ../partials/navbar %>
 
       <div class="content">
 
@@ -41,7 +41,7 @@
   </div>
 
   <%# js dependencies  %>
-  <% include partials/dependencies/script %>
+  <% include ../partials/script %>
 </body>
 
 </html>

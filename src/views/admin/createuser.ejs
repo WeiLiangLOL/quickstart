@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - Dashboard</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <%# sidebar %>
+        <% include ../../partials/sidebar %>
+
+        <%# page content  %>
+        <div id="content">
+
+            <%# navbar %>
+            <% include ../../partials/navbar %>
+
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <h2>Create a new user</h2>
+                    <form action="/api/users" method="post">
+                        <table>
+                            <tr>
+                                <td><label for="username">Username:</label></td>
+                                <td><input type="text" id="username" name="username"> <span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Password:</label></td>
+                                <td><input type="password" id="password" name="password"> <span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="firstname">First Name:</label></td>
+                                <td><input type="text" id="firstname" name="firstname"> <span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="lastname">Last Name:</label></td>
+                                <td><input type="text" id="lastname" name="lastname"> <span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cellphone">Phone Number:</label></td>
+                                <td><input type="text" id="cellphone" name="cellphone"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email:</label></td>
+                                <td><input type="text" id="email" name="email"><span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="date_of_birth">Date of Birth:</label></td>
+                                <td><input type="date" id="date_of_birth" name="date_of_birth"><span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="gender">Gender:</label></td>
+                                <td> <input type="text" id="gender" name="gender"><span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="nationality">Nationality:</label></td>
+                                <td> <input type="text" id="nationality" name="nationality"></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="allow_login">Allow Login:</label></td>
+                                <td> <input type="checkbox" id="allow_login" name="allow_login"><span style="color: red; font-size: 1.2em;">*</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <input type="submit" value="Submit"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <%# js dependencies  %>
+    <% include ../../partials/script %>
+</body>
+
+</html>
