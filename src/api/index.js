@@ -5,9 +5,6 @@ const router = express.Router();
 /**
  * Base class for RESTful gateway communication
  */
-
-// TODO: Authentication
-
 const resources = [
     // Main entities (admin)
     { path: '/users', module: require('./admin/users') },
@@ -30,6 +27,7 @@ const resources = [
 
 ];
 
+// Load all API routes
 for (let resource of resources) router.use(resource.path, resource.module);
 
 /**

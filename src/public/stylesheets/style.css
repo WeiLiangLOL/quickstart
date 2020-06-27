@@ -1,12 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+/**
+ * COMMON CSS
+ */
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #383838;
+}
+
+a,
+a:hover,
+a:focus {
+    transition: all 0.3s;
+}
+
+.wrapper {
+    display: flex; /* #sidebar on left, #content on right */
+    width: 100%;
+    align-items: stretch;
+    perspective: 1500px;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    display: flex; /* #navbar on top, .content on bottom */
+    flex-direction: column;
+}
+
+.content {
+    padding: 15px 10px;
+    flex: 1 0 auto; /* Fill height */
+    display: flex;
+}
+
+/**
+ * Utility CSS
+ */
 .capitalize {
     text-transform: capitalize;
 }
 
-/* WEILIANG'S CSS */
-
-.content {
-    padding: 15px 10px;
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
 }
+
+/**
+ * WEILIANG'S CSS
+ */
 
 .data-table {
     width: 100%;

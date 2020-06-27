@@ -31,27 +31,29 @@ session.init(app);
 var locals = require('./etc/templating');
 locals.init(app);
 
-// Attach api routing
-var gatewayRouter = require('./src/api');
-app.use('/api', gatewayRouter);
-
-// Routes
+// Public routes (does not require login)
 var indexRouter = require('./src/routes/index');
 app.use('/', indexRouter);
 var authRouter = require('./src/routes/auth');
 app.use('/auth', authRouter);
+
+// API routes (require login)
+var gatewayRouter = require('./src/api');
+app.use('/api', requireLogin, gatewayRouter);
+
+// User routes (require login)
 var profileRouter = require('./src/routes/profile');
-app.use('/profile', profileRouter);
+app.use('/profile', requireLogin, profileRouter);
 var announcementRouter = require('./src/routes/announcement');
-app.use('/announcement', announcementRouter);
+app.use('/announcement', requireLogin, announcementRouter);
 var dashboardRouter = require('./src/routes/dashboard');
-app.use('/dashboard', dashboardRouter);
+app.use('/dashboard', requireLogin, dashboardRouter);
 var formRouter = require('./src/routes/form');
-app.use('/form', formRouter);
+app.use('/form', requireLogin, formRouter);
 var storageRouter = require('./src/routes/storage');
-app.use('/storage', storageRouter);
+app.use('/storage', requireLogin, storageRouter);
 var adminRouter = require('./src/routes/admin');
-app.use('/admin', adminRouter);
+app.use('/admin', requireLogin, adminRouter);
 
 // Catch 404 and forward to error handler
 var createError = require('http-errors');
@@ -71,3 +73,11 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+// Middleware that redirects if a user is not logged in
+function requireLogin(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return res.redirect('/auth/login');
+    }
+    next();
+}

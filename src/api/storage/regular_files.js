@@ -72,8 +72,30 @@ function getFilePath(directoryid, filename) {
 }
 
 // Retrieve the file and send to client
-router.use('/:id/download', (req, res, next) => {
+router.use('/:id/download', async (req, res, next) => {
+    // Todo: code improvements
+    const fileid = req.params.id;
+    const file = await database.regular_files.findByPk(fileid);
+    const directoryid = file.directoryid;
+    const filename = file.filename;
+    const filePath = await getFilePath(directoryid, filename);
 
+    // Code taken from: https://stackoverflow.com/a/38867960/6943913
+    // Check if file specified by the filePath exists
+    fs.exists(filePath, function(exists){
+        if (exists) {
+            // Content-type is very interesting part that guarantee that
+            // Web browser will handle response in an appropriate manner.
+            res.writeHead(200, {
+                "Content-Type": "application/octet-stream",
+                "Content-Disposition": "attachment; filename=" + filename
+            });
+            fs.createReadStream(filePath).pipe(res);
+        } else {
+            res.writeHead(400, {"Content-Type": "text/plain"});
+            res.end("ERROR File does not exist");
+        }
+    });
 });
 
 /**

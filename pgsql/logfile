@@ -6624,3 +6624,401 @@
 2020-06-23 20:09:21.107 +08 [10324] LOG:  background worker "logical replication launcher" (PID 23240) exited with exit code 1
 2020-06-23 20:09:21.122 +08 [13512] LOG:  shutting down
 2020-06-23 20:09:21.202 +08 [10324] LOG:  database system is shut down
+2020-06-23 20:10:51.006 +08 [7768] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-23 20:10:51.018 +08 [7768] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-23 20:10:51.020 +08 [7768] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-23 20:10:51.406 +08 [25324] LOG:  database system was shut down at 2020-06-23 20:09:21 +08
+2020-06-23 20:10:52.678 +08 [7768] LOG:  database system is ready to accept connections
+2020-06-23 22:21:43.143 +08 [7768] LOG:  received fast shutdown request
+2020-06-23 22:21:43.162 +08 [20136] ERROR:  canceling statement due to user request
+2020-06-23 22:21:43.167 +08 [7768] LOG:  aborting any active transactions
+2020-06-23 22:21:43.187 +08 [7768] LOG:  background worker "logical replication launcher" (PID 20136) exited with exit code 1
+2020-06-23 22:21:43.215 +08 [14920] LOG:  shutting down
+2020-06-23 22:21:43.287 +08 [7768] LOG:  database system is shut down
+2020-06-23 22:30:44.793 +08 [32340] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-23 22:30:44.805 +08 [32340] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-23 22:30:44.806 +08 [32340] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-23 22:30:45.289 +08 [10792] LOG:  database system was shut down at 2020-06-23 22:21:43 +08
+2020-06-23 22:30:45.804 +08 [32340] LOG:  database system is ready to accept connections
+2020-06-24 01:05:12.485 +08 [32340] LOG:  received fast shutdown request
+2020-06-24 01:05:12.503 +08 [32340] LOG:  aborting any active transactions
+2020-06-24 01:05:12.506 +08 [17732] ERROR:  canceling statement due to user request
+2020-06-24 01:05:12.541 +08 [32340] LOG:  background worker "logical replication launcher" (PID 17732) exited with exit code 1
+2020-06-24 01:05:12.564 +08 [22564] LOG:  shutting down
+2020-06-24 01:05:12.629 +08 [32340] LOG:  database system is shut down
+2020-06-24 17:02:51.754 +08 [3244] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-24 17:02:51.767 +08 [3244] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-24 17:02:51.768 +08 [3244] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-24 17:02:51.939 +08 [32796] LOG:  database system was shut down at 2020-06-24 01:05:12 +08
+2020-06-24 17:02:52.570 +08 [3244] LOG:  database system is ready to accept connections
+2020-06-24 17:11:27.405 +08 [3244] LOG:  received fast shutdown request
+2020-06-24 17:11:27.413 +08 [3244] LOG:  aborting any active transactions
+2020-06-24 17:11:27.426 +08 [13276] ERROR:  canceling statement due to user request
+2020-06-24 17:11:27.431 +08 [9856] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-24 17:11:27.432 +08 [9856] FATAL:  terminating connection due to administrator command
+2020-06-24 17:11:27.433 +08 [9856] LOG:  could not send data to client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-24 17:11:27.435 +08 [3244] LOG:  background worker "logical replication launcher" (PID 13276) exited with exit code 1
+2020-06-24 17:11:27.470 +08 [7956] LOG:  shutting down
+2020-06-24 17:11:27.523 +08 [3244] LOG:  database system is shut down
+2020-06-24 17:11:30.772 +08 [17420] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-24 17:11:30.784 +08 [17420] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-24 17:11:30.785 +08 [17420] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-24 17:11:31.018 +08 [1212] LOG:  database system was shut down at 2020-06-24 17:11:27 +08
+2020-06-24 17:11:31.670 +08 [17420] LOG:  database system is ready to accept connections
+2020-06-25 01:16:53.402 +08 [17420] LOG:  received fast shutdown request
+2020-06-25 01:16:53.428 +08 [17420] LOG:  aborting any active transactions
+2020-06-25 01:16:53.435 +08 [9152] ERROR:  canceling statement due to user request
+2020-06-25 01:16:53.470 +08 [17420] LOG:  background worker "logical replication launcher" (PID 9152) exited with exit code 1
+2020-06-25 01:16:53.540 +08 [3864] LOG:  shutting down
+2020-06-25 01:16:53.611 +08 [17420] LOG:  database system is shut down
+2020-06-25 01:16:57.149 +08 [17736] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-25 01:16:57.162 +08 [17736] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-25 01:16:57.163 +08 [17736] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-25 01:16:57.410 +08 [8268] LOG:  database system was shut down at 2020-06-25 01:16:53 +08
+2020-06-25 01:16:58.000 +08 [17736] LOG:  database system is ready to accept connections
+2020-06-25 03:20:33.161 +08 [25188] ERROR:  update or delete on table "directories" violates foreign key constraint "regular_files_directoryid_fkey" on table "regular_files"
+2020-06-25 03:20:33.161 +08 [25188] DETAIL:  Key (directoryid)=(89) is still referenced from table "regular_files".
+2020-06-25 03:20:33.161 +08 [25188] STATEMENT:  DELETE FROM directories WHERE groupname = 'Top.one' AND directoryname <@ 'root.anothername.test';
+2020-06-25 03:21:30.036 +08 [17736] LOG:  received fast shutdown request
+2020-06-25 03:21:30.316 +08 [17736] LOG:  aborting any active transactions
+2020-06-25 03:21:30.384 +08 [25440] ERROR:  canceling statement due to user request
+2020-06-25 03:21:30.594 +08 [17736] LOG:  background worker "logical replication launcher" (PID 25440) exited with exit code 1
+2020-06-25 03:21:31.073 +08 [10540] LOG:  shutting down
+2020-06-25 03:21:31.325 +08 [17736] LOG:  database system is shut down
+2020-06-26 15:38:41.881 +08 [5492] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 15:38:41.892 +08 [5492] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 15:38:41.893 +08 [5492] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 15:38:42.110 +08 [12672] LOG:  database system was shut down at 2020-06-25 03:21:31 +08
+2020-06-26 15:38:42.768 +08 [5492] LOG:  database system is ready to accept connections
+2020-06-26 15:39:58.533 +08 [5492] LOG:  received fast shutdown request
+2020-06-26 15:39:58.552 +08 [12968] ERROR:  canceling statement due to user request
+2020-06-26 15:39:58.558 +08 [5492] LOG:  aborting any active transactions
+2020-06-26 15:39:58.582 +08 [5492] LOG:  background worker "logical replication launcher" (PID 12968) exited with exit code 1
+2020-06-26 15:39:58.617 +08 [2192] LOG:  shutting down
+2020-06-26 15:39:58.706 +08 [5492] LOG:  database system is shut down
+2020-06-26 15:40:02.323 +08 [5288] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 15:40:02.334 +08 [5288] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 15:40:02.336 +08 [5288] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 15:40:02.631 +08 [11112] LOG:  database system was shut down at 2020-06-26 15:39:58 +08
+2020-06-26 15:40:03.100 +08 [5288] LOG:  database system is ready to accept connections
+2020-06-26 16:58:27.928 +08 [5288] LOG:  received fast shutdown request
+2020-06-26 16:58:27.940 +08 [5288] LOG:  aborting any active transactions
+2020-06-26 16:58:27.951 +08 [13016] ERROR:  canceling statement due to user request
+2020-06-26 16:58:27.985 +08 [5288] LOG:  background worker "logical replication launcher" (PID 13016) exited with exit code 1
+2020-06-26 16:58:28.008 +08 [3564] LOG:  shutting down
+2020-06-26 16:58:28.078 +08 [5288] LOG:  database system is shut down
+2020-06-26 16:58:31.869 +08 [9960] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 16:58:31.907 +08 [9960] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 16:58:31.908 +08 [9960] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 16:58:32.217 +08 [2116] LOG:  database system was shut down at 2020-06-26 16:58:28 +08
+2020-06-26 16:58:32.954 +08 [9960] LOG:  database system is ready to accept connections
+2020-06-26 17:00:02.486 +08 [6288] ERROR:  update or delete on table "directories" violates foreign key constraint "regular_files_directoryid_fkey" on table "regular_files"
+2020-06-26 17:00:02.486 +08 [6288] DETAIL:  Key (directoryid)=(89) is still referenced from table "regular_files".
+2020-06-26 17:00:02.486 +08 [6288] STATEMENT:  DELETE FROM directories WHERE groupname = 'Top.one' AND directoryname <@ 'root.anothername.test';
+2020-06-26 17:18:19.152 +08 [12752] ERROR:  duplicate key value violates unique constraint "directories_directoryname_groupname_key"
+2020-06-26 17:18:19.152 +08 [12752] DETAIL:  Key (directoryname, groupname)=(root.hello.NewFolder, Top.two) already exists.
+2020-06-26 17:18:19.152 +08 [12752] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-26 17:27:05.906 +08 [2140] ERROR:  duplicate key value violates unique constraint "directories_directoryname_groupname_key"
+2020-06-26 17:27:05.906 +08 [2140] DETAIL:  Key (directoryname, groupname)=(root.hello.NewFolder, Top.two) already exists.
+2020-06-26 17:27:05.906 +08 [2140] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-26 17:28:46.819 +08 [13640] ERROR:  duplicate key value violates unique constraint "directories_directoryname_groupname_key"
+2020-06-26 17:28:46.819 +08 [13640] DETAIL:  Key (directoryname, groupname)=(root.hello.NewFolder.NewFolder.NewFolder, Top.two) already exists.
+2020-06-26 17:28:46.819 +08 [13640] STATEMENT:  INSERT INTO "quickstart"."directories" ("directoryid","directoryname","groupname") VALUES (DEFAULT,$1,$2) RETURNING *;
+2020-06-26 20:03:59.249 +08 [12348] ERROR:  invalid input syntax for type integer: "undefined" at character 170
+2020-06-26 20:03:59.249 +08 [12348] STATEMENT:  SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children FROM directories AS dir, (SELECT directoryname, groupname FROM directories WHERE directoryid = 'undefined') AS parent WHERE dir.groupname = parent.groupname AND dir.directoryname <@ parent.directoryname AND nlevel(dir.directoryname) = (nlevel(parent.directoryname) + 1) AND dir.directoryname != parent.directoryname ORDER BY text ASC;
+2020-06-26 20:03:59.251 +08 [11072] ERROR:  invalid input syntax for type integer: "undefined" at character 536
+2020-06-26 20:03:59.251 +08 [11072] STATEMENT:  SELECT count(DISTINCT("regular_files"."fileid")) AS "count" FROM "quickstart"."regular_files" AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid" WHERE "regular_files"."directoryid" = 'undefined';
+2020-06-26 20:03:59.258 +08 [12348] ERROR:  invalid input syntax for type integer: "undefined" at character 1247
+2020-06-26 20:03:59.258 +08 [12348] STATEMENT:  SELECT "regular_files".*, "directory"."directoryid" AS "directory.directoryid", "directory"."directoryname" AS "directory.directoryname", "directory"."groupname" AS "directory.groupname", "user_regfile_acls"."permissionid" AS "user_regfile_acls.permissionid", "user_regfile_acls"."read_bit" AS "user_regfile_acls.read_bit", "user_regfile_acls"."write_bit" AS "user_regfile_acls.write_bit", "user_regfile_acls"."fileid" AS "user_regfile_acls.fileid", "user_regfile_acls"."username" AS "user_regfile_acls.username", "group_regfile_acls"."permissionid" AS "group_regfile_acls.permissionid", "group_regfile_acls"."read_bit" AS "group_regfile_acls.read_bit", "group_regfile_acls"."write_bit" AS "group_regfile_acls.write_bit", "group_regfile_acls"."fileid" AS "group_regfile_acls.fileid", "group_regfile_acls"."groupname" AS "group_regfile_acls.groupname", "group_regfile_acls"."rolename" AS "group_regfile_acls.rolename" FROM (SELECT "regular_files"."fileid", "regular_files"."filename", "regular_files"."directoryid", "regular_files"."islocked", "regular_files"."owner", "regular_files"."filesize", "regular_files"."created_at", "regular_files"."updated_at" FROM "quickstart"."regular_files" AS "regular_files" WHERE "regular_files"."directoryid" = 'undefined' LIMIT 100 OFFSET 0) AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid";
+2020-06-26 20:03:59.826 +08 [11072] ERROR:  invalid input syntax for type integer: "undefined" at character 1247
+2020-06-26 20:03:59.826 +08 [11072] STATEMENT:  SELECT "regular_files".*, "directory"."directoryid" AS "directory.directoryid", "directory"."directoryname" AS "directory.directoryname", "directory"."groupname" AS "directory.groupname", "user_regfile_acls"."permissionid" AS "user_regfile_acls.permissionid", "user_regfile_acls"."read_bit" AS "user_regfile_acls.read_bit", "user_regfile_acls"."write_bit" AS "user_regfile_acls.write_bit", "user_regfile_acls"."fileid" AS "user_regfile_acls.fileid", "user_regfile_acls"."username" AS "user_regfile_acls.username", "group_regfile_acls"."permissionid" AS "group_regfile_acls.permissionid", "group_regfile_acls"."read_bit" AS "group_regfile_acls.read_bit", "group_regfile_acls"."write_bit" AS "group_regfile_acls.write_bit", "group_regfile_acls"."fileid" AS "group_regfile_acls.fileid", "group_regfile_acls"."groupname" AS "group_regfile_acls.groupname", "group_regfile_acls"."rolename" AS "group_regfile_acls.rolename" FROM (SELECT "regular_files"."fileid", "regular_files"."filename", "regular_files"."directoryid", "regular_files"."islocked", "regular_files"."owner", "regular_files"."filesize", "regular_files"."created_at", "regular_files"."updated_at" FROM "quickstart"."regular_files" AS "regular_files" WHERE "regular_files"."directoryid" = 'undefined' LIMIT 100 OFFSET 0) AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid";
+2020-06-26 20:03:59.827 +08 [12348] ERROR:  invalid input syntax for type integer: "undefined" at character 536
+2020-06-26 20:03:59.827 +08 [12348] STATEMENT:  SELECT count(DISTINCT("regular_files"."fileid")) AS "count" FROM "quickstart"."regular_files" AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid" WHERE "regular_files"."directoryid" = 'undefined';
+2020-06-26 20:03:59.844 +08 [15396] ERROR:  invalid input syntax for type integer: "undefined" at character 170
+2020-06-26 20:03:59.844 +08 [15396] STATEMENT:  SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children FROM directories AS dir, (SELECT directoryname, groupname FROM directories WHERE directoryid = 'undefined') AS parent WHERE dir.groupname = parent.groupname AND dir.directoryname <@ parent.directoryname AND nlevel(dir.directoryname) = (nlevel(parent.directoryname) + 1) AND dir.directoryname != parent.directoryname ORDER BY text ASC;
+2020-06-26 20:04:15.274 +08 [15676] ERROR:  invalid input syntax for type integer: "undefined" at character 536
+2020-06-26 20:04:15.274 +08 [15676] STATEMENT:  SELECT count(DISTINCT("regular_files"."fileid")) AS "count" FROM "quickstart"."regular_files" AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid" WHERE "regular_files"."directoryid" = 'undefined';
+2020-06-26 20:04:15.334 +08 [15676] ERROR:  invalid input syntax for type integer: "undefined" at character 170
+2020-06-26 20:04:15.334 +08 [15676] STATEMENT:  SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children FROM directories AS dir, (SELECT directoryname, groupname FROM directories WHERE directoryid = 'undefined') AS parent WHERE dir.groupname = parent.groupname AND dir.directoryname <@ parent.directoryname AND nlevel(dir.directoryname) = (nlevel(parent.directoryname) + 1) AND dir.directoryname != parent.directoryname ORDER BY text ASC;
+2020-06-26 20:04:15.393 +08 [15432] ERROR:  invalid input syntax for type integer: "undefined" at character 1247
+2020-06-26 20:04:15.393 +08 [15432] STATEMENT:  SELECT "regular_files".*, "directory"."directoryid" AS "directory.directoryid", "directory"."directoryname" AS "directory.directoryname", "directory"."groupname" AS "directory.groupname", "user_regfile_acls"."permissionid" AS "user_regfile_acls.permissionid", "user_regfile_acls"."read_bit" AS "user_regfile_acls.read_bit", "user_regfile_acls"."write_bit" AS "user_regfile_acls.write_bit", "user_regfile_acls"."fileid" AS "user_regfile_acls.fileid", "user_regfile_acls"."username" AS "user_regfile_acls.username", "group_regfile_acls"."permissionid" AS "group_regfile_acls.permissionid", "group_regfile_acls"."read_bit" AS "group_regfile_acls.read_bit", "group_regfile_acls"."write_bit" AS "group_regfile_acls.write_bit", "group_regfile_acls"."fileid" AS "group_regfile_acls.fileid", "group_regfile_acls"."groupname" AS "group_regfile_acls.groupname", "group_regfile_acls"."rolename" AS "group_regfile_acls.rolename" FROM (SELECT "regular_files"."fileid", "regular_files"."filename", "regular_files"."directoryid", "regular_files"."islocked", "regular_files"."owner", "regular_files"."filesize", "regular_files"."created_at", "regular_files"."updated_at" FROM "quickstart"."regular_files" AS "regular_files" WHERE "regular_files"."directoryid" = 'undefined' LIMIT 100 OFFSET 0) AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid";
+2020-06-26 20:06:10.890 +08 [14628] ERROR:  invalid input syntax for type integer: "undefined" at character 170
+2020-06-26 20:06:10.890 +08 [14628] STATEMENT:  SELECT dir.directoryid AS id, dir.directoryname AS text, true AS children FROM directories AS dir, (SELECT directoryname, groupname FROM directories WHERE directoryid = 'undefined') AS parent WHERE dir.groupname = parent.groupname AND dir.directoryname <@ parent.directoryname AND nlevel(dir.directoryname) = (nlevel(parent.directoryname) + 1) AND dir.directoryname != parent.directoryname ORDER BY text ASC;
+2020-06-26 20:06:10.897 +08 [14628] ERROR:  invalid input syntax for type integer: "undefined" at character 1247
+2020-06-26 20:06:10.897 +08 [14628] STATEMENT:  SELECT "regular_files".*, "directory"."directoryid" AS "directory.directoryid", "directory"."directoryname" AS "directory.directoryname", "directory"."groupname" AS "directory.groupname", "user_regfile_acls"."permissionid" AS "user_regfile_acls.permissionid", "user_regfile_acls"."read_bit" AS "user_regfile_acls.read_bit", "user_regfile_acls"."write_bit" AS "user_regfile_acls.write_bit", "user_regfile_acls"."fileid" AS "user_regfile_acls.fileid", "user_regfile_acls"."username" AS "user_regfile_acls.username", "group_regfile_acls"."permissionid" AS "group_regfile_acls.permissionid", "group_regfile_acls"."read_bit" AS "group_regfile_acls.read_bit", "group_regfile_acls"."write_bit" AS "group_regfile_acls.write_bit", "group_regfile_acls"."fileid" AS "group_regfile_acls.fileid", "group_regfile_acls"."groupname" AS "group_regfile_acls.groupname", "group_regfile_acls"."rolename" AS "group_regfile_acls.rolename" FROM (SELECT "regular_files"."fileid", "regular_files"."filename", "regular_files"."directoryid", "regular_files"."islocked", "regular_files"."owner", "regular_files"."filesize", "regular_files"."created_at", "regular_files"."updated_at" FROM "quickstart"."regular_files" AS "regular_files" WHERE "regular_files"."directoryid" = 'undefined' LIMIT 100 OFFSET 0) AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid";
+2020-06-26 20:06:10.902 +08 [14756] ERROR:  invalid input syntax for type integer: "undefined" at character 536
+2020-06-26 20:06:10.902 +08 [14756] STATEMENT:  SELECT count(DISTINCT("regular_files"."fileid")) AS "count" FROM "quickstart"."regular_files" AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid" WHERE "regular_files"."directoryid" = 'undefined';
+2020-06-26 20:20:39.684 +08 [15092] ERROR:  invalid input syntax for type integer: "f17" at character 137
+2020-06-26 20:20:39.684 +08 [15092] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'f17';
+2020-06-26 20:21:44.123 +08 [13812] ERROR:  invalid input syntax for type integer: "f17" at character 137
+2020-06-26 20:21:44.123 +08 [13812] STATEMENT:  SELECT "directoryid", "directoryname", "groupname" FROM "quickstart"."directories" AS "directories" WHERE "directories"."directoryid" = 'f17';
+2020-06-26 20:37:50.483 +08 [9960] LOG:  received fast shutdown request
+2020-06-26 20:37:50.503 +08 [12036] ERROR:  canceling statement due to user request
+2020-06-26 20:37:50.511 +08 [9960] LOG:  aborting any active transactions
+2020-06-26 20:37:50.521 +08 [9960] LOG:  background worker "logical replication launcher" (PID 12036) exited with exit code 1
+2020-06-26 20:37:50.572 +08 [11632] LOG:  shutting down
+2020-06-26 20:37:50.614 +08 [9960] LOG:  database system is shut down
+2020-06-26 20:37:54.228 +08 [16132] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 20:37:54.239 +08 [16132] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 20:37:54.240 +08 [16132] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 20:37:54.573 +08 [11652] LOG:  database system was shut down at 2020-06-26 20:37:50 +08
+2020-06-26 20:37:55.288 +08 [16132] LOG:  database system is ready to accept connections
+2020-06-26 20:44:17.158 +08 [16132] LOG:  received fast shutdown request
+2020-06-26 20:44:17.188 +08 [9920] ERROR:  canceling statement due to user request
+2020-06-26 20:44:17.191 +08 [5076] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 20:44:17.192 +08 [15896] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 20:44:17.207 +08 [15584] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 20:44:17.208 +08 [15540] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 20:44:17.211 +08 [7812] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 20:44:17.223 +08 [16132] LOG:  aborting any active transactions
+2020-06-26 20:44:17.247 +08 [16132] LOG:  background worker "logical replication launcher" (PID 9920) exited with exit code 1
+2020-06-26 20:44:17.279 +08 [15152] LOG:  shutting down
+2020-06-26 20:44:17.346 +08 [16132] LOG:  database system is shut down
+2020-06-26 20:44:22.147 +08 [10832] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 20:44:22.157 +08 [10832] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 20:44:22.158 +08 [10832] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 20:44:22.388 +08 [2844] LOG:  database system was shut down at 2020-06-26 20:44:17 +08
+2020-06-26 20:44:22.964 +08 [10832] LOG:  database system is ready to accept connections
+2020-06-26 21:10:40.362 +08 [10832] LOG:  received fast shutdown request
+2020-06-26 21:10:40.384 +08 [16304] ERROR:  canceling statement due to user request
+2020-06-26 21:10:40.385 +08 [10832] LOG:  aborting any active transactions
+2020-06-26 21:10:40.392 +08 [16744] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 21:10:40.392 +08 [8112] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 21:10:40.393 +08 [8112] FATAL:  terminating connection due to administrator command
+2020-06-26 21:10:40.394 +08 [8112] LOG:  could not send data to client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 21:10:40.414 +08 [10832] LOG:  background worker "logical replication launcher" (PID 16304) exited with exit code 1
+2020-06-26 21:10:40.443 +08 [15796] LOG:  shutting down
+2020-06-26 21:10:40.507 +08 [10832] LOG:  database system is shut down
+2020-06-26 21:10:43.776 +08 [4424] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:10:43.796 +08 [4424] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:10:43.798 +08 [4424] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:10:43.999 +08 [16536] LOG:  database system was shut down at 2020-06-26 21:10:40 +08
+2020-06-26 21:10:44.723 +08 [4424] LOG:  database system is ready to accept connections
+2020-06-26 21:11:00.710 +08 [17092] ERROR:  invalid input syntax for type bigint: "18download" at character 1595
+2020-06-26 21:11:00.710 +08 [17092] STATEMENT:  SELECT "regular_files"."fileid", "regular_files"."filename", "regular_files"."directoryid", "regular_files"."islocked", "regular_files"."owner", "regular_files"."filesize", "regular_files"."created_at", "regular_files"."updated_at", "directory"."directoryid" AS "directory.directoryid", "directory"."directoryname" AS "directory.directoryname", "directory"."groupname" AS "directory.groupname", "user_regfile_acls"."permissionid" AS "user_regfile_acls.permissionid", "user_regfile_acls"."read_bit" AS "user_regfile_acls.read_bit", "user_regfile_acls"."write_bit" AS "user_regfile_acls.write_bit", "user_regfile_acls"."fileid" AS "user_regfile_acls.fileid", "user_regfile_acls"."username" AS "user_regfile_acls.username", "group_regfile_acls"."permissionid" AS "group_regfile_acls.permissionid", "group_regfile_acls"."read_bit" AS "group_regfile_acls.read_bit", "group_regfile_acls"."write_bit" AS "group_regfile_acls.write_bit", "group_regfile_acls"."fileid" AS "group_regfile_acls.fileid", "group_regfile_acls"."groupname" AS "group_regfile_acls.groupname", "group_regfile_acls"."rolename" AS "group_regfile_acls.rolename" FROM "quickstart"."regular_files" AS "regular_files" LEFT OUTER JOIN "quickstart"."directories" AS "directory" ON "regular_files"."directoryid" = "directory"."directoryid" LEFT OUTER JOIN "quickstart"."user_regfile_acls" AS "user_regfile_acls" ON "regular_files"."fileid" = "user_regfile_acls"."fileid" LEFT OUTER JOIN "quickstart"."group_regfile_acls" AS "group_regfile_acls" ON "regular_files"."fileid" = "group_regfile_acls"."fileid" WHERE "regular_files"."fileid" = '18download';
+2020-06-26 21:11:37.021 +08 [4424] LOG:  received fast shutdown request
+2020-06-26 21:11:37.028 +08 [4424] LOG:  aborting any active transactions
+2020-06-26 21:11:37.043 +08 [3136] ERROR:  canceling statement due to user request
+2020-06-26 21:11:37.067 +08 [4424] LOG:  background worker "logical replication launcher" (PID 3136) exited with exit code 1
+2020-06-26 21:11:37.093 +08 [17012] LOG:  shutting down
+2020-06-26 21:11:37.206 +08 [4424] LOG:  database system is shut down
+2020-06-26 21:11:40.860 +08 [17316] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:11:40.873 +08 [17316] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:11:40.874 +08 [17316] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:11:41.190 +08 [17240] LOG:  database system was shut down at 2020-06-26 21:11:37 +08
+2020-06-26 21:11:42.299 +08 [17316] LOG:  database system is ready to accept connections
+2020-06-26 21:12:47.718 +08 [17316] LOG:  received fast shutdown request
+2020-06-26 21:12:47.728 +08 [17316] LOG:  aborting any active transactions
+2020-06-26 21:12:47.741 +08 [17184] ERROR:  canceling statement due to user request
+2020-06-26 21:12:47.751 +08 [17316] LOG:  background worker "logical replication launcher" (PID 17184) exited with exit code 1
+2020-06-26 21:12:47.779 +08 [7708] LOG:  shutting down
+2020-06-26 21:12:47.873 +08 [17316] LOG:  database system is shut down
+2020-06-26 21:12:51.486 +08 [5244] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:12:51.500 +08 [5244] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:12:51.501 +08 [5244] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:12:51.893 +08 [4168] LOG:  database system was shut down at 2020-06-26 21:12:47 +08
+2020-06-26 21:12:52.930 +08 [5244] LOG:  database system is ready to accept connections
+2020-06-26 21:14:19.043 +08 [5244] LOG:  received fast shutdown request
+2020-06-26 21:14:19.047 +08 [5244] LOG:  aborting any active transactions
+2020-06-26 21:14:19.065 +08 [8580] ERROR:  canceling statement due to user request
+2020-06-26 21:14:19.096 +08 [5244] LOG:  background worker "logical replication launcher" (PID 8580) exited with exit code 1
+2020-06-26 21:14:19.121 +08 [15388] LOG:  shutting down
+2020-06-26 21:14:19.202 +08 [5244] LOG:  database system is shut down
+2020-06-26 21:14:23.023 +08 [2968] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:14:23.035 +08 [2968] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:14:23.036 +08 [2968] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:14:23.242 +08 [14760] LOG:  database system was shut down at 2020-06-26 21:14:19 +08
+2020-06-26 21:14:23.921 +08 [2968] LOG:  database system is ready to accept connections
+2020-06-26 21:14:57.137 +08 [2968] LOG:  received fast shutdown request
+2020-06-26 21:14:57.165 +08 [2968] LOG:  aborting any active transactions
+2020-06-26 21:14:57.242 +08 [16212] ERROR:  canceling statement due to user request
+2020-06-26 21:14:57.277 +08 [2968] LOG:  background worker "logical replication launcher" (PID 16212) exited with exit code 1
+2020-06-26 21:14:57.381 +08 [13776] LOG:  shutting down
+2020-06-26 21:14:57.558 +08 [2968] LOG:  database system is shut down
+2020-06-26 21:15:01.154 +08 [17184] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:15:01.164 +08 [17184] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:15:01.165 +08 [17184] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:15:01.547 +08 [12256] LOG:  database system was shut down at 2020-06-26 21:14:57 +08
+2020-06-26 21:15:02.410 +08 [17184] LOG:  database system is ready to accept connections
+2020-06-26 21:24:26.648 +08 [17184] LOG:  received fast shutdown request
+2020-06-26 21:24:26.654 +08 [17184] LOG:  aborting any active transactions
+2020-06-26 21:24:26.672 +08 [15028] ERROR:  canceling statement due to user request
+2020-06-26 21:24:26.694 +08 [17184] LOG:  background worker "logical replication launcher" (PID 15028) exited with exit code 1
+2020-06-26 21:24:26.716 +08 [17368] LOG:  shutting down
+2020-06-26 21:24:26.761 +08 [17184] LOG:  database system is shut down
+2020-06-26 21:24:31.411 +08 [17908] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 21:24:31.426 +08 [17908] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 21:24:31.428 +08 [17908] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 21:24:31.663 +08 [11356] LOG:  database system was shut down at 2020-06-26 21:24:26 +08
+2020-06-26 21:24:32.306 +08 [17908] LOG:  database system is ready to accept connections
+2020-06-26 21:56:43.833 +08 [16940] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-06-26 21:56:43.833 +08 [16940] DETAIL:  Key (filename, directoryid)=(Untitled.png, 135) already exists.
+2020-06-26 21:56:43.833 +08 [16940] STATEMENT:  UPDATE "quickstart"."regular_files" SET "directoryid"=$1,"updated_at"=$2 WHERE "fileid" = $3
+2020-06-26 22:02:12.948 +08 [17908] LOG:  received fast shutdown request
+2020-06-26 22:02:12.972 +08 [17492] ERROR:  canceling statement due to user request
+2020-06-26 22:02:12.977 +08 [17992] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 22:02:12.977 +08 [8468] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 22:02:12.979 +08 [17908] LOG:  aborting any active transactions
+2020-06-26 22:02:12.999 +08 [17908] LOG:  background worker "logical replication launcher" (PID 17492) exited with exit code 1
+2020-06-26 22:02:13.027 +08 [17340] LOG:  shutting down
+2020-06-26 22:02:13.099 +08 [17908] LOG:  database system is shut down
+2020-06-26 22:02:17.954 +08 [4068] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 22:02:17.969 +08 [4068] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 22:02:17.971 +08 [4068] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 22:02:18.286 +08 [18172] LOG:  database system was shut down at 2020-06-26 22:02:13 +08
+2020-06-26 22:02:19.270 +08 [4068] LOG:  database system is ready to accept connections
+2020-06-26 23:34:37.901 +08 [4068] LOG:  received fast shutdown request
+2020-06-26 23:34:37.925 +08 [17052] ERROR:  canceling statement due to user request
+2020-06-26 23:34:37.931 +08 [19404] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 23:34:37.932 +08 [15400] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 23:34:37.934 +08 [4068] LOG:  aborting any active transactions
+2020-06-26 23:34:37.952 +08 [4068] LOG:  background worker "logical replication launcher" (PID 17052) exited with exit code 1
+2020-06-26 23:34:37.983 +08 [16968] LOG:  shutting down
+2020-06-26 23:34:38.046 +08 [4068] LOG:  database system is shut down
+2020-06-26 23:34:41.961 +08 [17340] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 23:34:41.971 +08 [17340] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 23:34:41.973 +08 [17340] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 23:34:42.206 +08 [16176] LOG:  database system was shut down at 2020-06-26 23:34:37 +08
+2020-06-26 23:34:42.897 +08 [17340] LOG:  database system is ready to accept connections
+2020-06-26 23:35:20.360 +08 [17340] LOG:  received fast shutdown request
+2020-06-26 23:35:20.377 +08 [17340] LOG:  aborting any active transactions
+2020-06-26 23:35:20.525 +08 [17340] LOG:  background worker "logical replication launcher" (PID 13052) exited with exit code 1
+2020-06-26 23:35:20.620 +08 [17708] LOG:  shutting down
+2020-06-26 23:35:20.707 +08 [17340] LOG:  database system is shut down
+2020-06-26 23:35:21.622 +08 [16164] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 23:35:21.634 +08 [16164] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 23:35:21.635 +08 [16164] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 23:35:21.899 +08 [7192] LOG:  database system was shut down at 2020-06-26 23:35:20 +08
+2020-06-26 23:35:22.671 +08 [16164] LOG:  database system is ready to accept connections
+2020-06-26 23:36:00.837 +08 [12620] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 23:36:00.842 +08 [19324] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 23:36:00.852 +08 [17708] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-06-26 23:37:18.064 +08 [16164] LOG:  received fast shutdown request
+2020-06-26 23:37:18.070 +08 [16164] LOG:  aborting any active transactions
+2020-06-26 23:37:18.084 +08 [2800] ERROR:  canceling statement due to user request
+2020-06-26 23:37:18.108 +08 [16164] LOG:  background worker "logical replication launcher" (PID 2800) exited with exit code 1
+2020-06-26 23:37:18.134 +08 [19148] LOG:  shutting down
+2020-06-26 23:37:18.226 +08 [16164] LOG:  database system is shut down
+2020-06-26 23:37:21.982 +08 [19272] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-26 23:37:21.998 +08 [19272] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-26 23:37:22.000 +08 [19272] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-26 23:37:22.253 +08 [17128] LOG:  database system was shut down at 2020-06-26 23:37:18 +08
+2020-06-26 23:37:22.985 +08 [19272] LOG:  database system is ready to accept connections
+2020-06-27 00:16:00.639 +08 [19272] LOG:  received fast shutdown request
+2020-06-27 00:16:00.647 +08 [19272] LOG:  aborting any active transactions
+2020-06-27 00:16:00.659 +08 [14656] ERROR:  canceling statement due to user request
+2020-06-27 00:16:00.660 +08 [17712] ERROR:  canceling statement due to user request
+2020-06-27 00:16:00.687 +08 [19272] LOG:  background worker "logical replication launcher" (PID 14656) exited with exit code 1
+2020-06-27 00:16:00.727 +08 [18412] LOG:  shutting down
+2020-06-27 00:16:00.791 +08 [19272] LOG:  database system is shut down
+2020-06-27 00:16:04.250 +08 [21980] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 00:16:04.262 +08 [21980] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 00:16:04.263 +08 [21980] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 00:16:04.542 +08 [15760] LOG:  database system was shut down at 2020-06-27 00:16:00 +08
+2020-06-27 00:16:05.164 +08 [21980] LOG:  database system is ready to accept connections
+2020-06-27 00:19:31.073 +08 [21980] LOG:  received fast shutdown request
+2020-06-27 00:19:31.166 +08 [21980] LOG:  aborting any active transactions
+2020-06-27 00:19:31.260 +08 [21292] ERROR:  canceling statement due to user request
+2020-06-27 00:19:31.311 +08 [21980] LOG:  server process (PID 19588) was terminated by exception 0xC000013A
+2020-06-27 00:19:31.311 +08 [21980] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2020-06-27 00:19:31.316 +08 [21980] LOG:  terminating any other active server processes
+2020-06-27 00:19:31.414 +08 [21980] LOG:  background worker "logical replication launcher" (PID 21292) exited with exit code 1
+2020-06-27 00:19:31.530 +08 [21980] LOG:  abnormal database system shutdown
+2020-06-27 00:19:31.547 +08 [21980] LOG:  database system is shut down
+2020-06-27 00:19:35.734 +08 [21564] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 00:19:35.747 +08 [21564] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 00:19:35.748 +08 [21564] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 00:19:35.998 +08 [20312] LOG:  database system was interrupted; last known up at 2020-06-27 00:16:04 +08
+2020-06-27 00:19:36.909 +08 [20312] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-06-27 00:19:36.917 +08 [20312] LOG:  redo starts at 0/2FD6638
+2020-06-27 00:19:36.922 +08 [20312] LOG:  invalid record length at 0/2FDA5D0: wanted 24, got 0
+2020-06-27 00:19:36.923 +08 [20312] LOG:  redo done at 0/2FDA598
+2020-06-27 00:19:37.451 +08 [21564] LOG:  database system is ready to accept connections
+2020-06-27 01:54:07.626 +08 [20608] ERROR:  invalid input syntax for type integer: "f18" at character 359
+2020-06-27 01:54:07.626 +08 [20608] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f18';
+2020-06-27 01:57:23.034 +08 [20816] ERROR:  invalid input syntax for type integer: "f58" at character 359
+2020-06-27 01:57:23.034 +08 [20816] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f58';
+2020-06-27 01:59:07.363 +08 [20336] ERROR:  invalid input syntax for type integer: "f58" at character 359
+2020-06-27 01:59:07.363 +08 [20336] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f58';
+2020-06-27 01:59:13.538 +08 [22512] ERROR:  invalid input syntax for type integer: "f58" at character 359
+2020-06-27 01:59:13.538 +08 [22512] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f58';
+2020-06-27 02:01:10.210 +08 [20348] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-06-27 02:01:10.210 +08 [20348] DETAIL:  Key (filename, directoryid)=(Untitled.png, 89) already exists.
+2020-06-27 02:01:10.210 +08 [20348] STATEMENT:  UPDATE "quickstart"."regular_files" SET "directoryid"=$1,"updated_at"=$2 WHERE "fileid" = $3
+2020-06-27 02:02:58.094 +08 [9952] ERROR:  invalid input syntax for type integer: "f66" at character 359
+2020-06-27 02:02:58.094 +08 [9952] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f66';
+2020-06-27 02:03:04.350 +08 [12936] ERROR:  invalid input syntax for type integer: "f66" at character 359
+2020-06-27 02:03:04.350 +08 [12936] STATEMENT:  SELECT "directories"."directoryid", "directories"."directoryname", "directories"."groupname", "group"."groupname" AS "group.groupname", "group"."groupid" AS "group.groupid" FROM "quickstart"."directories" AS "directories" LEFT OUTER JOIN "quickstart"."groups" AS "group" ON "directories"."groupname" = "group"."groupname" WHERE "directories"."directoryid" = 'f66';
+2020-06-27 02:08:43.774 +08 [21592] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-06-27 02:08:43.774 +08 [21592] DETAIL:  Key (filename, directoryid)=(Untitled.png, 87) already exists.
+2020-06-27 02:08:43.774 +08 [21592] STATEMENT:  UPDATE "quickstart"."regular_files" SET "directoryid"=$1,"updated_at"=$2 WHERE "fileid" = $3
+2020-06-27 02:08:53.890 +08 [19936] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-06-27 02:08:53.890 +08 [19936] DETAIL:  Key (filename, directoryid)=(Untitled.png, 100) already exists.
+2020-06-27 02:08:53.890 +08 [19936] STATEMENT:  UPDATE "quickstart"."regular_files" SET "directoryid"=$1,"updated_at"=$2 WHERE "fileid" = $3
+2020-06-27 03:28:14.170 +08 [21564] LOG:  received fast shutdown request
+2020-06-27 03:28:14.188 +08 [21564] LOG:  aborting any active transactions
+2020-06-27 03:28:14.191 +08 [19196] ERROR:  canceling statement due to user request
+2020-06-27 03:28:14.212 +08 [21564] LOG:  background worker "logical replication launcher" (PID 19196) exited with exit code 1
+2020-06-27 03:28:14.243 +08 [19564] LOG:  shutting down
+2020-06-27 03:28:14.329 +08 [21564] LOG:  database system is shut down
+2020-06-27 03:28:18.388 +08 [23808] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 03:28:18.401 +08 [23808] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 03:28:18.403 +08 [23808] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 03:28:18.763 +08 [24572] LOG:  database system was shut down at 2020-06-27 03:28:14 +08
+2020-06-27 03:28:19.614 +08 [23808] LOG:  database system is ready to accept connections
+2020-06-27 04:28:08.325 +08 [23808] LOG:  received fast shutdown request
+2020-06-27 04:28:08.352 +08 [23696] ERROR:  canceling statement due to user request
+2020-06-27 04:28:08.352 +08 [23808] LOG:  aborting any active transactions
+2020-06-27 04:28:08.361 +08 [23808] LOG:  background worker "logical replication launcher" (PID 23696) exited with exit code 1
+2020-06-27 04:28:08.406 +08 [23708] LOG:  shutting down
+2020-06-27 04:28:08.468 +08 [23808] LOG:  database system is shut down
+2020-06-27 11:53:47.195 +08 [23924] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 11:53:47.208 +08 [23924] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 11:53:47.210 +08 [23924] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 11:53:47.443 +08 [13968] LOG:  database system was shut down at 2020-06-27 04:28:08 +08
+2020-06-27 11:53:48.261 +08 [23924] LOG:  database system is ready to accept connections
+2020-06-27 17:32:01.458 +08 [23924] LOG:  received fast shutdown request
+2020-06-27 17:32:01.468 +08 [23924] LOG:  aborting any active transactions
+2020-06-27 17:32:01.480 +08 [27120] ERROR:  canceling statement due to user request
+2020-06-27 17:32:01.512 +08 [23924] LOG:  background worker "logical replication launcher" (PID 27120) exited with exit code 1
+2020-06-27 17:32:01.530 +08 [26912] LOG:  shutting down
+2020-06-27 17:32:01.577 +08 [23924] LOG:  database system is shut down
+2020-06-27 17:32:08.338 +08 [22664] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 17:32:08.349 +08 [22664] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 17:32:08.350 +08 [22664] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 17:32:08.620 +08 [26424] LOG:  database system was shut down at 2020-06-27 17:32:01 +08
+2020-06-27 17:32:08.920 +08 [22664] LOG:  database system is ready to accept connections
+2020-06-27 17:34:30.843 +08 [22664] LOG:  received fast shutdown request
+2020-06-27 17:34:30.856 +08 [22664] LOG:  aborting any active transactions
+2020-06-27 17:34:30.870 +08 [27276] ERROR:  canceling statement due to user request
+2020-06-27 17:34:30.878 +08 [22664] LOG:  background worker "logical replication launcher" (PID 27276) exited with exit code 1
+2020-06-27 17:34:30.897 +08 [25260] LOG:  shutting down
+2020-06-27 17:34:30.948 +08 [22664] LOG:  database system is shut down
+2020-06-27 17:35:21.430 +08 [29812] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-27 17:35:21.490 +08 [29812] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-27 17:35:21.491 +08 [29812] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-27 17:35:21.883 +08 [29368] LOG:  database system was shut down at 2020-06-27 17:34:30 +08
+2020-06-27 17:35:22.318 +08 [29812] LOG:  database system is ready to accept connections
+2020-06-27 17:46:00.357 +08 [29812] LOG:  received fast shutdown request
+2020-06-27 17:46:00.376 +08 [23592] ERROR:  canceling statement due to user request
+2020-06-27 17:46:00.382 +08 [29812] LOG:  aborting any active transactions
+2020-06-27 17:46:00.386 +08 [29812] LOG:  background worker "logical replication launcher" (PID 23592) exited with exit code 1
+2020-06-27 17:46:00.435 +08 [29220] LOG:  shutting down
+2020-06-27 17:46:00.495 +08 [29812] LOG:  database system is shut down

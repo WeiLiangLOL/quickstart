@@ -47,17 +47,17 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.6
+### Version 0.0.7
 ```
-+ Improved sidebar style
-  + Added logo
-+ Added global attributes propogation
-  + request filtering middleware
-+ Added Modals
-+ UI functionality
-  + Complete for Group Managment
-  - Missing User Management
-  - Missing data controls
++ API now requires login
++ Sorted general CSS
++ Mass changes to storage/files
+  + Full folder functionality
+  + Full regular_file functionality
+  - Permissions functionality not implemented
+  + UI updates
+  + Mobile compatible UI
+  - Groups/Files/Folders api access control not implemented
 ```
 
 The complete list is available [here](CHANGELOG.md).

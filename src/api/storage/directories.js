@@ -86,7 +86,7 @@ finale.initialize({
 const resource = finale.resource({
     model: database.directories,
     endpoints: ['/', '/:directoryid'],
-    associations: false,
+    associations: true,
 });
 
 /**
@@ -153,24 +153,25 @@ resource.create.fetch(async (req, res, context) => {
     // Skip creating of physical directory (lazy)
 });
 
-// Perform validation before PUT (update), fetching as required
+/**
+ * Perform validation before PUT (update), fetching as required
+ *
+ * Required fields: directoryid
+ * Optional fields: directoryname, groupname
+ */
 resource.update.fetch.after(async (req, res, context) => {
     // context.instance is only available after fetch. Hence we use fetch.after
     const directoryid = req.params.directoryid;
     const olddirectoryname = context.instance.directoryname;
     const oldgroupname = context.instance.groupname;
-    const newdirectoryname = req.body.directoryname;
-    const newgroupname = req.body.groupname;
     // ID cannot be changed
     if (req.body.directoryid && req.body.directoryid !== directoryid) {
         send400(res, new Error('Cannot change directory id'));
         return context.stop;
     }
-    // Ensure required fields
-    if (!newdirectoryname || !newgroupname) {
-        send400(res, new Error('Empty fields'));
-        return context.stop;
-    }
+    // Optional fields
+    const newdirectoryname = (req.body.directoryname) ? req.body.directoryname : olddirectoryname;
+    const newgroupname = (req.body.groupname) ? req.body.groupname : oldgroupname;
     // Values unchanged, nothing to do
     if (olddirectoryname === newdirectoryname && oldgroupname === newgroupname) {
         res.status(201).send(context.instance);
@@ -220,10 +221,13 @@ resource.update.write.before((req, res, context) => {
     const directoryid = req.params.directoryid;
     const olddirectoryname = context.instance.directoryname;
     const oldgroupname = context.instance.groupname;
-    const newdirectoryname = req.body.directoryname;
-    const newgroupname = req.body.groupname;
+    // Optional fields
+    const newdirectoryname = (req.body.directoryname) ? req.body.directoryname : olddirectoryname;
+    const newgroupname = (req.body.groupname) ? req.body.groupname : oldgroupname;
 
     database.sequelize.transaction(async (t) => {
+        const oldgroup = await context.instance.getGroup();
+        const newgroup = await database.groups.findByPk(newgroupname);
         // Update directoryname and groupname
         await context.instance.update( // Update = set + save
             {
@@ -250,8 +254,6 @@ resource.update.write.before((req, res, context) => {
             }
         );
         // Move physical folders accordingly
-        const oldgroup = await context.instance.getGroup();
-        const newgroup = await database.groups.findByPk(newgroupname);
         const oldPath = file_storage_path + oldgroup.groupid
             + '/' + olddirectoryname.replace(/\./g, '/');
         const newPath = file_storage_path + newgroup.groupid

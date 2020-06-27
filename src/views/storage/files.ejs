@@ -9,6 +9,7 @@
 
     <%# css dependencies  %>
     <% include ../../partials/style %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/storage/files.css">
 </head>
 <body>
 
@@ -24,31 +25,32 @@
 
             <div class="content">
 
-                <div class="container-fluid">
+                <div id='rootPane'>
 
-                    <h2 style='display: inline;'>Group</h2>
-                    <button onclick='showGroupTable()' id='showGroupTable' style='display: none;'>show</button>
-                    <button onclick='hideGroupTable()' id='hideGroupTable'>hide</button>
-                    <button onclick='refreshGroupTable()'>Refresh</button>
-                    <table id='groupTable'>
-                    </table>
-
-                    <div></div>
-
-                    <h2 style='display: inline;'>Folder</h2>
-                    <button onclick='showFolderTable()' id='showFolderTable' style='display: none;'>show</button>
-                    <button onclick='hideFolderTable()' id='hideFolderTable'>hide</button>
-                    <span id="showMessage" style='color: red;'></span>
-                    <div id="folderTable">
+                    <div id="leftPane" class="collapse show">
+                        <h4>Groups</h4>
+                        <div class='scrollWrapper'>
+                            <div id="groupList" class="list-group" role="tablist"></div>
+                        </div>
                     </div>
 
-                    <div></div>
+                    <a id='leftHandle' class='dividing-collapse' data-toggle="collapse" href="#leftPane" role="button" aria-expanded="true" aria-controls="leftPane"><span class="dividing-line"></span></a>
 
-                    <form action="/api/regular_files" method="post" enctype="multipart/form-data">
-                        <input name='directoryid' id='directoryid' type='hidden' placeholder='0'  />
-                        <input type='file' name='file' />
-                        <input type='submit' value='upload' />
-                    </form>
+                    <div id="centerPane">
+                        <span>&nbsp</span><span id="showMessage" style='color: red;'></span>
+                        <div id="fileList" class='tab-content'></div>
+                    </div>
+
+                    <a id='rightHandle' class='dividing-collapse' data-toggle="collapse" href="#rightPane" role="button" aria-expanded="true" aria-controls="rightPane"><span class="dividing-line"></span></a>
+
+                    <div id="rightPane" class="collapse show">
+                        <h4>Meta</h4>
+                        <div class='scrollWrapper'>
+                            <table id="metaList"></table>
+                        </div>
+                    </div>
+
+                    <div style='clear: both;'></div>
 
                 </div>
 
@@ -59,7 +61,8 @@
 
     <%# js dependencies  %>
     <% include ../../partials/script %>
-    <script src="/javascripts/storage/files.js"></script>
     <script src="/javascripts/storage/ajax.js"></script>
+    <script src="/javascripts/storage/filesJSTree.js"></script>
+    <script src="/javascripts/storage/files.js"></script>
 </body>
 </html>

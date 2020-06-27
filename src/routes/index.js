@@ -4,7 +4,6 @@ var router = express.Router();
 /*
  * Main Navigation
  */
-
 router.get('/', function (req, res, next) {
     res.render('index');
 });

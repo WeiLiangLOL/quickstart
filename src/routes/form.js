@@ -1,16 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// Authentication check: redirects to login page if user is not logged in.
-router.use(function (req, res, next) {
-    if (!req.isAuthenticated()) {
-        return res.redirect('/auth/login');
-    }
-    next();
-});
-
-// Place routes below
-
 // Form
 router.get('/distributedForm', function (req, res, next) {
     res.render('form/distributedForm', {
