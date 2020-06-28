@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - Guide</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userguide.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+            <h4>User Guide (Storage)</h4>
+            <p>The Storage is created with
+                <a href='https://getbootstrap.com/'>bootstrap</a> and
+                <a href='https://www.jstree.com/'>jstree</a>
+            </p>
+
+            <div class="line"></div>
+
+            <h4>General Interface</h4>
+            <p>After login, click ‘Storage>Files’ on the left navigation bar to access the file storage</p>
+            <img src="/images/userguide/ug_storage_1.jpg" alt="Location of storage files button">
+            <br>
+            <br>
+            <p>Choose a group from the list</p>
+            <img src="/images/userguide/ug_storage_2.jpg" alt="Groups list (Left panel)">
+            <br>
+            <br>
+            <p>The storage for the group will be displayed in the center panel</p>
+            <img src="/images/userguide/ug_storage_3.jpg" alt="Storage (Center panel)">
+            <br>
+            <br>
+            <p>Clicking on any files/folders in the center panel will display the metadata on the right panel</p>
+            <img src="/images/userguide/ug_storage_4.jpg" alt="Metadata (Right panel)">
+            <br>
+            <br>
+            <p>You can view folders of multiple groups by pinning the group onto the center display</p>
+            <img src="/images/userguide/ug_storage_5.jpg" alt="Pinning multiple center panel">
+            <br>
+            <br>
+            <p>The left and right panels can be hidden by clicking on the dotted lines dividing them</p>
+            <img src="/images/userguide/ug_storage_6.jpg" alt="Hide left and right panel">
+
+            <div class="line"></div>
+
+            <h4>Folder</h4>
+            <p>Right click to open the context menu. Here, you can create a new folder, rename, and delete</p>
+            <img src="/images/userguide/ug_storage_7.jpg" alt="Right click for context menu">
+            <br>
+            <br>
+            <p>Folders can be moved by drag and drop</p>
+            <img src="/images/userguide/ug_storage_8.jpg" alt="Drag and drop folders">
+            <br>
+            <br>
+            <p>You can move a folder across groups by drag and drop</p>
+            <img src="/images/userguide/ug_storage_9.jpg" alt="Drag and drop folders across groups">
+            <br>
+            <br>
+            <p>Rules regarding folder naming:<br>
+                1. Top-level folders cannot be renamed/deleted<br>
+                2. Folder names cannot contain whitespace<br>
+                3. Folder names must be unique
+            </p>
+
+            <div class="line"></div>
+
+            <h4>Files</h4>
+            <p>Select a folder to upload file to, and upload your file</p>
+            <img src="/images/userguide/ug_storage_10.jpg" alt="Upload file to folder">
+            <br>
+            <br>
+            <p>Files can only be uploaded to a folder. Hence the upload button will disappear when a file is selected instead of a folder</p>
+            <img src="/images/userguide/ug_storage_11.jpg" alt="Cannot upload file to file">
+            <br>
+            <br>
+            <p>Right clicking on the file will display the context menu where you can download, rename, and delete the file<br>
+                A file can also be downloaded by double clicking</p>
+            <img src="/images/userguide/ug_storage_12.jpg" alt="Right click to download, rename and delete">
+            <br>
+            <br>
+            <p>Files support drag and drop to move them into a different folder<br>
+                Drag and drop files across groups is also supported</p>
+            <img src="/images/userguide/ug_storage_13.jpg" alt="Drag and drop files across groups">
+
+            <div class="line"></div>
+
+            <h4>Mobile Compatible</h4>
+            <p>The complete storage feature is available on phone browsers</p>
+            <img src="/images/userguide/ug_storage_14.jpg" alt="Compatible on phone browsers">
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+</body>
+
+</html>

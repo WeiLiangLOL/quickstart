@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - Guide</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userguide.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+            <h4>User Guide (API)</h4>
+            <p>The API is created with
+                <a href='https://github.com/sequelize/sequelize/'>sequelize</a> and
+                <a href='https://github.com/tommybananas/finale'>finale</a>
+            </p>
+
+            <div class="line"></div>
+
+            <h4>Accessing the API (Quick Look)</h4>
+            <p>The api can be accessed at
+                <a href='https://quickstart-datamanager.herokuapp.com/api'>
+                    https://quickstart-datamanager.herokuapp.com/api
+                </a>
+            </p>
+            <p>If you are not logged in, you will be redirected to the login
+                page. Try accessing the api again after login.</p>
+            <p>You should see the list of available API resources</p>
+            <img src="/images/userguide/ug_api_1.jpg" alt="List of available API resources">
+            <br><br>
+            <p>Try visiting some of the API resources</p>
+            <ul>
+                <li><a href='https://quickstart-datamanager.herokuapp.com/api/users'>https://quickstart-datamanager.herokuapp.com/api/users</a></li>
+                <li><a href='https://quickstart-datamanager.herokuapp.com/api/groups'>https://quickstart-datamanager.herokuapp.com/api/groups</a></li>
+                <li><a href='https://quickstart-datamanager.herokuapp.com/api/directories'>https://quickstart-datamanager.herokuapp.com/api/directories</a></li>
+                <li><a href='https://quickstart-datamanager.herokuapp.com/api/regular_files'>https://quickstart-datamanager.herokuapp.com/api/regular_files</a></li>
+            </ul>
+
+            <div class="line"></div>
+
+            <h4>Accessing the API (Postman)</h4>
+            <p>Note: The procedure for postman is the same for ajax calls</p>
+            <h6>1. Download and install <a href='https://www.postman.com/'>postman</a> to get started</h6>
+            <h6>2. Login and authenticate via postman</h6>
+            <img src="/images/userguide/ug_api_3.jpg" alt="Login via postman">
+            <ol type='I'>
+                <li>
+                    Set method to POST
+                </li>
+                <li>
+                    Set the url to https://quickstart-datamanager.herokuapp.com/auth/login
+                </li>
+                <li>
+                    Click on the ‘Body’ tab
+                </li>
+                <li>
+                    Click on the ‘x-www-form-encoded’ radio button
+                </li>
+                <li>
+                    In the first field, put ‘username’ as key and ‘test’ as value. In the second field, put ‘password’ as key, and ‘1234’ as value
+                </li>
+                <li>
+                    Click send. Postman will automatically record the authenticated session and attach it to subsequent requests
+                </li>
+            </ol>
+            <h6>3. Now we can access the API resources</h6>
+            <p>Please strictly use the groupname 'Top.postman' in the following examples. Groupnames follow strict naming rules which are not explained in this section</p>
+            <h6>Example 3A: List all groups</h6>
+            <img src="/images/userguide/ug_api_4.jpg" alt="List all groups">
+            <ol type='I'>
+                <li>
+                    Set method to GET
+                </li>
+                <li>
+                    Set the url to https://quickstart-datamanager.herokuapp.com/api/groups/
+                </li>
+                <li>
+                    Click send.
+                </li>
+            </ol>
+            <h6>Example 3B: Create group</h6>
+            <img src="/images/userguide/ug_api_5.jpg" alt="Create a group">
+            <ol type='I'>
+                <li>
+                    Set method to POST
+                </li>
+                <li>
+                    Set the url to https://quickstart-datamanager.herokuapp.com/api/groups/
+                </li>
+                <li>
+                    Select the ‘body’ tab
+                </li>
+                <li>
+                    Select ‘x-www-form-urlencoded’
+                </li>
+                <li>
+                    Enter ‘groupname’ as key and ‘Top.postman’ as value
+                </li>
+                <li>
+                    Click send
+                </li>
+                <li>
+                    You can now see the group that you created either by example 3A, or by the web interface
+                </li>
+            </ol>
+            <h6>Example 3C: Delete group</h6>
+            <img src="/images/userguide/ug_api_6.jpg" alt="Delete a group">
+            <ol type='I'>
+                <li>
+                    Set method to DELETE
+                </li>
+                <li>
+                    Set the url to https://quickstart-datamanager.herokuapp.com/api/groups/Top.postman
+                </li>
+                <li>
+                    Click send
+                </li>
+            </ol>
+            <h6>4. Logout</h6>
+            <p>To logout, simply send GET request to https://quickstart-datamanager.herokuapp.com/auth/logout</p>
+
+
+
+            <div class="line"></div>
+
+            <h4>API Endpoints</h4>
+            <p>Here is a list of available API endpoints (Not only applies to regular_files, but also for all API resources)</p>
+            <table>
+                <tr>
+                    <th>Common Endpoints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>GET /api/regular_files</td>
+                    <td>Get metadata of all regular_files</td>
+                </tr>
+                <tr>
+                    <td>GET/api/regular_files/{fileid}</td>
+                    <td>Get metadata of one regular_file</td>
+                </tr>
+                <tr>
+                    <td>POST /api/regular_files</td>
+                    <td>Upload a file</td>
+                </tr>
+                <tr>
+                    <td>PUT /api/regular_files/{fileid}</td>
+                    <td>Replace a file/edit metadata</td>
+                </tr>
+                <tr>
+                    <td>DELETE /api/regular_files/{fileid}</td>
+                    <td>Delete a file</td>
+                </tr>
+            </table>
+            <br>
+            <p>Here is a list of customised endpoints, only available to specific resources</p>
+            <table>
+                <tr>
+                    <th>Custom Endpoints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>GET /api/regular_files/{fileid}/download</td>
+                    <td>Download a file</td>
+                </tr>
+                <tr>
+                    <td>GET /api/groups/{groupname}/children</td>
+                    <td>Get immediate subgroup of groupname</td>
+                </tr>
+                <tr>
+                    <td>GET /api/groups/{groupname}/descendants</td>
+                    <td>Get all subgroups of groupname</td>
+                </tr>
+                <tr>
+                    <td>GET /api/directories/{directoryid}/children</td>
+                    <td>Get immediate subdirectory of directoryid</td>
+                </tr>
+                <tr>
+                    <td>GET /api/directories/{directoryid}/descendants</td>
+                    <td>Get all subdirectories of directoryid</td>
+                </tr>
+            </table>
+            <br>
+            <p>Refer to <a href='https://github.com/tommybananas/finale'>finalejs</a> for filtering, searching, sorting and pagination of API calls</p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+</body>
+
+</html>
