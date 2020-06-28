@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - Guide</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userguide.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+            <h4>User Guide (Admin)</h4>
+            <p>The admin page is created with
+                <a href='https://datatables.net/'>datatables</a> and
+                <a href='https://getbootstrap.com/docs/4.0/components/modal/'>bootstrap modal</a>
+            </p>
+
+          <div class="line"></div>
+
+          <h4>Groups</h4>
+          <p>The groups management page can be accessed by clicking "Admin>Group" on the left navigation bar</p>
+          <img src="/images/userguide/ug_admin_1.jpg" alt="Group page location">
+          <br>
+          <br>
+          <p>The list of all groups are displayed here<br>
+              You can select how many groups to be displayed per page, you can
+              navigate to the next page, or filter by groupname</p>
+          <img src="/images/userguide/ug_admin_2.jpg" alt="Group table image">
+          <br>
+          <br>
+          <p>You can also create a group, rename group, and delete group here</p>
+          <img src="/images/userguide/ug_admin_3.jpg" alt="Group add, rename, delete buttons">
+          <br>
+          <br>
+          <p>Groupnames follow a hierarchical structure<br>
+              To create a group named "Top.one.mygroup", the group "Top.one"
+              must exist beforehand<br>
+              In this case, "Top.one" is said to be the parent of "Top.one.mygroup"
+          </p>
+          <p>The parent of a group can be changed by renaming the group<br>
+              For example, renaming "Top.one.mygroup" to "Top.two.mygroup" will
+              change mygroup"s parent from "Top.one" to "Top.two"</p>
+          <p>It is safe to change the group"s parent anytime<br>
+              Group rename and change of group's parent is propagated to
+              Memberships, Subgroups and File storage</p>
+
+          <div class="line"></div>
+
+          <h4>Users</h4>
+          <p>Access the users management page by clicking "Admin->users"</p>
+          <img src="/images/userguide/ug_admin_4.jpg" alt="User page location">
+          <br>
+          <br>
+          <p>Viewing/adding/deleting of permissions is currently in progress</p>
+          <img src="/images/userguide/ug_admin_5.jpg" alt="Table list of Pemissions">
+          <br>
+          <br>
+          <p>Scrolling down, you would see the list of registered users.<br>
+              Here, you can add a new user, update user, and delete user.</p>
+          <img src="/images/userguide/ug_admin_6.jpg" alt="Table list of Users">
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+</body>
+
+</html>
