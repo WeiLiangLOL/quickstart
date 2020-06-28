@@ -33,10 +33,6 @@
     top: 95%;
 }
 
-.navbar .dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 /* Dropdown menu */
 .navbar .dropdown-menu {
     min-width: initial;

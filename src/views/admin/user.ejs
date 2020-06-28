@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - User Management</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+          <h2>Permissions</h2>
+          <div class="gutter-wrapper">
+            <table id="permissions-table" class="data-table display">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Member of Group</th>
+                  <th>Observer of Group</th>
+                  <th>Staff of Group</th>
+                  <th>User Management</th>
+                  <th>Data Management</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          
+          <div class="line"></div>
+
+          <h2>Users</h2>
+          <div class="gutter-wrapper">
+            <table id="users-table" class="data-table display">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Date of Birth</th>
+                  <th>Gender</th>
+                  <th>Nationality</th>
+                  <th>Allow Login</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="line"></div>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# Create Modal %>
+  <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="createUserModalLabel">New User</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p class="err-msg font-weight-bold text-orange"></p>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Username</span>
+            </div>
+            <input type="text" class="form-control" name="newUsername">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" class="form-control" name="newPassword">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" class="form-control" name="newFirstname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Last Name</span>
+            </div>
+            <input type="text" class="form-control" name="newLastname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Phone Number</span>
+            </div>
+            <input type="text" class="form-control" name="newCellphone">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" name="newEmail">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Date of Birth</span>
+            </div>
+            <input type="date" class="form-control" name="newDateOfBirth">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Gender</span>
+            </div>
+            <select class="custom-select" name="newGender">
+              <option selected="true" value="0">Unknown</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="9">Others</option>
+            </select>
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Nationality</span>
+            </div>
+            <input type="text" class="form-control" name="newNationality">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked="true" name="newAllowLogin">
+            <label class="form-check-label">Allow Login</label>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="userCreateBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Update Modal %>
+  <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="updateUserModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="updateUserModalLabel">Update</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p class="err-msg font-weight-bold text-orange"></p>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Username</span>
+            </div>
+            <input type="text" class="form-control" name="username">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" class="form-control" name="firstname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Last Name</span>
+            </div>
+            <input type="text" class="form-control" name="lastname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Phone Number</span>
+            </div>
+            <input type="text" class="form-control" name="cellphone">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" name="email">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Date of Birth</span>
+            </div>
+            <input type="date" class="form-control" name="dateOfBirth">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Gender</span>
+            </div>
+            <select class="custom-select" name="gender">
+              <option selected="true" value="0">Unknown</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="9">Others</option>
+            </select>
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Nationality</span>
+            </div>
+            <input type="text" class="form-control" name="nationality">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked="true" name="allowLogin">
+            <label class="form-check-label">Allow Login</label>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="userUpdateBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Delete Modal %>
+  <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="deleteUserModalLabel">Delete</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p>
+            WARNING! Are you sure you wish to delete
+            <span class="user-name font-weight-bold text-capitalize">user name</span>?<br />
+            The action is irreversible.
+          </p>
+          <p class="err-msg font-weight-bold text-orange"></p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="userDeleteBtn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+  <script src="/javascripts/admin/users.js"></script>
+</body>
+
+</html>

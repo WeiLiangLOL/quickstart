@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= app.name %> - Dashboard</title>
+
+    <%# meta  %>
+    <% include ../../partials/meta %>
+
+    <%# css dependencies  %>
+    <% include ../../partials/style %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/storage/files.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <%# sidebar %>
+        <% include ../../partials/sidebar %>
+
+        <%# page content  %>
+        <div id="content">
+
+            <%# navbar %>
+            <% include ../../partials/navbar %>
+
+            <div class="content">
+
+                <div id='rootPane'>
+
+                    <div id="leftPane" class="collapse show">
+                        <h4>Groups</h4>
+                        <div class='scrollWrapper'>
+                            <div id="groupList" class="list-group" role="tablist"></div>
+                        </div>
+                    </div>
+
+                    <a id='leftHandle' class='dividing-collapse' data-toggle="collapse" href="#leftPane" role="button" aria-expanded="true" aria-controls="leftPane"><span class="dividing-line"></span></a>
+
+                    <div id="centerPane">
+                        <span>&nbsp</span><span id="showMessage" style='color: red;'></span>
+                        <div id="fileList" class='tab-content'></div>
+                    </div>
+
+                    <a id='rightHandle' class='dividing-collapse' data-toggle="collapse" href="#rightPane" role="button" aria-expanded="true" aria-controls="rightPane"><span class="dividing-line"></span></a>
+
+                    <div id="rightPane" class="collapse show">
+                        <h4>Meta</h4>
+                        <div class='scrollWrapper'>
+                            <table id="metaList"></table>
+                        </div>
+                    </div>
+
+                    <div style='clear: both;'></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <%# js dependencies  %>
+    <% include ../../partials/script %>
+    <script src="/javascripts/storage/ajax.js"></script>
+    <script src="/javascripts/storage/filesJSTree.js"></script>
+    <script src="/javascripts/storage/files.js"></script>
+</body>
+</html>

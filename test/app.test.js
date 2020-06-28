@@ -13,6 +13,22 @@ function test(server, timeout, next) {
             });
         });
 
+        describe('POST /auth/login', function () {
+            it('should log in', function (done) {
+                server
+                    .post('/auth/login')
+                    .type('form') // Simulate form submission
+                    .send({
+                        username: 'test',
+                        password: '1234',
+                    })
+                    .end((err, res) => {
+                        res.should.have.status(200);
+                        done();
+                    });
+            });
+        });
+
         after(next);
     });
 }

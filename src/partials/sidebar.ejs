@@ -1,0 +1,111 @@
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <div class="spanning-title">
+            <h3><a href="/">QuickStart
+                    <span class="logo-badges">
+                        <span class="logo-badge blue"></span>
+                        <span class="logo-badge green"></span>
+                        <span class="logo-badge orange"></span>
+                    </span></a>
+            </h3>
+        </div>
+    </div>
+
+    <% if (req.baseUrl.match(/\/(profile|announcement|dashboard|form|storage|admin)/)) { %>
+    <ul class="list-unstyled components">
+        <li id="announcement">
+            <a href="/announcement">Announcement</a>
+        </li>
+        <li id="dashboard">
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li id="form">
+            <a href="#formSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Form</a>
+            <ul class="collapse list-unstyled" id="formSubmenu">
+                <li id="form/distributedForm">
+                    <a href="/form/distributedForm">Distributed Form</a>
+                </li>
+                <li id="form/adhocForm">
+                    <a href="/form/adhocForm">Adhoc Form</a>
+                </li>
+                <li id="form/formHistory">
+                    <a href="/form/formHistory">Form History</a>
+                </li>
+                <li id="form/formManagement">
+                    <a href="/form/formManagement">Form Management</a>
+                </li>
+            </ul>
+        </li>
+        <li id="storage">
+            <a href="#storageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Storage</a>
+            <ul class="collapse list-unstyled" id="storageSubmenu">
+                <li id="storage/myData">
+                    <a href="/storage/myData">My Data</a>
+                </li>
+                <li id="storage/files">
+                    <a href="/storage/files">Files</a>
+                </li>
+                <li id="storage/analysis">
+                    <a href="/storage/analysis">Analysis</a>
+                </li>
+            </ul>
+        </li>
+        <li id="admin">
+            <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin</a>
+            <ul class="collapse list-unstyled" id="adminSubmenu">
+                <li id="admin/user">
+                    <a href="/admin/user">User</a>
+                </li>
+                <li id="admin/group">
+                    <a href="/admin/group">Group</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <% } else { %>
+    <ul class="list-unstyled components">
+        <li id="index">
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="#featuresSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Features</a>
+            <ul class="collapse list-unstyled" id="featuresSubmenu">
+                <li id="features">
+                    <a href="/features#dataManagement">Data Management</a>
+                </li>
+                <li>
+                    <a href="/features#dataAnalytics">Data Analytics</a>
+                </li>
+                <li>
+                    <a href="/features#security">Security</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#userGuideSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User
+                Guide</a>
+            <ul class="collapse list-unstyled" id="userGuideSubmenu">
+                <li id="userGuide">
+                    <a href="/userGuide#page1">Page 1</a>
+                </li>
+                <li>
+                    <a href="/userGuide#page2">Page 2</a>
+                </li>
+                <li>
+                    <a href="/userGuide#page3">Page 3</a>
+                </li>
+            </ul>
+        </li>
+        <li id="about">
+            <a href="/about">About</a>
+        </li>
+    </ul>
+    <% } %>
+
+    <ul class="list-unstyled CTAs">
+        <li>
+            <a href="https://github.com/WeiLiangLOL/quickstart" class="link2">Github</a>
+        </li>
+    </ul>
+</nav>

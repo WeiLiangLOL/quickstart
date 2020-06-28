@@ -25,27 +25,36 @@ sequelize.init();
 
 // Session and authentication
 var session = require('./etc/session');
+var requireLogin = session.requireLogin;
 session.init(app);
 
 // Configure locals
 var locals = require('./etc/templating');
 locals.init(app);
 
-// Attach api routing
-var gatewayRouter = require('./src/api');
-app.use('/api', gatewayRouter);
-
-// Authentication
-var authRouter = require('./src/routes/session');
-app.use('/', authRouter);
-
-// Route views
+// Public routes (does not require login)
 var indexRouter = require('./src/routes/index');
 app.use('/', indexRouter);
+var authRouter = require('./src/routes/auth');
+app.use('/auth', authRouter);
 
-// Authenticated route views
-var userRouter = require('./src/routes/user');
-app.use('/user', userRouter);
+// API routes (require login)
+var gatewayRouter = require('./src/api');
+app.use('/api', requireLogin, gatewayRouter);
+
+// User routes (require login)
+var profileRouter = require('./src/routes/profile');
+app.use('/profile', requireLogin, profileRouter);
+var announcementRouter = require('./src/routes/announcement');
+app.use('/announcement', requireLogin, announcementRouter);
+var dashboardRouter = require('./src/routes/dashboard');
+app.use('/dashboard', requireLogin, dashboardRouter);
+var formRouter = require('./src/routes/form');
+app.use('/form', requireLogin, formRouter);
+var storageRouter = require('./src/routes/storage');
+app.use('/storage', requireLogin, storageRouter);
+var adminRouter = require('./src/routes/admin');
+app.use('/admin', requireLogin, adminRouter);
 
 // Catch 404 and forward to error handler
 var createError = require('http-errors');
