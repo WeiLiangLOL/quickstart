@@ -1,0 +1,142 @@
+.dividing-collapse {
+    display: flex;
+}
+.dividing-line {
+    flex: 0 1 1px;
+    width: 100%;
+    height: 100%;
+    border-left: 3px dashed #ddd;
+    border-bottom: 3px dashed #ddd;
+    margin: 10px;
+}
+#rootPane {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#leftHandle,
+#rightHandle {
+    flex: 0 0 auto;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    /* Change dividing line orientation */
+    .dividing-collapse {
+        flex-direction: column;
+    }
+    /* Center dividing line */
+    .dividing-line {
+        position: relative;
+        left: -10px;
+    }
+    .tab-pane,
+    #rightPane .scrollWrapper {
+        /* Add a visible border for mobile displays */
+        border: 1px solid lightgray;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 767px) {
+    /* Center dividing line */
+    .dividing-line {
+        position: relative;
+        top: -10px;
+    }
+    /* Horizontal collapse too difficult */
+    .collapsing {
+        transition: all 0s;
+    }
+    /* Overflow settings */
+    #rootPane {
+        flex-direction: row;
+    }
+    #leftPane {
+        flex: 0 1 20%;
+        max-height: 90vh;
+        overflow: auto;
+    }
+    #centerPane {
+        flex: 1 0 40%;
+        max-height: 93vh;
+        overflow: auto;
+        padding-right: 10px;
+    }
+    #rightPane {
+        flex: 0 1 30%;
+        max-height: 90vh;
+        overflow: auto;
+    }
+}
+
+/* Overflow settings */
+h4,
+#groupList a.list-group-item {
+    word-wrap: break-word; /* word wrap*/
+}
+
+/* Attempt to put scroll bars */
+.scrollWrapper {
+    max-height: 70vh;
+    overflow: auto;
+}
+.tab-pane.pinJSTree .scrollWrapper {
+    max-height: 40vh; /* Reduce jstree scrollbar size when pinned */
+}
+
+/**
+ * JSTree style
+ */
+
+/* Jstree should take up entire width */
+.jstree {
+    width: 100%;
+}
+
+/* Spacing between Jstrees */
+.tab-pane {
+    margin-bottom: 20px;
+}
+
+/* Pinned jstree cannot be hidden */
+.tab-pane.pinJSTree {
+    opacity: 1;
+    display: block;
+}
+
+/* Jstree heading inline with symbols */
+.tab-pane h4 {
+    display: inline;
+}
+
+/* Jstree refresh symbol flush right */
+.tab-pane .refreshSymbol {
+    float: right;
+}
+
+/* Jstree is unpinned symbol */
+.tab-pane:not(.pinJSTree) .pinSymbol:before {
+    display: inline;
+    font-size: 1em;
+    content: '\1F4CC';
+}
+/* Jstree is pinned symbol */
+.tab-pane.pinJSTree .pinSymbol:after {
+    display: inline;
+    font-size: 0.9em;
+    content: '\1F4CD';
+}
+
+/* Jstree refresh symbol */
+.tab-pane .refreshSymbol:after {
+    display: inline;
+    font-size: 1.5em;
+    content: '\27F3';
+}
+
+/* Disable default link decoration */
+.tab-pane a {
+    color: inherit;
+    text-decoration: none;
+}

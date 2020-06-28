@@ -16,7 +16,7 @@ function define(sequelize) {
             cellphone: { type: DataTypes.STRING },
             email: { type: DataTypes.STRING },
             date_of_birth: { type: DataTypes.DATEONLY },
-            gender: { type: DataTypes.BOOLEAN },
+            gender: { type: DataTypes.TINYINT },
             nationality: { type: DataTypes.STRING },
             allow_login: { type: DataTypes.BOOLEAN },
         },

@@ -11,8 +11,8 @@ function define(sequelize) {
         groupid: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
-            unique: true
-        }
+            unique: true,
+        },
     });
 }
 

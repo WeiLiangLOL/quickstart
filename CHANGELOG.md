@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
+### Version 0.0.6
+```
++ Improved sidebar style
+  + Added logo
++ Added global attributes propogation
+  + request filtering middleware
++ Added Modals
++ UI functionality
+  + Complete for Group Managment
+  - Missing User Management
+  - Missing data controls
+```
+
 ### Version 0.0.5
 ```
 + Final Database revisions for user_mgmt and data_mgmt

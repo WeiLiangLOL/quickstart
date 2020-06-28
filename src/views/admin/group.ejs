@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - Group Management</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+          <h2>Groups</h2>
+          <div class="gutter-wrapper">
+            <table id="groups-table" class="data-table dt-responsive display">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="line"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# Create Modal %>
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="createModalLabel">Create</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p class="err-msg font-weight-bold text-orange"></p>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control text-center" placeholder="Group name..." name="newGroupname">
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="groupCreateBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Rename Modal %>
+  <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="renameModalLabel">Rename</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p class="err-msg font-weight-bold text-orange"></p>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control text-center" placeholder="New group name..." name="groupname">
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="groupRenameBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Delete Modal %>
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="deleteModalLabel">Delete</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p>
+            WARNING! Are you sure you wish to delete
+            <span class="group-name font-weight-bold text-capitalize">group name</span>?<br />
+            The action is irreversible.
+          </p>
+          <p class="err-msg font-weight-bold text-orange"></p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="groupDeleteBtn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+  <script src="/javascripts/admin/groups.js"></script>
+</body>
+
+</html>
