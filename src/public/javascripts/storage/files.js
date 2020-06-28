@@ -1,11 +1,12 @@
-
 // Onload
-myAjax.listGroups()
-    .then((groupArray) => {
-        loadGroupList(groupArray);
-        loadFileList(groupArray);
-    });
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+myAjax.listGroups().then((groupArray) => {
+    loadGroupList(groupArray);
+    loadFileList(groupArray);
+});
+const vw = Math.max(
+    document.documentElement.clientWidth || 0,
+    window.innerWidth || 0
+);
 if (vw >= '768') {
     $('#sidebar').toggleClass('active');
     $('#sidebarCollapse').toggleClass('active');
@@ -18,10 +19,9 @@ function showMsg(message) {
     document.getElementById(elementId).innerHTML = message;
     document.getElementById(elementId).style.display = 'inline';
     clearTimeout(storedtimeout);
-    storedtimeout = setTimeout(
-        function() { document.getElementById(elementId).style.display = 'none'; },
-        3000
-    );
+    storedtimeout = setTimeout(function () {
+        document.getElementById(elementId).style.display = 'none';
+    }, 3000);
 }
 
 // Displays all groups
@@ -31,15 +31,24 @@ function loadGroupList(groupArray) {
     groupArray.forEach((group) => {
         const groupname = group.groupname;
         const _groupname = group.groupname.replace(/\./g, '_');
-        list += '<a class="list-group-item list-group-item-secondary list-group-item-action" '
-        + 'role="tab" '
-        + 'data-toggle="list" '
-        + 'id="list-' + _groupname + '-list" '
-        + 'href="#list-' + _groupname + '" '
-        + 'aria-controls="' + _groupname + '" '
-        + `onclick="ensureJSTree('` + groupname + `');">`
-        + groupname
-        + '</a>';
+        list +=
+            '<a class="list-group-item list-group-item-secondary list-group-item-action" ' +
+            'role="tab" ' +
+            'data-toggle="list" ' +
+            'id="list-' +
+            _groupname +
+            '-list" ' +
+            'href="#list-' +
+            _groupname +
+            '" ' +
+            'aria-controls="' +
+            _groupname +
+            '" ' +
+            `onclick="ensureJSTree('` +
+            groupname +
+            `');">` +
+            groupname +
+            '</a>';
     });
     groupList.innerHTML = list;
 }
@@ -52,22 +61,43 @@ function loadFileList(groupArray) {
     groupArray.forEach((group) => {
         const groupname = group.groupname;
         const _groupname = group.groupname.replace(/\./g, '_');
-        list += '<div class="tab-pane fade" '
-            + 'id="list-' + _groupname + '" '
-            + 'role="tabpanel" '
-            + 'aria-labelledby="list-' + _groupname + '-list">'
-            + '<h4>' + groupname + ' </h4>'
-            + `<a href="#" class="refreshSymbol" onclick="loadJSTree('` + groupname + `'); return false;">&nbsp</a>`
-            + `<a href="#" class="pinSymbol" onclick="togglePin('list-` + _groupname + `'); return false;">&nbsp&nbsp</a>`
-            + '<div class="scrollWrapper"><table id="' + _groupname + '-Table"></table></div>'
-            + '<span style="font-size: 1.5em;">&nbsp</span>'
+        list +=
+            '<div class="tab-pane fade" ' +
+            'id="list-' +
+            _groupname +
+            '" ' +
+            'role="tabpanel" ' +
+            'aria-labelledby="list-' +
+            _groupname +
+            '-list">' +
+            '<h4>' +
+            groupname +
+            ' </h4>' +
+            `<a href="#" class="refreshSymbol" onclick="loadJSTree('` +
+            groupname +
+            `'); return false;">&nbsp</a>` +
+            `<a href="#" class="pinSymbol" onclick="togglePin('list-` +
+            _groupname +
+            `'); return false;">&nbsp&nbsp</a>` +
+            '<div class="scrollWrapper"><table id="' +
+            _groupname +
+            '-Table"></table></div>' +
+            '<span style="font-size: 1.5em;">&nbsp</span>' +
             //+ '<form id="' + _groupname + '-Upload" action="/api/regular_files" method="post" enctype="multipart/form-data">'
-            + `<form id="` + _groupname + `-Upload" action="/api/regular_files" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault(); uploadFile('` + _groupname + `');">`
-                + '<input id="' + _groupname + '-UploadLocation" name="directoryid" type="hidden" />'
-                + '<input id="' + _groupname + '-UploadFile" name="file" type="file" multiple />'
-                + `<input type="submit" value="upload" />`
-            + '</form>'
-        + '</div>';
+            `<form id="` +
+            _groupname +
+            `-Upload" action="/api/regular_files" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault(); uploadFile('` +
+            _groupname +
+            `');">` +
+            '<input id="' +
+            _groupname +
+            '-UploadLocation" name="directoryid" type="hidden" />' +
+            '<input id="' +
+            _groupname +
+            '-UploadFile" name="file" type="file" multiple />' +
+            `<input type="submit" value="upload" />` +
+            '</form>' +
+            '</div>';
     });
     fileList.innerHTML = list;
 }
@@ -88,19 +118,20 @@ function uploadFile(_groupname) {
             data: formData,
             contentType: false,
             processData: false,
-        }).done((res) => {
-            showMsg('Success');
-            const idName = '#' + _groupname + '-Table';
-            const fileTree = $(idName).jstree(true);
-            const parentNode = fileTree.get_node(directoryid);
-            fileTree.load_node(parentNode);
-            fileTree.open_node(parentNode);
-        }).fail((error) => {
-            showMsg(error);
-            fileTree.refresh();
-        });
+        })
+            .done((res) => {
+                showMsg('Success');
+                const idName = '#' + _groupname + '-Table';
+                const fileTree = $(idName).jstree(true);
+                const parentNode = fileTree.get_node(directoryid);
+                fileTree.load_node(parentNode);
+                fileTree.open_node(parentNode);
+            })
+            .fail((error) => {
+                showMsg(error);
+                fileTree.refresh();
+            });
     }
-
 }
 
 /**
@@ -126,7 +157,7 @@ function ensureJSTree(groupname) {
 function loadJSTree(groupname) {
     const idName = '#' + groupname.replace(/\./g, '_') + '-Table';
     // Clear the folder table
-    $(idName).jstree("destroy").empty();
+    $(idName).jstree('destroy').empty();
     // Create jstree instance with custom options
     $(idName).jstree(treeConfig(groupname));
     // Add listen events for jstree
@@ -135,71 +166,85 @@ function loadJSTree(groupname) {
 
 function treeConfig(groupname) {
     return {
-        'core': {
+        core: {
             // Prevent invalid operations here
-            'check_callback': function (operation, node, parent, position, more) {
+            check_callback: function (operation, node, parent, position, more) {
                 // prevent moving a child above or below the root
-                if (parent.id === "#") return false;
+                if (parent.id === '#') return false;
                 // Copy operation not supported
-                if (operation === "copy_node") return false;
+                if (operation === 'copy_node') return false;
                 // Only folder can contain children
                 if (parent.type !== 'folder') return false;
                 // allow everything else
                 return true;
             },
             // Lazy loading
-            'data': function (node, callback) {
-                if(node.id === '#') { // Retrieve root element
+            data: function (node, callback) {
+                if (node.id === '#') {
+                    // Retrieve root element
                     getRoot(groupname, node, callback);
-                }
-                else { // Retrieve subsequent child element
+                } else {
+                    // Retrieve subsequent child element
                     getChild(groupname, node, callback);
                 }
             },
             // Set default value for new folder
-            'strings': { 'New node' : 'NewFolder' },
+            strings: { 'New node': 'NewFolder' },
         },
-        'plugins': ['contextmenu', 'dnd', 'sort', 'state', 'types', 'unique', 'wholerow'],
+        plugins: [
+            'contextmenu',
+            'dnd',
+            'sort',
+            'state',
+            'types',
+            'unique',
+            'wholerow',
+        ],
         // Maintain expanded state after navigating away
-        'state': { 'key': groupname },
+        state: { key: groupname },
         // Customise context menu
-        'contextmenu': {
-            'items': function(o, cb) { // Delete 'copy' button from context menu
+        contextmenu: {
+            items: function (o, cb) {
+                // Delete 'copy' button from context menu
                 var menu = $.jstree.defaults.contextmenu.items(o, cb);
                 delete menu.ccp; // Remove cut, copy, paste buttons
                 if (o.type === 'folder') {
                     menu.create.label = 'New Folder'; // Rename label
                     return menu;
-                } else if (o.type === 'file') { // Quick hack: Change create button to download button
+                } else if (o.type === 'file') {
+                    // Quick hack: Change create button to download button
                     var fileMenu = {
                         download: {
-                            "separator_before" : false,
-                            "separator_after" : true,
-                            "_disabled" : false,
-                            "label" : "Download",
-                            "action" : function (data) {
+                            separator_before: false,
+                            separator_after: true,
+                            _disabled: false,
+                            label: 'Download',
+                            action: function (data) {
                                 var inst = $.jstree.reference(data.reference),
-                                obj = inst.get_node(data.reference);
+                                    obj = inst.get_node(data.reference);
                                 const fileid = obj.id.replace(/^f/, '');
-                                location.href = '/api/regular_files/' + fileid + '/download';
-                            }
+                                location.href =
+                                    '/api/regular_files/' +
+                                    fileid +
+                                    '/download';
+                            },
                         },
                         rename: menu.rename,
                         remove: menu.remove,
-                    }
+                    };
                     return fileMenu;
                 }
-            }
+            },
         },
         // Set icon
-        'types': {
-            'folder': {
-                'icon': 'jstree-folder',
+        types: {
+            folder: {
+                icon: 'jstree-folder',
             },
-            'file': {
-                'icon': 'jstree-file',
-             },
-        }
+            file: {
+                icon: 'jstree-file',
+            },
+        },
     };
 }
 

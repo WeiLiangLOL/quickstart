@@ -1,4 +1,3 @@
-
 var myAjax = {
     // files.js
     listGroups: function () {
@@ -16,7 +15,7 @@ var myAjax = {
         });
     },
 
-    updateDirectory: function(directoryid, newData) {
+    updateDirectory: function (directoryid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/directories/' + directoryid,
@@ -25,7 +24,7 @@ var myAjax = {
         });
     },
 
-    deleteDirectory: function(directoryid) {
+    deleteDirectory: function (directoryid) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/directories/' + directoryid,
@@ -37,7 +36,7 @@ var myAjax = {
         return $.get('/api/regular_files/' + fileid);
     },
 
-    updateRegularFile: function(fileid, newData) {
+    updateRegularFile: function (fileid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/regular_files/' + fileid,
@@ -46,7 +45,7 @@ var myAjax = {
         });
     },
 
-    deleteFile: function(fileid) {
+    deleteFile: function (fileid) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/regular_files/' + fileid,
@@ -54,7 +53,6 @@ var myAjax = {
         });
     },
 };
-
 
 /*
 function readDirectory(groupname, callback) {

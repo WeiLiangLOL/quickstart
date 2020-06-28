@@ -159,23 +159,83 @@
     </div>
   </div>
 
-  <%# Rename Modal %>
-  <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel"
+  <%# Update Modal %>
+  <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="updateUserModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content rounded-0 border-0 shadow-lg">
         <div class="modal-header text-center border-0 ">
-          <h5 class="modal-title w-100" id="renameModalLabel">Rename</h5>
+          <h5 class="modal-title w-100" id="updateUserModalLabel">Update</h5>
         </div>
         <div class="modal-body pt-0 pb-0 text-center">
           <p class="err-msg font-weight-bold text-orange"></p>
-          <div class="input-group input-group-sm">
-            <input type="text" class="form-control text-center" placeholder="New group name..." name="groupname">
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Username</span>
+            </div>
+            <input type="text" class="form-control" name="username">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" class="form-control" name="firstname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Last Name</span>
+            </div>
+            <input type="text" class="form-control" name="lastname">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Phone Number</span>
+            </div>
+            <input type="text" class="form-control" name="cellphone">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" name="email">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Date of Birth</span>
+            </div>
+            <input type="date" class="form-control" name="dateOfBirth">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Gender</span>
+            </div>
+            <select class="custom-select" name="gender">
+              <option selected="true" value="0">Unknown</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="9">Others</option>
+            </select>
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Nationality</span>
+            </div>
+            <input type="text" class="form-control" name="nationality">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked="true" name="allowLogin">
+            <label class="form-check-label">Allow Login</label>
           </div>
         </div>
         <div class="modal-footer border-0">
           <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-secondary btn-sm" name="groupRenameBtn">Save</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="userUpdateBtn">Save</button>
         </div>
       </div>
     </div>

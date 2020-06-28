@@ -28,7 +28,7 @@ router.get('/:id/children', (req, res, next) => {
             'SELECT groupname FROM groups ' +
             'WHERE groupname <@ ? ' + // Filter descendants
             'AND nlevel(groupname) = (nlevel(?) + 1) ' + // Non-recursive
-            'AND groupname != ?;',
+                'AND groupname != ?;',
             {
                 replacements: [groupname, groupname, groupname],
                 type: QueryTypes.SELECT,
@@ -96,14 +96,14 @@ function send400(res, error) {
 /**
  * Use error 500 for unexpected errors
  */
- function send500(res, error) {
+function send500(res, error) {
     debug(error);
     res.status(500).send({
         message: 'internal error',
         errors: [error.name],
     });
     return;
- }
+}
 
 // Validate fields before POST (create), fetching as required
 resource.create.fetch(async (req, res, context) => {
@@ -121,7 +121,8 @@ resource.create.fetch(async (req, res, context) => {
     // Check that new groupname must be a child of an existing group
     const parent = await database.groups
         .findOne({ where: { groupname: dirPattern.exec(groupname)[1] } })
-        .catch((error) => { // parent will be undefined if the promise is rejected
+        .catch((error) => {
+            // parent will be undefined if the promise is rejected
             send500(res, error);
         });
     if (parent === undefined) return context.stop;
@@ -138,31 +139,32 @@ resource.create.fetch(async (req, res, context) => {
  */
 resource.create.write.before((req, res, context) => {
     // Perform the following as a single transaction
-    database.sequelize.transaction(async (t) => {
-        // Create database group
-        const group = await database.groups.create(req.body, {
-            transaction: t,
+    database.sequelize
+        .transaction(async (t) => {
+            // Create database group
+            const group = await database.groups.create(req.body, {
+                transaction: t,
+            });
+            // Create database directory
+            await group.createDirectory(
+                { directoryname: 'root' },
+                { transaction: t }
+            );
+            // Create physical folder
+            await fs.ensureDir(file_storage_path + group.groupid);
+            // Transactions will rollback if any of the above fails
+            return group;
+        })
+        .then((result) => {
+            // Save created object into context (used by finalejs)
+            context.instance = result.dataValues;
+            // Skip finale's default write function
+            context.skip();
+        })
+        .catch((error) => {
+            send500(res, error);
+            context.stop();
         });
-        // Create database directory
-        await group.createDirectory(
-            { directoryname: 'root' },
-            { transaction: t }
-        );
-        // Create physical folder
-        await fs.ensureDir(file_storage_path + group.groupid);
-        // Transactions will rollback if any of the above fails
-        return group;
-    })
-    .then((result) => {
-        // Save created object into context (used by finalejs)
-        context.instance = result.dataValues;
-        // Skip finale's default write function
-        context.skip();
-    })
-    .catch((error) => {
-        send500(res, error);
-        context.stop();
-    });
 });
 
 // Validate fields before PUT (update), fetching as required
@@ -180,7 +182,10 @@ resource.update.fetch.before(async (req, res, context) => {
         return context.stop;
     }
     // Check names are valid (regex test)
-    if (!isValidNonTopLevel.test(oldname) || !isValidNonTopLevel.test(newname)) {
+    if (
+        !isValidNonTopLevel.test(oldname) ||
+        !isValidNonTopLevel.test(newname)
+    ) {
         send400(res, new Error('Invalid groupname'));
         return context.stop;
     }
@@ -197,7 +202,8 @@ resource.update.fetch.before(async (req, res, context) => {
                 groupname: dirPattern.exec(newname)[1],
             },
         })
-        .catch((error) => { // parent will be undefined if the promise is rejected
+        .catch((error) => {
+            // parent will be undefined if the promise is rejected
             send500(res, error);
         });
     if (parent === undefined) return context.stop;
@@ -216,40 +222,42 @@ resource.update.write.before((req, res, context) => {
     var oldname = req.params.groupname;
     var newname = req.body.groupname;
     // Perform all operations in a single transaction
-    database.sequelize.transaction(async (t) => {
-        // Rename group
-        // Sequelize does not allow rename of primary key, so we do it ourselves
-        await database.sequelize.query(
-            'UPDATE groups SET groupname = ? where groupname = ?',
-            {
-                replacements: [newname, oldname],
-                type: QueryTypes.UPDATE,
-                transaction: t,
-            }
-        );
-        // Rename subgroups
-        // Code from: http://patshaughnessy.net/2017/12/14/manipulating-trees-using-sql-and-the-postgres-ltree-extension
-        await database.sequelize.query(
-            'UPDATE groups SET groupname = ? || subpath(groupname, nlevel(?)) where groupname <@ ?;',
-            {
-                replacements: [newname, oldname, oldname],
-                type: QueryTypes.UPDATE,
-                transaction: t,
-            }
-        );
-        // Physical folders use groupid, nothing to do
+    database.sequelize
+        .transaction(async (t) => {
+            // Rename group
+            // Sequelize does not allow rename of primary key, so we do it ourselves
+            await database.sequelize.query(
+                'UPDATE groups SET groupname = ? where groupname = ?',
+                {
+                    replacements: [newname, oldname],
+                    type: QueryTypes.UPDATE,
+                    transaction: t,
+                }
+            );
+            // Rename subgroups
+            // Code from: http://patshaughnessy.net/2017/12/14/manipulating-trees-using-sql-and-the-postgres-ltree-extension
+            await database.sequelize.query(
+                'UPDATE groups SET groupname = ? || subpath(groupname, nlevel(?)) where groupname <@ ?;',
+                {
+                    replacements: [newname, oldname, oldname],
+                    type: QueryTypes.UPDATE,
+                    transaction: t,
+                }
+            );
+            // Physical folders use groupid, nothing to do
 
-        // Update instance with new name
-        context.instance = {
-            groupname: newname,
-            groupid: context.instance.groupid
-        };
-        // Skip finale's default write function
-        context.skip();
-    }).catch((error) => {
-        send500(res, error);
-        context.stop();
-    });
+            // Update instance with new name
+            context.instance = {
+                groupname: newname,
+                groupid: context.instance.groupid,
+            };
+            // Skip finale's default write function
+            context.skip();
+        })
+        .catch((error) => {
+            send500(res, error);
+            context.stop();
+        });
 });
 
 // Validate fields before DELETE, fetching as required
@@ -274,7 +282,8 @@ resource.delete.fetch.before(async (req, res, context) => {
                 type: QueryTypes.SELECT,
             }
         )
-        .catch((error) => { // result will be undefined if the promise is rejected
+        .catch((error) => {
+            // result will be undefined if the promise is rejected
             send500(res, error);
         });
     if (result === undefined) return context.stop;
@@ -293,25 +302,26 @@ resource.delete.fetch.before(async (req, res, context) => {
 resource.delete.write.before((req, res, context) => {
     // Database foreignkey constraints will take care of deleting
     // all directories associated with this group
-    database.sequelize.transaction(async (t) => {
-        const groupid = context.instance.groupid;
-        // Delete group
-        await context.instance.destroy({
-            transaction: t
+    database.sequelize
+        .transaction(async (t) => {
+            const groupid = context.instance.groupid;
+            // Delete group
+            await context.instance.destroy({
+                transaction: t,
+            });
+            // Delete physical folder, recursive
+            await fs.remove(file_storage_path + groupid);
+            // Skip finale's default write function
+            context.skip();
+        })
+        .catch((error) => {
+            if (error.name === 'SequelizeForeignKeyConstraintError') {
+                send400(res, new Error('Group has a file'));
+            } else {
+                send500(res, error);
+            }
+            context.stop();
         });
-        // Delete physical folder, recursive
-        await fs.remove(file_storage_path + groupid);
-        // Skip finale's default write function
-        context.skip();
-    })
-    .catch((error) => {
-        if (error.name === 'SequelizeForeignKeyConstraintError') {
-            send400(res, new Error('Group has a file'));
-        } else {
-            send500(res, error);
-        }
-        context.stop();
-    });
 });
 
 router.use((req, res, next) => {

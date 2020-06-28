@@ -1,4 +1,3 @@
-
 (function navBarScript() {
     // Hightlight active page in NAVBAR
     var currLocation = window.location.pathname.slice(1);

@@ -62,7 +62,9 @@ $(document).ready(function () {
         var newCellphone = $('input[name="newCellphone"]').val();
         var newEmail = $('input[name="newEmail"]').val();
         var newDateOfBirth = $('input[name="newDateOfBirth"]').val();
-        var newGender = $('select[name="newGender"]').children('option:selected').val();
+        var newGender = $('select[name="newGender"]')
+            .children('option:selected')
+            .val();
         var newNationality = $('input[name="newNationality"]').val();
         var newAllowLogin = $('input[name="newAllowLogin"]').is(':checked');
 
@@ -79,7 +81,7 @@ $(document).ready(function () {
                 date_of_birth: newDateOfBirth,
                 gender: newGender,
                 nationality: newNationality,
-                allow_login: newAllowLogin
+                allow_login: newAllowLogin,
             },
             contentType: 'application/x-www-form-urlencoded',
             success: function (responseData, textStatus, jqXHR) {
@@ -93,12 +95,85 @@ $(document).ready(function () {
         });
     });
 
-    $('#users-table tbody').on('click', 'button[name="deleteUser"]', function () {
-        user = usersTable.row($(this).parents('tr')).data();
-        $('.user-name').html(user.username);
-        $('.err-msg').hide();
-        $('#deleteUserModal').modal('show');
+    $('#users-table tbody').on(
+        'click',
+        'button[name="updateUser"]',
+        function () {
+            user = usersTable.row($(this).parents('tr')).data();
+            $('input[name="username"]').val(user.username);
+            $('input[name="password"]').val(user.password);
+            $('input[name="firstname"]').val(user.firstname);
+            $('input[name="lastname"]').val(user.lastname);
+            $('input[name="cellphone"]').val(user.cellphone);
+            $('input[name="email"]').val(user.email);
+            $('input[name="dateOfBirth"]').val(user.date_of_birth);
+            $('input[name="nationality"]').val(user.nationality);
+            $('.err-msg').hide();
+            $('#updateUserModal').modal('show');
+        }
+    );
+
+    $('#users-table tbody').on(
+        'click',
+        'button[name="deleteUser"]',
+        function () {
+            user = usersTable.row($(this).parents('tr')).data();
+            $('.user-name').html(user.username);
+            $('.err-msg').hide();
+            $('#deleteUserModal').modal('show');
+        }
+    );
+
+    $('button[name="userUpdateBtn"]').on('click', function () {
+        var username = $('input[name="username"]').val();
+        var password = $('input[name="password"]').val();
+        var firstname = $('input[name="firstname"]').val();
+        var lastname = $('input[name="lastname"]').val();
+        var cellphone = $('input[name="cellphone"]').val();
+        var email = $('input[name="email"]').val();
+        var dateOfBirth = $('input[name="dateOfBirth"]').val();
+        var gender = $('select[name="gender"]')
+            .children('option:selected')
+            .val();
+        var nationality = $('input[name="nationality"]').val();
+        var allowLogin = $('input[name="allowLogin"]').is(':checked');
+
+        $.ajax({
+            type: 'put',
+            url: '/api/users/' + username,
+            data: {
+                password: password,
+                firstname: firstname,
+                lastname: lastname,
+                cellphone: cellphone,
+                email: email,
+                date_of_birth: dateOfBirth,
+                gender: gender,
+                nationality: nationality,
+                allow_login: allowLogin,
+            },
+            contentType: 'application/x-www-form-urlencoded',
+            success: function (responseData, textStatus, jqXHR) {
+                $('#updateUserModal').modal('hide');
+                location.reload(true);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('.err-msg').show();
+                $('.err-msg').html(jqXHR.responseJSON.errors[0]);
+            },
+        });
     });
+
+    $('#users-table tbody').on(
+        'click',
+        'button[name="deleteUser"]',
+        function () {
+            user = usersTable.row($(this).parents('tr')).data();
+            $('.user-name').html(user.username);
+            $('.err-msg').hide();
+            $('#deleteUserModal').modal('show');
+        }
+    );
 
     $('button[name="userDeleteBtn"]').on('click', function () {
         $.ajax({

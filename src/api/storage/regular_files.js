@@ -2,7 +2,7 @@ const router = require('express').Router();
 const debug = require('debug')('quickstart:api-regular_files');
 const finale = require('finale-rest');
 const { file_storage_path } = require('../../../etc/config');
-const upload  = require('multer')({ dest: file_storage_path + 'tmp/' });
+const upload = require('multer')({ dest: file_storage_path + 'tmp/' });
 const fs = require('fs-extra');
 
 const database = require('../../../etc/sequelize').database;
@@ -65,9 +65,14 @@ function getFilePath(directoryid, filename) {
                 return null;
             }
             // Warning: Do we need to escape filename
-            return file_storage_path + dir.group.groupid
-                + '/' + dir.directoryname.replace(/\./g, '/')
-                + '/' + filename;
+            return (
+                file_storage_path +
+                dir.group.groupid +
+                '/' +
+                dir.directoryname.replace(/\./g, '/') +
+                '/' +
+                filename
+            );
         });
 }
 
@@ -82,18 +87,18 @@ router.use('/:id/download', async (req, res, next) => {
 
     // Code taken from: https://stackoverflow.com/a/38867960/6943913
     // Check if file specified by the filePath exists
-    fs.exists(filePath, function(exists){
+    fs.exists(filePath, function (exists) {
         if (exists) {
             // Content-type is very interesting part that guarantee that
             // Web browser will handle response in an appropriate manner.
             res.writeHead(200, {
-                "Content-Type": "application/octet-stream",
-                "Content-Disposition": "attachment; filename=" + filename
+                'Content-Type': 'application/octet-stream',
+                'Content-Disposition': 'attachment; filename=' + filename,
             });
             fs.createReadStream(filePath).pipe(res);
         } else {
-            res.writeHead(400, {"Content-Type": "text/plain"});
-            res.end("ERROR File does not exist");
+            res.writeHead(400, { 'Content-Type': 'text/plain' });
+            res.end('ERROR File does not exist');
         }
     });
 });
@@ -116,7 +121,7 @@ resource.create.fetch(async (req, res, context) => {
         return context.stop;
     }
     // islocked defaults to false
-    req.body.islocked = (req.body.islocked) ? req.body.islocked : false;
+    req.body.islocked = req.body.islocked ? req.body.islocked : false;
     // Populate req.body
     req.body.owner = req.user.username;
     req.body.filename = req.file.originalname;
@@ -124,10 +129,13 @@ resource.create.fetch(async (req, res, context) => {
 
     // Store paths in res.locals
     res.locals.tmpPath = req.file.path;
-    res.locals.newPath = await getFilePath(req.body.directoryid, req.file.originalname)
-        .catch((error) => { // res.locals.newPath will be undefined if error
-            send500(res, error);
-        });
+    res.locals.newPath = await getFilePath(
+        req.body.directoryid,
+        req.file.originalname
+    ).catch((error) => {
+        // res.locals.newPath will be undefined if error
+        send500(res, error);
+    });
     if (res.locals.newPath === undefined) return context.stop;
     if (!res.locals.newPath) {
         send400(res, new Error('Directoryid does not exist'));
@@ -148,7 +156,9 @@ resource.create.write.before((req, res, context) => {
     return database.sequelize
         .transaction(async (t) => {
             // Create regular_file metadata
-            context.instance = await database.regular_files.create(req.body, { transaction: t });
+            context.instance = await database.regular_files.create(req.body, {
+                transaction: t,
+            });
             // Store file in folder as specified by directoryid
             await fs.move(res.locals.tmpPath, res.locals.newPath); // Creates dir if not exist
             fs.remove(res.locals.tmpPath).catch((error) => {}); // Cleanup
@@ -172,12 +182,13 @@ resource.create.write.before((req, res, context) => {
  * Optional fields: file, directoryid, owner, islocked, filename
  */
 resource.update.data(async (req, res, context) => {
-
     // Obtain old pathname and store into res.locals
-    res.locals.oldPath = await getFilePath(context.instance.directoryid, context.instance.filename)
-        .catch((error) => {
-            send500(res, error);
-        });
+    res.locals.oldPath = await getFilePath(
+        context.instance.directoryid,
+        context.instance.filename
+    ).catch((error) => {
+        send500(res, error);
+    });
     if (res.locals.oldPath === undefined) return context.stop;
     if (!res.locals.oldPath) {
         send500(res, new Error('directoryid does not exist')); // Cannot be the case, so we use error 500
@@ -185,16 +196,19 @@ resource.update.data(async (req, res, context) => {
     }
 
     // Modify the context
-    if (req.body.directoryid) context.instance.directoryid = req.body.directoryid;
+    if (req.body.directoryid)
+        context.instance.directoryid = req.body.directoryid;
     if (req.body.owner) context.instance.owner = req.body.owner;
     if (req.body.islocked) context.instance.islocked = req.body.islocked;
     if (req.body.filename) context.instance.filename = req.body.filename;
 
     // Obtain new pathname and store into res.locals
-    res.locals.newPath = await getFilePath(context.instance.directoryid, context.instance.filename)
-        .catch((error) => {
-            send500(res, error);
-        });
+    res.locals.newPath = await getFilePath(
+        context.instance.directoryid,
+        context.instance.filename
+    ).catch((error) => {
+        send500(res, error);
+    });
     if (res.locals.newPath === undefined) return context.stop;
     if (!res.locals.newPath) {
         send400(res, new Error('directoryid does not exist'));
@@ -210,44 +224,48 @@ resource.update.write.before((req, res, context) => {
         .then(() => {
             // Case 1: No replacement file
             if (!req.file) {
-                return database.sequelize
-                    .transaction(async (t) => {
-                        // Update the database
-                        await context.instance.save({ transaction: t });
-                        // Move file from oldpath to newpath
-                        if (res.locals.oldPath != res.locals.newPath) {
-                            await fs.move(res.locals.oldPath, res.locals.newPath);
-                        }
-                    });
-            // Case 2: Has replacement file (stored in res.locals.tmpPath)
+                return database.sequelize.transaction(async (t) => {
+                    // Update the database
+                    await context.instance.save({ transaction: t });
+                    // Move file from oldpath to newpath
+                    if (res.locals.oldPath != res.locals.newPath) {
+                        await fs.move(res.locals.oldPath, res.locals.newPath);
+                    }
+                });
+                // Case 2: Has replacement file (stored in res.locals.tmpPath)
             } else {
-                return database.sequelize
-                    .transaction(async (t) => {
-                        // Update the database
-                        await context.instance.save({ transaction: t });
-                        // Move the replacement file to new path
-                        await fs.move(req.file.path, res.locals.newPath, { overwrite: true });
-                        // Delete old file at old path
-                        if (res.locals.oldPath !== res.locals.newPath) {
-                            fs.remove(res.locals.oldPath)
-                                .catch(async (error) => {
-                                    debug(error);
-                                    debug('Unable to delete old file');
-                                    // Cannot delete file, attempt to log
-                                    await ensureDir(file_storage_path);
-                                    await fs.appendFile(
-                                        file_storage_path + 'undeleted_files.txt',
-                                        res.locals.oldPath + '\n'
-                                    );
-                                    // Logging success
-                                    debug('Undeleted file logged at: "' + file_storage_path + 'undeleted_files.txt"');
-                                })
-                                .catch((error) => {
-                                    debug('Unable to log undeleted file');
-                                    debug(error);
-                                });
-                        } // End of delete old file at old path
-                    }); // End of transaction
+                return database.sequelize.transaction(async (t) => {
+                    // Update the database
+                    await context.instance.save({ transaction: t });
+                    // Move the replacement file to new path
+                    await fs.move(req.file.path, res.locals.newPath, {
+                        overwrite: true,
+                    });
+                    // Delete old file at old path
+                    if (res.locals.oldPath !== res.locals.newPath) {
+                        fs.remove(res.locals.oldPath)
+                            .catch(async (error) => {
+                                debug(error);
+                                debug('Unable to delete old file');
+                                // Cannot delete file, attempt to log
+                                await ensureDir(file_storage_path);
+                                await fs.appendFile(
+                                    file_storage_path + 'undeleted_files.txt',
+                                    res.locals.oldPath + '\n'
+                                );
+                                // Logging success
+                                debug(
+                                    'Undeleted file logged at: "' +
+                                        file_storage_path +
+                                        'undeleted_files.txt"'
+                                );
+                            })
+                            .catch((error) => {
+                                debug('Unable to log undeleted file');
+                                debug(error);
+                            });
+                    } // End of delete old file at old path
+                }); // End of transaction
             } // End of if else
         })
         .then(() => {
@@ -273,7 +291,10 @@ resource.delete.write.before((req, res, context) => {
             // Delete database record
             await context.instance.destroy({ transaction: t });
             // Obtain file path
-            const filePath = await getFilePath(context.instance.directoryid, context.instance.filename);
+            const filePath = await getFilePath(
+                context.instance.directoryid,
+                context.instance.filename
+            );
             // Delete physical file
             if (filePath) {
                 await fs.remove(filePath);
