@@ -25,6 +25,7 @@ sequelize.init();
 
 // Session and authentication
 var session = require('./etc/session');
+var requireLogin = session.requireLogin;
 session.init(app);
 
 // Configure locals
@@ -73,11 +74,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-// Middleware that redirects if a user is not logged in
-function requireLogin(req, res, next) {
-    if (!req.isAuthenticated()) {
-        return res.redirect('/auth/login');
-    }
-    next();
-}

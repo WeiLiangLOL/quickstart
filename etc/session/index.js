@@ -24,6 +24,15 @@ function init(app) {
     require('./strategy').config(passport);
 }
 
+// Middleware that redirects if a user is not logged in
+function requireLogin(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return res.redirect('/auth/login');
+    }
+    next();
+}
+
 module.exports = {
     init: init,
+    requireLogin: requireLogin,
 };

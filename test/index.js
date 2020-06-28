@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 chai.should();
 
 // Start application server
-const server = chai.request(require('../app')).keepOpen();
+const server = chai.request.agent(require('../app')).keepOpen();
 
 // Define the test sequence
 const chain = [
