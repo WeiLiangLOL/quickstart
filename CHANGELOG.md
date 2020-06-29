@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
+### Version 0.0.7
+```
++ API now requires login
++ Sorted general CSS
++ Mass changes to storage/files
+  + Full folder functionality
+  + Full regular_file functionality
+  - Permissions functionality not implemented
+  + UI updates
+  + Mobile compatible UI
+  - Groups/Files/Folders api access control not implemented
++ Added user guide
+```
+
 ### Version 0.0.6
 ```
 + Improved sidebar style
