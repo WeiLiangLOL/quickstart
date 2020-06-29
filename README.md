@@ -12,7 +12,6 @@ QuickStart is a sports data management solution for sports institutions to easil
 - Data storage
 - Data visualisation
 - Data import/export
-- Form builder for administrative purposes
 
 ## Deployment
 
@@ -23,7 +22,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 ### Deploy from zipfile (Windows)
 
 - Download and install nodejs
-- Download zipfile [24 May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31 May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing) [23 June](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing)
+- Download zipfile [24 May](https://drive.google.com/file/d/1OdouPIk8n-BRW2tIRmN9nT4a7RI--VcN/view) [31 May](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing) [23 June](https://drive.google.com/file/d/1c_XkkagLiHwEOL5JImbZ6u6J3ekGmMjH/view?usp=sharing) [29 June](https://drive.google.com/file/d/1sVudqLOzZ7CUZyOXpw44UrqktO-JdAu8/view?usp=sharing)
 - Unzip the file and open a command prompt at the root directory
 - Run `npm install`
 - Run `npm start`
@@ -58,6 +57,7 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
   + UI updates
   + Mobile compatible UI
   - Groups/Files/Folders api access control not implemented
++ Added user guide
 ```
 
 The complete list is available [here](CHANGELOG.md).
