@@ -7,7 +7,7 @@ const { DataTypes } = require('sequelize');
  */
 function define(sequelize) {
     return sequelize.define('memberships', {
-        membershipid: { type: DataTypes.INTEGER, primaryKey: true },
+        membershipid: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, },
         username: { type: DataTypes.STRING, unique: 'memberships_ukey' },
         groupname: { type: DataTypes.STRING, unique: 'memberships_ukey' }, // ltree type
         rolename: { type: DataTypes.STRING, unique: 'memberships_ukey' },

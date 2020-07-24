@@ -51,35 +51,6 @@ function getChild(groupname, node, callback) {
     });
 }
 
-function modifyUploadFormFields(groupname, data) {
-    // data = { node, selected[], event }
-    const _groupname = groupname.replace(/\./g, '_');
-    // Set directoryid which file will be uploaded to
-    document.getElementById(_groupname + '-UploadLocation').value =
-        data.node.id;
-    // Set form visibility, show form if folder is selected, hide form if file is selected
-    if (data.node.id.substring(0, 1) !== 'f') {
-        $('#' + _groupname + '-Upload').css('display', 'inline');
-    } else {
-        $('#' + _groupname + '-Upload').css('display', 'none');
-    }
-}
-
-function showFolderMetaData(groupname, data) {
-    // data = { node, selected[], event }
-    myAjax.readDirectory(data.node.id).done((dir) => {
-        document.getElementById('metaList').innerHTML = '';
-        buildHtmlTable('#metaList', dir);
-    });
-}
-function showFileMetaData(groupname, data) {
-    // data = { node, selected[], event }
-    myAjax.readRegularFile(data.node.id.replace(/^f/, '')).done((dir) => {
-        document.getElementById('metaList').innerHTML = '';
-        buildHtmlTable('#metaList', dir);
-    });
-}
-
 function createDirectory(groupname, fileTree, data) {
     // data = { node, parent(id), position }
     const parentName = fileTree.get_path(data.parent, '.', false);

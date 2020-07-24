@@ -1,8 +1,4 @@
 // Onload
-myAjax.listGroups().then((groupArray) => {
-    loadGroupList(groupArray);
-    loadFileList(groupArray);
-});
 const vw = Math.max(
     document.documentElement.clientWidth || 0,
     window.innerWidth || 0
@@ -13,7 +9,7 @@ if (vw >= '768') {
 }
 
 // Display message for 3 seconds
-var elementId = 'showMessage';
+var elementId = 'fileMessage';
 var storedtimeout;
 function showMsg(message) {
     document.getElementById(elementId).innerHTML = message;
@@ -24,82 +20,18 @@ function showMsg(message) {
     }, 3000);
 }
 
-// Displays all groups
-function loadGroupList(groupArray) {
-    const groupList = document.getElementById('groupList');
-    var list = '';
-    groupArray.forEach((group) => {
-        const groupname = group.groupname;
-        const _groupname = group.groupname.replace(/\./g, '_');
-        list +=
-            '<a class="list-group-item list-group-item-secondary list-group-item-action" ' +
-            'role="tab" ' +
-            'data-toggle="list" ' +
-            'id="list-' +
-            _groupname +
-            '-list" ' +
-            'href="#list-' +
-            _groupname +
-            '" ' +
-            'aria-controls="' +
-            _groupname +
-            '" ' +
-            `onclick="ensureJSTree('` +
-            groupname +
-            `');">` +
-            groupname +
-            '</a>';
-    });
-    groupList.innerHTML = list;
-}
-
-// Generate multiple containers
-// Each containers will later be populated with a jstrees of a different group
-function loadFileList(groupArray) {
-    const fileList = document.getElementById('fileList');
-    var list = '';
-    groupArray.forEach((group) => {
-        const groupname = group.groupname;
-        const _groupname = group.groupname.replace(/\./g, '_');
-        list +=
-            '<div class="tab-pane fade" ' +
-            'id="list-' +
-            _groupname +
-            '" ' +
-            'role="tabpanel" ' +
-            'aria-labelledby="list-' +
-            _groupname +
-            '-list">' +
-            '<h4>' +
-            groupname +
-            ' </h4>' +
-            `<a href="#" class="refreshSymbol" onclick="loadJSTree('` +
-            groupname +
-            `'); return false;">&nbsp</a>` +
-            `<a href="#" class="pinSymbol" onclick="togglePin('list-` +
-            _groupname +
-            `'); return false;">&nbsp&nbsp</a>` +
-            '<div class="scrollWrapper"><table id="' +
-            _groupname +
-            '-Table"></table></div>' +
-            '<span style="font-size: 1.5em;">&nbsp</span>' +
-            //+ '<form id="' + _groupname + '-Upload" action="/api/regular_files" method="post" enctype="multipart/form-data">'
-            `<form id="` +
-            _groupname +
-            `-Upload" action="/api/regular_files" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault(); uploadFile('` +
-            _groupname +
-            `');">` +
-            '<input id="' +
-            _groupname +
-            '-UploadLocation" name="directoryid" type="hidden" />' +
-            '<input id="' +
-            _groupname +
-            '-UploadFile" name="file" type="file" multiple />' +
-            `<input type="submit" value="upload" />` +
-            '</form>' +
-            '</div>';
-    });
-    fileList.innerHTML = list;
+function modifyUploadFileForm(groupname, data) {
+    // data = { node, selected[], event }
+    const _groupname = groupname.replace(/\./g, '_');
+    // Set directoryid which file will be uploaded to
+    document.getElementById(_groupname + '-UploadLocation').value =
+        data.node.id;
+    // Set form visibility, show form if folder is selected, hide form if file is selected
+    if (data.node.id.substring(0, 1) !== 'f') {
+        $('#' + _groupname + '-Upload').css('display', 'inline');
+    } else {
+        $('#' + _groupname + '-Upload').css('display', 'none');
+    }
 }
 
 // Set form to perform ajax
@@ -128,7 +60,9 @@ function uploadFile(_groupname) {
                 fileTree.open_node(parentNode);
             })
             .fail((error) => {
-                showMsg(error);
+                showMsg('failure');
+                const idName = '#' + _groupname + '-Table';
+                const fileTree = $(idName).jstree(true);
                 fileTree.refresh();
             });
     }
@@ -254,14 +188,8 @@ function addJSTreeListeners(groupname) {
     const fileTree = $(idName).jstree(true);
     // Select listener
     $(idName).on('select_node.jstree', function (e, data) {
-        modifyUploadFormFields(groupname, data);
-        if (data.node.type === 'folder') {
-            showFolderMetaData(groupname, data);
-            //showFolderPermissions(groupname, data);
-        } else if (data.node.type === 'file') {
-            showFileMetaData(groupname, data);
-            // showFilePermissions(groupname, data);
-        }
+        displayMetaList(groupname, data);
+        modifyUploadFileForm(groupname, data);
     });
     // Create listener
     $(idName).on('create_node.jstree', function (e, data) {

@@ -2,7 +2,7 @@ $(document).ready(function () {
     var user;
 
     var btnStyle = `
-        <button type="button" name="updateUser" class="btn btn-light btn-sm">Update</button> 
+        <button type="button" name="updateUser" class="btn btn-light btn-sm">Update</button>
         <button type="button" name="deleteUser" class="btn btn-light btn-sm">Delete</button>
         `;
     var addBtn = `
@@ -190,7 +190,4 @@ $(document).ready(function () {
         });
     });
 
-    $('#permissions-table').dataTable({
-        responsive: true,
-    });
 });

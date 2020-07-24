@@ -46,18 +46,16 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.7
+### Version 0.0.8
 ```
-+ API now requires login
-+ Sorted general CSS
-+ Mass changes to storage/files
-  + Full folder functionality
-  + Full regular_file functionality
-  - Permissions functionality not implemented
-  + UI updates
-  + Mobile compatible UI
-  - Groups/Files/Folders api access control not implemented
-+ Added user guide
+Storage->Files
+  + Adapted to use ReactJS and JSX
+  + Able to change islocked attribute
+  + Able to add/remove user permissions
+  + Able to add/remove group permissions
+  - Permissions not enforced
+Admin->Permission (New)
+  + Able to view existing permissions
 ```
 
 The complete list is available [here](CHANGELOG.md).

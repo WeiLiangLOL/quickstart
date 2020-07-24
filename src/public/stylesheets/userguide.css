@@ -1,9 +1,9 @@
-
-
 table {
     border-collapse: collapse;
 }
-table, th, td {
+table,
+th,
+td {
     border: 1px solid lightgray;
     padding: 0 10px;
 }
@@ -13,7 +13,7 @@ img {
     border-radius: 15px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     img {
         max-height: 50vh;
         max-width: 80vw;
