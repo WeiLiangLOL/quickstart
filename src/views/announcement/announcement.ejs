@@ -24,20 +24,51 @@
       <% include ../../partials/navbar %>
 
       <div class="content">
-
         <div class="container-fluid">
-
-          <h2>Announcements</h2>
-
+          <div class="notice-container"></div>
+          <div class="notice-poster text-center">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#createPostModal">
+              New Announcement
+            </button>
+          </div>
         </div>
-
       </div>
 
     </div>
   </div>
 
+  <%# Create Modal %>
+  <div class="modal fade" id="createPostModal" tabindex="-1" role="dialog" aria-labelledby="createPostModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content rounded-0 border-0 shadow-lg">
+        <div class="modal-header text-center border-0 ">
+          <h5 class="modal-title w-100" id="createPostModalLabel">New Announcement</h5>
+        </div>
+        <div class="modal-body pt-0 pb-0 text-center">
+          <p class="err-msg font-weight-bold text-orange"></p>
+          <div class="input-group input-group-sm mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Title</span>
+            </div>
+            <input type="text" class="form-control" name="title">
+          </div>
+          <div class="input-group input-group-sm mb-1">
+            <textarea class="form-control" name="description" rows="5" placeholder="Message here..."></textarea>
+          </div>
+          <input type="hidden" name="username" value="<%= req.user.username %>">
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-sm" name="postSubmitBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%# js dependencies  %>
   <% include ../../partials/script %>
+  <script src="/javascripts/misc/announcements.js"></script>
 </body>
 
 </html>

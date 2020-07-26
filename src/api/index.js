@@ -36,6 +36,11 @@ const resources = [
         path: '/user_regfile_acls',
         module: require('./storage/user_regfile_acls'),
     },
+    // Misc entities
+    {
+        path: '/announcements',
+        module: require('./misc/announcements'),
+    },
 ];
 
 // Load all API routes

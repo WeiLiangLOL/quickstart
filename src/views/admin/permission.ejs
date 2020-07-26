@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= app.name %> - User Management</title>
+
+  <%# meta  %>
+  <% include ../../partials/meta %>
+
+  <%# css dependencies  %>
+  <% include ../../partials/style %>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <%# sidebar %>
+    <% include ../../partials/sidebar %>
+
+    <%# page content  %>
+    <div id="content">
+
+      <%# navbar %>
+      <% include ../../partials/navbar %>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+          <h2>Permissions</h2>
+          <div class="gutter-wrapper">
+            <table id="permissions-table" class="data-table display">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Member of Group</th>
+                  <th>Observer of Group</th>
+                  <th>Staff of Group</th>
+                  <th>User Management</th>
+                  <th>Data Management</th>
+                  <%#<th>Action</th>%>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%# js dependencies  %>
+  <% include ../../partials/script %>
+  <script src="/javascripts/admin/permissions.js"></script>
+</body>
+
+</html>

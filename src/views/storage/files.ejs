@@ -10,6 +10,7 @@
     <%# css dependencies  %>
     <% include ../../partials/style %>
     <link rel="stylesheet" type="text/css" href="/stylesheets/storage/files.css">
+    <link href="https://unpkg.com/tabulator-tables@4.7.2/dist/css/tabulator.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -24,36 +25,7 @@
             <% include ../../partials/navbar %>
 
             <div class="content">
-
-                <div id='rootPane'>
-
-                    <div id="leftPane" class="collapse show">
-                        <h4>Groups</h4>
-                        <div class='scrollWrapper'>
-                            <div id="groupList" class="list-group" role="tablist"></div>
-                        </div>
-                    </div>
-
-                    <a id='leftHandle' class='dividing-collapse' data-toggle="collapse" href="#leftPane" role="button" aria-expanded="true" aria-controls="leftPane"><span class="dividing-line"></span></a>
-
-                    <div id="centerPane">
-                        <span>&nbsp</span><span id="showMessage" style='color: red;'></span>
-                        <div id="fileList" class='tab-content'></div>
-                    </div>
-
-                    <a id='rightHandle' class='dividing-collapse' data-toggle="collapse" href="#rightPane" role="button" aria-expanded="true" aria-controls="rightPane"><span class="dividing-line"></span></a>
-
-                    <div id="rightPane" class="collapse show">
-                        <h4>Meta</h4>
-                        <div class='scrollWrapper'>
-                            <table id="metaList"></table>
-                        </div>
-                    </div>
-
-                    <div style='clear: both;'></div>
-
-                </div>
-
+                <div id="rootPane"></div>
             </div>
 
         </div>
@@ -61,8 +33,31 @@
 
     <%# js dependencies  %>
     <% include ../../partials/script %>
+
+    <%# JSTree %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/jstree.min.js"></script>
+
+    <%# Tabulator %>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+
+    <%# ReactJS %>
+    <!-- Note: TODO: when deploying, replace "development.js" with "production.min.js".-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
     <script src="/javascripts/storage/ajax.js"></script>
     <script src="/javascripts/storage/filesJSTree.js"></script>
     <script src="/javascripts/storage/files.js"></script>
+    <script src="/javascripts/storage/tabulator.js"></script>
+
+    <%# React scripts %>
+    <script src="/javascripts/storage/react/App.js"></script>
+    <script src="/javascripts/storage/react/Main.js"></script>
+    <script src="/javascripts/storage/react/GroupList.js"></script>
+    <script src="/javascripts/storage/react/FileList.js"></script>
+    <script src="/javascripts/storage/react/MetaList.js"></script>
+    <script src="/javascripts/storage/react/TabulatorUserACL.js"></script>
+    <script src="/javascripts/storage/react/TabulatorGroupACL.js"></script>
+
 </body>
 </html>
