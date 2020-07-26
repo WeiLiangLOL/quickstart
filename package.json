@@ -1,6 +1,6 @@
 {
   "name": "quickstart",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -8,7 +8,8 @@
     "debug": "set DEBUG=quickstart:* & nodemon ./bin/www",
     "dev": "nodemon ./bin/www",
     "prettier": "prettier --write --tab-width 4 --single-quote **/*.{ts,js,css,html}",
-    "test": "mocha ./test"
+    "test": "mocha ./test",
+    "jsx": "npx babel --watch src/public/javascripts/storage/react/src --out-dir src/public/javascripts/storage/react --presets react-app\\prod"
   },
   "nodemonConfig": {
     "ignore": [

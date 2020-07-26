@@ -70,6 +70,8 @@ function reference() {
         './models/data/group_datafile_acls'
     );
     database.group_dir_acls = defineModel('./models/data/group_dir_acls');
+
+    database.announcements = defineModel('./models/misc/announcements');
 }
 
 function defineModel(modelPath) {
@@ -114,6 +116,9 @@ function associate() {
     //db.regular_files.belongsTo(db.users, { foreignKey: 'owner' });
     db.regular_files.hasMany(db.user_regfile_acls, { foreignKey: 'fileid' });
     db.regular_files.hasMany(db.group_regfile_acls, { foreignKey: 'fileid' });
+
+    db.users.hasMany(db.announcements, { foreignKey: 'username' });
+    db.memberships.belongsTo(db.users, { foreignKey: 'username' });
 }
 
 module.exports = {

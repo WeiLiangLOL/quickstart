@@ -7427,3 +7427,698 @@
 2020-06-29 05:43:01.335 +08 [9116] LOG:  background worker "logical replication launcher" (PID 9232) exited with exit code 1
 2020-06-29 05:43:01.355 +08 [23512] LOG:  shutting down
 2020-06-29 05:43:01.420 +08 [9116] LOG:  database system is shut down
+2020-06-29 17:03:04.277 +08 [1308] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-29 17:03:04.291 +08 [1308] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-29 17:03:04.292 +08 [1308] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-29 17:03:04.582 +08 [23036] LOG:  database system was shut down at 2020-06-29 05:43:01 +08
+2020-06-29 17:03:05.327 +08 [1308] LOG:  database system is ready to accept connections
+2020-06-29 17:03:37.255 +08 [1308] LOG:  received fast shutdown request
+2020-06-29 17:03:37.284 +08 [1308] LOG:  aborting any active transactions
+2020-06-29 17:03:37.352 +08 [24988] ERROR:  canceling statement due to user request
+2020-06-29 17:03:37.384 +08 [1308] LOG:  background worker "logical replication launcher" (PID 24988) exited with exit code 1
+2020-06-29 17:03:37.469 +08 [16208] LOG:  shutting down
+2020-06-29 17:03:37.645 +08 [1308] LOG:  database system is shut down
+2020-06-29 17:03:44.713 +08 [17288] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-06-29 17:03:44.737 +08 [17288] LOG:  listening on IPv6 address "::1", port 5432
+2020-06-29 17:03:44.738 +08 [17288] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-06-29 17:03:45.176 +08 [588] LOG:  database system was shut down at 2020-06-29 17:03:37 +08
+2020-06-29 17:03:46.282 +08 [17288] LOG:  database system is ready to accept connections
+2020-06-29 19:14:13.113 +08 [17288] LOG:  received fast shutdown request
+2020-06-29 19:14:13.123 +08 [17288] LOG:  aborting any active transactions
+2020-06-29 19:14:13.139 +08 [27268] ERROR:  canceling statement due to user request
+2020-06-29 19:14:13.156 +08 [17288] LOG:  background worker "logical replication launcher" (PID 27268) exited with exit code 1
+2020-06-29 19:14:13.186 +08 [28116] LOG:  shutting down
+2020-06-29 19:14:13.238 +08 [17288] LOG:  database system is shut down
+2020-07-11 15:20:58.241 +08 [13524] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-11 15:20:58.255 +08 [13524] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-11 15:20:58.257 +08 [13524] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-11 15:20:58.801 +08 [5584] LOG:  database system was shut down at 2020-06-29 19:14:13 +08
+2020-07-11 15:20:59.527 +08 [13524] LOG:  database system is ready to accept connections
+2020-07-11 18:45:29.430 +08 [13524] LOG:  received fast shutdown request
+2020-07-11 18:45:29.460 +08 [15004] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-07-11 18:45:29.463 +08 [11624] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-07-11 18:45:29.472 +08 [7860] ERROR:  canceling statement due to user request
+2020-07-11 18:45:29.482 +08 [13524] LOG:  aborting any active transactions
+2020-07-11 18:45:29.511 +08 [13524] LOG:  background worker "logical replication launcher" (PID 7860) exited with exit code 1
+2020-07-11 18:45:29.549 +08 [2980] LOG:  shutting down
+2020-07-11 18:45:29.636 +08 [13524] LOG:  database system is shut down
+2020-07-11 18:45:35.045 +08 [14024] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-11 18:45:35.063 +08 [14024] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-11 18:45:35.064 +08 [14024] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-11 18:45:35.681 +08 [12208] LOG:  database system was shut down at 2020-07-11 18:45:29 +08
+2020-07-11 18:45:37.171 +08 [14024] LOG:  database system is ready to accept connections
+2020-07-11 19:59:17.728 +08 [14024] LOG:  received fast shutdown request
+2020-07-11 19:59:17.740 +08 [14024] LOG:  aborting any active transactions
+2020-07-11 19:59:17.750 +08 [12624] ERROR:  canceling statement due to user request
+2020-07-11 19:59:17.769 +08 [14024] LOG:  background worker "logical replication launcher" (PID 12624) exited with exit code 1
+2020-07-11 19:59:17.797 +08 [14704] LOG:  shutting down
+2020-07-11 19:59:17.876 +08 [14024] LOG:  database system is shut down
+2020-07-11 20:17:04.018 +08 [14604] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-11 20:17:04.029 +08 [14604] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-11 20:17:04.031 +08 [14604] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-11 20:17:04.233 +08 [9764] LOG:  database system was shut down at 2020-07-11 19:59:17 +08
+2020-07-11 20:17:04.826 +08 [14604] LOG:  database system is ready to accept connections
+2020-07-11 22:45:00.174 +08 [14604] LOG:  received fast shutdown request
+2020-07-11 22:45:00.237 +08 [14604] LOG:  aborting any active transactions
+2020-07-11 22:45:00.297 +08 [7344] ERROR:  canceling statement due to user request
+2020-07-11 22:45:00.359 +08 [14604] LOG:  background worker "logical replication launcher" (PID 7344) exited with exit code 1
+2020-07-11 22:45:00.510 +08 [2368] LOG:  shutting down
+2020-07-11 22:45:00.574 +08 [14604] LOG:  database system is shut down
+2020-07-11 22:45:10.432 +08 [14976] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-11 22:45:10.444 +08 [14976] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-11 22:45:10.445 +08 [14976] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-11 22:45:11.034 +08 [10772] LOG:  database system was shut down at 2020-07-11 22:45:00 +08
+2020-07-11 22:45:12.131 +08 [14976] LOG:  database system is ready to accept connections
+2020-07-11 22:58:13.983 +08 [14976] LOG:  received fast shutdown request
+2020-07-11 22:58:14.225 +08 [14976] LOG:  aborting any active transactions
+2020-07-11 22:58:14.263 +08 [14444] ERROR:  canceling statement due to user request
+2020-07-11 22:58:14.439 +08 [14976] LOG:  background worker "logical replication launcher" (PID 14444) exited with exit code 1
+2020-07-11 22:58:14.538 +08 [8820] LOG:  shutting down
+2020-07-11 22:58:14.647 +08 [14976] LOG:  database system is shut down
+2020-07-11 22:59:17.977 +08 [1336] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-11 22:59:17.988 +08 [1336] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-11 22:59:17.989 +08 [1336] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-11 22:59:18.342 +08 [16028] LOG:  database system was shut down at 2020-07-11 22:58:14 +08
+2020-07-11 22:59:19.540 +08 [1336] LOG:  database system is ready to accept connections
+2020-07-12 22:15:06.841 +08 [1336] LOG:  received fast shutdown request
+2020-07-12 22:15:06.865 +08 [1336] LOG:  aborting any active transactions
+2020-07-12 22:15:06.867 +08 [14692] ERROR:  canceling statement due to user request
+2020-07-12 22:15:06.878 +08 [1336] LOG:  background worker "logical replication launcher" (PID 14692) exited with exit code 1
+2020-07-12 22:15:06.929 +08 [10952] LOG:  shutting down
+2020-07-12 22:15:06.971 +08 [1336] LOG:  database system is shut down
+2020-07-13 18:59:07.326 +08 [18404] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-13 18:59:07.337 +08 [18404] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-13 18:59:07.339 +08 [18404] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-13 18:59:07.534 +08 [17232] LOG:  database system was shut down at 2020-07-12 22:15:06 +08
+2020-07-13 18:59:08.160 +08 [18404] LOG:  database system is ready to accept connections
+2020-07-16 15:42:25.784 +08 [6928] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-16 15:42:25.795 +08 [6928] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-16 15:42:25.796 +08 [6928] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-16 15:42:26.048 +08 [8312] LOG:  database system was interrupted; last known up at 2020-07-13 19:04:07 +08
+2020-07-16 15:42:26.906 +08 [8312] LOG:  database system was not properly shut down; automatic recovery in progress
+2020-07-16 15:42:26.913 +08 [8312] LOG:  redo starts at 0/3112BB0
+2020-07-16 15:42:26.914 +08 [8312] LOG:  invalid record length at 0/3112C98: wanted 24, got 0
+2020-07-16 15:42:26.915 +08 [8312] LOG:  redo done at 0/3112C60
+2020-07-16 15:42:27.386 +08 [6928] LOG:  database system is ready to accept connections
+2020-07-16 15:45:31.994 +08 [7748] ERROR:  insert or update on table "group_dir_acls" violates foreign key constraint "group_dir_acl_groupname_fkey"
+2020-07-16 15:45:31.994 +08 [7748] DETAIL:  Key (groupname)=(root) is not present in table "groups".
+2020-07-16 15:45:31.994 +08 [7748] STATEMENT:  INSERT INTO quickstart.group_dir_acls (
+	read_bit, write_bit, directoryid, propagate, groupname, rolename) VALUES (
+	true::boolean, false::boolean, '202'::integer, true::boolean, 'root'::quickstart.ltree, 'staff'::character varying)
+	 returning permissionid;
+2020-07-16 15:46:22.729 +08 [9776] ERROR:  insert or update on table "group_regfile_acls" violates foreign key constraint "group_regfile_acl_rolename_fkey"
+2020-07-16 15:46:22.729 +08 [9776] DETAIL:  Key (rolename)=(Staff) is not present in table "roles".
+2020-07-16 15:46:22.729 +08 [9776] STATEMENT:  INSERT INTO quickstart.group_regfile_acls (
+	write_bit, read_bit, fileid, groupname, rolename) VALUES (
+	true::boolean, false::boolean, '82'::bigint, 'Top'::quickstart.ltree, 'Staff'::character varying)
+	 returning permissionid;
+2020-07-16 16:19:53.682 +08 [6928] LOG:  received fast shutdown request
+2020-07-16 16:19:53.706 +08 [8056] ERROR:  canceling statement due to user request
+2020-07-16 16:19:53.712 +08 [6928] LOG:  aborting any active transactions
+2020-07-16 16:19:53.716 +08 [8364] FATAL:  terminating connection due to administrator command
+2020-07-16 16:19:53.727 +08 [2036] FATAL:  terminating connection due to administrator command
+2020-07-16 16:19:53.740 +08 [9776] FATAL:  terminating connection due to administrator command
+2020-07-16 16:19:53.752 +08 [7748] FATAL:  terminating connection due to administrator command
+2020-07-16 16:19:53.763 +08 [1712] FATAL:  terminating connection due to administrator command
+2020-07-16 16:19:53.777 +08 [6928] LOG:  background worker "logical replication launcher" (PID 8056) exited with exit code 1
+2020-07-16 16:19:53.810 +08 [11336] LOG:  shutting down
+2020-07-16 16:19:53.857 +08 [6928] LOG:  database system is shut down
+2020-07-16 16:19:57.628 +08 [1524] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-16 16:19:57.642 +08 [1524] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-16 16:19:57.643 +08 [1524] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-16 16:19:58.246 +08 [11448] LOG:  database system was shut down at 2020-07-16 16:19:53 +08
+2020-07-16 16:19:58.397 +08 [20400] FATAL:  the database system is starting up
+2020-07-16 16:19:58.904 +08 [1524] LOG:  database system is ready to accept connections
+2020-07-16 22:09:03.484 +08 [1524] LOG:  received fast shutdown request
+2020-07-16 22:09:03.505 +08 [21500] ERROR:  canceling statement due to user request
+2020-07-16 22:09:03.520 +08 [1524] LOG:  aborting any active transactions
+2020-07-16 22:09:03.593 +08 [8296] FATAL:  terminating connection due to administrator command
+2020-07-16 22:09:03.688 +08 [1524] LOG:  background worker "logical replication launcher" (PID 21500) exited with exit code 1
+2020-07-16 22:09:03.740 +08 [20368] LOG:  shutting down
+2020-07-16 22:09:03.799 +08 [1524] LOG:  database system is shut down
+2020-07-16 22:12:09.125 +08 [76816] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-16 22:12:09.136 +08 [76816] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-16 22:12:09.138 +08 [76816] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-16 22:12:09.301 +08 [77604] LOG:  database system was shut down at 2020-07-16 22:09:03 +08
+2020-07-16 22:12:09.761 +08 [76816] LOG:  database system is ready to accept connections
+2020-07-16 22:24:57.306 +08 [76816] LOG:  received fast shutdown request
+2020-07-16 22:24:57.325 +08 [76816] LOG:  aborting any active transactions
+2020-07-16 22:24:57.329 +08 [75808] ERROR:  canceling statement due to user request
+2020-07-16 22:24:57.334 +08 [75344] FATAL:  terminating connection due to administrator command
+2020-07-16 22:24:57.362 +08 [76816] LOG:  background worker "logical replication launcher" (PID 75808) exited with exit code 1
+2020-07-16 22:24:57.397 +08 [74092] LOG:  shutting down
+2020-07-16 22:24:57.451 +08 [76816] LOG:  database system is shut down
+2020-07-16 22:28:26.331 +08 [80532] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-16 22:28:26.351 +08 [80532] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-16 22:28:26.352 +08 [80532] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-16 22:28:26.575 +08 [75008] LOG:  database system was shut down at 2020-07-16 22:24:57 +08
+2020-07-16 22:28:27.269 +08 [80532] LOG:  database system is ready to accept connections
+2020-07-16 22:29:48.705 +08 [80532] LOG:  received fast shutdown request
+2020-07-16 22:29:48.726 +08 [79544] ERROR:  canceling statement due to user request
+2020-07-16 22:29:48.726 +08 [80532] LOG:  aborting any active transactions
+2020-07-16 22:29:48.740 +08 [2444] FATAL:  terminating connection due to administrator command
+2020-07-16 22:29:48.750 +08 [80532] LOG:  background worker "logical replication launcher" (PID 79544) exited with exit code 1
+2020-07-16 22:29:48.804 +08 [75528] LOG:  shutting down
+2020-07-16 22:29:48.872 +08 [80532] LOG:  database system is shut down
+2020-07-16 22:29:52.245 +08 [77964] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-16 22:29:52.258 +08 [77964] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-16 22:29:52.259 +08 [77964] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-16 22:29:52.542 +08 [81776] LOG:  database system was shut down at 2020-07-16 22:29:48 +08
+2020-07-16 22:29:53.186 +08 [77964] LOG:  database system is ready to accept connections
+2020-07-16 22:53:03.264 +08 [86748] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 22:53:03.264 +08 [86748] DETAIL:  Key (username)=(tests) is not present in table "users".
+2020-07-16 22:53:03.264 +08 [86748] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 22:53:10.233 +08 [86748] ERROR:  insert or update on table "user_regfile_acls" violates foreign key constraint "user_regfile_acl_username_fkey"
+2020-07-16 22:53:10.233 +08 [86748] DETAIL:  Key (username)=(dfs) is not present in table "users".
+2020-07-16 22:53:10.233 +08 [86748] STATEMENT:  UPDATE "quickstart"."user_regfile_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 22:53:53.236 +08 [86276] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 22:53:53.236 +08 [86276] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 22:53:53.236 +08 [86276] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 22:53:57.297 +08 [86276] ERROR:  insert or update on table "user_regfile_acls" violates foreign key constraint "user_regfile_acl_username_fkey"
+2020-07-16 22:53:57.297 +08 [86276] DETAIL:  Key (username)=(testsf) is not present in table "users".
+2020-07-16 22:53:57.297 +08 [86276] STATEMENT:  UPDATE "quickstart"."user_regfile_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 22:57:39.014 +08 [88120] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 22:57:39.014 +08 [88120] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 22:57:39.014 +08 [88120] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 22:57:48.674 +08 [88120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:57:48.674 +08 [88120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:57:50.698 +08 [88120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:57:50.698 +08 [88120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:57:53.019 +08 [88120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:57:53.019 +08 [88120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:58:28.639 +08 [89064] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:58:28.639 +08 [89064] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:58:32.441 +08 [89064] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:58:32.441 +08 [89064] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:58:34.001 +08 [89064] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:58:34.001 +08 [89064] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:58:35.314 +08 [89064] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:58:35.314 +08 [89064] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 22:58:36.945 +08 [89064] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 22:58:36.945 +08 [89064] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 23:01:16.878 +08 [89120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 23:01:16.878 +08 [89120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 23:01:20.887 +08 [89120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 23:01:20.887 +08 [89120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 23:01:24.050 +08 [89120] ERROR:  invalid input syntax for type bigint: "undefined" at character 180
+2020-07-16 23:01:24.050 +08 [89120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "directoryid", "propagate", "username" FROM "quickstart"."user_dir_acls" AS "user_dir_acls" WHERE "user_dir_acls"."permissionid" = 'undefined';
+2020-07-16 23:01:29.872 +08 [89120] ERROR:  invalid input syntax for type bigint: "undefined" at character 174
+2020-07-16 23:01:29.872 +08 [89120] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "fileid", "username" FROM "quickstart"."user_regfile_acls" AS "user_regfile_acls" WHERE "user_regfile_acls"."permissionid" = 'undefined';
+2020-07-16 23:10:41.219 +08 [91740] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:10:41.219 +08 [91740] DETAIL:  Key (username)=(testd) is not present in table "users".
+2020-07-16 23:10:41.219 +08 [91740] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:11:14.324 +08 [91836] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:11:14.324 +08 [91836] DETAIL:  Key (username)=(sdf) is not present in table "users".
+2020-07-16 23:11:14.324 +08 [91836] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:11:19.519 +08 [91836] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:11:19.519 +08 [91836] DETAIL:  Key (username)=(sdfsdf) is not present in table "users".
+2020-07-16 23:11:19.519 +08 [91836] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:11:37.024 +08 [92856] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:11:37.024 +08 [92856] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 23:11:37.024 +08 [92856] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:12:03.538 +08 [91432] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:12:03.538 +08 [91432] DETAIL:  Key (username)=(testsafs) is not present in table "users".
+2020-07-16 23:12:03.538 +08 [91432] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:13:08.838 +08 [93156] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:13:08.838 +08 [93156] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 23:13:08.838 +08 [93156] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:16:04.594 +08 [93584] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:16:04.594 +08 [93584] DETAIL:  Key (username)=(sdf) is not present in table "users".
+2020-07-16 23:16:04.594 +08 [93584] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:27:12.349 +08 [95252] ERROR:  insert or update on table "group_dir_acls" violates foreign key constraint "group_dir_acl_groupname_fkey"
+2020-07-16 23:27:12.349 +08 [95252] DETAIL:  Key (groupname)=(Top.on) is not present in table "groups".
+2020-07-16 23:27:12.349 +08 [95252] STATEMENT:  UPDATE "quickstart"."group_dir_acls" SET "groupname"=$1 WHERE "permissionid" = $2
+2020-07-16 23:27:41.728 +08 [94672] ERROR:  insert or update on table "group_dir_acls" violates foreign key constraint "group_dir_acl_rolename_fkey"
+2020-07-16 23:27:41.728 +08 [94672] DETAIL:  Key (rolename)=(md) is not present in table "roles".
+2020-07-16 23:27:41.728 +08 [94672] STATEMENT:  UPDATE "quickstart"."group_dir_acls" SET "rolename"=$1 WHERE "permissionid" = $2
+2020-07-16 23:31:29.650 +08 [96584] ERROR:  insert or update on table "user_regfile_acls" violates foreign key constraint "user_regfile_acl_username_fkey"
+2020-07-16 23:31:29.650 +08 [96584] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 23:31:29.650 +08 [96584] STATEMENT:  UPDATE "quickstart"."user_regfile_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-16 23:36:42.791 +08 [93980] ERROR:  insert or update on table "user_dir_acls" violates foreign key constraint "user_dir_acl_username_fkey"
+2020-07-16 23:36:42.791 +08 [93980] DETAIL:  Key (username)=(testsdf) is not present in table "users".
+2020-07-16 23:36:42.791 +08 [93980] STATEMENT:  UPDATE "quickstart"."user_dir_acls" SET "username"=$1 WHERE "permissionid" = $2
+2020-07-17 00:34:07.708 +08 [112556] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:34:07.708 +08 [112556] DETAIL:  Failing row contains (21, t, t, null, t, test).
+2020-07-17 00:34:07.708 +08 [112556] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:34:18.723 +08 [114236] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:34:18.723 +08 [114236] DETAIL:  Failing row contains (22, t, t, null, t, test).
+2020-07-17 00:34:18.723 +08 [114236] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:34:23.648 +08 [114236] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:34:23.648 +08 [114236] DETAIL:  Failing row contains (23, t, t, null, t, test).
+2020-07-17 00:34:23.648 +08 [114236] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:34:36.656 +08 [113704] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:34:36.656 +08 [113704] DETAIL:  Failing row contains (24, t, t, null, t, Top, member).
+2020-07-17 00:34:36.656 +08 [113704] STATEMENT:  INSERT INTO "quickstart"."group_dir_acls" ("permissionid","read_bit","write_bit","propagate","groupname","rolename") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 00:35:31.333 +08 [114668] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:35:31.333 +08 [114668] DETAIL:  Failing row contains (25, t, t, null, t, test).
+2020-07-17 00:35:31.333 +08 [114668] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:35:36.763 +08 [114668] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:35:36.763 +08 [114668] DETAIL:  Failing row contains (26, t, t, null, t, test).
+2020-07-17 00:35:36.763 +08 [114668] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:35:52.529 +08 [114668] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:35:52.529 +08 [114668] DETAIL:  Failing row contains (27, t, t, null, t, test).
+2020-07-17 00:35:52.529 +08 [114668] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:36:48.111 +08 [107284] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:36:48.111 +08 [107284] DETAIL:  Failing row contains (28, t, t, null, t, test).
+2020-07-17 00:36:48.111 +08 [107284] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:36:59.053 +08 [114224] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:36:59.053 +08 [114224] DETAIL:  Failing row contains (29, t, t, null, t, test).
+2020-07-17 00:36:59.053 +08 [114224] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:37:53.259 +08 [114420] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:37:53.259 +08 [114420] DETAIL:  Failing row contains (30, t, t, null, t, sdf).
+2020-07-17 00:37:53.259 +08 [114420] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:38:00.660 +08 [114420] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:38:00.660 +08 [114420] DETAIL:  Failing row contains (31, t, t, null, t, sdf).
+2020-07-17 00:38:00.660 +08 [114420] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 00:39:17.974 +08 [100044] ERROR:  null value in column "directoryid" violates not-null constraint
+2020-07-17 00:39:17.974 +08 [100044] DETAIL:  Failing row contains (32, t, t, null, f, test).
+2020-07-17 00:39:17.974 +08 [100044] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING *;
+2020-07-17 01:14:36.878 +08 [124552] ERROR:  invalid input syntax for type integer: ""
+2020-07-17 01:14:36.878 +08 [124552] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 01:15:02.358 +08 [124772] ERROR:  invalid input syntax for type integer: ""
+2020-07-17 01:15:02.358 +08 [124772] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 01:15:24.533 +08 [124772] ERROR:  invalid input syntax for type integer: ""
+2020-07-17 01:15:24.533 +08 [124772] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 01:15:57.385 +08 [124336] ERROR:  duplicate key value violates unique constraint "group_dir_acl_directoryid_groupname_rolename_key"
+2020-07-17 01:15:57.385 +08 [124336] DETAIL:  Key (directoryid, groupname, rolename)=(201, Top.two, member) already exists.
+2020-07-17 01:15:57.385 +08 [124336] STATEMENT:  INSERT INTO "quickstart"."group_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","groupname","rolename") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING *;
+2020-07-17 01:16:36.722 +08 [80868] ERROR:  canceling statement due to user request
+2020-07-17 01:16:36.722 +08 [80868] STATEMENT:  /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Total",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Active",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Commits",
+	   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Rollbacks"
+	) t
+	UNION ALL
+	SELECT 'ti_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_inserted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Inserts",
+	   (SELECT sum(tup_updated) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Updates",
+	   (SELECT sum(tup_deleted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Deletes"
+	) t
+	UNION ALL
+	SELECT 'to_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_fetched) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Fetched",
+	   (SELECT sum(tup_returned) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Returned"
+	) t
+	UNION ALL
+	SELECT 'bio_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(blks_read) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Reads",
+	   (SELECT sum(blks_hit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Hits"
+	) t
+	
+2020-07-17 01:16:36.727 +08 [77964] LOG:  received fast shutdown request
+2020-07-17 01:16:36.749 +08 [81892] ERROR:  canceling statement due to user request
+2020-07-17 01:16:36.751 +08 [77964] LOG:  aborting any active transactions
+2020-07-17 01:16:36.765 +08 [80868] FATAL:  terminating connection due to administrator command
+2020-07-17 01:16:36.782 +08 [77964] LOG:  background worker "logical replication launcher" (PID 81892) exited with exit code 1
+2020-07-17 01:16:36.812 +08 [81004] LOG:  shutting down
+2020-07-17 01:16:36.885 +08 [77964] LOG:  database system is shut down
+2020-07-17 01:16:46.289 +08 [124352] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-17 01:16:46.303 +08 [124352] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-17 01:16:46.305 +08 [124352] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-17 01:16:46.930 +08 [125232] LOG:  database system was shut down at 2020-07-17 01:16:36 +08
+2020-07-17 01:16:48.102 +08 [124352] LOG:  database system is ready to accept connections
+2020-07-17 01:17:17.223 +08 [125548] ERROR:  invalid input syntax for type integer: ""
+2020-07-17 01:17:17.223 +08 [125548] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 01:19:24.073 +08 [125872] ERROR:  invalid input syntax for type integer: ""
+2020-07-17 01:19:24.073 +08 [125872] STATEMENT:  INSERT INTO "quickstart"."user_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","username") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING *;
+2020-07-17 01:21:45.523 +08 [118004] WARNING:  PID 9776 is not a PostgreSQL server process
+2020-07-17 01:21:46.008 +08 [125440] WARNING:  PID 7748 is not a PostgreSQL server process
+2020-07-17 01:30:12.899 +08 [128944] ERROR:  null value in column "fileid" violates not-null constraint
+2020-07-17 01:30:12.899 +08 [128944] DETAIL:  Failing row contains (38, f, f, null, test).
+2020-07-17 01:30:12.899 +08 [128944] STATEMENT:  INSERT INTO "quickstart"."user_regfile_acls" ("permissionid","read_bit","write_bit","username") VALUES (DEFAULT,$1,$2,$3) RETURNING *;
+2020-07-17 01:32:10.879 +08 [127148] ERROR:  invalid input syntax for type bigint: "undefined" at character 174
+2020-07-17 01:32:10.879 +08 [127148] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "fileid", "username" FROM "quickstart"."user_regfile_acls" AS "user_regfile_acls" WHERE "user_regfile_acls"."permissionid" = 'undefined';
+2020-07-17 01:33:57.177 +08 [127552] ERROR:  invalid input syntax for type bigint: "undefined" at character 174
+2020-07-17 01:33:57.177 +08 [127552] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "fileid", "username" FROM "quickstart"."user_regfile_acls" AS "user_regfile_acls" WHERE "user_regfile_acls"."permissionid" = 'undefined';
+2020-07-17 01:33:57.181 +08 [127552] ERROR:  invalid input syntax for type bigint: "undefined" at character 174
+2020-07-17 01:33:57.181 +08 [127552] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "fileid", "username" FROM "quickstart"."user_regfile_acls" AS "user_regfile_acls" WHERE "user_regfile_acls"."permissionid" = 'undefined';
+2020-07-17 01:33:57.181 +08 [128772] ERROR:  invalid input syntax for type bigint: "undefined" at character 174
+2020-07-17 01:33:57.181 +08 [128772] STATEMENT:  SELECT "permissionid", "read_bit", "write_bit", "fileid", "username" FROM "quickstart"."user_regfile_acls" AS "user_regfile_acls" WHERE "user_regfile_acls"."permissionid" = 'undefined';
+2020-07-17 01:37:18.922 +08 [130020] ERROR:  insert or update on table "group_dir_acls" violates foreign key constraint "group_dir_acl_rolename_fkey"
+2020-07-17 01:37:18.922 +08 [130020] DETAIL:  Key (rolename)=(Staff) is not present in table "roles".
+2020-07-17 01:37:18.922 +08 [130020] STATEMENT:  INSERT INTO "quickstart"."group_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","groupname","rolename") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING *;
+2020-07-17 01:39:37.344 +08 [131428] ERROR:  insert or update on table "group_dir_acls" violates foreign key constraint "group_dir_acl_rolename_fkey"
+2020-07-17 01:39:37.344 +08 [131428] DETAIL:  Key (rolename)=(Staff) is not present in table "roles".
+2020-07-17 01:39:37.344 +08 [131428] STATEMENT:  INSERT INTO "quickstart"."group_dir_acls" ("permissionid","read_bit","write_bit","directoryid","propagate","groupname","rolename") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING *;
+2020-07-17 02:39:19.601 +08 [146856] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-07-17 02:39:19.601 +08 [146856] DETAIL:  Key (filename, directoryid)=(sample1.jpg, 202) already exists.
+2020-07-17 02:39:19.601 +08 [146856] STATEMENT:  INSERT INTO "quickstart"."regular_files" ("fileid","filename","directoryid","islocked","owner","filesize","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING *;
+2020-07-17 02:39:55.562 +08 [141904] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-07-17 02:39:55.562 +08 [141904] DETAIL:  Key (filename, directoryid)=(sample1.jpg, 202) already exists.
+2020-07-17 02:39:55.562 +08 [141904] STATEMENT:  INSERT INTO "quickstart"."regular_files" ("fileid","filename","directoryid","islocked","owner","filesize","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING *;
+2020-07-17 02:41:05.137 +08 [132956] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-07-17 02:41:05.137 +08 [132956] DETAIL:  Key (filename, directoryid)=(sample1.jpg, 202) already exists.
+2020-07-17 02:41:05.137 +08 [132956] STATEMENT:  INSERT INTO "quickstart"."regular_files" ("fileid","filename","directoryid","islocked","owner","filesize","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING *;
+2020-07-17 02:41:51.345 +08 [147836] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-07-17 02:41:51.345 +08 [147836] DETAIL:  Key (filename, directoryid)=(sample1.jpg, 202) already exists.
+2020-07-17 02:41:51.345 +08 [147836] STATEMENT:  INSERT INTO "quickstart"."regular_files" ("fileid","filename","directoryid","islocked","owner","filesize","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING *;
+2020-07-17 02:42:21.839 +08 [147840] ERROR:  duplicate key value violates unique constraint "regular_files_filename_directoryid_key"
+2020-07-17 02:42:21.839 +08 [147840] DETAIL:  Key (filename, directoryid)=(sample1.jpg, 202) already exists.
+2020-07-17 02:42:21.839 +08 [147840] STATEMENT:  INSERT INTO "quickstart"."regular_files" ("fileid","filename","directoryid","islocked","owner","filesize","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING *;
+2020-07-17 21:05:20.932 +08 [125584] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-07-24 22:43:50.494 +08 [124352] LOG:  received fast shutdown request
+2020-07-24 22:43:50.528 +08 [124352] LOG:  aborting any active transactions
+2020-07-24 22:43:50.529 +08 [81088] ERROR:  canceling statement due to user request
+2020-07-24 22:43:50.546 +08 [124352] LOG:  background worker "logical replication launcher" (PID 81088) exited with exit code 1
+2020-07-24 22:43:50.577 +08 [125560] LOG:  shutting down
+2020-07-24 22:43:50.626 +08 [124352] LOG:  database system is shut down
+2020-07-25 00:26:01.864 +08 [10864] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-25 00:26:01.884 +08 [10864] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-25 00:26:01.886 +08 [10864] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-25 00:26:02.296 +08 [14212] LOG:  database system was shut down at 2020-07-24 22:43:50 +08
+2020-07-25 00:26:03.002 +08 [10864] LOG:  database system is ready to accept connections
+2020-07-25 00:33:10.335 +08 [10864] LOG:  received fast shutdown request
+2020-07-25 00:33:10.359 +08 [11992] ERROR:  canceling statement due to user request
+2020-07-25 00:33:10.366 +08 [9888] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-07-25 00:33:10.369 +08 [10864] LOG:  aborting any active transactions
+2020-07-25 00:33:10.382 +08 [11640] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2020-07-25 00:33:10.398 +08 [10864] LOG:  background worker "logical replication launcher" (PID 11992) exited with exit code 1
+2020-07-25 00:33:10.430 +08 [13972] LOG:  shutting down
+2020-07-25 00:33:10.483 +08 [10864] LOG:  database system is shut down
+2020-07-25 00:33:14.396 +08 [12176] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-25 00:33:14.407 +08 [12176] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-25 00:33:14.419 +08 [12176] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-25 00:33:14.659 +08 [4400] LOG:  database system was shut down at 2020-07-25 00:33:10 +08
+2020-07-25 00:33:15.453 +08 [12176] LOG:  database system is ready to accept connections
+2020-07-25 00:56:28.824 +08 [16028] ERROR:  duplicate key value violates unique constraint "privileges_pkey"
+2020-07-25 00:56:28.824 +08 [16028] DETAIL:  Key (username)=(jiexiang) already exists.
+2020-07-25 00:56:28.824 +08 [16028] STATEMENT:  INSERT INTO "quickstart"."privileges" ("username","user_mgmt_priv","data_mgmt_priv") VALUES ($1,$2,$3) RETURNING *;
+2020-07-25 00:58:23.743 +08 [15288] ERROR:  null value in column "membershipid" violates not-null constraint
+2020-07-25 00:58:23.743 +08 [15288] DETAIL:  Failing row contains (null, jiexiang, Top.one, observer, t).
+2020-07-25 00:58:23.743 +08 [15288] STATEMENT:  INSERT INTO "quickstart"."memberships" ("membershipid","username","groupname","rolename","propagate") VALUES ($1,$2,$3,$4,$5) RETURNING *;
+2020-07-25 01:00:32.967 +08 [16272] ERROR:  invalid input syntax for type integer: ""
+2020-07-25 01:00:32.967 +08 [16272] STATEMENT:  INSERT INTO "quickstart"."memberships" ("membershipid","username","groupname","rolename","propagate") VALUES ($1,$2,$3,$4,$5) RETURNING *;
+2020-07-25 01:02:14.793 +08 [12176] LOG:  received fast shutdown request
+2020-07-25 01:02:14.814 +08 [5280] ERROR:  canceling statement due to user request
+2020-07-25 01:02:14.824 +08 [12176] LOG:  aborting any active transactions
+2020-07-25 01:02:14.829 +08 [15232] FATAL:  terminating connection due to administrator command
+2020-07-25 01:02:14.839 +08 [5816] FATAL:  terminating connection due to administrator command
+2020-07-25 01:02:14.845 +08 [12176] LOG:  background worker "logical replication launcher" (PID 5280) exited with exit code 1
+2020-07-25 01:02:14.909 +08 [13032] LOG:  shutting down
+2020-07-25 01:02:14.963 +08 [12176] LOG:  database system is shut down
+2020-07-25 01:02:18.787 +08 [11588] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-25 01:02:18.799 +08 [11588] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-25 01:02:18.800 +08 [11588] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-25 01:02:19.003 +08 [15976] LOG:  database system was shut down at 2020-07-25 01:02:14 +08
+2020-07-25 01:02:19.460 +08 [11588] LOG:  database system is ready to accept connections
+2020-07-25 01:07:44.070 +08 [11588] LOG:  received fast shutdown request
+2020-07-25 01:07:44.079 +08 [11588] LOG:  aborting any active transactions
+2020-07-25 01:07:44.086 +08 [7408] FATAL:  terminating connection due to administrator command
+2020-07-25 01:07:44.090 +08 [10632] ERROR:  canceling statement due to user request
+2020-07-25 01:07:44.098 +08 [11588] LOG:  background worker "logical replication launcher" (PID 10632) exited with exit code 1
+2020-07-25 01:07:44.125 +08 [5652] LOG:  shutting down
+2020-07-25 01:07:44.179 +08 [11588] LOG:  database system is shut down
+2020-07-26 17:59:43.809 +08 [9136] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 17:59:43.814 +08 [9136] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 17:59:43.815 +08 [9136] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 17:59:44.916 +08 [13324] LOG:  database system was shut down at 2020-07-25 01:07:44 +08
+2020-07-26 17:59:45.561 +08 [9136] LOG:  database system is ready to accept connections
+2020-07-26 18:54:13.011 +08 [11320] ERROR:  relation "announcements" does not exist
+2020-07-26 18:54:13.011 +08 [11320] STATEMENT:  alter table announcements alter column date set default NOW();
+2020-07-26 18:56:28.850 +08 [11320] ERROR:  type "serial" does not exist
+2020-07-26 18:56:28.850 +08 [11320] STATEMENT:  ALTER TABLE quickstart.announcements
+	ALTER COLUMN id TYPE SERIAL;
+2020-07-26 18:58:42.921 +08 [9136] LOG:  received fast shutdown request
+2020-07-26 18:58:43.013 +08 [9136] LOG:  aborting any active transactions
+2020-07-26 18:58:43.086 +08 [7056] FATAL:  terminating connection due to administrator command
+2020-07-26 18:58:43.086 +08 [11320] FATAL:  terminating connection due to administrator command
+2020-07-26 18:58:43.110 +08 [9136] LOG:  background worker "logical replication launcher" (PID 10700) exited with exit code 1
+2020-07-26 18:58:43.119 +08 [5840] LOG:  shutting down
+2020-07-26 18:58:43.764 +08 [8672] FATAL:  the database system is shutting down
+2020-07-26 18:58:44.622 +08 [5908] FATAL:  the database system is shutting down
+2020-07-26 18:58:45.653 +08 [8772] FATAL:  the database system is shutting down
+2020-07-26 18:58:45.863 +08 [9136] LOG:  database system is shut down
+2020-07-26 18:58:46.358 +08 [10412] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 18:58:46.363 +08 [10412] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 18:58:46.363 +08 [10412] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 18:58:46.661 +08 [9036] LOG:  database system was shut down at 2020-07-26 18:58:45 +08
+2020-07-26 18:58:46.673 +08 [2076] FATAL:  the database system is starting up
+2020-07-26 18:58:46.998 +08 [10412] LOG:  database system is ready to accept connections
+2020-07-26 18:59:08.623 +08 [10412] LOG:  received fast shutdown request
+2020-07-26 18:59:08.746 +08 [10412] LOG:  aborting any active transactions
+2020-07-26 18:59:08.747 +08 [13532] FATAL:  terminating connection due to administrator command
+2020-07-26 18:59:08.752 +08 [10412] LOG:  background worker "logical replication launcher" (PID 12116) exited with exit code 1
+2020-07-26 18:59:08.769 +08 [13208] LOG:  shutting down
+2020-07-26 18:59:09.053 +08 [10412] LOG:  database system is shut down
+2020-07-26 18:59:09.348 +08 [9652] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 18:59:09.353 +08 [9652] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 18:59:09.354 +08 [9652] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 18:59:09.584 +08 [13192] LOG:  database system was shut down at 2020-07-26 18:59:08 +08
+2020-07-26 18:59:09.762 +08 [9652] LOG:  database system is ready to accept connections
+2020-07-26 19:01:27.408 +08 [9864] ERROR:  relation "announcements" already exists
+2020-07-26 19:01:27.408 +08 [9864] STATEMENT:  CREATE TABLE quickstart.announcements
+	(
+	    id serial NOT NULL,
+	    username character varying COLLATE pg_catalog."default" NOT NULL,
+	    description character varying COLLATE pg_catalog."default" NOT NULL,
+	    date timestamp with time zone NOT NULL,
+	    CONSTRAINT announcements_pkey PRIMARY KEY (id)
+	)
+2020-07-26 19:02:00.928 +08 [9652] LOG:  received fast shutdown request
+2020-07-26 19:02:01.011 +08 [9652] LOG:  aborting any active transactions
+2020-07-26 19:02:01.012 +08 [9864] FATAL:  terminating connection due to administrator command
+2020-07-26 19:02:01.013 +08 [5768] FATAL:  terminating connection due to administrator command
+2020-07-26 19:02:01.022 +08 [9652] LOG:  background worker "logical replication launcher" (PID 3552) exited with exit code 1
+2020-07-26 19:02:01.039 +08 [4784] LOG:  shutting down
+2020-07-26 19:02:01.657 +08 [12320] FATAL:  the database system is shutting down
+2020-07-26 19:02:02.577 +08 [1828] FATAL:  the database system is shutting down
+2020-07-26 19:02:02.596 +08 [9652] LOG:  database system is shut down
+2020-07-26 19:02:02.849 +08 [11460] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:02:02.854 +08 [11460] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:02:02.854 +08 [11460] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:02:02.992 +08 [6752] LOG:  database system was shut down at 2020-07-26 19:02:02 +08
+2020-07-26 19:02:03.168 +08 [11460] LOG:  database system is ready to accept connections
+2020-07-26 19:03:22.756 +08 [11460] LOG:  received fast shutdown request
+2020-07-26 19:03:22.859 +08 [11460] LOG:  aborting any active transactions
+2020-07-26 19:03:22.860 +08 [13624] FATAL:  terminating connection due to administrator command
+2020-07-26 19:03:22.860 +08 [11260] FATAL:  terminating connection due to administrator command
+2020-07-26 19:03:22.873 +08 [11460] LOG:  background worker "logical replication launcher" (PID 6640) exited with exit code 1
+2020-07-26 19:03:22.885 +08 [1124] LOG:  shutting down
+2020-07-26 19:03:23.348 +08 [9536] FATAL:  the database system is shutting down
+2020-07-26 19:03:23.910 +08 [1940] FATAL:  the database system is shutting down
+2020-07-26 19:03:24.086 +08 [11460] LOG:  database system is shut down
+2020-07-26 19:03:24.351 +08 [4196] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:03:24.356 +08 [4196] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:03:24.357 +08 [4196] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:03:24.654 +08 [2824] LOG:  database system was shut down at 2020-07-26 19:03:23 +08
+2020-07-26 19:03:24.776 +08 [4196] LOG:  database system is ready to accept connections
+2020-07-26 19:04:28.601 +08 [4196] LOG:  received fast shutdown request
+2020-07-26 19:04:28.671 +08 [4196] LOG:  aborting any active transactions
+2020-07-26 19:04:28.756 +08 [2344] FATAL:  terminating connection due to administrator command
+2020-07-26 19:04:28.762 +08 [4196] LOG:  background worker "logical replication launcher" (PID 9940) exited with exit code 1
+2020-07-26 19:04:28.776 +08 [9036] LOG:  shutting down
+2020-07-26 19:04:29.373 +08 [1328] FATAL:  the database system is shutting down
+2020-07-26 19:04:29.575 +08 [4196] LOG:  database system is shut down
+2020-07-26 19:04:29.884 +08 [5196] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:04:29.963 +08 [5196] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:04:29.963 +08 [5196] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:04:30.263 +08 [11528] LOG:  database system was shut down at 2020-07-26 19:04:29 +08
+2020-07-26 19:04:30.433 +08 [8256] FATAL:  the database system is starting up
+2020-07-26 19:04:30.463 +08 [11064] FATAL:  the database system is starting up
+2020-07-26 19:04:30.610 +08 [5196] LOG:  database system is ready to accept connections
+2020-07-26 19:05:46.265 +08 [5196] LOG:  received fast shutdown request
+2020-07-26 19:05:46.302 +08 [5196] LOG:  aborting any active transactions
+2020-07-26 19:05:46.303 +08 [11744] FATAL:  terminating connection due to administrator command
+2020-07-26 19:05:46.303 +08 [11744] STATEMENT:  /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Total",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Active",
+	   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 13318))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Commits",
+	   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Rollbacks"
+	) t
+	UNION ALL
+	SELECT 'ti_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_inserted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Inserts",
+	   (SELECT sum(tup_updated) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Updates",
+	   (SELECT sum(tup_deleted) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Deletes"
+	) t
+	UNION ALL
+	SELECT 'to_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(tup_fetched) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Fetched",
+	   (SELECT sum(tup_returned) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Returned"
+	) t
+	UNION ALL
+	SELECT 'bio_stats' AS chart_name, row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(blks_read) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Reads",
+	   (SELECT sum(blks_hit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 13318)) AS "Hits"
+	) t
+	
+2020-07-26 19:05:46.308 +08 [5196] LOG:  background worker "logical replication launcher" (PID 9308) exited with exit code 1
+2020-07-26 19:05:46.329 +08 [11760] LOG:  shutting down
+2020-07-26 19:05:46.351 +08 [14960] FATAL:  the database system is shutting down
+2020-07-26 19:05:46.612 +08 [5196] LOG:  database system is shut down
+2020-07-26 19:05:46.773 +08 [9148] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:05:46.778 +08 [9148] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:05:46.778 +08 [9148] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:05:46.933 +08 [15100] LOG:  database system was shut down at 2020-07-26 19:05:46 +08
+2020-07-26 19:05:47.085 +08 [9148] LOG:  database system is ready to accept connections
+2020-07-26 19:07:49.186 +08 [9148] LOG:  received fast shutdown request
+2020-07-26 19:07:49.226 +08 [9148] LOG:  aborting any active transactions
+2020-07-26 19:07:49.227 +08 [3568] FATAL:  terminating connection due to administrator command
+2020-07-26 19:07:49.242 +08 [9148] LOG:  background worker "logical replication launcher" (PID 15276) exited with exit code 1
+2020-07-26 19:07:49.252 +08 [13820] LOG:  shutting down
+2020-07-26 19:07:49.568 +08 [11060] FATAL:  the database system is shutting down
+2020-07-26 19:07:49.586 +08 [9148] LOG:  database system is shut down
+2020-07-26 19:07:49.921 +08 [9488] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:07:49.928 +08 [9488] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:07:49.929 +08 [9488] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:07:50.148 +08 [7416] LOG:  database system was shut down at 2020-07-26 19:07:49 +08
+2020-07-26 19:07:50.374 +08 [9488] LOG:  database system is ready to accept connections
+2020-07-26 19:08:01.961 +08 [9488] LOG:  received fast shutdown request
+2020-07-26 19:08:02.048 +08 [9488] LOG:  aborting any active transactions
+2020-07-26 19:08:02.049 +08 [10416] FATAL:  terminating connection due to administrator command
+2020-07-26 19:08:02.063 +08 [9488] LOG:  background worker "logical replication launcher" (PID 15184) exited with exit code 1
+2020-07-26 19:08:02.071 +08 [14752] LOG:  shutting down
+2020-07-26 19:08:02.343 +08 [9488] LOG:  database system is shut down
+2020-07-26 19:08:02.565 +08 [10068] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:08:02.571 +08 [10068] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:08:02.572 +08 [10068] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:08:02.714 +08 [2420] LOG:  database system was shut down at 2020-07-26 19:08:02 +08
+2020-07-26 19:08:02.846 +08 [10068] LOG:  database system is ready to accept connections
+2020-07-26 19:08:05.159 +08 [10068] LOG:  received fast shutdown request
+2020-07-26 19:08:05.259 +08 [10068] LOG:  aborting any active transactions
+2020-07-26 19:08:05.260 +08 [7940] FATAL:  terminating connection due to administrator command
+2020-07-26 19:08:05.278 +08 [10068] LOG:  background worker "logical replication launcher" (PID 14536) exited with exit code 1
+2020-07-26 19:08:05.288 +08 [9308] LOG:  shutting down
+2020-07-26 19:08:05.519 +08 [10068] LOG:  database system is shut down
+2020-07-26 19:08:05.987 +08 [11172] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:08:05.992 +08 [11172] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:08:05.992 +08 [11172] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:08:06.127 +08 [11396] LOG:  database system was shut down at 2020-07-26 19:08:05 +08
+2020-07-26 19:08:06.128 +08 [6868] FATAL:  the database system is starting up
+2020-07-26 19:08:06.282 +08 [11172] LOG:  database system is ready to accept connections
+2020-07-26 19:08:23.292 +08 [11172] LOG:  received fast shutdown request
+2020-07-26 19:08:23.349 +08 [11172] LOG:  aborting any active transactions
+2020-07-26 19:08:23.350 +08 [3308] FATAL:  terminating connection due to administrator command
+2020-07-26 19:08:23.364 +08 [11172] LOG:  background worker "logical replication launcher" (PID 11060) exited with exit code 1
+2020-07-26 19:08:23.372 +08 [15276] LOG:  shutting down
+2020-07-26 19:08:23.552 +08 [11064] FATAL:  the database system is shutting down
+2020-07-26 19:08:23.607 +08 [11172] LOG:  database system is shut down
+2020-07-26 19:08:23.977 +08 [2992] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:08:23.984 +08 [2992] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:08:23.986 +08 [2992] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:08:24.123 +08 [11900] LOG:  database system was shut down at 2020-07-26 19:08:23 +08
+2020-07-26 19:08:24.257 +08 [2992] LOG:  database system is ready to accept connections
+2020-07-26 19:08:28.335 +08 [2992] LOG:  received fast shutdown request
+2020-07-26 19:08:28.370 +08 [2992] LOG:  aborting any active transactions
+2020-07-26 19:08:28.371 +08 [10340] FATAL:  terminating connection due to administrator command
+2020-07-26 19:08:28.386 +08 [2992] LOG:  background worker "logical replication launcher" (PID 1640) exited with exit code 1
+2020-07-26 19:08:28.391 +08 [12952] LOG:  shutting down
+2020-07-26 19:08:28.564 +08 [10648] FATAL:  the database system is shutting down
+2020-07-26 19:08:28.650 +08 [2992] LOG:  database system is shut down
+2020-07-26 19:08:28.810 +08 [3248] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:08:28.815 +08 [3248] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:08:28.816 +08 [3248] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:08:28.921 +08 [1344] LOG:  database system was shut down at 2020-07-26 19:08:28 +08
+2020-07-26 19:08:29.048 +08 [3248] LOG:  database system is ready to accept connections
+2020-07-26 19:09:24.023 +08 [3248] LOG:  received fast shutdown request
+2020-07-26 19:09:24.183 +08 [3248] LOG:  aborting any active transactions
+2020-07-26 19:09:24.188 +08 [11532] FATAL:  terminating connection due to administrator command
+2020-07-26 19:09:24.210 +08 [3248] LOG:  background worker "logical replication launcher" (PID 13672) exited with exit code 1
+2020-07-26 19:09:24.272 +08 [7716] LOG:  shutting down
+2020-07-26 19:09:24.565 +08 [14676] FATAL:  the database system is shutting down
+2020-07-26 19:09:25.395 +08 [3248] LOG:  database system is shut down
+2020-07-26 19:09:25.881 +08 [7164] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 19:09:25.887 +08 [7164] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 19:09:25.888 +08 [7164] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 19:09:26.360 +08 [15356] LOG:  database system was shut down at 2020-07-26 19:09:25 +08
+2020-07-26 19:09:26.363 +08 [4828] FATAL:  the database system is starting up
+2020-07-26 19:09:26.551 +08 [12944] FATAL:  the database system is starting up
+2020-07-26 19:09:26.908 +08 [7164] LOG:  database system is ready to accept connections
+2020-07-26 19:09:38.954 +08 [948] ERROR:  permission denied for table announcements
+2020-07-26 19:09:38.954 +08 [948] STATEMENT:  SELECT count(*) AS "count" FROM "quickstart"."announcements" AS "announcements";
+2020-07-26 19:09:39.078 +08 [948] ERROR:  permission denied for table announcements
+2020-07-26 19:09:39.078 +08 [948] STATEMENT:  SELECT "id", "username", "title", "description", "date" FROM "quickstart"."announcements" AS "announcements" LIMIT 100 OFFSET 0;
+2020-07-26 19:10:09.939 +08 [5932] ERROR:  permission denied for table announcements
+2020-07-26 19:10:09.939 +08 [5932] STATEMENT:  SELECT count(*) AS "count" FROM "quickstart"."announcements" AS "announcements";
+2020-07-26 19:10:09.942 +08 [5932] ERROR:  permission denied for table announcements
+2020-07-26 19:10:09.942 +08 [5932] STATEMENT:  SELECT "id", "username", "title", "description", "date" FROM "quickstart"."announcements" AS "announcements" LIMIT 100 OFFSET 0;
+2020-07-26 19:13:21.929 +08 [1284] ERROR:  null value in column "date" violates not-null constraint
+2020-07-26 19:13:21.929 +08 [1284] DETAIL:  Failing row contains (1, weiliang, HelloWorld, Hello, welcome to QuickStart! This is a debug announcement. We a..., null).
+2020-07-26 19:13:21.929 +08 [1284] STATEMENT:  INSERT INTO quickstart.announcements (
+	username, title, description) VALUES (
+	'weiliang'::character varying, 'HelloWorld'::character varying, 'Hello, welcome to QuickStart! This is a debug announcement. We are currently developing the application with just a few days before lunch. How exciting.'::character varying)
+	 returning id;
+2020-07-26 19:13:41.000 +08 [1284] ERROR:  null value in column "date" violates not-null constraint
+2020-07-26 19:13:41.000 +08 [1284] DETAIL:  Failing row contains (2, weiliang, HelloWorld, Hello, welcome to QuickStart! This is a debug announcement. We a..., null).
+2020-07-26 19:13:41.000 +08 [1284] STATEMENT:  INSERT INTO quickstart.announcements (
+	username, title, description) VALUES (
+	'weiliang'::character varying, 'HelloWorld'::character varying, 'Hello, welcome to QuickStart! This is a debug announcement. We are currently developing the application with just a few days before lunch. How exciting.'::character varying)
+	 returning id;
+2020-07-26 19:15:01.249 +08 [1284] ERROR:  null value in column "date" violates not-null constraint
+2020-07-26 19:15:01.249 +08 [1284] DETAIL:  Failing row contains (3, weiliang, Hello World, Hello! This is our debug announcement. We are currently still mi..., null).
+2020-07-26 19:15:01.249 +08 [1284] STATEMENT:  INSERT INTO quickstart.announcements (
+	username, title, description) VALUES (
+	'weiliang'::character varying, 'Hello World'::character varying, 'Hello! This is our debug announcement. We are currently still mid process of adding functionality. Stay tune for more progress!'::character varying)
+	 returning id;
+2020-07-26 22:08:08.626 +08 [3460] ERROR:  permission denied for sequence announcements_id_seq
+2020-07-26 22:08:08.626 +08 [3460] STATEMENT:  INSERT INTO "quickstart"."announcements" ("id","username","title","description") VALUES (DEFAULT,$1,$2,$3) RETURNING *;
+2020-07-26 22:12:38.326 +08 [12384] ERROR:  permission denied for sequence announcements_id_seq
+2020-07-26 22:12:38.326 +08 [12384] STATEMENT:  INSERT INTO "quickstart"."announcements" ("id","username","title","description") VALUES (DEFAULT,$1,$2,$3) RETURNING *;
+2020-07-26 22:13:28.949 +08 [10828] ERROR:  permission denied for sequence announcements_id_seq
+2020-07-26 22:13:28.949 +08 [10828] STATEMENT:  INSERT INTO "quickstart"."announcements" ("id","username","title","description") VALUES (DEFAULT,$1,$2,$3) RETURNING *;
+2020-07-26 22:14:17.984 +08 [7012] ERROR:  role "node_user" does not exist
+2020-07-26 22:14:17.984 +08 [7012] STATEMENT:  GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA quickstart TO node_user;
+2020-07-26 23:23:48.916 +08 [7164] LOG:  received fast shutdown request
+2020-07-26 23:23:49.146 +08 [7164] LOG:  aborting any active transactions
+2020-07-26 23:23:49.390 +08 [5768] FATAL:  terminating connection due to administrator command
+2020-07-26 23:23:49.793 +08 [13532] ERROR:  canceling statement due to user request
+2020-07-26 23:23:50.279 +08 [7164] LOG:  background worker "logical replication launcher" (PID 13532) exited with exit code 1
+2020-07-26 23:23:50.285 +08 [10376] LOG:  shutting down
+2020-07-26 23:23:50.344 +08 [12256] FATAL:  the database system is shutting down
+2020-07-26 23:23:50.677 +08 [5740] FATAL:  the database system is shutting down
+2020-07-26 23:23:50.889 +08 [7164] LOG:  database system is shut down
+2020-07-26 23:34:56.612 +08 [10100] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 23:34:56.617 +08 [10100] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 23:34:56.618 +08 [10100] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 23:34:57.013 +08 [13196] LOG:  database system was shut down at 2020-07-26 23:23:50 +08
+2020-07-26 23:34:57.186 +08 [10100] LOG:  database system is ready to accept connections
+2020-07-26 23:34:57.871 +08 [10100] LOG:  received fast shutdown request
+2020-07-26 23:34:57.879 +08 [1520] ERROR:  canceling statement due to user request
+2020-07-26 23:34:58.007 +08 [10100] LOG:  aborting any active transactions
+2020-07-26 23:34:58.008 +08 [10100] LOG:  background worker "logical replication launcher" (PID 1520) exited with exit code 1
+2020-07-26 23:34:58.025 +08 [14824] LOG:  shutting down
+2020-07-26 23:34:58.320 +08 [10100] LOG:  database system is shut down
+2020-07-26 23:35:07.022 +08 [13344] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 23:35:07.027 +08 [13344] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 23:35:07.028 +08 [13344] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 23:35:07.291 +08 [3308] LOG:  database system was shut down at 2020-07-26 23:34:58 +08
+2020-07-26 23:35:07.448 +08 [13344] LOG:  database system is ready to accept connections
+2020-07-26 23:35:15.737 +08 [12240] ERROR:  permission denied for table functions
+2020-07-26 23:35:15.737 +08 [12240] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-07-26 23:35:15.749 +08 [12240] ERROR:  permission denied for table functions
+2020-07-26 23:35:15.749 +08 [12240] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-07-26 23:35:16.483 +08 [13344] LOG:  received fast shutdown request
+2020-07-26 23:35:16.529 +08 [13344] LOG:  aborting any active transactions
+2020-07-26 23:35:16.530 +08 [12240] FATAL:  terminating connection due to administrator command
+2020-07-26 23:35:16.536 +08 [7164] FATAL:  terminating connection due to administrator command
+2020-07-26 23:35:16.544 +08 [13344] LOG:  background worker "logical replication launcher" (PID 2088) exited with exit code 1
+2020-07-26 23:35:16.559 +08 [3296] LOG:  shutting down
+2020-07-26 23:35:17.170 +08 [13344] LOG:  database system is shut down

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title><%= app.name %> - Dashboard</title>
+  <title><%= app.name %> - Analysis</title>
 
   <%# meta  %>
   <% include ../../partials/meta %>
@@ -28,6 +28,9 @@
         <div class="container-fluid">
 
           <h2>Analysis</h2>
+          <p>Hello sorry this is not implemented. You will be redirected in
+            <b class="red-time">5</b> second(s).
+          </p>
 
         </div>
 
@@ -38,6 +41,19 @@
 
   <%# js dependencies  %>
   <% include ../../partials/script %>
+  
+  <%# oh man there is nothing here, why dont i just redirect the page for us %>
+  <script>
+    let seconds = 5;
+
+    setInterval(() => {
+      seconds--;
+      if (seconds == 0)
+        window.location = window.location.origin + '/announcement';
+
+      $('.red-time').html(seconds);
+    }, 1000);
+  </script>
 </body>
 
 </html>
