@@ -8095,3 +8095,30 @@
 2020-07-26 23:23:50.344 +08 [12256] FATAL:  the database system is shutting down
 2020-07-26 23:23:50.677 +08 [5740] FATAL:  the database system is shutting down
 2020-07-26 23:23:50.889 +08 [7164] LOG:  database system is shut down
+2020-07-26 23:34:56.612 +08 [10100] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 23:34:56.617 +08 [10100] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 23:34:56.618 +08 [10100] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 23:34:57.013 +08 [13196] LOG:  database system was shut down at 2020-07-26 23:23:50 +08
+2020-07-26 23:34:57.186 +08 [10100] LOG:  database system is ready to accept connections
+2020-07-26 23:34:57.871 +08 [10100] LOG:  received fast shutdown request
+2020-07-26 23:34:57.879 +08 [1520] ERROR:  canceling statement due to user request
+2020-07-26 23:34:58.007 +08 [10100] LOG:  aborting any active transactions
+2020-07-26 23:34:58.008 +08 [10100] LOG:  background worker "logical replication launcher" (PID 1520) exited with exit code 1
+2020-07-26 23:34:58.025 +08 [14824] LOG:  shutting down
+2020-07-26 23:34:58.320 +08 [10100] LOG:  database system is shut down
+2020-07-26 23:35:07.022 +08 [13344] LOG:  starting PostgreSQL 12.3, compiled by Visual C++ build 1914, 64-bit
+2020-07-26 23:35:07.027 +08 [13344] LOG:  listening on IPv6 address "::1", port 5432
+2020-07-26 23:35:07.028 +08 [13344] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-07-26 23:35:07.291 +08 [3308] LOG:  database system was shut down at 2020-07-26 23:34:58 +08
+2020-07-26 23:35:07.448 +08 [13344] LOG:  database system is ready to accept connections
+2020-07-26 23:35:15.737 +08 [12240] ERROR:  permission denied for table functions
+2020-07-26 23:35:15.737 +08 [12240] STATEMENT:  INSERT INTO "quickstart"."functions" ("functionname") VALUES ($1) RETURNING *;
+2020-07-26 23:35:15.749 +08 [12240] ERROR:  permission denied for table functions
+2020-07-26 23:35:15.749 +08 [12240] STATEMENT:  DELETE FROM "quickstart"."functions" WHERE "functionname" = 'Dummy'
+2020-07-26 23:35:16.483 +08 [13344] LOG:  received fast shutdown request
+2020-07-26 23:35:16.529 +08 [13344] LOG:  aborting any active transactions
+2020-07-26 23:35:16.530 +08 [12240] FATAL:  terminating connection due to administrator command
+2020-07-26 23:35:16.536 +08 [7164] FATAL:  terminating connection due to administrator command
+2020-07-26 23:35:16.544 +08 [13344] LOG:  background worker "logical replication launcher" (PID 2088) exited with exit code 1
+2020-07-26 23:35:16.559 +08 [3296] LOG:  shutting down
+2020-07-26 23:35:17.170 +08 [13344] LOG:  database system is shut down
