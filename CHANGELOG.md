@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to the project, past revisions, are documented in this file.
 
+### Version 0.0.9
+```
++ Added minor features to post new notices
++ Added announcements to database
+```
+
 ### Version 0.0.8
 ```
 Storage->Files

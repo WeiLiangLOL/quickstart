@@ -46,16 +46,10 @@ Our app can be viewed on heroku at [https://quickstart-datamanager.herokuapp.com
 
 ## Latest Changes
 
-### Version 0.0.8
+### Version 0.0.9
 ```
-Storage->Files
-  + Adapted to use ReactJS and JSX
-  + Able to change islocked attribute
-  + Able to add/remove user permissions
-  + Able to add/remove group permissions
-  - Permissions not enforced
-Admin->Permission (New)
-  + Able to view existing permissions
++ Added minor features to post new notices
++ Added announcements to database
 ```
 
 The complete list is available [here](CHANGELOG.md).
