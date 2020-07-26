@@ -15,7 +15,7 @@ function define(sequelize) {
         username: { type: DataTypes.STRING },
         title: { type: DataTypes.STRING },
         description: { type: DataTypes.STRING },
-        date: { type: DataTypes.DATE }
+        date: { type: DataTypes.DATE },
     });
 }
 

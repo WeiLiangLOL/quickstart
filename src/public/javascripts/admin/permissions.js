@@ -22,19 +22,30 @@ $(document).ready(function () {
                     user.role_observer = [];
                     user.role_staff = [];
                     for (let membership of user.memberships) {
-                        switch(membership.rolename) {
+                        switch (membership.rolename) {
                             case 'member':
-                                user.role_member.push(membership.groupname); break;
+                                user.role_member.push(membership.groupname);
+                                break;
                             case 'observer':
-                                user.role_observer.push(membership.groupname); break;
+                                user.role_observer.push(membership.groupname);
+                                break;
                             case 'staff':
-                                user.role_staff.push(membership.groupname); break;
+                                user.role_staff.push(membership.groupname);
+                                break;
                             default:
-                                console.log('Invalid rolename "' + membership.rolename + '"');
+                                console.log(
+                                    'Invalid rolename "' +
+                                        membership.rolename +
+                                        '"'
+                                );
                         }
                     }
-                    user.priv_usermgmt = (user.privilege) ? user.privilege.user_mgmt_priv : false;
-                    user.priv_datamgmt = (user.privilege) ? user.privilege.data_mgmt_priv : false;
+                    user.priv_usermgmt = user.privilege
+                        ? user.privilege.user_mgmt_priv
+                        : false;
+                    user.priv_datamgmt = user.privilege
+                        ? user.privilege.data_mgmt_priv
+                        : false;
                 }
                 return users;
             },
@@ -50,5 +61,4 @@ $(document).ready(function () {
             //{ data: null, defaultContent: btnStyle, width: '10rem' },
         ],
     });
-
 });

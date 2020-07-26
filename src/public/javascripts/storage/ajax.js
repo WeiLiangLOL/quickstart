@@ -54,29 +54,29 @@ var myAjax = {
     },
 
     // Create User Permissions
-    createUserDirACL: function(data) {
+    createUserDirACL: function (data) {
         return $.post('/api/user_dir_acls', data);
     },
-    createUserFileACL: function(data) {
+    createUserFileACL: function (data) {
         return $.post('/api/user_regfile_acls', data);
     },
-    createUserDataACL: function(data) {
+    createUserDataACL: function (data) {
         return $.post('/api/user_datafile_acls', data);
     },
 
     // Create Group Permissions
-    createGroupDirACL: function(data) {
+    createGroupDirACL: function (data) {
         return $.post('/api/group_dir_acls', data);
     },
-    createGroupFileACL: function(data) {
+    createGroupFileACL: function (data) {
         return $.post('/api/group_regfile_acls', data);
     },
-    createGroupDataACL: function(data) {
+    createGroupDataACL: function (data) {
         return $.post('/api/group_datafile_acls', data);
     },
 
     // Update User Permissions
-    updateUserDirACL: function(permissionid, newData) {
+    updateUserDirACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/user_dir_acls/' + permissionid,
@@ -84,7 +84,7 @@ var myAjax = {
             timeout: 5000,
         });
     },
-    updateUserFileACL: function(permissionid, newData) {
+    updateUserFileACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/user_regfile_acls/' + permissionid,
@@ -92,7 +92,7 @@ var myAjax = {
             timeout: 5000,
         });
     },
-    updateUserDataACL: function(permissionid, newData) {
+    updateUserDataACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/user_datafile_acls/' + permissionid,
@@ -102,7 +102,7 @@ var myAjax = {
     },
 
     // Update Group permissions
-    updateGroupDirACL: function(permissionid, newData) {
+    updateGroupDirACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/group_dir_acls/' + permissionid,
@@ -110,7 +110,7 @@ var myAjax = {
             timeout: 5000,
         });
     },
-    updateGroupFileACL: function(permissionid, newData) {
+    updateGroupFileACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/group_regfile_acls/' + permissionid,
@@ -118,7 +118,7 @@ var myAjax = {
             timeout: 5000,
         });
     },
-    updateGroupDataACL: function(permissionid, newData) {
+    updateGroupDataACL: function (permissionid, newData) {
         return $.ajax({
             type: 'PUT',
             url: '/api/group_datafile_acls/' + permissionid,
@@ -128,21 +128,21 @@ var myAjax = {
     },
 
     // Delete User Permissions
-    deleteUserDirACL: function(id) {
+    deleteUserDirACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/user_dir_acls/' + id,
             timeout: 5000,
         });
     },
-    deleteUserFileACL: function(id) {
+    deleteUserFileACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/user_regfile_acls/' + id,
             timeout: 5000,
         });
     },
-    deleteUserDataACL: function(id) {
+    deleteUserDataACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/user_datafile_acls/' + id,
@@ -151,21 +151,21 @@ var myAjax = {
     },
 
     // Dekete Group Permissions
-    deleteGroupDirACL: function(id) {
+    deleteGroupDirACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/group_dir_acls/' + id,
             timeout: 5000,
         });
     },
-    deleteGroupFileACL: function(id) {
+    deleteGroupFileACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/group_regfile_acls/' + id,
             timeout: 5000,
         });
     },
-    deleteGroupDataACL: function(id) {
+    deleteGroupDataACL: function (id) {
         return $.ajax({
             type: 'DELETE',
             url: '/api/group_datafile_acls/' + id,

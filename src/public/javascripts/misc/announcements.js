@@ -8,7 +8,9 @@ $(document).ready(function () {
                 $('.notice-container').append(`
             <div class="notice">
                 <h2 class="mb-0">${post.title}</h2>
-                <p class="mb-4 text-muted font-italic"><b>${post.username}</b>, <b>${date.toLocaleString()}</b></p>
+                <p class="mb-4 text-muted font-italic"><b>${
+                    post.username
+                }</b>, <b>${date.toLocaleString()}</b></p>
                 <p>${post.description}</p>
                 <div class="line"></div>
             </div>
@@ -17,7 +19,7 @@ $(document).ready(function () {
         },
         error: function (jqXhr, textStatus, errorMessage) {
             console.log(jqXhr);
-        }
+        },
     });
 
     $('button[name="postSubmitBtn"]').on('click', function () {

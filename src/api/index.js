@@ -40,7 +40,7 @@ const resources = [
     {
         path: '/announcements',
         module: require('./misc/announcements'),
-    }
+    },
 ];
 
 // Load all API routes
