@@ -94,7 +94,7 @@
     "tablesorter": "^2.31.2",
     "tempusdominus-bootstrap-4": "^5.1.2",
     "tempusdominus-core": "^5.0.3",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "watchify": "~3.11.1",
     "webcabin-docker": "git+https://github.com/EnterpriseDB/wcDocker/#7a14f50a7197fe3824d706c85485a49fa9166804",
     "wkx": "^0.4.6"
